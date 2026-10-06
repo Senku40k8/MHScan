@@ -26,22 +26,57 @@ def capture(cfg: Config, image: str = None, countdown: int = 5) -> np.ndarray:
     return window.Capturer(hwnd).grab()
 
 
+KEY_SPACE = 32
+CANCEL_KEYS = {27, ord("c"), ord("C"), ord("q"), ord("Q")}  # Échap, c, q
+
+
 def select_rect(img: np.ndarray, title: str) -> tuple:
-    """Rectangle (x0, y0, x1, y1) en fractions de l'image, tracé à la souris."""
+    """Rectangle (x0, y0, x1, y1) en fractions de l'image, tracé à la souris.
+    Glisser pour tracer, ESPACE pour valider, c / q / Échap (ou fermer la fenêtre) pour annuler."""
     h, w = img.shape[:2]
     scale = min(1.0, MAX_DISPLAY_WIDTH / w)
     shown = cv2.resize(img, (int(w * scale), int(h * scale)))
-    x, y, rw, rh = cv2.selectROI(title, shown, showCrosshair=True)
-    cv2.destroyWindow(title)
-    if rw == 0 or rh == 0:
-        raise SystemExit("Sélection annulée.")
-    return (x / scale / w, y / scale / h, (x + rw) / scale / w, (y + rh) / scale / h)
+    state = {"start": None, "end": None, "dragging": False}
+
+    def on_mouse(event, x, y, flags, param):
+        if event == cv2.EVENT_LBUTTONDOWN:
+            state.update(start=(x, y), end=(x, y), dragging=True)
+        elif event == cv2.EVENT_MOUSEMOVE and state["dragging"]:
+            state["end"] = (x, y)
+        elif event == cv2.EVENT_LBUTTONUP and state["dragging"]:
+            state.update(end=(x, y), dragging=False)
+
+    cv2.namedWindow(title, cv2.WINDOW_AUTOSIZE)
+    cv2.setWindowProperty(title, cv2.WND_PROP_TOPMOST, 1)
+    cv2.setMouseCallback(title, on_mouse)
+    help_text = "Glisser : tracer   ESPACE : valider   C / Q / Echap : annuler"
+    try:
+        while True:
+            frame = shown.copy()
+            cv2.putText(frame, help_text, (10, 28), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 0), 4, cv2.LINE_AA)
+            cv2.putText(frame, help_text, (10, 28), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 1, cv2.LINE_AA)
+            if state["start"]:
+                cv2.rectangle(frame, state["start"], state["end"], (0, 255, 0), 2)
+            cv2.imshow(title, frame)
+            key = cv2.waitKey(20) & 0xFF
+            if cv2.getWindowProperty(title, cv2.WND_PROP_VISIBLE) < 1 or key in CANCEL_KEYS:
+                raise SystemExit("Sélection annulée.")
+            if key == KEY_SPACE:
+                if state["start"] and abs(state["end"][0] - state["start"][0]) > 2 and abs(state["end"][1] - state["start"][1]) > 2:
+                    break
+                print("Trace d'abord un rectangle avant de valider avec ESPACE.")
+    finally:
+        cv2.destroyAllWindows()
+
+    (ax, ay), (bx, by) = state["start"], state["end"]
+    x0, x1, y0, y1 = min(ax, bx), max(ax, bx), min(ay, by), max(ay, by)
+    return (x0 / scale / w, y0 / scale / h, x1 / scale / w, y1 / scale / h)
 
 
 def calibrate_grid(cfg: Config, image: str = None) -> None:
     print("Mets le jeu sur la grille des monsties de l'écurie (page 1).")
     img = capture(cfg, image)
-    print("Trace un rectangle du CENTRE de la case en haut à gauche jusqu'au CENTRE de la case en bas à droite, puis Entrée.")
+    print("Trace un rectangle du CENTRE de la case en haut à gauche jusqu'au CENTRE de la case en bas à droite, puis ESPACE (c pour annuler).")
     x0, y0, x1, y1 = select_rect(img, "Grille : centre haut-gauche -> centre bas-droite")
     cfg.grid_first_center = (x0, y0)
     cfg.grid_last_center = (x1, y1)
@@ -52,7 +87,7 @@ def calibrate_grid(cfg: Config, image: str = None) -> None:
 def calibrate_genes(cfg: Config, image: str = None) -> None:
     print("Affiche à l'écran le plateau de gènes (3x3) d'un monstie.")
     img = capture(cfg, image)
-    print("Trace un rectangle englobant exactement les 9 cases de gènes, puis Entrée.")
+    print("Trace un rectangle englobant exactement les 9 cases de gènes, puis ESPACE (c pour annuler).")
     cfg.gene_board = select_rect(img, "Plateau de genes 3x3")
     save(cfg)
     report(cfg, img)

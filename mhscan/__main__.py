@@ -2,7 +2,6 @@
 import argparse
 
 from . import calibrate, config
-from .keys import Aborted
 
 
 def choose_game() -> str:
@@ -48,9 +47,10 @@ def main() -> None:
     elif args.command == "scan":
         from .scanner import Scanner
         try:
-            Scanner(cfg).run()
-        except Aborted as exc:
-            print(exc)
+            scanner = Scanner(cfg)
+        except RuntimeError as exc:
+            raise SystemExit(f"Scan impossible : {exc}")
+        scanner.run()
 
 
 if __name__ == "__main__":

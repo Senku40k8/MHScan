@@ -24,7 +24,8 @@ def snake_order(rows: int, cols: int) -> list:
 class Scanner:
     def __init__(self, cfg: Config, out_root: Path = Path("scans")):
         if not cfg.is_calibrated():
-            raise RuntimeError("Configuration non calibrée : lance d'abord `python -m mhscan calibrate grid` puis `calibrate genes` pour ce jeu.")
+            raise RuntimeError(f"configuration non calibrée : lance d'abord `python -m mhscan calibrate grid --game {cfg.game}` "
+                               f"puis `python -m mhscan calibrate genes --game {cfg.game}`.")
         self.cfg = cfg
         self.hwnd = window.find_window(cfg.window_title)
         self.cap = window.Capturer(self.hwnd)
@@ -45,6 +46,7 @@ class Scanner:
 
     def cursor(self, grid: Grid, img: np.ndarray):
         for _ in range(5):
+            keys.check_abort()
             pos = grid.find_cursor(img, self.cfg.cursor_threshold)
             if pos is not None:
                 return pos, img
@@ -112,15 +114,30 @@ class Scanner:
 
     # --- boucle principale ---------------------------------------------------------
     def run(self) -> Path:
+        """Lance le scan ; en cas d'arrêt ou d'erreur, les monsties déjà scannés restent enregistrés."""
+        print(f"Scan vers {self.out}")
+        print("Pour arrêter : tape q puis Entrée dans cette console, ou appuie sur F8 en jeu.")
+        keys.start(self.hwnd)
+        try:
+            self._scan_pages()
+        except keys.Aborted as exc:
+            print(exc)
+        except KeyboardInterrupt:
+            print("Scan arrêté (Ctrl+C).")
+        except RuntimeError as exc:
+            print(f"Erreur : {exc}")
+        return self.finish()
+
+    def _scan_pages(self) -> None:
         cfg = self.cfg
         window.focus(self.hwnd)
         img = self.grab_stable()
         h, w = img.shape[:2]
         grid = Grid.from_config(cfg, w, h)
         order = snake_order(grid.rows, grid.cols)
-        print(f"Scan vers {self.out}  (F8 pour interrompre)")
 
         for page in range(1, cfg.max_pages + 1):
+            keys.check_abort()
             print(f"Page {page}")
             # La dernière page se remplit dans l'ordre de lecture : en serpentin, une case vide
             # peut précéder une case occupée. On scanne donc toutes les cases occupées de la page,
@@ -141,14 +158,13 @@ class Scanner:
 
             if len(targets) < len(order):
                 print(f"Page {page} incomplète : fin du scan.")
-                return self.finish()
+                return
             before = grid.signature(img)
             keys.press_sequence(cfg.next_page_keys, cfg.page_delay)
             img = self.grab_stable()
             if np.abs(grid.signature(img) - before).mean() < 2.0:
                 print("La page n'a pas changé : dernière page atteinte.")
-                return self.finish()
-        return self.finish()
+                return
 
     def finish(self) -> Path:
         self.write_manifest()

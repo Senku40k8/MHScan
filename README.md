@@ -27,6 +27,8 @@ python -m mhscan calibrate genes --game mhs2   # jeu affichant un plateau de gè
 - `grid` : tracer un rectangle du **centre** de la case en haut à gauche au **centre** de la case en bas à droite.
 - `genes` : tracer un rectangle englobant exactement les 9 cases de gènes.
 
+Dans la fenêtre de sélection : glisser à la souris pour tracer, **Espace** pour valider, **C**, **Q** ou **Échap** pour annuler.
+
 Chaque calibration écrit `config_<jeu>.json` et une image de contrôle `calibration_preview_<jeu>.png`
 (cases de la grille en vert, découpage des gènes en violet). `python -m mhscan check` refait ce contrôle à tout moment.
 
@@ -45,7 +47,12 @@ python -m mhscan scan --game mhs2
 
 Le curseur parcourt chaque page en serpentin (5× droite, bas, 5× gauche, bas, 5× droite), puis passe à la page suivante.
 Sa position est vérifiée à chaque pas grâce au cadre orange de sélection. Le scan s'arrête à la première page
-incomplète ou si le changement de page n'a aucun effet. **F8** interrompt le scan.
+incomplète ou si le changement de page n'a aucun effet.
+
+Pour arrêter le scan : taper **`q` puis Entrée** dans la console, ou **F8** en jeu (Ctrl+C fonctionne aussi).
+Quand le jeu n'est plus au premier plan (par exemple en cliquant sur la console), le scan se met en pause
+pour ne pas envoyer les touches à une autre fenêtre ; il reprend en recliquant sur le jeu.
+Les monsties déjà scannés restent enregistrés après un arrêt.
 
 ### Résultat
 
