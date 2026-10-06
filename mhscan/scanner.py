@@ -6,7 +6,7 @@ from pathlib import Path
 import cv2
 import numpy as np
 
-from . import keys, window
+from . import keys, ocr, window
 from .config import Config
 from .grid import Grid, classify_gene_cell, crop_region, gene_cells
 
@@ -138,10 +138,12 @@ class Scanner:
         h, w = img.shape[:2]
         grid = Grid.from_config(cfg, w, h)
         order = snake_order(grid.rows, grid.cols)
+        img = self.go_to_start(grid, img)
 
         for page in range(1, cfg.max_pages + 1):
             keys.check_abort()
-            print(f"Page {page}")
+            page_info = self.read_page(img)
+            print(f"Page {page}" + (f" / {page_info[1]}" if page_info else ""))
             # La dernière page se remplit dans l'ordre de lecture : en serpentin, une case vide
             # peut précéder une case occupée. On scanne donc toutes les cases occupées de la page,
             # et une page contenant une case vide est forcément la dernière.
@@ -162,12 +164,48 @@ class Scanner:
             if len(targets) < len(order):
                 print(f"Page {page} incomplète : fin du scan.")
                 return
+            if page_info and page_info[0] == page_info[1]:
+                print("Dernière page scannée : fin du scan.")
+                return
             before = grid.signature(img)
             keys.press_sequence(cfg.next_page_keys, cfg.page_delay)
             img = self.grab_stable()
-            if np.abs(grid.signature(img) - before).mean() < 2.0:
+            new_info = self.read_page(img)
+            if page_info and new_info:
+                unchanged = new_info[0] == page_info[0]
+            else:
+                unchanged = np.abs(grid.signature(img) - before).mean() < 2.0
+            if unchanged:
                 print("La page n'a pas changé : dernière page atteinte.")
                 return
+
+    # --- position de départ ----------------------------------------------------------
+    def read_page(self, img: np.ndarray):
+        """(page, total) lus par OCR, ou None si l'indicateur n'est pas calibré ou illisible."""
+        if self.cfg.page_indicator == (0.0, 0.0, 0.0, 0.0) or not ocr.available():
+            return None
+        return ocr.read_page(crop_region(img, self.cfg.page_indicator))
+
+    def go_to_start(self, grid: Grid, img: np.ndarray) -> np.ndarray:
+        """Revient à la page 1 puis place le curseur sur la première case."""
+        cfg = self.cfg
+        info = self.read_page(img)
+        if info is None:
+            print("Numéro de page illisible (indicateur non calibré ou OCR indisponible) : le scan part de la page affichée.")
+        elif info[0] != 1:
+            print(f"Page {info[0]} / {info[1]} : retour à la page 1.")
+            for _ in range(info[1] + 1):
+                keys.press_sequence(cfg.prev_page_keys, cfg.page_delay)
+                img = self.grab_stable()
+                info = self.read_page(img) or info
+                if info[0] == 1:
+                    break
+            else:
+                raise RuntimeError("impossible de revenir à la page 1 (vérifie prev_page_keys).")
+        if not grid.is_empty(img, 0, 0, cfg.empty_threshold):
+            img = self.move_to(grid, (0, 0), img)
+            print("Curseur sur la première case.")
+        return img
 
     def finish(self) -> Path:
         self.write_manifest()

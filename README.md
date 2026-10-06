@@ -11,7 +11,7 @@ Le jeu doit tourner en **fenêtré ou fenêtré sans bordure** (la capture se fa
 
 ## Contrôles
 
-- Déplacement dans la grille : **Z Q S D** ; page suivante : **E** (clavier AZERTY).
+- Déplacement dans la grille : **Z Q S D** ; page précédente / suivante : **A** / **E** (clavier AZERTY).
   Les lettres sont envoyées selon la disposition clavier active : sur un clavier QWERTY, mettre `w a s d` dans la config.
 - **C** arrête immédiatement le programme, à tout moment et quelle que soit la fenêtre active
   (scan, compte à rebours, fenêtre de sélection). Les monsties déjà scannés restent enregistrés.
@@ -36,12 +36,14 @@ python -m mhscan calibrate genes --game mhs2   # jeu affichant un plateau de gè
 
 - `grid` : tracer un rectangle du **centre** de la case en haut à gauche au **centre** de la case en bas à droite.
 - `genes` : tracer un rectangle englobant exactement les 9 cases de gènes.
+- `page` : l'indicateur « 1 / 22 » sous la grille (lu par l'OCR de Windows, sans rien installer de plus).
 - `legend` / `info` (facultatif) : la légende avec le nom des gènes, et la fiche du monstie (nom, niveau, stats).
 
 Dans la fenêtre de sélection : glisser à la souris pour tracer, **Espace** pour valider, **C** pour annuler.
 
 Chaque calibration écrit dans `config_<jeu>.json` (seulement ce qui diffère des valeurs par défaut) et une image de contrôle `calibration_preview_<jeu>.png`
-(cases de la grille en vert, découpage des gènes en violet, zones `legend` / `info` en cyan). `python -m mhscan check` refait ce contrôle à tout moment.
+(cases de la grille en vert, découpage des gènes en violet, zones `page` / `legend` / `info` en cyan)
+et affiche le numéro de page lu. `python -m mhscan check` refait ce contrôle à tout moment.
 
 Si les gènes ne sont visibles qu'après avoir ouvert la fiche du monstie, renseigner dans `config_<jeu>.json`
 `open_detail_keys` / `close_detail_keys` (ex. `["enter"]` / `["esc"]`). Les touches de navigation
@@ -50,15 +52,17 @@ de fenêtre recherché (`window_title`, une regex) sont aussi configurables par 
 
 ### 2. Scan
 
-Se placer sur la page 1 de l'écurie, puis :
+Ouvrir l'écurie (n'importe quelle page, n'importe quelle case), puis :
 
 ```
 python -m mhscan scan --game mhs2
 ```
 
-Le curseur parcourt chaque page en serpentin (5× droite, bas, 5× gauche, bas, 5× droite), puis passe à la page suivante.
-Sa position est vérifiée à chaque pas grâce au cadre orange de sélection. Le scan s'arrête à la première page
-incomplète ou si le changement de page n'a aucun effet.
+Le scan revient d'abord à la page 1 (touche A, en lisant le numéro de page) et place le curseur sur la
+première case. Il parcourt ensuite chaque page en serpentin (5× droite, bas, 5× gauche, bas, 5× droite), puis passe à la page suivante.
+Sa position est vérifiée à chaque pas grâce au cadre orange de sélection. Le scan s'arrête après la dernière page
+(numéro de page = nombre de pages), à la première page incomplète, ou si le changement de page n'a aucun effet.
+Si l'indicateur de page n'est pas calibré, le scan part de la page affichée.
 
 Pour arrêter le scan : touche **C**.
 Quand le jeu n'est plus au premier plan (par exemple en cliquant sur la console), le scan se met en pause

@@ -20,6 +20,7 @@ GAMES = {
             "grid_first_center": (0.56428, 0.24965),
             "grid_last_center": (0.89762, 0.44952),
             "gene_board": (0.25401, 0.30290, 0.39469, 0.55187),
+            "page_indicator": (0.6643, 0.5118, 0.8128, 0.5567),  # « 1 / 22 » sous la grille
             "extra_regions": {
                 "legend": (0.03986, 0.57538, 0.43493, 0.88866),  # noms des gènes du monstie
                 "info": (0.04259, 0.11964, 0.30481, 0.52559),    # nom, niveau, stats
@@ -45,6 +46,8 @@ class Config:
     tile_ratio: float = 0.94
     # Rectangle (x0, y0, x1, y1) du plateau de gènes 3x3
     gene_board: tuple = (0.0, 0.0, 0.0, 0.0)
+    # Rectangle de l'indicateur de page « 1 / 22 », lu par OCR pour revenir à la page 1 et repérer la dernière
+    page_indicator: tuple = (0.0, 0.0, 0.0, 0.0)
     # Zones supplémentaires enregistrées pour chaque monstie, {nom: (x0, y0, x1, y1)} ; ex. legend, info
     extra_regions: dict = field(default_factory=dict)
     # Touches : une lettre telle qu'écrite sur le clavier (convertie selon la disposition AZERTY/QWERTY active)
@@ -53,8 +56,9 @@ class Config:
     key_down: str = "s"
     key_left: str = "q"
     key_right: str = "d"
-    # Séquence pour passer à la page suivante
+    # Séquences pour passer à la page suivante / précédente
     next_page_keys: list = field(default_factory=lambda: ["e"])
+    prev_page_keys: list = field(default_factory=lambda: ["a"])
     # Séquences optionnelles pour ouvrir / fermer la fiche du monstie si les gènes n'y sont pas visibles directement
     open_detail_keys: list = field(default_factory=list)
     close_detail_keys: list = field(default_factory=list)

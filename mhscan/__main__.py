@@ -26,8 +26,8 @@ def main() -> None:
     parser = argparse.ArgumentParser(prog="mhscan", description="Scan des monsties de Monster Hunter Stories 1, 2 et 3")
     sub = parser.add_subparsers(dest="command", required=True)
 
-    cal = sub.add_parser("calibrate", parents=[common], help="calibrer la grille, le plateau de gènes, la légende ou la fiche")
-    cal.add_argument("target", choices=["grid", "genes", "legend", "info"])
+    cal = sub.add_parser("calibrate", parents=[common], help="calibrer la grille, le plateau de gènes, l'indicateur de page, la légende ou la fiche")
+    cal.add_argument("target", choices=["grid", "genes", "page", "legend", "info"])
     cal.add_argument("--image", help="utiliser une capture existante au lieu du jeu")
 
     chk = sub.add_parser("check", parents=[common], help="vérifier la détection sur l'écran actuel")

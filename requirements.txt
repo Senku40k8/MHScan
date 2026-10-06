@@ -1,3 +1,11 @@
 mss>=9.0
 numpy>=1.26
 opencv-python>=4.8
+# OCR intégré à Windows (lecture du numéro de page)
+winrt-runtime>=2.0
+winrt-Windows.Foundation>=2.0
+winrt-Windows.Foundation.Collections>=2.0
+winrt-Windows.Globalization>=2.0
+winrt-Windows.Graphics.Imaging>=2.0
+winrt-Windows.Media.Ocr>=2.0
+winrt-Windows.Storage.Streams>=2.0

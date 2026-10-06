@@ -4,9 +4,9 @@ from pathlib import Path
 import cv2
 import numpy as np
 
-from . import keys, window
+from . import keys, ocr, window
 from .config import Config, save
-from .grid import Grid
+from .grid import Grid, crop_region
 
 MAX_DISPLAY_WIDTH = 1600
 
@@ -93,6 +93,7 @@ def calibrate_genes(cfg: Config, image: str = None) -> None:
 
 
 REGION_HELP = {
+    "page": "l'indicateur de page (« 1 / 22 ») sous la grille",
     "legend": "la légende listant le nom des gènes du monstie",
     "info": "la fiche du monstie (nom, niveau, stats)",
 }
@@ -102,7 +103,11 @@ def calibrate_region(cfg: Config, name: str, image: str = None) -> None:
     print(f"Affiche à l'écran {REGION_HELP[name]}.")
     img = capture(cfg, image)
     print(f"Trace un rectangle englobant {REGION_HELP[name]}, puis ESPACE (c pour annuler).")
-    cfg.extra_regions = {**cfg.extra_regions, name: select_rect(img, f"Zone {name}")}
+    rect = select_rect(img, f"Zone {name}")
+    if name == "page":
+        cfg.page_indicator = rect
+    else:
+        cfg.extra_regions = {**cfg.extra_regions, name: rect}
     save(cfg)
     report(cfg, img)
 
@@ -129,7 +134,11 @@ def report(cfg: Config, img: np.ndarray, out: Path = None) -> None:
             y = py0 + (py1 - py0) * i // 3
             cv2.line(preview, (x, py0), (x, py1), (255, 0, 255), 2)
             cv2.line(preview, (px0, y), (px1, y), (255, 0, 255), 2)
-    for name, (x0, y0, x1, y1) in cfg.extra_regions.items():
+    regions = dict(cfg.extra_regions)
+    if cfg.page_indicator != (0.0, 0.0, 0.0, 0.0):
+        regions["page"] = cfg.page_indicator
+        print(f"Page lue : {ocr.read_page(crop_region(img, cfg.page_indicator)) if ocr.available() else 'OCR indisponible'}")
+    for name, (x0, y0, x1, y1) in regions.items():
         cv2.rectangle(preview, (int(x0 * w), int(y0 * h)), (int(x1 * w), int(y1 * h)), (255, 255, 0), 2)
         cv2.putText(preview, name, (int(x0 * w) + 6, int(y0 * h) + 26), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 0), 2)
     cv2.imwrite(str(out), preview)
