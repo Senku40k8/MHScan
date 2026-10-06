@@ -22,6 +22,7 @@ import cv2
 import numpy as np
 
 from . import collection, keys, ocr, report, window
+from . import genes as catalog
 from .analyze import analyze_monstie
 from .config import Config
 from .grid import Grid, classify_gene_cell, crop_region, gene_cells
@@ -233,6 +234,7 @@ class Scanner:
             "genes": genes,
         }
         analyze_monstie(folder, record, images)
+        catalog.enrich(self.cfg.game, folder, record)  # gènes du catalogue, type d'attaque, espèce (favoris)
         with self._lock:
             self.monsties.append(record)
             count_saved = len(self.monsties)

@@ -1,0 +1,35 @@
+.tabs { display: flex; gap: 8px; margin: 0 0 12px; }
+.tabs button { font: inherit; padding: 8px 14px; border-radius: 8px; border: 1px solid var(--border);
+               background: var(--surface); color: var(--text); cursor: pointer; }
+.tabs button.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.star { margin-left: auto; align-self: flex-start; font-size: 22px; line-height: 1; background: none; border: 0;
+        color: var(--muted); cursor: pointer; padding: 2px 4px; }
+.star.on { color: var(--bingo); }
+.fv-panel { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px;
+            margin-bottom: 16px; box-shadow: var(--shadow); }
+.fv-head { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-bottom: 10px; }
+.fv-head img { width: 56px; height: 56px; border-radius: 8px; }
+.fv-profile { display: flex; flex-wrap: wrap; gap: 10px; margin-left: auto; }
+.fv-profile label { display: flex; flex-direction: column; font-size: 12px; color: var(--muted); gap: 2px; }
+.fv-profile select { font: inherit; font-size: 14px; padding: 4px 6px; border-radius: 6px; border: 1px solid var(--border);
+                     background: var(--surface-2); color: var(--text); }
+.fv-remove { font: inherit; font-size: 13px; padding: 6px 10px; border-radius: 6px; border: 1px solid var(--border);
+             background: none; color: var(--muted); cursor: pointer; }
+.fv-boards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+@media (max-width: 1100px) { .fv-boards { grid-template-columns: 1fr; } }
+.fv-board h4 { margin: 0 0 6px; font-size: 14px; }
+.fv-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; }
+.fv-cell { background: var(--surface-2); border: 1px solid var(--border); border-radius: 6px; padding: 5px 6px; min-height: 54px;
+           font-size: 12px; display: flex; flex-direction: column; gap: 1px; position: relative; min-width: 0; }
+.fv-cell b { font-weight: 600; overflow-wrap: anywhere; padding-left: 12px; }
+.fv-cell small { color: var(--muted); font-size: 10.5px; }
+.fv-cell.fv-m2 { border-color: var(--ok); box-shadow: inset 0 0 0 1px var(--ok); }
+.fv-cell.fv-m1 { border-color: var(--bingo); }
+.fv-empty { color: var(--muted); align-items: center; justify-content: center; }
+.fv-dot { position: absolute; top: 8px; left: 6px; width: 8px; height: 8px; border-radius: 50%; background: #999; }
+.fv-el-Fire { background: #e4572e; } .fv-el-Water { background: #2e86de; } .fv-el-Thunder { background: #f2c418; }
+.fv-el-Ice { background: #7fd3f0; } .fv-el-Dragon { background: #8e44ad; } .fv-el-NonElem { background: #b8b8b8; }
+.fv-score { font-size: 12px; color: var(--muted); margin: 6px 0; }
+.fv-transfers { margin: 4px 0 0; padding-left: 20px; font-size: 13px; }
+.fv-legend { font-size: 13px; color: var(--muted); margin: 0 0 12px; }
+.fv-legend .ok { color: var(--ok); font-weight: 600; } .fv-legend .half { color: var(--bingo); font-weight: 600; }

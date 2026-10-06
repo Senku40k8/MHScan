@@ -2,15 +2,21 @@
 
 Les monsties sont présentés page par page, à la même place que dans la grille du jeu, avec leur icône,
 leur plateau de gènes, le nom de chaque gène et les éventuelles alertes de lecture.
+
+Quand le catalogue des gènes du jeu est disponible (MHS1), on peut mettre des monsties en favoris : l'onglet
+Favoris propose pour chacun le meilleur plateau atteignable avec l'écurie et le plateau parfait (static/favoris.js).
 """
 import json
+import re
 import webbrowser
 from datetime import datetime
 from html import escape
 from pathlib import Path
 
-from . import config
+from . import config, genes
 from .analyze import analyze_monstie
+
+STATIC = Path(__file__).resolve().parent / "static"
 
 CSS = """
 :root {
@@ -93,7 +99,33 @@ apply();
 """
 
 
-def _card(m: dict) -> str:
+def _favorite_data(game: str, scan_dir: Path, monsties: list):
+    """Données intégrées au rapport pour les favoris (catalogue, espèces, gènes de chaque monstie), ou None."""
+    catalog, species = genes.catalog(game)
+    if not catalog:
+        return None
+    seen = {}
+    rows = []
+    for m in monsties:
+        if "attack_type" not in m or any(c.get("state") == "gene" and "ref" not in c for r in m["genes"] for c in r):
+            genes.enrich(game, scan_dir / m["folder"], m)
+        # Clé stable d'un scan à l'autre : nom + espèce (+ rang parmi les homonymes de même espèce)
+        base = f"{m.get('name') or '?'}|{m.get('species') or '?'}"
+        seen[base] = seen.get(base, 0) + 1
+        m["key"] = f"{base}|{seen[base]}"
+        board = [(c.get("ref") or c.get("gene")) if c.get("state") == "gene" else None for r in m["genes"] for c in r]
+        rows.append({"key": m["key"], "index": m["index"], "name": m.get("name"), "page": m["page"], "row": m["row"],
+                     "col": m["col"], "folder": m["folder"], "type": m.get("attack_type"), "species": m.get("species"),
+                     "genes": board})
+    compact = {g["name"]: {"t": g["type"], "e": g["element"], "s": g["size"], "k": g["skill"],
+                           "f": re.sub(r" \((S|M|L)\)$", "", g["name"]),
+                           "b": [[b["stat"], b["value"]] for b in g["bonuses"]]} for g in catalog}
+    return {"game": game, "catalog": compact,
+            "species": [{"name": sp["name"], "type": sp["type"], "element": sp["element"]} for sp in species],
+            "monsties": rows}
+
+
+def _card(m: dict, with_star: bool = False) -> str:
     folder = escape(m["folder"])
     genes = [c for row in m["genes"] for c in row if c.get("state") == "gene"]
     items = "".join(
@@ -108,11 +140,27 @@ def _card(m: dict) -> str:
         f'style="grid-row:{m["row"]};grid-column:{m["col"]}" data-search="{escape(search)}">'
         f'<div class="head"><img src="{folder}/tile.png" alt="" loading="lazy">'
         f'<div><div class="name">{escape(m.get("name") or "Nom illisible")}</div>'
-        f'<div class="meta">#{m["index"]} · case {m["row"]},{m["col"]}</div></div></div>'
+        f'<div class="meta">#{m["index"]} · case {m["row"]},{m["col"]}</div></div>'
+        f'{f"""<button class="star" data-key="{escape(m["key"])}" title="Ajouter aux favoris">☆</button>""" if with_star else ""}</div>'
         f'<img class="board" src="{folder}/genes_board.png" alt="Plateau de gènes" loading="lazy">'
         f'{gene_list}{alerts}'
         f'<a href="{folder}/screen.jpg" target="_blank">Voir la capture</a>'
         f'</article>')
+
+
+FAVS_VIEW = """<div id="view-favs" class="hidden">
+<p class="fv-legend">Priorités : gènes du même <b>élément</b> et du même <b>type d'attaque</b> que le monstie
+(<span class="ok">vert</span> = les deux, <span class="half">orange</span> = un seul) &gt; famille
+<b>Critical &gt; Attack &gt; Speed</b> (L &gt; M &gt; S) &gt; nombre de <b>bingos</b>. Un donneur disparaît après le transfert
+et ne donne qu'un gène ; les favoris ne sont jamais utilisés comme donneurs. Les favoris sont gardés dans ce navigateur.</p>
+<div id="fav-list"></div>
+</div>"""
+
+
+def _data_script(data: dict) -> str:
+    payload = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
+    script = (STATIC / "favoris.js").read_text(encoding="utf-8")
+    return f'<script id="mhscan-data" type="application/json">{payload}</script>\n<script>{script}</script>'
 
 
 def build(scan_dir: Path, changes: dict = None, open_browser: bool = True) -> Path:
@@ -143,17 +191,21 @@ def build(scan_dir: Path, changes: dict = None, open_browser: bool = True) -> Pa
     changes_html = ""
     if changes:
         if changes.get("previous_scan"):
-            added = ", ".join(escape(x) for x in changes["added"]) or "aucun"
-            removed = ", ".join(escape(x) for x in changes["removed"]) or "aucun"
+            def names(items):
+                text = ", ".join(escape(x) for x in items) or "aucun"
+                return f"<details><summary>voir la liste</summary>{text}</details>" if len(items) > 15 else text
             changes_html = (f'<div class="changes"><h2>Changements depuis le scan précédent</h2>'
-                            f'<p><b>{len(changes["added"])} ajouté(s)</b> : {added}</p>'
-                            f'<p><b>{len(changes["removed"])} retiré(s)</b> : {removed}</p></div>')
+                            f'<p><b>{len(changes["added"])} ajouté(s)</b> : {names(changes["added"])}</p>'
+                            f'<p><b>{len(changes["removed"])} retiré(s)</b> : {names(changes["removed"])}</p></div>')
         else:
             changes_html = '<div class="changes"><h2>Premier scan complet</h2><p>Il sert de liste de référence.</p></div>'
 
+    fav_data = _favorite_data(manifest.get("game", "mhs1"), scan_dir, monsties)
+    if fav_data:  # enregistre les gènes rattachés au catalogue et l'espèce devinée
+        manifest_path.write_text(json.dumps(manifest, indent=2, ensure_ascii=False), encoding="utf-8")
     sections = []
     for page in pages:
-        cards = "".join(_card(m) for m in sorted(monsties, key=lambda m: (m["row"], m["col"])) if m["page"] == page)
+        cards = "".join(_card(m, bool(fav_data)) for m in sorted(monsties, key=lambda m: (m["row"], m["col"])) if m["page"] == page)
         sections.append(f'<section class="page"><h2>Page {page}</h2><div class="grid" style="--cols:{cfg.cols}">{cards}</div></section>')
 
     html = f"""<!doctype html>
@@ -162,7 +214,7 @@ def build(scan_dir: Path, changes: dict = None, open_browser: bool = True) -> Pa
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Rapport de scan</title>
-<style>{CSS}</style>
+<style>{CSS}{(STATIC / "favoris.css").read_text(encoding="utf-8") if fav_data else ""}</style>
 </head>
 <body>
 <main>
@@ -176,14 +228,20 @@ def build(scan_dir: Path, changes: dict = None, open_browser: bool = True) -> Pa
   <div class="stat{' warn' if warnings else ''}"><b>{warnings}</b><span>monstie(s) à vérifier</span></div>
 </div>
 {changes_html}
+{"""<div class="tabs"><button class="active" data-tab="all">Tous les monsties</button>
+<button data-tab="favs">★ Favoris (<span id="fav-count">0</span>)</button></div>""" if fav_data else ""}
+<div id="view-all">
 <div class="toolbar">
   <input type="search" id="search" placeholder="Rechercher un nom ou un gène…" aria-label="Rechercher">
   <label><input type="checkbox" id="only-warn"> Seulement ceux à vérifier</label>
   <span id="count"></span>
 </div>
 {"".join(sections) if sections else '<p class="empty">Aucun monstie dans ce scan.</p>'}
+</div>
+{FAVS_VIEW if fav_data else ""}
 </main>
 <script>{JS}</script>
+{_data_script(fav_data) if fav_data else ""}
 </body>
 </html>"""
     out = scan_dir / "rapport.html"

@@ -1,0 +1,1102 @@
+{
+ "source": "https://mhst.kiranico.com (MHS1)",
+ "monsties": [
+  {
+   "name": "Aptonoth",
+   "type": "Power",
+   "element": "Non-Elem",
+   "signature_gene": "Aptonoth Gene",
+   "genes": [
+    "Aptonoth Gene",
+    "Health Gene (S)",
+    "Attack Gene (S)",
+    "Health Gene (M)",
+    "Attack Gene (M)",
+    "Kinship Gene (S)"
+   ]
+  },
+  {
+   "name": "Velocidrome",
+   "type": "Speed",
+   "element": "Non-Elem",
+   "signature_gene": "Velocidrome Gene",
+   "genes": [
+    "Velocidrome Gene",
+    "Critical Gene (S)",
+    "Quick Gene (S)",
+    "Speed Gene (S)",
+    "Speed Res Gene (S)",
+    "Critical Gene (M)",
+    "Quick Gene (M)",
+    "Speed Gene (M)",
+    "Speed Res Gene (M)"
+   ]
+  },
+  {
+   "name": "Arzuros",
+   "type": "Power",
+   "element": "Non-Elem",
+   "signature_gene": "Arzuros Gene",
+   "genes": [
+    "Arzuros Gene",
+    "Attack Gene (S)",
+    "Defense Gene (S)",
+    "Power Gene (S)",
+    "Power Res Gene (S)",
+    "Attack Gene (M)",
+    "Defense Gene (M)",
+    "Power Gene (M)",
+    "Power Res Gene (M)"
+   ]
+  },
+  {
+   "name": "Yian Kut-Ku",
+   "type": "Technical",
+   "element": "Fire",
+   "signature_gene": "Yian Kut-Ku Gene",
+   "genes": [
+    "Yian Kut-Ku Gene",
+    "Burning Gene (S)",
+    "Flaming Gene (S)",
+    "Tech Gene (S)",
+    "Tech Res Gene (S)",
+    "Burning Gene (M)",
+    "Flaming Gene (M)",
+    "Tech Gene (M)",
+    "Tech Res Gene (M)"
+   ]
+  },
+  {
+   "name": "Blue Yian Kut-Ku",
+   "type": "Technical",
+   "element": "Fire",
+   "signature_gene": "B. Yian Kut-Ku Gene",
+   "genes": [
+    "B. Yian Kut-Ku Gene",
+    "Searing Gene (S)",
+    "Fire Res Gene (S)",
+    "Tech Gene (S)",
+    "Searing Gene (M)",
+    "Fire Res Gene (M)",
+    "Tech Gene (M)",
+    "Quickfire Gene"
+   ]
+  },
+  {
+   "name": "Popo",
+   "type": "Power",
+   "element": "Non-Elem",
+   "signature_gene": "Popo Gene",
+   "genes": [
+    "Popo Gene",
+    "Warming Gene",
+    "Health Gene (S)",
+    "Ice Res Gene (S)",
+    "Frigid Gene (S)",
+    "Health Gene (M)",
+    "Ice Res Gene (M)",
+    "Frigid Gene (M)",
+    "Nesting Gene"
+   ]
+  },
+  {
+   "name": "Lagombi",
+   "type": "Speed",
+   "element": "Ice",
+   "signature_gene": "Lagombi Gene",
+   "genes": [
+    "Lagombi Gene",
+    "Warming Gene",
+    "Attack Gene (S)",
+    "Ice Res Gene (S)",
+    "Sealing Gene (S)",
+    "Cocoon Gene (S)",
+    "Attack Gene (M)",
+    "Ice Res Gene (M)",
+    "Sealing Gene (M)",
+    "Cocoon Gene (M)",
+    "Antiseal Gene"
+   ]
+  },
+  {
+   "name": "Bulldrome",
+   "type": "Power",
+   "element": "Non-Elem",
+   "signature_gene": "Bulldrome Gene",
+   "genes": [
+    "Bulldrome Gene",
+    "Health Gene (S)",
+    "Power Gene (S)",
+    "Warlike Gene (S)",
+    "Power Res Gene (S)",
+    "Health Gene (M)",
+    "Power Gene (M)",
+    "Warlike Gene (M)",
+    "Power Res Gene (M)"
+   ]
+  },
+  {
+   "name": "Zamtrios",
+   "type": "Technical",
+   "element": "Ice",
+   "signature_gene": "Zamtrios Gene",
+   "genes": [
+    "Zamtrios Gene",
+    "Warming Gene",
+    "Ice Res Gene (S)",
+    "Frigid Gene (S)",
+    "Defense Gene (S)",
+    "Cocoon Gene (S)",
+    "Predatory Gene (S)",
+    "Ice Res Gene (M)",
+    "Frigid Gene (M)",
+    "Defense Gene (M)",
+    "Cocoon Gene (M)",
+    "Latent Ice Gene"
+   ]
+  },
+  {
+   "name": "Khezu",
+   "type": "Technical",
+   "element": "Thunder",
+   "signature_gene": "Khezu Gene",
+   "genes": [
+    "Khezu Gene",
+    "Antiblind Gene",
+    "Antishock Gene",
+    "Thndr Res Gene (S)",
+    "Shocking Gene (S)",
+    "Tech Res Gene (S)",
+    "Thndr Res Gene (M)",
+    "Shocking Gene (M)",
+    "Tech Res Gene (M)",
+    "Quickthunder Gene"
+   ]
+  },
+  {
+   "name": "Red Khezu",
+   "type": "Technical",
+   "element": "Thunder",
+   "signature_gene": "Red Khezu Gene",
+   "genes": [
+    "Red Khezu Gene",
+    "Antiblind Gene",
+    "Antishock Gene",
+    "Flashing Gene (S)",
+    "Paralyze Gene (S)",
+    "Tech Gene (S)",
+    "Flashing Gene (M)",
+    "Paralyze Gene (M)",
+    "Tech Gene (M)",
+    "Latent Thunder Gene"
+   ]
+  },
+  {
+   "name": "Apceros",
+   "type": "Power",
+   "element": "Non-Elem",
+   "signature_gene": "Apceros Gene",
+   "genes": [
+    "Apceros Gene",
+    "Cooling Gene",
+    "Attack Gene (S)",
+    "Power Gene (S)",
+    "Warlike Gene (S)",
+    "Power Res Gene (S)",
+    "Attack Gene (M)",
+    "Power Gene (M)",
+    "Warlike Gene (M)",
+    "Power Res Gene (M)"
+   ]
+  },
+  {
+   "name": "Gendrome",
+   "type": "Speed",
+   "element": "Non-Elem",
+   "signature_gene": "Gendrome Gene",
+   "genes": [
+    "Gendrome Gene",
+    "Antishock Gene",
+    "Speed Gene (S)",
+    "Shocking Gene (S)",
+    "Speed Res Gene (S)",
+    "Speed Gene (M)",
+    "Shocking Gene (M)",
+    "Speed Res Gene (M)"
+   ]
+  },
+  {
+   "name": "Royal Ludroth",
+   "type": "Power",
+   "element": "Water",
+   "signature_gene": "Royal Ludroth Gene",
+   "genes": [
+    "Royal Ludroth Gene",
+    "Antiseal Gene",
+    "Water Res Gene (S)",
+    "Water Res Gene (M)",
+    "Torrential Gene (S)",
+    "Evasion Gene (S)",
+    "Sealing Gene (S)",
+    "Water Res Gene (L)",
+    "Evasion Gene (M)",
+    "Torrential Gene (M)",
+    "Sealing Gene (M)",
+    "Quickwater Gene"
+   ]
+  },
+  {
+   "name": "Gypceros",
+   "type": "Technical",
+   "element": "Non-Elem",
+   "signature_gene": "Gypceros Gene",
+   "genes": [
+    "Gypceros Gene",
+    "Antiblind Gene",
+    "Antivenom Gene",
+    "Noxious Gene (S)",
+    "Blinding Gene (S)",
+    "Dazzling Gene (S)",
+    "Tech Res Gene (S)",
+    "Noxious Gene (M)",
+    "Blinding Gene (M)",
+    "Dazzling Gene (M)",
+    "Tenacity Gene",
+    "Survivor Gene"
+   ]
+  },
+  {
+   "name": "Nerscylla",
+   "type": "Technical",
+   "element": "Non-Elem",
+   "signature_gene": "Nerscylla Gene",
+   "genes": [
+    "Nerscylla Gene",
+    "Antisleep Gene",
+    "Poison Gene (S)",
+    "Potent Gene (S)",
+    "Cocoon Gene (M)",
+    "Hypnotic Gene (S)",
+    "Poison Gene (M)",
+    "Potent Gene (M)",
+    "Hypnotic Gene (M)",
+    "Quickice Gene",
+    "Abnormal Gene"
+   ]
+  },
+  {
+   "name": "Shrouded Nerscylla",
+   "type": "Technical",
+   "element": "Non-Elem",
+   "signature_gene": "S. Nerscylla Gene",
+   "genes": [
+    "S. Nerscylla Gene",
+    "Antivenom Gene",
+    "Noxious Gene (S)",
+    "Potent Gene (S)",
+    "Sealing Gene (M)",
+    "Shocking Gene (S)",
+    "Noxious Gene (M)",
+    "Potent Gene (M)",
+    "Shocking Gene (M)",
+    "Quickice Gene",
+    "Abnormal Gene"
+   ]
+  },
+  {
+   "name": "Qurupeco",
+   "type": "Technical",
+   "element": "Fire",
+   "signature_gene": "Qurupeco Gene",
+   "genes": [
+    "Qurupeco Gene",
+    "Tech Gene (S)",
+    "Tech Res Gene (S)",
+    "Flaming Gene (S)",
+    "Tech Gene (M)",
+    "Tech Res Gene (M)",
+    "Flaming Gene (M)",
+    "Quickfire Gene"
+   ]
+  },
+  {
+   "name": "Rathian",
+   "type": "Speed",
+   "element": "Fire",
+   "signature_gene": "Rathian Gene",
+   "genes": [
+    "Rathian Gene",
+    "Antivenom Gene",
+    "Speed Gene (M)",
+    "Burning Gene (M)",
+    "Noxious Gene (M)",
+    "All-Elem Gene (S)",
+    "All-Elem Gene (M)",
+    "Burning Gene (L)",
+    "Antiburn Gene"
+   ]
+  },
+  {
+   "name": "Pink Rathian",
+   "type": "Speed",
+   "element": "Fire",
+   "signature_gene": "Pink Rathian Gene",
+   "genes": [
+    "Pink Rathian Gene",
+    "Antivenom Gene",
+    "Speed Res Gene (M)",
+    "Searing Gene (M)",
+    "Poison Gene (M)",
+    "All-Elem Gene (S)",
+    "All-Elem Gene (M)",
+    "Searing Gene (L)",
+    "Antiburn Gene",
+    "Latent Fire Gene"
+   ]
+  },
+  {
+   "name": "Barroth",
+   "type": "Speed",
+   "element": "Water",
+   "signature_gene": "Barroth Gene",
+   "genes": [
+    "Barroth Gene",
+    "Antiseal Gene",
+    "Defense Gene (M)",
+    "Speed Res Gene (M)",
+    "Water Res Gene (M)",
+    "Fire Res Gene (M)",
+    "Unscathed Gene"
+   ]
+  },
+  {
+   "name": "Cephadrome",
+   "type": "Power",
+   "element": "Non-Elem",
+   "signature_gene": "Cephadrome Gene",
+   "genes": [
+    "Cephadrome Gene",
+    "Cooling Gene",
+    "Antiblind Gene",
+    "Torrential Gene (S)",
+    "Fire Res Gene (S)",
+    "Paralyze Gene (S)",
+    "Evasion Gene (S)",
+    "Torrential Gene (M)",
+    "Fire Res Gene (M)",
+    "Paralyze Gene (M)",
+    "Evasion Gene (M)"
+   ]
+  },
+  {
+   "name": "Diablos",
+   "type": "Power",
+   "element": "Non-Elem",
+   "signature_gene": "Diablos Gene",
+   "genes": [
+    "Diablos Gene",
+    "Health Gene (M)",
+    "Warlike Gene (M)",
+    "Critical Gene (S)",
+    "Power Gene (M)",
+    "All-Elem Gene (S)",
+    "Critical Gene (M)",
+    "Warlike Gene (L)",
+    "Potential Gene"
+   ]
+  },
+  {
+   "name": "Black Diablos",
+   "type": "Power",
+   "element": "Non-Elem",
+   "signature_gene": "Black Diablos Gene",
+   "genes": [
+    "Black Diablos Gene",
+    "Health Gene (M)",
+    "Warlike Gene (M)",
+    "Critical Gene (S)",
+    "Power Res Gene (M)",
+    "All-Res Gene (S)",
+    "Critical Gene (M)",
+    "Warlike Gene (L)",
+    "Head-to-Head Gene"
+   ]
+  },
+  {
+   "name": "Tigrex",
+   "type": "Power",
+   "element": "Non-Elem",
+   "signature_gene": "Tigrex Gene",
+   "genes": [
+    "Tigrex Gene",
+    "Attack Gene (M)",
+    "Power Gene (M)",
+    "Predatory Gene (S)",
+    "Evasion Gene (S)",
+    "Draconic Gene (S)",
+    "Evasion Gene (M)",
+    "Draconic Gene (M)",
+    "Quickdragon Gene"
+   ]
+  },
+  {
+   "name": "Iodrome",
+   "type": "Speed",
+   "element": "Non-Elem",
+   "signature_gene": "Iodrome Gene",
+   "genes": [
+    "Iodrome Gene",
+    "Antivenom Gene",
+    "Quick Gene (S)",
+    "Speed Gene (S)",
+    "Poison Gene (S)",
+    "Noxious Gene (S)",
+    "Quick Gene (M)",
+    "Speed Gene (M)",
+    "Poison Gene (M)",
+    "Noxious Gene (M)"
+   ]
+  },
+  {
+   "name": "Basarios",
+   "type": "Technical",
+   "element": "Fire",
+   "signature_gene": "Basarios Gene",
+   "genes": [
+    "Basarios Gene",
+    "Cooling Gene",
+    "Defense Gene (M)",
+    "Tech Res Gene (M)",
+    "Flaming Gene (M)",
+    "Drgn Res Gene (S)",
+    "Searing Gene (M)",
+    "Defense Gene (L)",
+    "Tech Res Gene (L)",
+    "Flaming Gene (L)",
+    "Drgn Res Gene (M)",
+    "Searing Gene (L)"
+   ]
+  },
+  {
+   "name": "Gravios",
+   "type": "Power",
+   "element": "Fire",
+   "signature_gene": "Gravios Gene",
+   "genes": [
+    "Gravios Gene",
+    "Antiburn Gene",
+    "Cooling Gene",
+    "Defense Gene (M)",
+    "Fire Res Gene (M)",
+    "Hypnotic Gene (M)",
+    "Defense Gene (L)",
+    "Fire Res Gene (L)",
+    "Hypnotic Gene (L)",
+    "Latent Fire Gene"
+   ]
+  },
+  {
+   "name": "Uragaan",
+   "type": "Power",
+   "element": "Fire",
+   "signature_gene": "Uragaan Gene",
+   "genes": [
+    "Uragaan Gene",
+    "Cooling Gene",
+    "Antiburn Gene",
+    "Defense Gene (L)",
+    "Power Res Gene (M)",
+    "Fire Res Gene (M)",
+    "Volatile Gene (S)",
+    "Power Res Gene (L)",
+    "Fire Res Gene (L)",
+    "Volatile Gene (M)",
+    "Antisleep Gene"
+   ]
+  },
+  {
+   "name": "Brute Tigrex",
+   "type": "Power",
+   "element": "Non-Elem",
+   "signature_gene": "Brute Tigrex Gene",
+   "genes": [
+    "Brute Tigrex Gene",
+    "Attack Gene (M)",
+    "Power Gene (M)",
+    "Predatory Gene (M)",
+    "Evasion Gene (M)",
+    "Attack Gene (L)",
+    "Power Gene (L)",
+    "Evasion Gene (M)",
+    "Escape Gene"
+   ]
+  },
+  {
+   "name": "Great Jaggi",
+   "type": "Speed",
+   "element": "Non-Elem",
+   "signature_gene": "Great Jaggi Gene",
+   "genes": [
+    "Great Jaggi Gene",
+    "Health Gene (M)",
+    "Speed Res Gene (M)",
+    "Health Gene (L)",
+    "Speed Res Gene (L)"
+   ]
+  },
+  {
+   "name": "Kecha Wacha",
+   "type": "Technical",
+   "element": "Water",
+   "signature_gene": "Kecha Wacha Gene",
+   "genes": [
+    "Kecha Wacha Gene",
+    "Tech Gene (M)",
+    "Sealing Gene (M)",
+    "Water Res Gene (M)",
+    "Torrential Gene (M)",
+    "Tech Gene (L)",
+    "Sealing Gene (L)",
+    "Water Res Gene (L)",
+    "Torrential Gene (L)"
+   ]
+  },
+  {
+   "name": "Purple Ludroth",
+   "type": "Power",
+   "element": "Water",
+   "signature_gene": "Purple Ludroth Gene",
+   "genes": [
+    "Purple Ludroth Gene",
+    "Antivenom Gene",
+    "Health Gene (M)",
+    "Water Res Gene (L)",
+    "Poison Gene (M)",
+    "Quickwater Gene",
+    "Health Gene (L)",
+    "Poison Gene (L)",
+    "Dampening Gene",
+    "Latent Water Gene"
+   ]
+  },
+  {
+   "name": "Yian Garuga",
+   "type": "Technical",
+   "element": "Non-Elem",
+   "signature_gene": "Yian Garuga Gene",
+   "genes": [
+    "Yian Garuga Gene",
+    "Antivenom Gene",
+    "Searing Gene (M)",
+    "Noxious Gene (M)",
+    "Poison Gene (M)",
+    "Noxious Gene (L)",
+    "Poison Gene (L)",
+    "Antiseal Gene"
+   ]
+  },
+  {
+   "name": "Congalala",
+   "type": "Power",
+   "element": "Non-Elem",
+   "signature_gene": "Congalala Gene",
+   "genes": [
+    "Congalala Gene",
+    "Antistench Gene",
+    "Attack Gene (M)",
+    "Stinking Gene (S)",
+    "Stinking Gene (M)",
+    "Attack Gene (L)",
+    "Stinking Gene (L)",
+    "Hounding Gene",
+    "Abnormal Gene"
+   ]
+  },
+  {
+   "name": "Emerald Congalala",
+   "type": "Power",
+   "element": "Non-Elem",
+   "signature_gene": "E. Congalala Gene",
+   "genes": [
+    "E. Congalala Gene",
+    "Antistench Gene",
+    "Antishock Gene",
+    "Attack Gene (M)",
+    "Stinking Gene (S)",
+    "Stinking Gene (M)",
+    "Attack Gene (L)",
+    "Stinking Gene (L)",
+    "Hounding Gene",
+    "Abnormal Gene"
+   ]
+  },
+  {
+   "name": "Crimson Qurupeco",
+   "type": "Technical",
+   "element": "Thunder",
+   "signature_gene": "C. Qurupeco Gene",
+   "genes": [
+    "C. Qurupeco Gene",
+    "Tech Gene (L)",
+    "Tech Res Gene (M)",
+    "Dazzling Gene (M)",
+    "Tech Res Gene (L)",
+    "Dazzling Gene (L)"
+   ]
+  },
+  {
+   "name": "Black Gravios",
+   "type": "Power",
+   "element": "Fire",
+   "signature_gene": "Black Gravios Gene",
+   "genes": [
+    "Black Gravios Gene",
+    "Antiburn Gene",
+    "Cooling Gene",
+    "Defense Gene (M)",
+    "Fire Res Gene (M)",
+    "Hypnotic Gene (M)",
+    "Ice Res Gene (M)",
+    "Drgn Res Gene (M)",
+    "Defense Gene (L)",
+    "Fire Res Gene (L)",
+    "Hypnotic Gene (L)",
+    "Ice Res Gene (L)",
+    "Drgn Res Gene (L)"
+   ]
+  },
+  {
+   "name": "Zinogre",
+   "type": "Power",
+   "element": "Thunder",
+   "signature_gene": "Zinogre Gene",
+   "genes": [
+    "Zinogre Gene",
+    "Thndr Res Gene (L)",
+    "Flashing Gene (M)",
+    "Quick Gene (M)",
+    "Paralyze Gene (M)",
+    "Flashing Gene (L)",
+    "Paralyze Gene (L)",
+    "Latent Thunder Gene",
+    "Thunder Scale Gene"
+   ]
+  },
+  {
+   "name": "Ruby Basarios",
+   "type": "Technical",
+   "element": "Fire",
+   "signature_gene": "Ruby Basarios Gene",
+   "genes": [
+    "Ruby Basarios Gene",
+    "Cooling Gene",
+    "Defense Gene (L)",
+    "Tech Res Gene (L)",
+    "Flaming Gene (M)",
+    "Drgn Res Gene (M)",
+    "Poison Gene (L)",
+    "Flaming Gene (L)",
+    "Drgn Res Gene (L)"
+   ]
+  },
+  {
+   "name": "Nargacuga",
+   "type": "Speed",
+   "element": "Non-Elem",
+   "signature_gene": "Nargacuga Gene",
+   "genes": [
+    "Nargacuga Gene",
+    "Quick Gene (M)",
+    "Critical Gene (M)",
+    "Speed Gene (M)",
+    "Evasion Gene (M)",
+    "Quick Gene (L)",
+    "Critical Gene (L)",
+    "Speed Gene (L)",
+    "Evasion Gene (L)",
+    "Escape Gene"
+   ]
+  },
+  {
+   "name": "Green Nargacuga",
+   "type": "Speed",
+   "element": "Non-Elem",
+   "signature_gene": "G. Nargacuga Gene",
+   "genes": [
+    "G. Nargacuga Gene",
+    "Quick Gene (M)",
+    "Critical Gene (L)",
+    "Speed Gene (L)",
+    "Evasion Gene (M)",
+    "Quick Gene (L)",
+    "Evasion Gene (L)",
+    "Escape Gene"
+   ]
+  },
+  {
+   "name": "Rathalos",
+   "type": "Power",
+   "element": "Fire",
+   "signature_gene": "Rathalos Gene",
+   "genes": [
+    "Rathalos Gene",
+    "Antivenom Gene",
+    "Power Res Gene (M)",
+    "Flaming Gene (M)",
+    "Poison Gene (M)",
+    "Draconic Gene (M)",
+    "Power Res Gene (L)",
+    "Flaming Gene (L)",
+    "Draconic Gene (L)",
+    "Kinship Gene (S)"
+   ]
+  },
+  {
+   "name": "Azure Rathalos",
+   "type": "Power",
+   "element": "Fire",
+   "signature_gene": "Azure Rathalos Gene",
+   "genes": [
+    "Azure Rathalos Gene",
+    "Antivenom Gene",
+    "Power Gene (M)",
+    "Fire Res Gene (M)",
+    "Noxious Gene (M)",
+    "Draconic Gene (M)",
+    "Power Gene (L)",
+    "Fire Res Gene (L)",
+    "Draconic Gene (L)",
+    "Kinship Gene (M)",
+    "Quickfire Gene"
+   ]
+  },
+  {
+   "name": "Purple Gypceros",
+   "type": "Technical",
+   "element": "Non-Elem",
+   "signature_gene": "P. Gypceros Gene",
+   "genes": [
+    "P. Gypceros Gene",
+    "Antiblind Gene",
+    "Antivenom Gene",
+    "Noxious Gene (L)",
+    "Blinding Gene (L)",
+    "Tech Res Gene (M)",
+    "Dazzling Gene (M)",
+    "Dazzling Gene (L)",
+    "Tenacity Gene",
+    "Survivor Gene"
+   ]
+  },
+  {
+   "name": "Ash Kecha Wacha",
+   "type": "Technical",
+   "element": "Fire",
+   "signature_gene": "A. Kecha Gene",
+   "genes": [
+    "A. Kecha Gene",
+    "Tech Gene (M)",
+    "Cocoon Gene (M)",
+    "Fire Res Gene (M)",
+    "Flaming Gene (M)",
+    "Tech Gene (L)",
+    "Cocoon Gene (L)",
+    "Fire Res Gene (L)",
+    "Flaming Gene (L)"
+   ]
+  },
+  {
+   "name": "Lagiacrus",
+   "type": "Power",
+   "element": "Thunder",
+   "signature_gene": "Lagiacrus Gene",
+   "genes": [
+    "Lagiacrus Gene",
+    "Health Gene (L)",
+    "Torrential Gene (L)",
+    "Thndr Res Gene (L)",
+    "Shocking Gene (L)",
+    "Water Scale Gene",
+    "Paralyze Gene (L)",
+    "Quickthunder Gene"
+   ]
+  },
+  {
+   "name": "Ivory Lagiacrus",
+   "type": "Power",
+   "element": "Thunder",
+   "signature_gene": "Ivory Lagiacrus Gene",
+   "genes": [
+    "Ivory Lagiacrus Gene",
+    "Attack Gene (L)",
+    "Flashing Gene (L)",
+    "Water Res Gene (L)",
+    "Paralyze Gene (L)",
+    "Water Scale Gene",
+    "Shocking Gene (L)",
+    "Latent Water Gene"
+   ]
+  },
+  {
+   "name": "Deviljho",
+   "type": "Power",
+   "element": "Dragon",
+   "signature_gene": "Deviljho Gene",
+   "genes": [
+    "Deviljho Gene",
+    "Attack Gene (M)",
+    "Predatory Gene (M)",
+    "Draconic Gene (M)",
+    "Hounding Gene",
+    "Power Res Gene (M)",
+    "Attack Gene (L)",
+    "Predatory Gene (L)",
+    "Draconic Gene (L)",
+    "Power Res Gene (L)"
+   ]
+  },
+  {
+   "name": "Great Baggi",
+   "type": "Speed",
+   "element": "Non-Elem",
+   "signature_gene": "Great Baggi Gene",
+   "genes": [
+    "Great Baggi Gene",
+    "Warming Gene",
+    "Speed Res Gene (M)",
+    "Antisleep Gene",
+    "Speed Res Gene (L)"
+   ]
+  },
+  {
+   "name": "Jade Barroth",
+   "type": "Speed",
+   "element": "Ice",
+   "signature_gene": "Jade Barroth Gene",
+   "genes": [
+    "Jade Barroth Gene",
+    "Antiseal Gene",
+    "Defense Gene (L)",
+    "Speed Res Gene (L)",
+    "Ice Res Gene (L)",
+    "Frigid Gene (M)",
+    "Sealing Gene (L)",
+    "Frigid Gene (L)",
+    "Cocoon Gene (L)",
+    "Unscathed Gene",
+    "Latent Ice Gene",
+    "Ice Scale Gene"
+   ]
+  },
+  {
+   "name": "Barioth",
+   "type": "Speed",
+   "element": "Ice",
+   "signature_gene": "Barioth Gene",
+   "genes": [
+    "Barioth Gene",
+    "Warming Gene",
+    "Ice Res Gene (L)",
+    "Frigid Gene (L)",
+    "Quickice Gene",
+    "Speed Gene (L)",
+    "Critical Gene (M)",
+    "Critical Gene (L)",
+    "Latent Ice Gene"
+   ]
+  },
+  {
+   "name": "Sand Barioth",
+   "type": "Speed",
+   "element": "Non-Elem",
+   "signature_gene": "Sand Barioth Gene",
+   "genes": [
+    "Sand Barioth Gene",
+    "Cooling Gene",
+    "Fire Res Gene (L)",
+    "Evasion Gene (L)",
+    "Critical Gene (L)",
+    "Cyclone Gene"
+   ]
+  },
+  {
+   "name": "Stygian Zinogre",
+   "type": "Power",
+   "element": "Dragon",
+   "signature_gene": "S. Zinogre Gene",
+   "genes": [
+    "S. Zinogre Gene",
+    "Drgn Res Gene (L)",
+    "Draconic Gene (L)",
+    "Quick Gene (L)",
+    "Draconic Scale Gene",
+    "Unscathed Gene",
+    "Latent Dragon Gene"
+   ]
+  },
+  {
+   "name": "Brachydios",
+   "type": "Power",
+   "element": "Fire",
+   "signature_gene": "Brachydios Gene",
+   "genes": [
+    "Brachydios Gene",
+    "Dampening Gene",
+    "Attack Gene (L)",
+    "Tech Gene (L)",
+    "Bombardier Gene",
+    "Volatile Gene (M)",
+    "Warlike Gene (L)",
+    "Volatile Gene (L)",
+    "Potential Gene",
+    "Head-to-Head Gene",
+    "Dampening Gene"
+   ]
+  },
+  {
+   "name": "Kirin",
+   "type": "Speed",
+   "element": "Thunder",
+   "signature_gene": "Kirin Gene",
+   "genes": [
+    "Kirin Gene",
+    "Antishock Gene",
+    "Antiblind Gene",
+    "Thndr Res Gene (L)",
+    "Flashing Gene (L)",
+    "Speed Gene (L)",
+    "All-Res Gene (M)",
+    "Quick Gene (L)",
+    "All-Res Gene (L)",
+    "Thunder Scale Gene",
+    "Nesting Gene",
+    "Painkiller Gene",
+    "Kinship Gene (L)"
+   ]
+  },
+  {
+   "name": "Monoblos",
+   "type": "Power",
+   "element": "Non-Elem",
+   "signature_gene": "Monoblos Gene",
+   "genes": [
+    "Monoblos Gene",
+    "Drgn Res Gene (L)",
+    "Water Res Gene (L)",
+    "Power Gene (L)",
+    "Sturdy Gene",
+    "All-Elem Gene (L)"
+   ]
+  },
+  {
+   "name": "Seregios",
+   "type": "Technical",
+   "element": "Non-Elem",
+   "signature_gene": "Seregios Gene",
+   "genes": [
+    "Seregios Gene",
+    "Health Gene (L)",
+    "Bleeding Gene (S)",
+    "Bleeding Gene (M)",
+    "Evasion Gene (L)",
+    "Survivor Gene",
+    "Bleeding Gene (L)",
+    "Antibleed Gene",
+    "Potent Gene (L)"
+   ]
+  },
+  {
+   "name": "Gold Rathian",
+   "type": "Speed",
+   "element": "Fire",
+   "signature_gene": "Gold Rathian Gene",
+   "genes": [
+    "Gold Rathian Gene",
+    "Antivenom Gene",
+    "Speed Res Gene (L)",
+    "Burning Gene (L)",
+    "Noxious Gene (L)",
+    "All-Elem Gene (L)",
+    "Antiburn Gene",
+    "Fire Scale Gene",
+    "Dragon Aura Gene"
+   ]
+  },
+  {
+   "name": "Silver Rathalos",
+   "type": "Power",
+   "element": "Fire",
+   "signature_gene": "Silver Rathalos Gene",
+   "genes": [
+    "Silver Rathalos Gene",
+    "Antivenom Gene",
+    "Power Gene (L)",
+    "Flaming Gene (L)",
+    "Poison Gene (L)",
+    "Draconic Gene (L)",
+    "Fire Scale Gene",
+    "Kinship Gene (L)"
+   ]
+  },
+  {
+   "name": "The Great Poogie",
+   "type": "Power",
+   "element": "Non-Elem",
+   "signature_gene": "Great Poogie Gene",
+   "genes": [
+    "Great Poogie Gene",
+    "Draconic Gene (L)"
+   ]
+  },
+  {
+   "name": "White Monoblos",
+   "type": "Power",
+   "element": "Non-Elem",
+   "signature_gene": "W. Monoblos Gene",
+   "genes": [
+    "W. Monoblos Gene",
+    "Drgn Res Gene (L)",
+    "Water Res Gene (L)",
+    "Power Gene (L)",
+    "Sturdy Gene",
+    "Potent Gene (L)"
+   ]
+  },
+  {
+   "name": "Molten Tigrex",
+   "type": "Power",
+   "element": "Non-Elem",
+   "signature_gene": "Molten Tigrex Gene",
+   "genes": [
+    "Molten Tigrex Gene",
+    "Attack Gene (L)",
+    "Thndr Res Gene (L)",
+    "Drgn Res Gene (L)",
+    "Volatile Gene (L)",
+    "Predatory Gene (L)",
+    "Power Gene (L)",
+    "Painkiller Gene"
+   ]
+  },
+  {
+   "name": "Oroshi Kirin",
+   "type": "Speed",
+   "element": "Ice",
+   "signature_gene": "Oroshi Kirin Gene",
+   "genes": [
+    "Oroshi Kirin Gene",
+    "Antishock Gene",
+    "Antiblind Gene",
+    "Ice Res Gene (L)",
+    "Frigid Gene (L)",
+    "Speed Gene (L)",
+    "All-Res Gene (M)",
+    "Quick Gene (L)",
+    "All-Res Gene (L)",
+    "Ice Scale Gene",
+    "Nesting Gene",
+    "Painkiller Gene"
+   ]
+  }
+ ]
+}

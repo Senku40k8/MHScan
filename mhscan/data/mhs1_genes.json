@@ -1,0 +1,4624 @@
+{
+ "source": "https://mhst.kiranico.com (MHS1)",
+ "genes": [
+  {
+   "name": "Aptonoth Gene",
+   "type": "No-type",
+   "element": "Non-Elem",
+   "size": null,
+   "skill": "Observe",
+   "bonuses": [
+    {
+     "stat": "Healing Efficacy Up",
+     "value": 3
+    }
+   ],
+   "sources": [
+    "Aptonoth"
+   ]
+  },
+  {
+   "name": "Popo Gene",
+   "type": "No-type",
+   "element": "Non-Elem",
+   "size": null,
+   "skill": "Soothing Bellow",
+   "bonuses": [
+    {
+     "stat": "Max HP Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Popo"
+   ]
+  },
+  {
+   "name": "Apceros Gene",
+   "type": "No-type",
+   "element": "Water",
+   "size": null,
+   "skill": "Defensive Stance",
+   "bonuses": [
+    {
+     "stat": "Water Resistance Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Apceros"
+   ]
+  },
+  {
+   "name": "Yian Kut-Ku Gene",
+   "type": "Technical",
+   "element": "Fire",
+   "size": null,
+   "skill": "Fireball",
+   "bonuses": [
+    {
+     "stat": "Fire Attack Up",
+     "value": 1
+    },
+    {
+     "stat": "Defense Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Yian Kut-Ku"
+   ]
+  },
+  {
+   "name": "B. Yian Kut-Ku Gene",
+   "type": "Technical",
+   "element": "Fire",
+   "size": null,
+   "skill": "Blazeball",
+   "bonuses": [
+    {
+     "stat": "Fire Attack Up",
+     "value": 1
+    },
+    {
+     "stat": "Defense Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Blue Yian Kut-Ku"
+   ]
+  },
+  {
+   "name": "Gypceros Gene",
+   "type": "Power",
+   "element": "Thunder",
+   "size": null,
+   "skill": "Flash",
+   "bonuses": [
+    {
+     "stat": "Thunder Attack Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Gypceros"
+   ]
+  },
+  {
+   "name": "P. Gypceros Gene",
+   "type": "Power",
+   "element": "Non-Elem",
+   "size": null,
+   "skill": "Noxious Venom",
+   "bonuses": [
+    {
+     "stat": "Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Defense Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Purple Gypceros"
+   ]
+  },
+  {
+   "name": "Yian Garuga Gene",
+   "type": "Power",
+   "element": "Dragon",
+   "size": null,
+   "skill": "Finishing Blow",
+   "bonuses": [
+    {
+     "stat": "Healing Efficacy Up",
+     "value": 2
+    },
+    {
+     "stat": "Dragon Attack Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Yian Garuga"
+   ]
+  },
+  {
+   "name": "Arzuros Gene",
+   "type": "No-type",
+   "element": "Non-Elem",
+   "size": null,
+   "skill": "Honey Power",
+   "bonuses": [
+    {
+     "stat": "Attack Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Arzuros"
+   ]
+  },
+  {
+   "name": "Lagombi Gene",
+   "type": "Speed",
+   "element": "Ice",
+   "size": null,
+   "skill": "Ice Toss",
+   "bonuses": [
+    {
+     "stat": "Defense Up",
+     "value": 2
+    },
+    {
+     "stat": "Ice Resistance Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Lagombi"
+   ]
+  },
+  {
+   "name": "Velocidrome Gene",
+   "type": "Speed",
+   "element": "Water",
+   "size": null,
+   "skill": "Intimidate",
+   "bonuses": [
+    {
+     "stat": "Water Attack Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Velocidrome"
+   ]
+  },
+  {
+   "name": "Iodrome Gene",
+   "type": "Speed",
+   "element": "Fire",
+   "size": null,
+   "skill": "Venom",
+   "bonuses": [
+    {
+     "stat": "Fire Resistance Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Iodrome"
+   ]
+  },
+  {
+   "name": "Gendrome Gene",
+   "type": "Speed",
+   "element": "Thunder",
+   "size": null,
+   "skill": "Paralysis Fang",
+   "bonuses": [
+    {
+     "stat": "Thunder Attack Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Gendrome"
+   ]
+  },
+  {
+   "name": "Bulldrome Gene",
+   "type": "Speed",
+   "element": "Water",
+   "size": null,
+   "skill": "Lethal Tackle",
+   "bonuses": [
+    {
+     "stat": "Attack Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Bulldrome"
+   ]
+  },
+  {
+   "name": "Zamtrios Gene",
+   "type": "Technical",
+   "element": "Ice",
+   "size": null,
+   "skill": "Spread Frost Breath",
+   "bonuses": [
+    {
+     "stat": "Ice Resistance Up",
+     "value": 2
+    },
+    {
+     "stat": "Ice Attack Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Zamtrios"
+   ]
+  },
+  {
+   "name": "Khezu Gene",
+   "type": "No-type",
+   "element": "Thunder",
+   "size": null,
+   "skill": "Roar",
+   "bonuses": [
+    {
+     "stat": "Thunder Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Defense Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Khezu"
+   ]
+  },
+  {
+   "name": "Red Khezu Gene",
+   "type": "No-type",
+   "element": "Thunder",
+   "size": null,
+   "skill": "Sav Thunder Breath",
+   "bonuses": [
+    {
+     "stat": "Thunder Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Attack Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Red Khezu"
+   ]
+  },
+  {
+   "name": "Tigrex Gene",
+   "type": "Power",
+   "element": "Non-Elem",
+   "size": null,
+   "skill": "Stampede",
+   "bonuses": [
+    {
+     "stat": "Attack Up",
+     "value": 3
+    },
+    {
+     "stat": "Crit Rate Up",
+     "value": -2
+    }
+   ],
+   "sources": [
+    "Tigrex"
+   ]
+  },
+  {
+   "name": "Brute Tigrex Gene",
+   "type": "Power",
+   "element": "Non-Elem",
+   "size": null,
+   "skill": "Savage Roar",
+   "bonuses": [
+    {
+     "stat": "Attack Up",
+     "value": 3
+    },
+    {
+     "stat": "Crit Rate Up",
+     "value": -2
+    }
+   ],
+   "sources": [
+    "Brute Tigrex"
+   ]
+  },
+  {
+   "name": "Nargacuga Gene",
+   "type": "Speed",
+   "element": "Dragon",
+   "size": null,
+   "skill": "Sharpen Blades",
+   "bonuses": [
+    {
+     "stat": "Crit Rate Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Nargacuga"
+   ]
+  },
+  {
+   "name": "G. Nargacuga Gene",
+   "type": "Speed",
+   "element": "Dragon",
+   "size": null,
+   "skill": "Evasion (M)",
+   "bonuses": [
+    {
+     "stat": "Crit Rate Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Green Nargacuga"
+   ]
+  },
+  {
+   "name": "Rathian Gene",
+   "type": "Speed",
+   "element": "Fire",
+   "size": null,
+   "skill": "Poison Spike",
+   "bonuses": [
+    {
+     "stat": "Fire Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Defense Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Rathian"
+   ]
+  },
+  {
+   "name": "Pink Rathian Gene",
+   "type": "Speed",
+   "element": "Fire",
+   "size": null,
+   "skill": "Flame Fang",
+   "bonuses": [
+    {
+     "stat": "Fire Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Defense Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Pink Rathian"
+   ]
+  },
+  {
+   "name": "Gold Rathian Gene",
+   "type": "Speed",
+   "element": "Fire",
+   "size": null,
+   "skill": "Spread Fire Breath",
+   "bonuses": [
+    {
+     "stat": "Fire Attack Up",
+     "value": 3
+    },
+    {
+     "stat": "Defense Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Gold Rathian"
+   ]
+  },
+  {
+   "name": "Rathalos Gene",
+   "type": "Power",
+   "element": "Fire",
+   "size": null,
+   "skill": "Savage Fireball",
+   "bonuses": [
+    {
+     "stat": "Fire Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Defense Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Rathalos"
+   ]
+  },
+  {
+   "name": "Azure Rathalos Gene",
+   "type": "Power",
+   "element": "Fire",
+   "size": null,
+   "skill": "Gather Breath",
+   "bonuses": [
+    {
+     "stat": "Fire Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Attack Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Azure Rathalos"
+   ]
+  },
+  {
+   "name": "Silver Rathalos Gene",
+   "type": "Power",
+   "element": "Fire",
+   "size": null,
+   "skill": "Infernal Breath",
+   "bonuses": [
+    {
+     "stat": "Fire Attack Up",
+     "value": 3
+    },
+    {
+     "stat": "Attack Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Silver Rathalos"
+   ]
+  },
+  {
+   "name": "Ratha's Gene",
+   "type": "Power",
+   "element": "Fire",
+   "size": null,
+   "skill": "Savage Fireball",
+   "bonuses": [
+    {
+     "stat": "Fire Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Attack Up",
+     "value": 2
+    }
+   ],
+   "sources": []
+  },
+  {
+   "name": "Diablos Gene",
+   "type": "Power",
+   "element": "Non-Elem",
+   "size": null,
+   "skill": "Power Charge",
+   "bonuses": [
+    {
+     "stat": "Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Max HP Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Diablos"
+   ]
+  },
+  {
+   "name": "Black Diablos Gene",
+   "type": "Power",
+   "element": "Non-Elem",
+   "size": null,
+   "skill": "Merciless Horn",
+   "bonuses": [
+    {
+     "stat": "Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Max HP Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Black Diablos"
+   ]
+  },
+  {
+   "name": "Monoblos Gene",
+   "type": "Speed",
+   "element": "Non-Elem",
+   "size": null,
+   "skill": "Vicious (M)",
+   "bonuses": [
+    {
+     "stat": "Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Defense Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Monoblos"
+   ]
+  },
+  {
+   "name": "W. Monoblos Gene",
+   "type": "Speed",
+   "element": "Non-Elem",
+   "size": null,
+   "skill": "Lock-On",
+   "bonuses": [
+    {
+     "stat": "Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Defense Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "White Monoblos"
+   ]
+  },
+  {
+   "name": "Basarios Gene",
+   "type": "Technical",
+   "element": "Dragon",
+   "size": null,
+   "skill": "Rock Shield",
+   "bonuses": [
+    {
+     "stat": "Defense Up",
+     "value": 2
+    },
+    {
+     "stat": "Dragon Attack Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Basarios"
+   ]
+  },
+  {
+   "name": "Ruby Basarios Gene",
+   "type": "Technical",
+   "element": "Dragon",
+   "size": null,
+   "skill": "Ore Shield",
+   "bonuses": [
+    {
+     "stat": "Defense Up",
+     "value": 2
+    },
+    {
+     "stat": "Dragon Attack Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Ruby Basarios"
+   ]
+  },
+  {
+   "name": "Gravios Gene",
+   "type": "No-type",
+   "element": "Fire",
+   "size": null,
+   "skill": "Spreading Beam",
+   "bonuses": [
+    {
+     "stat": "Fire Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Defense Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Gravios"
+   ]
+  },
+  {
+   "name": "Black Gravios Gene",
+   "type": "No-type",
+   "element": "Fire",
+   "size": null,
+   "skill": "Chrg Spread Beam",
+   "bonuses": [
+    {
+     "stat": "Fire Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Defense Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Black Gravios"
+   ]
+  },
+  {
+   "name": "Qurupeco Gene",
+   "type": "Technical",
+   "element": "Fire",
+   "size": null,
+   "skill": "Soothing Song",
+   "bonuses": [
+    {
+     "stat": "Fire Attack Up",
+     "value": 1
+    },
+    {
+     "stat": "Healing Efficacy Up",
+     "value": 3
+    }
+   ],
+   "sources": [
+    "Qurupeco"
+   ]
+  },
+  {
+   "name": "C. Qurupeco Gene",
+   "type": "Technical",
+   "element": "Thunder",
+   "size": null,
+   "skill": "Weakening Song",
+   "bonuses": [
+    {
+     "stat": "Thunder Attack Up",
+     "value": 1
+    },
+    {
+     "stat": "Thunder Resistance Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Crimson Qurupeco"
+   ]
+  },
+  {
+   "name": "Royal Ludroth Gene",
+   "type": "Power",
+   "element": "Water",
+   "size": null,
+   "skill": "Water Soak",
+   "bonuses": [
+    {
+     "stat": "Water Resistance Up",
+     "value": 2
+    },
+    {
+     "stat": "Attack Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Royal Ludroth"
+   ]
+  },
+  {
+   "name": "Purple Ludroth Gene",
+   "type": "Power",
+   "element": "Water",
+   "size": null,
+   "skill": "Poison Spit",
+   "bonuses": [
+    {
+     "stat": "Water Resistance Up",
+     "value": 2
+    },
+    {
+     "stat": "Attack Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Purple Ludroth"
+   ]
+  },
+  {
+   "name": "Congalala Gene",
+   "type": "Technical",
+   "element": "Non-Elem",
+   "size": null,
+   "skill": "Foul Gas",
+   "bonuses": [
+    {
+     "stat": "Max HP Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Congalala"
+   ]
+  },
+  {
+   "name": "E. Congalala Gene",
+   "type": "Technical",
+   "element": "Non-Elem",
+   "size": null,
+   "skill": "Explosive Gas",
+   "bonuses": [
+    {
+     "stat": "Max HP Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Emerald Congalala"
+   ]
+  },
+  {
+   "name": "Nerscylla Gene",
+   "type": "Power",
+   "element": "Ice",
+   "size": null,
+   "skill": "Sleep Needle",
+   "bonuses": [
+    {
+     "stat": "Ice Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Crit Rate Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Nerscylla"
+   ]
+  },
+  {
+   "name": "S. Nerscylla Gene",
+   "type": "Technical",
+   "element": "Ice",
+   "size": null,
+   "skill": "All Status Rate+ (M)",
+   "bonuses": [
+    {
+     "stat": "Ice Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Defense Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Shrouded Nerscylla"
+   ]
+  },
+  {
+   "name": "Cephadrome Gene",
+   "type": "Speed",
+   "element": "Water",
+   "size": null,
+   "skill": "Sand Breath",
+   "bonuses": [
+    {
+     "stat": "Attack Up",
+     "value": 1
+    },
+    {
+     "stat": "Water Resistance Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Cephadrome"
+   ]
+  },
+  {
+   "name": "Plesioth Gene",
+   "type": "No-type",
+   "element": "Water",
+   "size": null,
+   "skill": "",
+   "bonuses": [
+    {
+     "stat": "Attack Up",
+     "value": 1
+    },
+    {
+     "stat": "Water Resistance Up",
+     "value": 2
+    }
+   ],
+   "sources": []
+  },
+  {
+   "name": "Green Plesioth Gene",
+   "type": "No-type",
+   "element": "Water",
+   "size": null,
+   "skill": "",
+   "bonuses": [
+    {
+     "stat": "Attack Up",
+     "value": 3
+    },
+    {
+     "stat": "Water Attack Up",
+     "value": 3
+    }
+   ],
+   "sources": []
+  },
+  {
+   "name": "Barioth Gene",
+   "type": "No-type",
+   "element": "Ice",
+   "size": null,
+   "skill": "Ice Cyclone",
+   "bonuses": [
+    {
+     "stat": "Ice Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Healing Efficacy Up",
+     "value": 3
+    }
+   ],
+   "sources": [
+    "Barioth"
+   ]
+  },
+  {
+   "name": "Sand Barioth Gene",
+   "type": "No-type",
+   "element": "Fire",
+   "size": null,
+   "skill": "Trap Cyclone",
+   "bonuses": [
+    {
+     "stat": "Fire Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Healing Efficacy Up",
+     "value": 3
+    }
+   ],
+   "sources": [
+    "Sand Barioth"
+   ]
+  },
+  {
+   "name": "Barroth Gene",
+   "type": "No-type",
+   "element": "Water",
+   "size": null,
+   "skill": "Mud Throw",
+   "bonuses": [
+    {
+     "stat": "Water Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Max HP Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Barroth"
+   ]
+  },
+  {
+   "name": "Jade Barroth Gene",
+   "type": "No-type",
+   "element": "Ice",
+   "size": null,
+   "skill": "Snowball",
+   "bonuses": [
+    {
+     "stat": "Ice Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Max HP Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Jade Barroth"
+   ]
+  },
+  {
+   "name": "Uragaan Gene",
+   "type": "Power",
+   "element": "Fire",
+   "size": null,
+   "skill": "Bombardier",
+   "bonuses": [
+    {
+     "stat": "Fire Resistance Up",
+     "value": 2
+    },
+    {
+     "stat": "Defense Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Uragaan"
+   ]
+  },
+  {
+   "name": "Duramboros Gene",
+   "type": "Power",
+   "element": "Water",
+   "size": null,
+   "skill": "",
+   "bonuses": [
+    {
+     "stat": "Defense Up",
+     "value": -3
+    },
+    {
+     "stat": "Water Attack Up",
+     "value": 3
+    }
+   ],
+   "sources": []
+  },
+  {
+   "name": "Deviljho Gene",
+   "type": "Power",
+   "element": "Dragon",
+   "size": null,
+   "skill": "Spread Drgn Breath",
+   "bonuses": [
+    {
+     "stat": "Dragon Attack Up",
+     "value": 3
+    },
+    {
+     "stat": "Max HP Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Deviljho"
+   ]
+  },
+  {
+   "name": "Great Jaggi Gene",
+   "type": "Speed",
+   "element": "Ice",
+   "size": null,
+   "skill": "Breaking Blow",
+   "bonuses": [
+    {
+     "stat": "Ice Resistance Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Great Jaggi"
+   ]
+  },
+  {
+   "name": "Great Baggi Gene",
+   "type": "Power",
+   "element": "Ice",
+   "size": null,
+   "skill": "Sleep Serum",
+   "bonuses": [
+    {
+     "stat": "Ice Attack Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Great Baggi"
+   ]
+  },
+  {
+   "name": "Kecha Wacha Gene",
+   "type": "Technical",
+   "element": "Water",
+   "size": null,
+   "skill": "Spitball",
+   "bonuses": [
+    {
+     "stat": "Max HP Up",
+     "value": 2
+    },
+    {
+     "stat": "Water Attack Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Kecha Wacha"
+   ]
+  },
+  {
+   "name": "A. Kecha Gene",
+   "type": "Technical",
+   "element": "Fire",
+   "size": null,
+   "skill": "Firespit",
+   "bonuses": [
+    {
+     "stat": "Max HP Up",
+     "value": 2
+    },
+    {
+     "stat": "Fire Attack Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Ash Kecha Wacha"
+   ]
+  },
+  {
+   "name": "Zinogre Gene",
+   "type": "Power",
+   "element": "Thunder",
+   "size": null,
+   "skill": "Thnder Supercharge",
+   "bonuses": [
+    {
+     "stat": "Thunder Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Thunder Resistance Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Zinogre"
+   ]
+  },
+  {
+   "name": "S. Zinogre Gene",
+   "type": "No-type",
+   "element": "Dragon",
+   "size": null,
+   "skill": "Dragon Shroud",
+   "bonuses": [
+    {
+     "stat": "Dragon Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Dragon Resistance Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Stygian Zinogre"
+   ]
+  },
+  {
+   "name": "Lagiacrus Gene",
+   "type": "Speed",
+   "element": "Thunder",
+   "size": null,
+   "skill": "Thunder Breath",
+   "bonuses": [
+    {
+     "stat": "Thunder Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Defense Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Lagiacrus"
+   ]
+  },
+  {
+   "name": "Ivory Lagiacrus Gene",
+   "type": "Technical",
+   "element": "Thunder",
+   "size": null,
+   "skill": "Spread Shock Brth",
+   "bonuses": [
+    {
+     "stat": "Thunder Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Attack Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Ivory Lagiacrus"
+   ]
+  },
+  {
+   "name": "Brachydios Gene",
+   "type": "Power",
+   "element": "Fire",
+   "size": null,
+   "skill": "Slime Stomp",
+   "bonuses": [
+    {
+     "stat": "Fire Attack Up",
+     "value": 3
+    },
+    {
+     "stat": "Attack Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Brachydios"
+   ]
+  },
+  {
+   "name": "Kirin Gene",
+   "type": "Speed",
+   "element": "Thunder",
+   "size": null,
+   "skill": "Thundercall",
+   "bonuses": [
+    {
+     "stat": "Thunder Attack Up",
+     "value": 3
+    },
+    {
+     "stat": "Healing Efficacy Up",
+     "value": 3
+    }
+   ],
+   "sources": [
+    "Kirin"
+   ]
+  },
+  {
+   "name": "Oroshi Kirin Gene",
+   "type": "Speed",
+   "element": "Ice",
+   "size": null,
+   "skill": "Glacial Pillar",
+   "bonuses": [
+    {
+     "stat": "Ice Attack Up",
+     "value": 3
+    },
+    {
+     "stat": "Healing Efficacy Up",
+     "value": 3
+    }
+   ],
+   "sources": [
+    "Oroshi Kirin"
+   ]
+  },
+  {
+   "name": "Seregios Gene",
+   "type": "Technical",
+   "element": "Non-Elem",
+   "size": null,
+   "skill": "Thousand Blades",
+   "bonuses": [
+    {
+     "stat": "Crit Rate Up",
+     "value": 1
+    },
+    {
+     "stat": "Attack Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Seregios"
+   ]
+  },
+  {
+   "name": "Warming Gene",
+   "type": "No-type",
+   "element": "Ice",
+   "size": null,
+   "skill": "Cold Res",
+   "bonuses": [
+    {
+     "stat": "Ice Resistance Up",
+     "value": 3
+    }
+   ],
+   "sources": [
+    "Lagombi",
+    "Popo",
+    "Great Baggi",
+    "Barioth",
+    "Zamtrios"
+   ]
+  },
+  {
+   "name": "Cooling Gene",
+   "type": "No-type",
+   "element": "Fire",
+   "size": null,
+   "skill": "Heat Res",
+   "bonuses": [
+    {
+     "stat": "Fire Resistance Up",
+     "value": 3
+    }
+   ],
+   "sources": [
+    "Cephadrome",
+    "Basarios",
+    "Ruby Basarios",
+    "Gravios",
+    "Black Gravios",
+    "Apceros",
+    "Sand Barioth",
+    "Uragaan"
+   ]
+  },
+  {
+   "name": "Sturdy Gene",
+   "type": "Speed",
+   "element": "Dragon",
+   "size": null,
+   "skill": "Negate 1-hit KO",
+   "bonuses": [
+    {
+     "stat": "Dragon Resistance Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Monoblos",
+    "White Monoblos"
+   ]
+  },
+  {
+   "name": "Antivenom Gene",
+   "type": "Technical",
+   "element": "Non-Elem",
+   "size": null,
+   "skill": "Negate Poison",
+   "bonuses": [
+    {
+     "stat": "Defense Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Rathian",
+    "Pink Rathian",
+    "Gold Rathian",
+    "Rathalos",
+    "Azure Rathalos",
+    "Silver Rathalos",
+    "Iodrome",
+    "Purple Ludroth",
+    "Gypceros",
+    "Purple Gypceros",
+    "Yian Garuga",
+    "Shrouded Nerscylla"
+   ]
+  },
+  {
+   "name": "Antiburn Gene",
+   "type": "Speed",
+   "element": "Fire",
+   "size": null,
+   "skill": "Negate Burn",
+   "bonuses": [
+    {
+     "stat": "Fire Resistance Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Rathian",
+    "Pink Rathian",
+    "Gold Rathian",
+    "Gravios",
+    "Black Gravios",
+    "Uragaan"
+   ]
+  },
+  {
+   "name": "Antishock Gene",
+   "type": "Speed",
+   "element": "Thunder",
+   "size": null,
+   "skill": "Negate Paralysis",
+   "bonuses": [
+    {
+     "stat": "Thunder Resistance Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Emerald Congalala",
+    "Khezu",
+    "Red Khezu",
+    "Gendrome",
+    "Kirin",
+    "Oroshi Kirin"
+   ]
+  },
+  {
+   "name": "Antisleep Gene",
+   "type": "Power",
+   "element": "Ice",
+   "size": null,
+   "skill": "Negate Sleep",
+   "bonuses": [
+    {
+     "stat": "Ice Resistance Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Great Baggi",
+    "Nerscylla",
+    "Uragaan"
+   ]
+  },
+  {
+   "name": "Antistench Gene",
+   "type": "Speed",
+   "element": "Non-Elem",
+   "size": null,
+   "skill": "Negate Stench",
+   "bonuses": [
+    {
+     "stat": "Defense Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Congalala",
+    "Emerald Congalala"
+   ]
+  },
+  {
+   "name": "Antiseal Gene",
+   "type": "Technical",
+   "element": "Ice",
+   "size": null,
+   "skill": "Negate Skillseal",
+   "bonuses": [
+    {
+     "stat": "Defense Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Lagombi",
+    "Royal Ludroth",
+    "Yian Garuga",
+    "Barroth",
+    "Jade Barroth"
+   ]
+  },
+  {
+   "name": "Dampening Gene",
+   "type": "Power",
+   "element": "Fire",
+   "size": null,
+   "skill": "Negate Blastblight",
+   "bonuses": [
+    {
+     "stat": "Fire Resistance Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Purple Ludroth",
+    "Brachydios",
+    "Brachydios"
+   ]
+  },
+  {
+   "name": "Antibleed Gene",
+   "type": "Speed",
+   "element": "Dragon",
+   "size": null,
+   "skill": "Negate Bleeding",
+   "bonuses": [
+    {
+     "stat": "Dragon Resistance Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Seregios"
+   ]
+  },
+  {
+   "name": "Antiblind Gene",
+   "type": "Power",
+   "element": "Water",
+   "size": null,
+   "skill": "Negate Blind",
+   "bonuses": [
+    {
+     "stat": "Water Resistance Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Khezu",
+    "Red Khezu",
+    "Cephadrome",
+    "Gypceros",
+    "Purple Gypceros",
+    "Kirin",
+    "Oroshi Kirin"
+   ]
+  },
+  {
+   "name": "Painkiller Gene",
+   "type": "No-type",
+   "element": "Non-Elem",
+   "size": null,
+   "skill": "Negate Cont Dmg",
+   "bonuses": [
+    {
+     "stat": "Attack Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Molten Tigrex",
+    "Kirin",
+    "Oroshi Kirin"
+   ]
+  },
+  {
+   "name": "Poison Gene (S)",
+   "type": "Technical",
+   "element": "Water",
+   "size": "S",
+   "skill": "Extend Poison (S)",
+   "bonuses": [
+    {
+     "stat": "Water Attack Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Iodrome",
+    "Nerscylla"
+   ]
+  },
+  {
+   "name": "Poison Gene (M)",
+   "type": "Technical",
+   "element": "Water",
+   "size": "M",
+   "skill": "Extend Poison (M)",
+   "bonuses": [
+    {
+     "stat": "Water Attack Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Pink Rathian",
+    "Rathalos",
+    "Iodrome",
+    "Purple Ludroth",
+    "Yian Garuga",
+    "Nerscylla"
+   ]
+  },
+  {
+   "name": "Poison Gene (L)",
+   "type": "Technical",
+   "element": "Water",
+   "size": "L",
+   "skill": "Extend Poison (L)",
+   "bonuses": [
+    {
+     "stat": "Water Attack Up",
+     "value": 3
+    }
+   ],
+   "sources": [
+    "Silver Rathalos",
+    "Purple Ludroth",
+    "Ruby Basarios",
+    "Yian Garuga"
+   ]
+  },
+  {
+   "name": "Burning Gene (S)",
+   "type": "Technical",
+   "element": "Fire",
+   "size": "S",
+   "skill": "Extend Burn (S)",
+   "bonuses": [
+    {
+     "stat": "Fire Attack Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Yian Kut-Ku"
+   ]
+  },
+  {
+   "name": "Burning Gene (M)",
+   "type": "Technical",
+   "element": "Fire",
+   "size": "M",
+   "skill": "Extend Burn (M)",
+   "bonuses": [
+    {
+     "stat": "Fire Attack Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Rathian",
+    "Yian Kut-Ku"
+   ]
+  },
+  {
+   "name": "Burning Gene (L)",
+   "type": "Technical",
+   "element": "Fire",
+   "size": "L",
+   "skill": "Extend Burn (L)",
+   "bonuses": [
+    {
+     "stat": "Fire Attack Up",
+     "value": 3
+    }
+   ],
+   "sources": [
+    "Rathian",
+    "Gold Rathian"
+   ]
+  },
+  {
+   "name": "Paralyze Gene (S)",
+   "type": "Speed",
+   "element": "Thunder",
+   "size": "S",
+   "skill": "Extend Paralysis (S)",
+   "bonuses": [
+    {
+     "stat": "Thunder Attack Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Red Khezu",
+    "Cephadrome"
+   ]
+  },
+  {
+   "name": "Paralyze Gene (M)",
+   "type": "Speed",
+   "element": "Thunder",
+   "size": "M",
+   "skill": "Extend Para (M)",
+   "bonuses": [
+    {
+     "stat": "Thunder Attack Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Red Khezu",
+    "Cephadrome",
+    "Zinogre"
+   ]
+  },
+  {
+   "name": "Paralyze Gene (L)",
+   "type": "Speed",
+   "element": "Thunder",
+   "size": "L",
+   "skill": "Extend Paralysis (L)",
+   "bonuses": [
+    {
+     "stat": "Thunder Attack Up",
+     "value": 3
+    }
+   ],
+   "sources": [
+    "Zinogre",
+    "Lagiacrus",
+    "Ivory Lagiacrus"
+   ]
+  },
+  {
+   "name": "Sealing Gene (S)",
+   "type": "Power",
+   "element": "Ice",
+   "size": "S",
+   "skill": "Extend Skillseal (S)",
+   "bonuses": [
+    {
+     "stat": "Ice Attack Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Lagombi",
+    "Royal Ludroth"
+   ]
+  },
+  {
+   "name": "Sealing Gene (M)",
+   "type": "Power",
+   "element": "Ice",
+   "size": "M",
+   "skill": "Extend Skillseal (M)",
+   "bonuses": [
+    {
+     "stat": "Ice Attack Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Lagombi",
+    "Royal Ludroth",
+    "Kecha Wacha",
+    "Shrouded Nerscylla"
+   ]
+  },
+  {
+   "name": "Sealing Gene (L)",
+   "type": "Power",
+   "element": "Ice",
+   "size": "L",
+   "skill": "Extend Skillseal (L)",
+   "bonuses": [
+    {
+     "stat": "Ice Attack Up",
+     "value": 3
+    }
+   ],
+   "sources": [
+    "Kecha Wacha",
+    "Jade Barroth"
+   ]
+  },
+  {
+   "name": "Blinding Gene (S)",
+   "type": "Power",
+   "element": "Water",
+   "size": "S",
+   "skill": "Extend Blind (S)",
+   "bonuses": [
+    {
+     "stat": "Water Attack Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Gypceros"
+   ]
+  },
+  {
+   "name": "Blinding Gene (M)",
+   "type": "Power",
+   "element": "Water",
+   "size": "M",
+   "skill": "Extend Blind (M)",
+   "bonuses": [
+    {
+     "stat": "Water Attack Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Gypceros"
+   ]
+  },
+  {
+   "name": "Blinding Gene (L)",
+   "type": "Power",
+   "element": "Water",
+   "size": "L",
+   "skill": "Extend Blind (L)",
+   "bonuses": [
+    {
+     "stat": "Water Attack Up",
+     "value": 3
+    }
+   ],
+   "sources": [
+    "Purple Gypceros"
+   ]
+  },
+  {
+   "name": "Abnormal Gene",
+   "type": "Speed",
+   "element": "Dragon",
+   "size": null,
+   "skill": "Ext Abnormal Status",
+   "bonuses": [
+    {
+     "stat": "Dragon Attack Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Congalala",
+    "Emerald Congalala",
+    "Nerscylla",
+    "Shrouded Nerscylla"
+   ]
+  },
+  {
+   "name": "Abnormal Gene (M)",
+   "type": "Speed",
+   "element": "Dragon",
+   "size": "M",
+   "skill": "",
+   "bonuses": [
+    {
+     "stat": "Dragon Attack Up",
+     "value": 2
+    }
+   ],
+   "sources": []
+  },
+  {
+   "name": "Abnormal Gene (L)",
+   "type": "Speed",
+   "element": "Dragon",
+   "size": "L",
+   "skill": "",
+   "bonuses": [
+    {
+     "stat": "Dragon Attack Up",
+     "value": 3
+    }
+   ],
+   "sources": []
+  },
+  {
+   "name": "Noxious Gene (S)",
+   "type": "Technical",
+   "element": "Water",
+   "size": "S",
+   "skill": "Poison Rate+ (S)",
+   "bonuses": [
+    {
+     "stat": "Water Attack Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Iodrome",
+    "Gypceros",
+    "Shrouded Nerscylla"
+   ]
+  },
+  {
+   "name": "Noxious Gene (M)",
+   "type": "Technical",
+   "element": "Water",
+   "size": "M",
+   "skill": "Poison Rate+ (M)",
+   "bonuses": [
+    {
+     "stat": "Water Attack Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Rathian",
+    "Azure Rathalos",
+    "Iodrome",
+    "Gypceros",
+    "Yian Garuga",
+    "Shrouded Nerscylla"
+   ]
+  },
+  {
+   "name": "Noxious Gene (L)",
+   "type": "Technical",
+   "element": "Water",
+   "size": "L",
+   "skill": "Poison Rate+ (L)",
+   "bonuses": [
+    {
+     "stat": "Water Attack Up",
+     "value": 3
+    }
+   ],
+   "sources": [
+    "Gold Rathian",
+    "Purple Gypceros",
+    "Yian Garuga"
+   ]
+  },
+  {
+   "name": "Searing Gene (S)",
+   "type": "Technical",
+   "element": "Fire",
+   "size": "S",
+   "skill": "Burn Rate+ (S)",
+   "bonuses": [
+    {
+     "stat": "Fire Attack Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Blue Yian Kut-Ku"
+   ]
+  },
+  {
+   "name": "Searing Gene (M)",
+   "type": "Technical",
+   "element": "Fire",
+   "size": "M",
+   "skill": "Burn Rate+ (M)",
+   "bonuses": [
+    {
+     "stat": "Fire Attack Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Pink Rathian",
+    "Blue Yian Kut-Ku",
+    "Basarios",
+    "Yian Garuga"
+   ]
+  },
+  {
+   "name": "Searing Gene (L)",
+   "type": "Technical",
+   "element": "Fire",
+   "size": "L",
+   "skill": "Burn Rate+ (L)",
+   "bonuses": [
+    {
+     "stat": "Fire Attack Up",
+     "value": 3
+    }
+   ],
+   "sources": [
+    "Pink Rathian",
+    "Basarios"
+   ]
+  },
+  {
+   "name": "Shocking Gene (S)",
+   "type": "Power",
+   "element": "Thunder",
+   "size": "S",
+   "skill": "Paralysis Rate+ (S)",
+   "bonuses": [
+    {
+     "stat": "Thunder Attack Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Khezu",
+    "Gendrome",
+    "Shrouded Nerscylla"
+   ]
+  },
+  {
+   "name": "Shocking Gene (M)",
+   "type": "Power",
+   "element": "Thunder",
+   "size": "M",
+   "skill": "Paralysis Rate+ (M)",
+   "bonuses": [
+    {
+     "stat": "Thunder Attack Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Khezu",
+    "Gendrome",
+    "Shrouded Nerscylla"
+   ]
+  },
+  {
+   "name": "Shocking Gene (L)",
+   "type": "Power",
+   "element": "Thunder",
+   "size": "L",
+   "skill": "Paralysis Rate+ (L)",
+   "bonuses": [
+    {
+     "stat": "Thunder Attack Up",
+     "value": 3
+    }
+   ],
+   "sources": [
+    "Lagiacrus",
+    "Ivory Lagiacrus"
+   ]
+  },
+  {
+   "name": "Hypnotic Gene (S)",
+   "type": "Technical",
+   "element": "Ice",
+   "size": "S",
+   "skill": "Sleep Rate+ (S)",
+   "bonuses": [
+    {
+     "stat": "Ice Attack Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Nerscylla"
+   ]
+  },
+  {
+   "name": "Hypnotic Gene (M)",
+   "type": "Technical",
+   "element": "Ice",
+   "size": "M",
+   "skill": "Sleep Rate+ (M)",
+   "bonuses": [
+    {
+     "stat": "Ice Attack Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Gravios",
+    "Black Gravios",
+    "Nerscylla"
+   ]
+  },
+  {
+   "name": "Hypnotic Gene (L)",
+   "type": "Technical",
+   "element": "Ice",
+   "size": "L",
+   "skill": "Sleep Rate+ (L)",
+   "bonuses": [
+    {
+     "stat": "Ice Attack Up",
+     "value": 3
+    }
+   ],
+   "sources": [
+    "Gravios",
+    "Black Gravios"
+   ]
+  },
+  {
+   "name": "Stinking Gene (S)",
+   "type": "Power",
+   "element": "Non-Elem",
+   "size": "S",
+   "skill": "Stench Rate+ (S)",
+   "bonuses": [
+    {
+     "stat": "Defense Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Congalala",
+    "Emerald Congalala"
+   ]
+  },
+  {
+   "name": "Stinking Gene (M)",
+   "type": "Power",
+   "element": "Non-Elem",
+   "size": "M",
+   "skill": "Stench Rate+ (M)",
+   "bonuses": [
+    {
+     "stat": "Defense Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Congalala",
+    "Emerald Congalala"
+   ]
+  },
+  {
+   "name": "Stinking Gene (L)",
+   "type": "Power",
+   "element": "Non-Elem",
+   "size": "L",
+   "skill": "Stench Rate+ (L)",
+   "bonuses": [
+    {
+     "stat": "Attack Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Congalala",
+    "Emerald Congalala"
+   ]
+  },
+  {
+   "name": "Cocoon Gene (S)",
+   "type": "Speed",
+   "element": "Ice",
+   "size": "S",
+   "skill": "Skillseal Rate+ (S)",
+   "bonuses": [
+    {
+     "stat": "Ice Attack Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Lagombi",
+    "Zamtrios"
+   ]
+  },
+  {
+   "name": "Cocoon Gene (M)",
+   "type": "Speed",
+   "element": "Ice",
+   "size": "M",
+   "skill": "Skillseal Rate+ (M)",
+   "bonuses": [
+    {
+     "stat": "Ice Attack Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Lagombi",
+    "Ash Kecha Wacha",
+    "Nerscylla",
+    "Zamtrios"
+   ]
+  },
+  {
+   "name": "Cocoon Gene (L)",
+   "type": "Speed",
+   "element": "Ice",
+   "size": "L",
+   "skill": "Skillseal Rate+ (L)",
+   "bonuses": [
+    {
+     "stat": "Ice Attack Up",
+     "value": 3
+    }
+   ],
+   "sources": [
+    "Ash Kecha Wacha",
+    "Jade Barroth"
+   ]
+  },
+  {
+   "name": "Volatile Gene (S)",
+   "type": "Speed",
+   "element": "Fire",
+   "size": "S",
+   "skill": "Blstblight Rate+ (S)",
+   "bonuses": [
+    {
+     "stat": "Fire Attack Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Uragaan"
+   ]
+  },
+  {
+   "name": "Volatile Gene (M)",
+   "type": "Speed",
+   "element": "Fire",
+   "size": "M",
+   "skill": "Blstblight Rate+ (M)",
+   "bonuses": [
+    {
+     "stat": "Fire Attack Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Brachydios",
+    "Uragaan"
+   ]
+  },
+  {
+   "name": "Volatile Gene (L)",
+   "type": "Speed",
+   "element": "Fire",
+   "size": "L",
+   "skill": "Blstblight Rate+ (L)",
+   "bonuses": [
+    {
+     "stat": "Fire Attack Up",
+     "value": 3
+    }
+   ],
+   "sources": [
+    "Molten Tigrex",
+    "Brachydios"
+   ]
+  },
+  {
+   "name": "Bleeding Gene (S)",
+   "type": "Technical",
+   "element": "Dragon",
+   "size": "S",
+   "skill": "Bleed Rate+ (S)",
+   "bonuses": [
+    {
+     "stat": "Dragon Attack Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Seregios"
+   ]
+  },
+  {
+   "name": "Bleeding Gene (M)",
+   "type": "Technical",
+   "element": "Dragon",
+   "size": "M",
+   "skill": "Bleed Rate+ (M)",
+   "bonuses": [
+    {
+     "stat": "Dragon Attack Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Seregios"
+   ]
+  },
+  {
+   "name": "Bleeding Gene (L)",
+   "type": "Technical",
+   "element": "Dragon",
+   "size": "L",
+   "skill": "Bleed Rate+ (L)",
+   "bonuses": [
+    {
+     "stat": "Dragon Attack Up",
+     "value": 3
+    }
+   ],
+   "sources": [
+    "Seregios"
+   ]
+  },
+  {
+   "name": "Dazzling Gene (S)",
+   "type": "Power",
+   "element": "Water",
+   "size": "S",
+   "skill": "Blind Rate+ (S)",
+   "bonuses": [
+    {
+     "stat": "Water Attack Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Gypceros"
+   ]
+  },
+  {
+   "name": "Dazzling Gene (M)",
+   "type": "Power",
+   "element": "Water",
+   "size": "M",
+   "skill": "Blind Rate+ (M)",
+   "bonuses": [
+    {
+     "stat": "Water Attack Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Gypceros",
+    "Purple Gypceros",
+    "Crimson Qurupeco"
+   ]
+  },
+  {
+   "name": "Dazzling Gene (L)",
+   "type": "Power",
+   "element": "Water",
+   "size": "L",
+   "skill": "Blind Rate+ (L)",
+   "bonuses": [
+    {
+     "stat": "Water Attack Up",
+     "value": 3
+    }
+   ],
+   "sources": [
+    "Purple Gypceros",
+    "Crimson Qurupeco"
+   ]
+  },
+  {
+   "name": "Potent Gene (S)",
+   "type": "Power",
+   "element": "Thunder",
+   "size": "S",
+   "skill": "All Status Rate+ (S)",
+   "bonuses": [
+    {
+     "stat": "Thunder Attack Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Nerscylla",
+    "Shrouded Nerscylla"
+   ]
+  },
+  {
+   "name": "Potent Gene (M)",
+   "type": "Power",
+   "element": "Thunder",
+   "size": "M",
+   "skill": "All Status Rate+ (M)",
+   "bonuses": [
+    {
+     "stat": "Thunder Attack Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Nerscylla",
+    "Shrouded Nerscylla"
+   ]
+  },
+  {
+   "name": "Potent Gene (L)",
+   "type": "Power",
+   "element": "Thunder",
+   "size": "L",
+   "skill": "All Status Rate+ (L)",
+   "bonuses": [
+    {
+     "stat": "Thunder Attack Up",
+     "value": 3
+    }
+   ],
+   "sources": [
+    "Seregios",
+    "White Monoblos"
+   ]
+  },
+  {
+   "name": "Hounding Gene",
+   "type": "Technical",
+   "element": "Non-Elem",
+   "size": null,
+   "skill": "Salt in the Wound",
+   "bonuses": [
+    {
+     "stat": "Max HP Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Congalala",
+    "Emerald Congalala",
+    "Deviljho"
+   ]
+  },
+  {
+   "name": "Fire Res Gene (S)",
+   "type": "No-type",
+   "element": "Fire",
+   "size": "S",
+   "skill": "Fire Res (S)",
+   "bonuses": [
+    {
+     "stat": "Fire Resistance Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Blue Yian Kut-Ku",
+    "Cephadrome"
+   ]
+  },
+  {
+   "name": "Fire Res Gene (M)",
+   "type": "No-type",
+   "element": "Fire",
+   "size": "M",
+   "skill": "Fire Res (M)",
+   "bonuses": [
+    {
+     "stat": "Fire Resistance Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Azure Rathalos",
+    "Blue Yian Kut-Ku",
+    "Cephadrome",
+    "Gravios",
+    "Black Gravios",
+    "Ash Kecha Wacha",
+    "Barroth",
+    "Uragaan"
+   ]
+  },
+  {
+   "name": "Fire Res Gene (L)",
+   "type": "No-type",
+   "element": "Fire",
+   "size": "L",
+   "skill": "Fire Res (L)",
+   "bonuses": [
+    {
+     "stat": "Fire Resistance Up",
+     "value": 3
+    }
+   ],
+   "sources": [
+    "Azure Rathalos",
+    "Gravios",
+    "Black Gravios",
+    "Ash Kecha Wacha",
+    "Sand Barioth",
+    "Uragaan"
+   ]
+  },
+  {
+   "name": "Water Res Gene (S)",
+   "type": "No-type",
+   "element": "Water",
+   "size": "S",
+   "skill": "Water Res (S)",
+   "bonuses": [
+    {
+     "stat": "Water Resistance Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Royal Ludroth"
+   ]
+  },
+  {
+   "name": "Water Res Gene (M)",
+   "type": "No-type",
+   "element": "Water",
+   "size": "M",
+   "skill": "Water Res (M)",
+   "bonuses": [
+    {
+     "stat": "Water Resistance Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Royal Ludroth",
+    "Kecha Wacha",
+    "Barroth"
+   ]
+  },
+  {
+   "name": "Water Res Gene (L)",
+   "type": "No-type",
+   "element": "Water",
+   "size": "L",
+   "skill": "Water Res (L)",
+   "bonuses": [
+    {
+     "stat": "Water Resistance Up",
+     "value": 3
+    }
+   ],
+   "sources": [
+    "Royal Ludroth",
+    "Purple Ludroth",
+    "Monoblos",
+    "White Monoblos",
+    "Kecha Wacha",
+    "Ivory Lagiacrus"
+   ]
+  },
+  {
+   "name": "Ice Res Gene (S)",
+   "type": "No-type",
+   "element": "Ice",
+   "size": "S",
+   "skill": "Ice Res (S)",
+   "bonuses": [
+    {
+     "stat": "Ice Resistance Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Lagombi",
+    "Popo",
+    "Zamtrios"
+   ]
+  },
+  {
+   "name": "Ice Res Gene (M)",
+   "type": "No-type",
+   "element": "Ice",
+   "size": "M",
+   "skill": "Ice Res (M)",
+   "bonuses": [
+    {
+     "stat": "Ice Resistance Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Lagombi",
+    "Black Gravios",
+    "Popo",
+    "Zamtrios"
+   ]
+  },
+  {
+   "name": "Ice Res Gene (L)",
+   "type": "No-type",
+   "element": "Ice",
+   "size": "L",
+   "skill": "Ice Res (L)",
+   "bonuses": [
+    {
+     "stat": "Ice Resistance Up",
+     "value": 3
+    }
+   ],
+   "sources": [
+    "Black Gravios",
+    "Oroshi Kirin",
+    "Jade Barroth",
+    "Barioth"
+   ]
+  },
+  {
+   "name": "Thndr Res Gene (S)",
+   "type": "No-type",
+   "element": "Thunder",
+   "size": "S",
+   "skill": "Thunder Res (S)",
+   "bonuses": [
+    {
+     "stat": "Thunder Resistance Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Khezu"
+   ]
+  },
+  {
+   "name": "Thndr Res Gene (M)",
+   "type": "No-type",
+   "element": "Thunder",
+   "size": "M",
+   "skill": "Thunder Res (M)",
+   "bonuses": [
+    {
+     "stat": "Thunder Resistance Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Khezu"
+   ]
+  },
+  {
+   "name": "Thndr Res Gene (L)",
+   "type": "No-type",
+   "element": "Thunder",
+   "size": "L",
+   "skill": "Thunder Res (L)",
+   "bonuses": [
+    {
+     "stat": "Thunder Resistance Up",
+     "value": 3
+    }
+   ],
+   "sources": [
+    "Molten Tigrex",
+    "Kirin",
+    "Zinogre",
+    "Lagiacrus"
+   ]
+  },
+  {
+   "name": "Drgn Res Gene (S)",
+   "type": "No-type",
+   "element": "Dragon",
+   "size": "S",
+   "skill": "Dragon Res (S)",
+   "bonuses": [
+    {
+     "stat": "Dragon Resistance Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Basarios"
+   ]
+  },
+  {
+   "name": "Drgn Res Gene (M)",
+   "type": "No-type",
+   "element": "Dragon",
+   "size": "M",
+   "skill": "Dragon Res (M)",
+   "bonuses": [
+    {
+     "stat": "Dragon Resistance Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Basarios",
+    "Ruby Basarios",
+    "Black Gravios"
+   ]
+  },
+  {
+   "name": "Drgn Res Gene (L)",
+   "type": "No-type",
+   "element": "Dragon",
+   "size": "L",
+   "skill": "Dragon Res (L)",
+   "bonuses": [
+    {
+     "stat": "Dragon Resistance Up",
+     "value": 3
+    }
+   ],
+   "sources": [
+    "Molten Tigrex",
+    "Ruby Basarios",
+    "Black Gravios",
+    "Monoblos",
+    "White Monoblos",
+    "Stygian Zinogre"
+   ]
+  },
+  {
+   "name": "All-Res Gene (S)",
+   "type": "Speed",
+   "element": "Non-Elem",
+   "size": "S",
+   "skill": "All-Res (S)",
+   "bonuses": [
+    {
+     "stat": "Attack Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Black Diablos"
+   ]
+  },
+  {
+   "name": "All-Res Gene (M)",
+   "type": "Speed",
+   "element": "Non-Elem",
+   "size": "M",
+   "skill": "All-Res (M)",
+   "bonuses": [
+    {
+     "stat": "Attack Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Kirin",
+    "Oroshi Kirin"
+   ]
+  },
+  {
+   "name": "All-Res Gene (L)",
+   "type": "Speed",
+   "element": "Non-Elem",
+   "size": "L",
+   "skill": "All-Res (L)",
+   "bonuses": [
+    {
+     "stat": "Attack Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Kirin",
+    "Oroshi Kirin"
+   ]
+  },
+  {
+   "name": "Flaming Gene (S)",
+   "type": "No-type",
+   "element": "Fire",
+   "size": "S",
+   "skill": "Fire Boost (S)",
+   "bonuses": [
+    {
+     "stat": "Fire Attack Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Yian Kut-Ku",
+    "Qurupeco"
+   ]
+  },
+  {
+   "name": "Flaming Gene (M)",
+   "type": "No-type",
+   "element": "Fire",
+   "size": "M",
+   "skill": "Fire Boost (M)",
+   "bonuses": [
+    {
+     "stat": "Fire Attack Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Rathalos",
+    "Yian Kut-Ku",
+    "Basarios",
+    "Ruby Basarios",
+    "Ash Kecha Wacha",
+    "Qurupeco"
+   ]
+  },
+  {
+   "name": "Flaming Gene (L)",
+   "type": "No-type",
+   "element": "Fire",
+   "size": "L",
+   "skill": "Fire Boost (L)",
+   "bonuses": [
+    {
+     "stat": "Fire Attack Up",
+     "value": 3
+    }
+   ],
+   "sources": [
+    "Rathalos",
+    "Silver Rathalos",
+    "Basarios",
+    "Ruby Basarios",
+    "Ash Kecha Wacha"
+   ]
+  },
+  {
+   "name": "Torrential Gene (S)",
+   "type": "No-type",
+   "element": "Water",
+   "size": "S",
+   "skill": "Water Boost (S)",
+   "bonuses": [
+    {
+     "stat": "Water Attack Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Cephadrome",
+    "Royal Ludroth"
+   ]
+  },
+  {
+   "name": "Torrential Gene (M)",
+   "type": "No-type",
+   "element": "Water",
+   "size": "M",
+   "skill": "Water Boost (M)",
+   "bonuses": [
+    {
+     "stat": "Water Attack Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Cephadrome",
+    "Royal Ludroth",
+    "Kecha Wacha"
+   ]
+  },
+  {
+   "name": "Torrential Gene (L)",
+   "type": "No-type",
+   "element": "Water",
+   "size": "L",
+   "skill": "Water Boost (L)",
+   "bonuses": [
+    {
+     "stat": "Water Attack Up",
+     "value": 3
+    }
+   ],
+   "sources": [
+    "Kecha Wacha",
+    "Lagiacrus"
+   ]
+  },
+  {
+   "name": "Frigid Gene (S)",
+   "type": "No-type",
+   "element": "Ice",
+   "size": "S",
+   "skill": "Ice Boost (S)",
+   "bonuses": [
+    {
+     "stat": "Ice Attack Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Popo",
+    "Zamtrios"
+   ]
+  },
+  {
+   "name": "Frigid Gene (M)",
+   "type": "No-type",
+   "element": "Ice",
+   "size": "M",
+   "skill": "Ice Boost (M)",
+   "bonuses": [
+    {
+     "stat": "Ice Attack Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Popo",
+    "Jade Barroth",
+    "Zamtrios"
+   ]
+  },
+  {
+   "name": "Frigid Gene (L)",
+   "type": "No-type",
+   "element": "Ice",
+   "size": "L",
+   "skill": "Ice Boost (L)",
+   "bonuses": [
+    {
+     "stat": "Ice Attack Up",
+     "value": 3
+    }
+   ],
+   "sources": [
+    "Oroshi Kirin",
+    "Jade Barroth",
+    "Barioth"
+   ]
+  },
+  {
+   "name": "Flashing Gene (S)",
+   "type": "No-type",
+   "element": "Thunder",
+   "size": "S",
+   "skill": "Thunder Boost (S)",
+   "bonuses": [
+    {
+     "stat": "Thunder Attack Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Red Khezu"
+   ]
+  },
+  {
+   "name": "Flashing Gene (M)",
+   "type": "No-type",
+   "element": "Thunder",
+   "size": "M",
+   "skill": "Thunder Boost (M)",
+   "bonuses": [
+    {
+     "stat": "Thunder Attack Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Red Khezu",
+    "Zinogre"
+   ]
+  },
+  {
+   "name": "Flashing Gene (L)",
+   "type": "No-type",
+   "element": "Thunder",
+   "size": "L",
+   "skill": "Thunder Boost (L)",
+   "bonuses": [
+    {
+     "stat": "Thunder Attack Up",
+     "value": 3
+    }
+   ],
+   "sources": [
+    "Kirin",
+    "Zinogre",
+    "Ivory Lagiacrus"
+   ]
+  },
+  {
+   "name": "Draconic Gene (S)",
+   "type": "No-type",
+   "element": "Dragon",
+   "size": "S",
+   "skill": "Dragon Boost (S)",
+   "bonuses": [
+    {
+     "stat": "Dragon Attack Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Tigrex"
+   ]
+  },
+  {
+   "name": "Draconic Gene (M)",
+   "type": "No-type",
+   "element": "Dragon",
+   "size": "M",
+   "skill": "Dragon Boost (M)",
+   "bonuses": [
+    {
+     "stat": "Dragon Attack Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Rathalos",
+    "Azure Rathalos",
+    "Tigrex",
+    "Deviljho"
+   ]
+  },
+  {
+   "name": "Draconic Gene (L)",
+   "type": "No-type",
+   "element": "Dragon",
+   "size": "L",
+   "skill": "Dragon Boost (L)",
+   "bonuses": [
+    {
+     "stat": "Dragon Attack Up",
+     "value": 3
+    }
+   ],
+   "sources": [
+    "Rathalos",
+    "Azure Rathalos",
+    "Silver Rathalos",
+    "Deviljho",
+    "Stygian Zinogre",
+    "The Great Poogie"
+   ]
+  },
+  {
+   "name": "All-Elem Gene (S)",
+   "type": "Power",
+   "element": "Non-Elem",
+   "size": "S",
+   "skill": "All-Elem Boost (S)",
+   "bonuses": [
+    {
+     "stat": "Defense Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Rathian",
+    "Pink Rathian",
+    "Diablos"
+   ]
+  },
+  {
+   "name": "All-Elem Gene (M)",
+   "type": "Power",
+   "element": "Non-Elem",
+   "size": "M",
+   "skill": "All-Elem Boost (M)",
+   "bonuses": [
+    {
+     "stat": "Defense Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Rathian",
+    "Pink Rathian"
+   ]
+  },
+  {
+   "name": "All-Elem Gene (L)",
+   "type": "Power",
+   "element": "Non-Elem",
+   "size": "L",
+   "skill": "All-Elem Boost (L)",
+   "bonuses": [
+    {
+     "stat": "Defense Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Gold Rathian",
+    "Monoblos"
+   ]
+  },
+  {
+   "name": "Power Gene (S)",
+   "type": "Power",
+   "element": "Fire",
+   "size": "S",
+   "skill": "Power Boost (S)",
+   "bonuses": [
+    {
+     "stat": "Fire Attack Up",
+     "value": 1
+    },
+    {
+     "stat": "Max HP Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Arzuros",
+    "Apceros",
+    "Bulldrome"
+   ]
+  },
+  {
+   "name": "Power Gene (M)",
+   "type": "Power",
+   "element": "Fire",
+   "size": "M",
+   "skill": "Power Boost (M)",
+   "bonuses": [
+    {
+     "stat": "Fire Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Max HP Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Azure Rathalos",
+    "Tigrex",
+    "Brute Tigrex",
+    "Arzuros",
+    "Diablos",
+    "Apceros",
+    "Bulldrome"
+   ]
+  },
+  {
+   "name": "Power Gene (L)",
+   "type": "Power",
+   "element": "Fire",
+   "size": "L",
+   "skill": "Power Boost (L)",
+   "bonuses": [
+    {
+     "stat": "Fire Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Max HP Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Azure Rathalos",
+    "Silver Rathalos",
+    "Brute Tigrex",
+    "Molten Tigrex",
+    "Monoblos",
+    "White Monoblos"
+   ]
+  },
+  {
+   "name": "Speed Gene (S)",
+   "type": "Speed",
+   "element": "Water",
+   "size": "S",
+   "skill": "Speed Boost (S)",
+   "bonuses": [
+    {
+     "stat": "Water Attack Up",
+     "value": 1
+    },
+    {
+     "stat": "Max HP Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Velocidrome",
+    "Iodrome",
+    "Gendrome"
+   ]
+  },
+  {
+   "name": "Speed Gene (M)",
+   "type": "Speed",
+   "element": "Water",
+   "size": "M",
+   "skill": "Speed Boost (M)",
+   "bonuses": [
+    {
+     "stat": "Water Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Max HP Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Velocidrome",
+    "Rathian",
+    "Iodrome",
+    "Nargacuga",
+    "Gendrome"
+   ]
+  },
+  {
+   "name": "Speed Gene (L)",
+   "type": "Speed",
+   "element": "Water",
+   "size": "L",
+   "skill": "Speed Boost (L)",
+   "bonuses": [
+    {
+     "stat": "Water Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Max HP Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Nargacuga",
+    "Green Nargacuga",
+    "Kirin",
+    "Oroshi Kirin",
+    "Barioth"
+   ]
+  },
+  {
+   "name": "Tech Gene (S)",
+   "type": "Technical",
+   "element": "Thunder",
+   "size": "S",
+   "skill": "Tech Boost (S)",
+   "bonuses": [
+    {
+     "stat": "Thunder Attack Up",
+     "value": 1
+    },
+    {
+     "stat": "Max HP Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Yian Kut-Ku",
+    "Blue Yian Kut-Ku",
+    "Red Khezu",
+    "Qurupeco"
+   ]
+  },
+  {
+   "name": "Tech Gene (M)",
+   "type": "Technical",
+   "element": "Thunder",
+   "size": "M",
+   "skill": "Tech Boost (M)",
+   "bonuses": [
+    {
+     "stat": "Thunder Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Max HP Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Yian Kut-Ku",
+    "Blue Yian Kut-Ku",
+    "Red Khezu",
+    "Kecha Wacha",
+    "Ash Kecha Wacha",
+    "Qurupeco"
+   ]
+  },
+  {
+   "name": "Tech Gene (L)",
+   "type": "Technical",
+   "element": "Thunder",
+   "size": "L",
+   "skill": "Tech Boost (L)",
+   "bonuses": [
+    {
+     "stat": "Thunder Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Max HP Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Kecha Wacha",
+    "Ash Kecha Wacha",
+    "Brachydios",
+    "Crimson Qurupeco"
+   ]
+  },
+  {
+   "name": "Power Res Gene (S)",
+   "type": "Power",
+   "element": "Ice",
+   "size": "S",
+   "skill": "Power Res (S)",
+   "bonuses": [
+    {
+     "stat": "Max HP Up",
+     "value": 1
+    },
+    {
+     "stat": "Defense Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Arzuros",
+    "Apceros",
+    "Bulldrome"
+   ]
+  },
+  {
+   "name": "Power Res Gene (M)",
+   "type": "Power",
+   "element": "Ice",
+   "size": "M",
+   "skill": "Power Res (M)",
+   "bonuses": [
+    {
+     "stat": "Max HP Up",
+     "value": 1
+    },
+    {
+     "stat": "Defense Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Rathalos",
+    "Arzuros",
+    "Black Diablos",
+    "Apceros",
+    "Deviljho",
+    "Bulldrome",
+    "Uragaan"
+   ]
+  },
+  {
+   "name": "Power Res Gene (L)",
+   "type": "Power",
+   "element": "Ice",
+   "size": "L",
+   "skill": "Power Res (L)",
+   "bonuses": [
+    {
+     "stat": "Max HP Up",
+     "value": 2
+    },
+    {
+     "stat": "Defense Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Rathalos",
+    "Deviljho",
+    "Uragaan"
+   ]
+  },
+  {
+   "name": "Speed Res Gene (S)",
+   "type": "Speed",
+   "element": "Water",
+   "size": "S",
+   "skill": "Speed Res (S)",
+   "bonuses": [
+    {
+     "stat": "Max HP Up",
+     "value": 1
+    },
+    {
+     "stat": "Defense Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Velocidrome",
+    "Gendrome"
+   ]
+  },
+  {
+   "name": "Speed Res Gene (M)",
+   "type": "Speed",
+   "element": "Water",
+   "size": "M",
+   "skill": "Speed Res (M)",
+   "bonuses": [
+    {
+     "stat": "Max HP Up",
+     "value": 1
+    },
+    {
+     "stat": "Defense Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Velocidrome",
+    "Pink Rathian",
+    "Gendrome",
+    "Great Jaggi",
+    "Great Baggi",
+    "Barroth"
+   ]
+  },
+  {
+   "name": "Speed Res Gene (L)",
+   "type": "Speed",
+   "element": "Water",
+   "size": "L",
+   "skill": "Speed Res (L)",
+   "bonuses": [
+    {
+     "stat": "Max HP Up",
+     "value": 2
+    },
+    {
+     "stat": "Defense Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Gold Rathian",
+    "Great Jaggi",
+    "Great Baggi",
+    "Jade Barroth"
+   ]
+  },
+  {
+   "name": "Tech Res Gene (S)",
+   "type": "Technical",
+   "element": "Non-Elem",
+   "size": "S",
+   "skill": "Tech Res (S)",
+   "bonuses": [
+    {
+     "stat": "Max HP Up",
+     "value": 1
+    },
+    {
+     "stat": "Defense Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Yian Kut-Ku",
+    "Khezu",
+    "Gypceros",
+    "Qurupeco"
+   ]
+  },
+  {
+   "name": "Tech Res Gene (M)",
+   "type": "Technical",
+   "element": "Non-Elem",
+   "size": "M",
+   "skill": "Tech Res (M)",
+   "bonuses": [
+    {
+     "stat": "Max HP Up",
+     "value": 1
+    },
+    {
+     "stat": "Defense Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Yian Kut-Ku",
+    "Khezu",
+    "Purple Gypceros",
+    "Basarios",
+    "Qurupeco",
+    "Crimson Qurupeco"
+   ]
+  },
+  {
+   "name": "Tech Res Gene (L)",
+   "type": "Technical",
+   "element": "Non-Elem",
+   "size": "L",
+   "skill": "Tech Res (L)",
+   "bonuses": [
+    {
+     "stat": "Max HP Up",
+     "value": 2
+    },
+    {
+     "stat": "Defense Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Basarios",
+    "Ruby Basarios",
+    "Crimson Qurupeco"
+   ]
+  },
+  {
+   "name": "Evasion Gene (S)",
+   "type": "Speed",
+   "element": "Non-Elem",
+   "size": "S",
+   "skill": "Evasion (S)",
+   "bonuses": [
+    {
+     "stat": "Crit Rate Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Tigrex",
+    "Cephadrome",
+    "Royal Ludroth"
+   ]
+  },
+  {
+   "name": "Evasion Gene (M)",
+   "type": "Speed",
+   "element": "Non-Elem",
+   "size": "M",
+   "skill": "Evasion (M)",
+   "bonuses": [
+    {
+     "stat": "Crit Rate Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Tigrex",
+    "Brute Tigrex",
+    "Brute Tigrex",
+    "Nargacuga",
+    "Green Nargacuga",
+    "Cephadrome",
+    "Royal Ludroth"
+   ]
+  },
+  {
+   "name": "Evasion Gene (L)",
+   "type": "Speed",
+   "element": "Non-Elem",
+   "size": "L",
+   "skill": "Evasion (L)",
+   "bonuses": [
+    {
+     "stat": "Crit Rate Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Nargacuga",
+    "Green Nargacuga",
+    "Seregios",
+    "Sand Barioth"
+   ]
+  },
+  {
+   "name": "Cyclone Gene",
+   "type": "Speed",
+   "element": "Ice",
+   "size": null,
+   "skill": "Dodge Cyclone",
+   "bonuses": [
+    {
+     "stat": "Crit Rate Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Sand Barioth"
+   ]
+  },
+  {
+   "name": "Escape Gene",
+   "type": "Speed",
+   "element": "Ice",
+   "size": null,
+   "skill": "Evasion Instincts",
+   "bonuses": [
+    {
+     "stat": "Crit Rate Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Brute Tigrex",
+    "Nargacuga",
+    "Green Nargacuga"
+   ]
+  },
+  {
+   "name": "Tenacity Gene",
+   "type": "Power",
+   "element": "Non-Elem",
+   "size": null,
+   "skill": "Tenacity",
+   "bonuses": [
+    {
+     "stat": "Defense Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Gypceros",
+    "Purple Gypceros"
+   ]
+  },
+  {
+   "name": "Survivor Gene",
+   "type": "Speed",
+   "element": "Non-Elem",
+   "size": null,
+   "skill": "Fortify",
+   "bonuses": [
+    {
+     "stat": "Attack Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Gypceros",
+    "Purple Gypceros",
+    "Seregios"
+   ]
+  },
+  {
+   "name": "Potential Gene",
+   "type": "Technical",
+   "element": "Non-Elem",
+   "size": null,
+   "skill": "Potential",
+   "bonuses": [
+    {
+     "stat": "Attack Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Diablos",
+    "Brachydios"
+   ]
+  },
+  {
+   "name": "Head-to-Head Gene",
+   "type": "No-type",
+   "element": "Non-Elem",
+   "size": null,
+   "skill": "Head-to-Head Ace",
+   "bonuses": [
+    {
+     "stat": "Attack Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Black Diablos",
+    "Brachydios"
+   ]
+  },
+  {
+   "name": "Predatory Gene (S)",
+   "type": "Power",
+   "element": "Dragon",
+   "size": "S",
+   "skill": "Predatory (S)",
+   "bonuses": [
+    {
+     "stat": "Max HP Up",
+     "value": 1
+    },
+    {
+     "stat": "Dragon Attack Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Tigrex",
+    "Zamtrios"
+   ]
+  },
+  {
+   "name": "Predatory Gene (M)",
+   "type": "Power",
+   "element": "Dragon",
+   "size": "M",
+   "skill": "Predatory (M)",
+   "bonuses": [
+    {
+     "stat": "Max HP Up",
+     "value": 1
+    },
+    {
+     "stat": "Dragon Attack Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Brute Tigrex",
+    "Deviljho"
+   ]
+  },
+  {
+   "name": "Predatory Gene (L)",
+   "type": "Power",
+   "element": "Dragon",
+   "size": "L",
+   "skill": "Predatory (L)",
+   "bonuses": [
+    {
+     "stat": "Max HP Up",
+     "value": 2
+    },
+    {
+     "stat": "Dragon Attack Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Molten Tigrex",
+    "Deviljho"
+   ]
+  },
+  {
+   "name": "Nesting Gene",
+   "type": "No-type",
+   "element": "Non-Elem",
+   "size": null,
+   "skill": "Den Protector",
+   "bonuses": [
+    {
+     "stat": "Healing Efficacy Up",
+     "value": 4
+    }
+   ],
+   "sources": [
+    "Popo",
+    "Kirin",
+    "Oroshi Kirin"
+   ]
+  },
+  {
+   "name": "Kinship Gene (S)",
+   "type": "No-type",
+   "element": "Non-Elem",
+   "size": "S",
+   "skill": "Soul Kinship (S)",
+   "bonuses": [
+    {
+     "stat": "Healing Efficacy Up",
+     "value": 2
+    },
+    {
+     "stat": "Max HP Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Rathalos",
+    "Aptonoth"
+   ]
+  },
+  {
+   "name": "Kinship Gene (M)",
+   "type": "No-type",
+   "element": "Non-Elem",
+   "size": "M",
+   "skill": "Soul Kinship (M)",
+   "bonuses": [
+    {
+     "stat": "Healing Efficacy Up",
+     "value": 3
+    },
+    {
+     "stat": "Max HP Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Azure Rathalos"
+   ]
+  },
+  {
+   "name": "Kinship Gene (L)",
+   "type": "No-type",
+   "element": "Non-Elem",
+   "size": "L",
+   "skill": "Soul Kinship (L)",
+   "bonuses": [
+    {
+     "stat": "Healing Efficacy Up",
+     "value": 4
+    },
+    {
+     "stat": "Max HP Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Silver Rathalos",
+    "Kirin"
+   ]
+  },
+  {
+   "name": "Quickfire Gene",
+   "type": "No-type",
+   "element": "Fire",
+   "size": null,
+   "skill": "Quickfire",
+   "bonuses": [
+    {
+     "stat": "Fire Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Attack Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Azure Rathalos",
+    "Blue Yian Kut-Ku",
+    "Qurupeco"
+   ]
+  },
+  {
+   "name": "Quickwater Gene",
+   "type": "No-type",
+   "element": "Water",
+   "size": null,
+   "skill": "Quickwater",
+   "bonuses": [
+    {
+     "stat": "Water Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Attack Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Royal Ludroth",
+    "Purple Ludroth"
+   ]
+  },
+  {
+   "name": "Quickthunder Gene",
+   "type": "No-type",
+   "element": "Thunder",
+   "size": null,
+   "skill": "Quickthunder",
+   "bonuses": [
+    {
+     "stat": "Thunder Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Attack Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Khezu",
+    "Lagiacrus"
+   ]
+  },
+  {
+   "name": "Quickice Gene",
+   "type": "No-type",
+   "element": "Ice",
+   "size": null,
+   "skill": "Quickice",
+   "bonuses": [
+    {
+     "stat": "Ice Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Attack Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Nerscylla",
+    "Shrouded Nerscylla",
+    "Barioth"
+   ]
+  },
+  {
+   "name": "Quickdragon Gene",
+   "type": "No-type",
+   "element": "Dragon",
+   "size": null,
+   "skill": "Quickdragon",
+   "bonuses": [
+    {
+     "stat": "Dragon Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Attack Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Tigrex"
+   ]
+  },
+  {
+   "name": "Latent Fire Gene",
+   "type": "No-type",
+   "element": "Fire",
+   "size": null,
+   "skill": "Latent Fire",
+   "bonuses": [
+    {
+     "stat": "Fire Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Defense Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Pink Rathian",
+    "Gravios"
+   ]
+  },
+  {
+   "name": "Latent Water Gene",
+   "type": "No-type",
+   "element": "Water",
+   "size": null,
+   "skill": "Latent Water",
+   "bonuses": [
+    {
+     "stat": "Water Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Defense Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Purple Ludroth",
+    "Ivory Lagiacrus"
+   ]
+  },
+  {
+   "name": "Latent Thunder Gene",
+   "type": "No-type",
+   "element": "Thunder",
+   "size": null,
+   "skill": "Latent Thunder",
+   "bonuses": [
+    {
+     "stat": "Thunder Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Defense Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Red Khezu",
+    "Zinogre"
+   ]
+  },
+  {
+   "name": "Latent Ice Gene",
+   "type": "No-type",
+   "element": "Ice",
+   "size": null,
+   "skill": "Latent Ice",
+   "bonuses": [
+    {
+     "stat": "Ice Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Defense Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Jade Barroth",
+    "Barioth",
+    "Zamtrios"
+   ]
+  },
+  {
+   "name": "Latent Dragon Gene",
+   "type": "No-type",
+   "element": "Dragon",
+   "size": null,
+   "skill": "Latent Dragon",
+   "bonuses": [
+    {
+     "stat": "Dragon Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Defense Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Stygian Zinogre"
+   ]
+  },
+  {
+   "name": "Bombardier Gene",
+   "type": "No-type",
+   "element": "Fire",
+   "size": null,
+   "skill": "Bombardier",
+   "bonuses": [
+    {
+     "stat": "Fire Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Defense Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Brachydios"
+   ]
+  },
+  {
+   "name": "Soothing Gene",
+   "type": "No-type",
+   "element": "Non-Elem",
+   "size": null,
+   "skill": "Self-Heal",
+   "bonuses": [
+    {
+     "stat": "Healing Efficacy Up",
+     "value": 3
+    }
+   ],
+   "sources": []
+  },
+  {
+   "name": "Hungry Gene",
+   "type": "No-type",
+   "element": "Non-Elem",
+   "size": null,
+   "skill": "",
+   "bonuses": [
+    {
+     "stat": "Max HP Up",
+     "value": 3
+    }
+   ],
+   "sources": []
+  },
+  {
+   "name": "Order Gene (S)",
+   "type": "Technical",
+   "element": "Thunder",
+   "size": "S",
+   "skill": "Order Cost Dwn (S)",
+   "bonuses": [
+    {
+     "stat": "Healing Efficacy Up",
+     "value": 2
+    }
+   ],
+   "sources": []
+  },
+  {
+   "name": "Order Gene (M)",
+   "type": "Technical",
+   "element": "Thunder",
+   "size": "M",
+   "skill": "Order Cost Dwn (M)",
+   "bonuses": [
+    {
+     "stat": "Healing Efficacy Up",
+     "value": 3
+    }
+   ],
+   "sources": []
+  },
+  {
+   "name": "Order Gene (L)",
+   "type": "Technical",
+   "element": "Thunder",
+   "size": "L",
+   "skill": "Order Cost Dwn (L)",
+   "bonuses": [
+    {
+     "stat": "Healing Efficacy Up",
+     "value": 4
+    }
+   ],
+   "sources": []
+  },
+  {
+   "name": "Unscathed Gene",
+   "type": "Technical",
+   "element": "Non-Elem",
+   "size": null,
+   "skill": "Dancer",
+   "bonuses": [
+    {
+     "stat": "Healing Efficacy Up",
+     "value": 4
+    }
+   ],
+   "sources": [
+    "Stygian Zinogre",
+    "Barroth",
+    "Jade Barroth"
+   ]
+  },
+  {
+   "name": "Quick Gene (S)",
+   "type": "Speed",
+   "element": "Fire",
+   "size": "S",
+   "skill": "Quick (S)",
+   "bonuses": [
+    {
+     "stat": "Crit Rate Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Velocidrome",
+    "Iodrome"
+   ]
+  },
+  {
+   "name": "Quick Gene (M)",
+   "type": "Speed",
+   "element": "Fire",
+   "size": "M",
+   "skill": "Quick (M)",
+   "bonuses": [
+    {
+     "stat": "Crit Rate Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Velocidrome",
+    "Iodrome",
+    "Nargacuga",
+    "Green Nargacuga",
+    "Zinogre"
+   ]
+  },
+  {
+   "name": "Quick Gene (L)",
+   "type": "Speed",
+   "element": "Fire",
+   "size": "L",
+   "skill": "Quick (L)",
+   "bonuses": [
+    {
+     "stat": "Crit Rate Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Nargacuga",
+    "Green Nargacuga",
+    "Kirin",
+    "Oroshi Kirin",
+    "Stygian Zinogre"
+   ]
+  },
+  {
+   "name": "Critical Gene (S)",
+   "type": "Speed",
+   "element": "Thunder",
+   "size": "S",
+   "skill": "Critical Eye (S)",
+   "bonuses": [
+    {
+     "stat": "Crit Rate Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Velocidrome",
+    "Diablos",
+    "Black Diablos"
+   ]
+  },
+  {
+   "name": "Critical Gene (M)",
+   "type": "Speed",
+   "element": "Thunder",
+   "size": "M",
+   "skill": "Critical Eye (M)",
+   "bonuses": [
+    {
+     "stat": "Crit Rate Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Velocidrome",
+    "Nargacuga",
+    "Diablos",
+    "Black Diablos",
+    "Barioth"
+   ]
+  },
+  {
+   "name": "Critical Gene (L)",
+   "type": "Speed",
+   "element": "Thunder",
+   "size": "L",
+   "skill": "Critical Eye (L)",
+   "bonuses": [
+    {
+     "stat": "Crit Rate Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Nargacuga",
+    "Green Nargacuga",
+    "Barioth",
+    "Sand Barioth"
+   ]
+  },
+  {
+   "name": "Attack Gene (S)",
+   "type": "Power",
+   "element": "Fire",
+   "size": "S",
+   "skill": "Might (S)",
+   "bonuses": [
+    {
+     "stat": "Attack Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Aptonoth",
+    "Lagombi",
+    "Arzuros",
+    "Apceros"
+   ]
+  },
+  {
+   "name": "Attack Gene (M)",
+   "type": "Power",
+   "element": "Fire",
+   "size": "M",
+   "skill": "Might (M)",
+   "bonuses": [
+    {
+     "stat": "Attack Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Congalala",
+    "Emerald Congalala",
+    "Aptonoth",
+    "Tigrex",
+    "Brute Tigrex",
+    "Lagombi",
+    "Arzuros",
+    "Apceros",
+    "Deviljho"
+   ]
+  },
+  {
+   "name": "Attack Gene (L)",
+   "type": "Power",
+   "element": "Fire",
+   "size": "L",
+   "skill": "Might (L)",
+   "bonuses": [
+    {
+     "stat": "Attack Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Congalala",
+    "Emerald Congalala",
+    "Brute Tigrex",
+    "Molten Tigrex",
+    "Deviljho",
+    "Brachydios",
+    "Ivory Lagiacrus"
+   ]
+  },
+  {
+   "name": "Defense Gene (S)",
+   "type": "No-type",
+   "element": "Ice",
+   "size": "S",
+   "skill": "Iron Wall (S)",
+   "bonuses": [
+    {
+     "stat": "Defense Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Arzuros",
+    "Zamtrios"
+   ]
+  },
+  {
+   "name": "Defense Gene (M)",
+   "type": "No-type",
+   "element": "Ice",
+   "size": "M",
+   "skill": "Iron Wall (M)",
+   "bonuses": [
+    {
+     "stat": "Defense Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Arzuros",
+    "Basarios",
+    "Gravios",
+    "Black Gravios",
+    "Barroth",
+    "Zamtrios"
+   ]
+  },
+  {
+   "name": "Defense Gene (L)",
+   "type": "No-type",
+   "element": "Ice",
+   "size": "L",
+   "skill": "Iron Wall (L)",
+   "bonuses": [
+    {
+     "stat": "Defense Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Basarios",
+    "Ruby Basarios",
+    "Gravios",
+    "Black Gravios",
+    "Jade Barroth",
+    "Uragaan"
+   ]
+  },
+  {
+   "name": "Health Gene (S)",
+   "type": "No-type",
+   "element": "Non-Elem",
+   "size": "S",
+   "skill": "Health (S)",
+   "bonuses": [
+    {
+     "stat": "Max HP Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Aptonoth",
+    "Popo",
+    "Bulldrome"
+   ]
+  },
+  {
+   "name": "Health Gene (M)",
+   "type": "No-type",
+   "element": "Non-Elem",
+   "size": "M",
+   "skill": "Health (M)",
+   "bonuses": [
+    {
+     "stat": "Max HP Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Aptonoth",
+    "Diablos",
+    "Black Diablos",
+    "Purple Ludroth",
+    "Popo",
+    "Great Jaggi",
+    "Bulldrome"
+   ]
+  },
+  {
+   "name": "Health Gene (L)",
+   "type": "No-type",
+   "element": "Non-Elem",
+   "size": "L",
+   "skill": "Health (L)",
+   "bonuses": [
+    {
+     "stat": "Max HP Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Purple Ludroth",
+    "Seregios",
+    "Great Jaggi",
+    "Lagiacrus"
+   ]
+  },
+  {
+   "name": "Warlike Gene (S)",
+   "type": "Technical",
+   "element": "Non-Elem",
+   "size": "S",
+   "skill": "Vicious (S)",
+   "bonuses": [
+    {
+     "stat": "Attack Up",
+     "value": 1
+    }
+   ],
+   "sources": [
+    "Apceros",
+    "Bulldrome"
+   ]
+  },
+  {
+   "name": "Warlike Gene (M)",
+   "type": "Technical",
+   "element": "Non-Elem",
+   "size": "M",
+   "skill": "Vicious (M)",
+   "bonuses": [
+    {
+     "stat": "Attack Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Diablos",
+    "Black Diablos",
+    "Apceros",
+    "Bulldrome"
+   ]
+  },
+  {
+   "name": "Warlike Gene (L)",
+   "type": "Technical",
+   "element": "Non-Elem",
+   "size": "L",
+   "skill": "Vicious (L)",
+   "bonuses": [
+    {
+     "stat": "Attack Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Diablos",
+    "Black Diablos",
+    "Brachydios"
+   ]
+  },
+  {
+   "name": "Fire Scale Gene",
+   "type": "Technical",
+   "element": "Fire",
+   "size": null,
+   "skill": "Fire Scale",
+   "bonuses": [
+    {
+     "stat": "Fire Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Fire Resistance Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Gold Rathian",
+    "Silver Rathalos"
+   ]
+  },
+  {
+   "name": "Water Scale Gene",
+   "type": "Technical",
+   "element": "Water",
+   "size": null,
+   "skill": "Water Scale",
+   "bonuses": [
+    {
+     "stat": "Water Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Water Resistance Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Lagiacrus",
+    "Ivory Lagiacrus"
+   ]
+  },
+  {
+   "name": "Thunder Scale Gene",
+   "type": "Technical",
+   "element": "Thunder",
+   "size": null,
+   "skill": "Thunder Scale",
+   "bonuses": [
+    {
+     "stat": "Thunder Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Thunder Resistance Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Kirin",
+    "Zinogre"
+   ]
+  },
+  {
+   "name": "Ice Scale Gene",
+   "type": "Technical",
+   "element": "Ice",
+   "size": null,
+   "skill": "Ice Scale",
+   "bonuses": [
+    {
+     "stat": "Ice Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Ice Resistance Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Oroshi Kirin",
+    "Jade Barroth"
+   ]
+  },
+  {
+   "name": "Draconic Scale Gene",
+   "type": "Technical",
+   "element": "Dragon",
+   "size": null,
+   "skill": "Draconic Scale",
+   "bonuses": [
+    {
+     "stat": "Dragon Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Dragon Resistance Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Stygian Zinogre"
+   ]
+  },
+  {
+   "name": "Dragon Aura Gene",
+   "type": "No-type",
+   "element": "Dragon",
+   "size": null,
+   "skill": "Dragon Aura",
+   "bonuses": [
+    {
+     "stat": "Dragon Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Dragon Resistance Up",
+     "value": 2
+    }
+   ],
+   "sources": [
+    "Gold Rathian"
+   ]
+  },
+  {
+   "name": "Molten Tigrex Gene",
+   "type": "No-type",
+   "element": "Dragon",
+   "size": null,
+   "skill": "Explosive Dust",
+   "bonuses": [
+    {
+     "stat": "Crit Rate Up",
+     "value": -1
+    },
+    {
+     "stat": "Attack Up",
+     "value": 3
+    }
+   ],
+   "sources": [
+    "Molten Tigrex"
+   ]
+  },
+  {
+   "name": "Great Poogie Gene",
+   "type": "No-type",
+   "element": "Non-Elem",
+   "size": null,
+   "skill": "Predatory (L)",
+   "bonuses": [
+    {
+     "stat": "Max HP Up",
+     "value": 2
+    },
+    {
+     "stat": "Healing Efficacy Up",
+     "value": 4
+    }
+   ],
+   "sources": [
+    "The Great Poogie"
+   ]
+  },
+  {
+   "name": "Goukami Gene",
+   "type": "Speed",
+   "element": "Fire",
+   "size": null,
+   "skill": "Fire Boost (L)",
+   "bonuses": [
+    {
+     "stat": "Fire Attack Up",
+     "value": 3
+    },
+    {
+     "stat": "Fire Resistance Up",
+     "value": 2
+    }
+   ],
+   "sources": []
+  },
+  {
+   "name": "Epona Gene",
+   "type": "Speed",
+   "element": "Non-Elem",
+   "size": null,
+   "skill": "Speed Boost (L)",
+   "bonuses": [
+    {
+     "stat": "Crit Rate Up",
+     "value": 1
+    },
+    {
+     "stat": "Defense Up",
+     "value": 2
+    }
+   ],
+   "sources": []
+  },
+  {
+   "name": "Glavenus Gene",
+   "type": "Technical",
+   "element": "Fire",
+   "size": null,
+   "skill": "Burn Rate+ (L)",
+   "bonuses": [
+    {
+     "stat": "Fire Attack Up",
+     "value": 3
+    },
+    {
+     "stat": "Attack Up",
+     "value": 2
+    }
+   ],
+   "sources": []
+  }
+ ]
+}

@@ -129,3 +129,31 @@ python -m mhscan rapport --game mhs1 --scan scans/mhs1/<date-heure>
 Les monsties y sont rangés page par page, à la même place que dans la grille du jeu, avec leur icône, leur
 nom, leur plateau de gènes et la liste des gènes lus (bingos signalés). On peut chercher un nom ou
 un gène, n'afficher que les monsties à vérifier, et ouvrir la capture d'écran complète de chacun.
+
+## Étape 2 : favoris et optimisation des gènes (MHS1)
+
+Dans le rapport, l'étoile d'un monstie l'ajoute aux **favoris** (gardés dans le navigateur, d'un scan à l'autre).
+L'onglet **Favoris** affiche pour chacun trois plateaux :
+
+- **Actuel** : ses gènes aujourd'hui ;
+- **Atteignable avec ton écurie** : le meilleur plateau possible en transférant des gènes des autres monsties,
+  avec la liste des transferts à faire (case visée, gène, monstie donneur et sa position dans l'écurie) ;
+- **Parfait** : le meilleur plateau possible avec tous les gènes du jeu.
+
+Priorités, dans l'ordre :
+
+1. gènes du même **élément** et du même **type d'attaque** que le monstie (Seregios : Technical / Non-Elem) ;
+2. famille de gène : **Critical > Attack > Speed** (puis L > M > S) ;
+3. nombre de **bingos** (lignes de 3 gènes de même type d'attaque ou de même élément) ;
+4. à égalité, total des bonus d'attaque et de critique.
+
+Règles appliquées : toutes les cases sont utilisables, tous les gènes du favori peuvent être remplacés, un
+donneur disparaît après le transfert (un seul gène par donneur), un seul gène par famille (S/M/L), et les favoris
+ne servent jamais de donneurs (les donneurs d'un favori ne sont pas réutilisés pour les suivants).
+
+Le type d'attaque d'un monstie est lu sur la pastille de son icône ; son espèce est déduite de son gène d'espèce,
+ce qui donne son élément. Les deux sont modifiables dans l'onglet Favoris (utile pour les espèces absentes de
+Kiranico, comme Glavenus ou Rajang).
+
+Les données des gènes et des monsties viennent de [Kiranico](https://mhst.kiranico.com/gene) (MHS1) et sont
+enregistrées dans `mhscan/data/`. Pour les mettre à jour : `python tools/fetch_kiranico_mhs1.py`.
