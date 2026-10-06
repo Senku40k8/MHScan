@@ -8,6 +8,7 @@ pip install -r requirements.txt
 ```
 
 Le jeu doit tourner en **fenêtré ou fenêtré sans bordure** (la capture se fait sur sa fenêtre).
+Les bandes noires (jeu 16:9 sur un écran 16:10 ou ultra-large) sont détectées et ignorées automatiquement.
 
 ## Contrôles
 

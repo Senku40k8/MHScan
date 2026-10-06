@@ -16,7 +16,7 @@ def capture(cfg: Config, image: str = None, countdown: int = 5) -> np.ndarray:
         img = cv2.imread(image)
         if img is None:
             raise SystemExit(f"Image illisible : {image}")
-        return img
+        return window.crop_black_bars(img)
     hwnd = window.find_window(cfg.window_title)
     window.focus(hwnd)
     for i in range(countdown, 0, -1):

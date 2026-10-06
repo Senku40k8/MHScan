@@ -15,15 +15,15 @@ GAMES = {
     "mhs1": {
         "name": "Monster Hunter Stories",
         "window_title": _NOT_OTHER_APP + r"^Monster Hunter Stories(?!\s*[23])",
-        # Calibration mesurée sur l'écran « Rite of Channeling » en 2560x1440 (valable pour tout écran 16:9)
+        # Calibration mesurée sur l'écran « Rite of Channeling », en fractions de l'image 16:9 du jeu (bandes noires exclues)
         "defaults": {
-            "grid_first_center": (0.56428, 0.24965),
-            "grid_last_center": (0.89762, 0.44952),
-            "gene_board": (0.25401, 0.30290, 0.39469, 0.55187),
-            "page_indicator": (0.6643, 0.5118, 0.8128, 0.5567),  # « 1 / 22 » sous la grille
+            "grid_first_center": (0.56406, 0.24375),
+            "grid_last_center": (0.89727, 0.44445),
+            "gene_board": (0.25391, 0.29722, 0.39454, 0.54723),
+            "page_indicator": (0.66404, 0.50699, 0.81248, 0.55208),  # « 1 / 22 » sous la grille
             "extra_regions": {
-                "legend": (0.03986, 0.57538, 0.43493, 0.88866),  # noms des gènes du monstie
-                "info": (0.04259, 0.11964, 0.30481, 0.52559),    # nom, niveau, stats
+                "legend": (0.03984, 0.57083, 0.43476, 0.88542),  # noms des gènes du monstie
+                "info": (0.04257, 0.11319, 0.30469, 0.52084),    # nom, niveau, stats
             },
         },
     },

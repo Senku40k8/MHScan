@@ -51,7 +51,12 @@ class Scanner:
                 return pos, img
             keys.sleep(0.2)
             img = self.grab_stable()
-        raise RuntimeError("Curseur introuvable dans la grille (vérifie la calibration avec `python -m mhscan check`).")
+        self.out.mkdir(parents=True, exist_ok=True)
+        debug = self.out / "debug_curseur.png"
+        cv2.imwrite(str(debug), grid.draw(img))
+        best = max(grid.cursor_score(img, r, c) for r in range(grid.rows) for c in range(grid.cols))
+        raise RuntimeError(f"curseur introuvable dans la grille (meilleur score {best:.2f}, seuil {self.cfg.cursor_threshold}). "
+                           f"Capture de diagnostic : {debug.resolve()}")
 
     # --- navigation ----------------------------------------------------------------
     def move_to(self, grid: Grid, target: tuple, img: np.ndarray) -> np.ndarray:
