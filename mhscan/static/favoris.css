@@ -31,5 +31,11 @@
 .fv-el-Ice { background: #7fd3f0; } .fv-el-Dragon { background: #8e44ad; } .fv-el-NonElem { background: #b8b8b8; }
 .fv-score { font-size: 12px; color: var(--muted); margin: 6px 0; }
 .fv-transfers { margin: 4px 0 0; padding-left: 20px; font-size: 13px; }
+.fv-done { margin-top: 8px; font: inherit; font-size: 13px; font-weight: 600; padding: 6px 12px; border-radius: 6px;
+           border: 1px solid var(--ok); background: none; color: var(--ok); cursor: pointer; }
+.fv-done:hover { background: var(--ok); color: var(--surface); }
+.fv-done-note { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 8px 12px; font-size: 13px; }
+.fv-undo { font: inherit; font-size: 13px; background: none; border: 0; color: var(--accent); text-decoration: underline; cursor: pointer; }
+.card.sacrificed { display: none !important; }
 .fv-legend { font-size: 13px; color: var(--muted); margin: 0 0 12px; }
 .fv-legend .ok { color: var(--ok); font-weight: 600; } .fv-legend .half { color: var(--bingo); font-weight: 600; }

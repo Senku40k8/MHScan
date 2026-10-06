@@ -70,6 +70,45 @@
       : `Rapport ouvert comme fichier : les favoris restent dans ce navigateur. Ouvre-le avec « python -m mhscan rapport --game ${DATA.game} » pour les enregistrer dans scans/${DATA.game}/favoris.json.`);
   }
   let favs = [];
+
+  // --- transferts effectués (bouton « Gènes transférés ») -----------------------------------
+  // Les donneurs sacrifiés disparaissent du rapport et des donneurs possibles ; le favori prend son nouveau
+  // plateau. Enregistré dans scans/<jeu>/transferts.json, valable jusqu'au prochain scan (qui fait foi).
+  const DONE_STORE = STORE.replace(':favoris', ':transferts');
+  const freshDone = () => ({ scan: DATA.scan, removed: [], boards: {} });
+  let done = freshDone();
+  for (const m of MONSTIES) m.scanGenes = m.genes;
+  async function loadDone() {
+    let saved = null;
+    if (onDisk) {
+      try { const r = await fetch('/api/transferts', { cache: 'no-store' }); if (r.ok) saved = await r.json(); } catch { /* ignoré */ }
+    } else {
+      try { saved = JSON.parse(localStorage.getItem(DONE_STORE)); } catch { /* ignoré */ }
+    }
+    return saved && saved.scan === DATA.scan ? saved : freshDone();
+  }
+  async function saveDone() {
+    if (onDisk) {
+      try {
+        const r = await fetch('/api/transferts', { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(done) });
+        if (!r.ok) throw new Error(r.status);
+      } catch {
+        setStorageNote('Impossible d\'enregistrer les transferts : la console de `python -m mhscan rapport` est-elle encore ouverte ?');
+      }
+      return;
+    }
+    try { localStorage.setItem(DONE_STORE, JSON.stringify(done)); } catch { /* ignoré */ }
+  }
+  function applyDone() {
+    const removed = new Set(done.removed);
+    for (const m of MONSTIES) {
+      m.sacrificed = removed.has(m.key);
+      m.genes = done.boards[m.key] || m.scanGenes;
+    }
+    for (const card of document.querySelectorAll('.card[data-key]')) card.classList.toggle('sacrificed', removed.has(card.dataset.key));
+    if (window.mhscanApply) window.mhscanApply();
+  }
+  const plans = {};  // dernier plan atteignable calculé pour chaque favori
   const isFav = key => favs.some(f => f.key === key);
 
   function toggleFav(key) {
@@ -195,7 +234,7 @@
     m.genes.forEach((name, slot) => { if (name) candidates.push({ name, slot, own: true }); });
     const donorsByGene = {};
     for (const d of MONSTIES) {
-      if (d.key === m.key || unavailable.has(d.key)) continue;
+      if (d.key === m.key || d.sacrificed || unavailable.has(d.key)) continue;
       for (const name of new Set(d.genes.filter(Boolean))) {
         (donorsByGene[name] = donorsByGene[name] || []).push(d.key);
       }
@@ -269,7 +308,11 @@
     }
     // Les favoris ne servent jamais de donneurs ; les donneurs d'un favori ne sont pas réutilisés pour les suivants.
     const unavailable = new Set(favs.map(f => f.key));
-    container.innerHTML = favs.map(fav => {
+    const doneNote = done.removed.length
+      ? `<p class="fv-done-note">${done.removed.length} monstie${done.removed.length > 1 ? 's' : ''} sacrifié${done.removed.length > 1 ? 's' : ''}
+          retiré${done.removed.length > 1 ? 's' : ''} du rapport depuis ce scan. <button class="fv-undo">Annuler</button></p>`
+      : '';
+    container.innerHTML = doneNote + favs.map(fav => {
       const m = BY_KEY[fav.key];
       if (!m) {
         return `<section class="fv-panel"><p class="alert">« ${esc(fav.key.split('|')[0])} » n'est plus dans ce scan.</p>
@@ -278,11 +321,13 @@
       const prof = profile(fav, m);
       const reach = achievablePlan(m, prof, unavailable);
       reach.donors.forEach(d => unavailable.add(d));
+      plans[fav.key] = reach;
       const perfect = perfectPlan(prof);
       const speciesOptions = [{ value: '', label: 'Inconnue' }].concat(DATA.species.map(s => ({ value: s.name, label: s.name })));
       const transfers = reach.transfers.length
         ? `<ol class="fv-transfers">${reach.transfers.map(t => `<li>Case ${cellCase(t.slot)} : <b>${esc(t.name)}</b> ← ${esc(t.donor.name || '?')}
-            <span class="meta">(page ${t.donor.page}, case ${t.donor.row},${t.donor.col}) — sacrifié</span></li>`).join('')}</ol>`
+            <span class="meta">(page ${t.donor.page}, case ${t.donor.row},${t.donor.col}) — sacrifié</span></li>`).join('')}</ol>
+            <button class="fv-done" data-key="${esc(fav.key)}" title="À cliquer une fois ces transferts faits dans le jeu">Gènes transférés</button>`
         : '<p class="meta">Aucun transfert utile : le plateau actuel est déjà le meilleur possible avec ton écurie.</p>';
       return `<section class="fv-panel">
         <div class="fv-head">
@@ -319,6 +364,14 @@
     if (star) { toggleFav(star.dataset.key); return; }
     const remove = e.target.closest('.fv-remove');
     if (remove) { toggleFav(remove.dataset.key); return; }
+    const transferred = e.target.closest('.fv-done');
+    if (transferred) { markTransferred(transferred.dataset.key); return; }
+    if (e.target.closest('.fv-undo')) {
+      if (!confirm('Annuler les transferts enregistrés ? Les monsties sacrifiés réapparaîtront et les plateaux reviendront à ceux du scan.')) return;
+      done = freshDone();
+      saveDone(); applyDone(); renderFavs();
+      return;
+    }
     const tab = e.target.closest('[data-tab]');
     if (tab) {
       for (const t of document.querySelectorAll('[data-tab]')) t.classList.toggle('active', t === tab);
@@ -327,6 +380,18 @@
       try { localStorage.setItem(STORE + ':onglet', tab.dataset.tab); } catch { /* ignoré */ }
     }
   });
+  function markTransferred(key) {
+    const plan = plans[key];
+    const m = BY_KEY[key];
+    if (!plan || !plan.transfers.length) return;
+    const donors = plan.transfers.map(t => t.donor);
+    const list = donors.map(d => `• ${d.name || '?'} (page ${d.page}, case ${d.row},${d.col})`).join('\n');
+    if (!confirm(`As-tu fait ces ${donors.length} transfert(s) vers ${m.name || '?'} ?\n\nCes monsties sacrifiés seront retirés du rapport :\n${list}`)) return;
+    done.removed.push(...donors.map(d => d.key));
+    done.boards[key] = plan.board;
+    saveDone(); applyDone(); renderFavs();
+  }
+
   document.addEventListener('change', e => {
     const sel = e.target.closest('.fv-profile select');
     if (!sel) return;
@@ -338,8 +403,10 @@
     renderFavs();
   });
 
-  loadFavs().then(list => {
+  loadFavs().then(async list => {
     favs = list;
+    done = await loadDone();
+    applyDone();
     setStorageNote();
     refreshStars();
     renderFavs();

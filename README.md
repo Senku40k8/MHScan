@@ -144,6 +144,11 @@ L'onglet **Favoris** affiche pour chacun trois plateaux :
   avec la liste des transferts à faire (case visée, gène, monstie donneur et sa position dans l'écurie) ;
 - **Parfait** : le meilleur plateau possible avec tous les gènes du jeu.
 
+Une fois les transferts faits dans le jeu, le bouton **Gènes transférés** (sous le plateau atteignable) retire
+du rapport les monsties sacrifiés : ils n'apparaissent plus et ne sont plus proposés comme donneurs, et le
+plateau « Actuel » du favori devient son nouveau plateau. C'est enregistré dans `scans/<jeu>/transferts.json`
+jusqu'au prochain scan (qui fait foi) ; le lien **Annuler** en haut de l'onglet Favoris remet tout comme au scan.
+
 Priorités, dans l'ordre :
 
 1. gènes du même **élément** et du même **type d'attaque** que le monstie (Seregios : Technical / Non-Elem) ;

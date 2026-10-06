@@ -81,8 +81,8 @@ JS = """
 const search = document.getElementById('search');
 const onlyWarn = document.getElementById('only-warn');
 const count = document.getElementById('count');
-const cards = [...document.querySelectorAll('.card')];
 function apply() {
+  const cards = [...document.querySelectorAll('.card:not(.sacrificed)')];
   const q = search.value.trim().toLowerCase();
   let shown = 0;
   for (const card of cards) {
@@ -95,6 +95,7 @@ function apply() {
   }
   count.textContent = shown + ' / ' + cards.length + ' monsties';
 }
+window.mhscanApply = apply;  // rappelé quand des monsties sacrifiés sont retirés
 search.addEventListener('input', apply);
 onlyWarn.addEventListener('change', apply);
 apply();
@@ -122,7 +123,7 @@ def _favorite_data(game: str, scan_dir: Path, monsties: list):
     compact = {g["name"]: {"t": g["type"], "e": g["element"], "s": g["size"], "k": g["skill"],
                            "f": re.sub(r" \((S|M|L)\)$", "", g["name"]),
                            "b": [[b["stat"], b["value"]] for b in g["bonuses"]]} for g in catalog}
-    return {"game": game, "catalog": compact,
+    return {"game": game, "scan": scan_dir.name, "catalog": compact,
             "species": [{"name": sp["name"], "type": sp["type"], "element": sp["element"]} for sp in species],
             "monsties": rows}
 
@@ -138,7 +139,7 @@ def _card(m: dict, with_star: bool = False) -> str:
     alerts = "".join(f'<div class="alert">{escape(a)}</div>' for a in m.get("checks", []))
     search = " ".join([m.get("name") or ""] + [c.get("gene") or "" for c in genes]).lower()
     return (
-        f'<article class="card{" has-warn" if m.get("checks") else ""}" '
+        f'<article class="card{" has-warn" if m.get("checks") else ""}"{f' data-key="{escape(m["key"])}"' if with_star else ""} '
         f'style="grid-row:{m["row"]};grid-column:{m["col"]}" data-search="{escape(search)}">'
         f'<div class="head"><img src="{folder}/tile.png" alt="" loading="lazy">'
         f'<div><div class="name">{escape(m.get("name") or "Nom illisible")}</div>'
@@ -167,20 +168,36 @@ def _data_script(data: dict) -> str:
 
 
 FAVORITES_FILE = "favoris.json"
-MAX_FAVORITES_BYTES = 1_000_000
+MAX_JSON_BYTES = 2_000_000
+
+
+def _valid_favorites(data) -> bool:
+    return isinstance(data, list) and all(isinstance(f, dict) and isinstance(f.get("key"), str) for f in data)
+
+
+def _valid_transfers(data) -> bool:
+    return (isinstance(data, dict) and isinstance(data.get("scan"), str)
+            and isinstance(data.get("removed"), list) and all(isinstance(k, str) for k in data["removed"])
+            and isinstance(data.get("boards"), dict)
+            and all(isinstance(b, list) and len(b) == 9 for b in data["boards"].values()))
+
+
+# Données enregistrées par le rapport : URL -> (fichier dans scans/<jeu>/, contenu par défaut, validation)
+API = {
+    "/api/favoris": (FAVORITES_FILE, b"[]", _valid_favorites),
+    "/api/transferts": ("transferts.json", b"null", _valid_transfers),
+}
 
 
 class _ReportHandler(SimpleHTTPRequestHandler):
-    """Sert le dossier des scans du jeu, et lit / écrit les favoris (scans/<jeu>/favoris.json)."""
-
-    def _favorites_path(self) -> Path:
-        return Path(self.directory) / FAVORITES_FILE
+    """Sert le dossier des scans du jeu, et lit / écrit les favoris et les transferts effectués."""
 
     def do_GET(self):
-        if self.path.split("?")[0] != "/api/favoris":
+        route = API.get(self.path.split("?")[0])
+        if not route:
             return super().do_GET()
-        path = self._favorites_path()
-        body = path.read_bytes() if path.exists() else b"[]"
+        path = Path(self.directory) / route[0]
+        body = path.read_bytes() if path.exists() else route[1]
         self.send_response(200)
         self.send_header("Content-Type", "application/json; charset=utf-8")
         self.send_header("Content-Length", str(len(body)))
@@ -188,23 +205,30 @@ class _ReportHandler(SimpleHTTPRequestHandler):
         self.wfile.write(body)
 
     def do_PUT(self):
-        if self.path != "/api/favoris":
+        route = API.get(self.path)
+        if not route:
             return self.send_error(404)
         length = int(self.headers.get("Content-Length", 0))
-        if length > MAX_FAVORITES_BYTES:
+        if length > MAX_JSON_BYTES:
             return self.send_error(413)
         try:
-            favorites = json.loads(self.rfile.read(length).decode("utf-8"))
-            if not isinstance(favorites, list) or not all(isinstance(f, dict) and isinstance(f.get("key"), str) for f in favorites):
+            data = json.loads(self.rfile.read(length).decode("utf-8"))
+            if not route[2](data):
                 raise ValueError
         except ValueError:
             return self.send_error(400)
-        self._favorites_path().write_text(json.dumps(favorites, indent=2, ensure_ascii=False), encoding="utf-8")
+        (Path(self.directory) / route[0]).write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
         self.send_response(204)
         self.end_headers()
 
     def log_message(self, *args):  # pas de journal de chaque requête dans la console
         pass
+
+
+class _ReportServer(ThreadingHTTPServer):
+    # Sous Windows, SO_REUSEADDR (activé par défaut) laisserait deux rapports écouter le même port :
+    # on exige un port libre, sinon on passe au suivant.
+    allow_reuse_address = False
 
 
 def serve(scan_dir: Path, port: int = 8765) -> None:
@@ -214,7 +238,7 @@ def serve(scan_dir: Path, port: int = 8765) -> None:
     handler = partial(_ReportHandler, directory=str(game_dir))
     for candidate in range(port, port + 20):
         try:
-            server = ThreadingHTTPServer(("127.0.0.1", candidate), handler)
+            server = _ReportServer(("127.0.0.1", candidate), handler)
             break
         except OSError:  # port déjà pris (un autre rapport ouvert, par exemple)
             continue
