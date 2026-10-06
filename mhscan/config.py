@@ -56,9 +56,10 @@ class Config:
     key_down: str = "s"
     key_left: str = "q"
     key_right: str = "d"
-    # Séquences pour passer à la page suivante / précédente
-    next_page_keys: list = field(default_factory=lambda: ["e"])
-    prev_page_keys: list = field(default_factory=lambda: ["a"])
+    # Séquences pour passer à la page suivante / précédente, envoyées quand le curseur est sur la dernière /
+    # première colonne (il « sort » de la grille). A / E changent de catégorie, pas de page.
+    next_page_keys: list = field(default_factory=lambda: ["d"])
+    prev_page_keys: list = field(default_factory=lambda: ["q"])
     # Séquences optionnelles pour ouvrir / fermer la fiche du monstie si les gènes n'y sont pas visibles directement
     open_detail_keys: list = field(default_factory=list)
     close_detail_keys: list = field(default_factory=list)

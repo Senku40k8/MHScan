@@ -12,7 +12,9 @@ Les bandes noires (jeu 16:9 sur un écran 16:10 ou ultra-large) sont détectées
 
 ## Contrôles
 
-- Déplacement dans la grille : **Z Q S D** ; page précédente / suivante : **A** / **E** (clavier AZERTY).
+- Déplacement dans la grille : **Z Q S D** (clavier AZERTY). Page suivante : **D** sur la dernière colonne ;
+  page précédente : **Q** sur la première colonne (le curseur « sort » de la grille). A / E changent de
+  catégorie : le scan ne les utilise pas.
   Les lettres sont envoyées selon la disposition clavier active : sur un clavier QWERTY, mettre `w a s d` dans la config.
 - **C** arrête immédiatement le programme, à tout moment et quelle que soit la fenêtre active
   (scan, compte à rebours, fenêtre de sélection). Les monsties déjà scannés restent enregistrés.
@@ -48,7 +50,7 @@ et affiche le numéro de page lu. `python -m mhscan check` refait ce contrôle �
 
 Si les gènes ne sont visibles qu'après avoir ouvert la fiche du monstie, renseigner dans `config_<jeu>.json`
 `open_detail_keys` / `close_detail_keys` (ex. `["enter"]` / `["esc"]`). Les touches de navigation
-(`key_up`, `key_left`, `key_down`, `key_right` : `z q s d` par défaut), de changement de page (`next_page_keys`, `["e"]`), la taille de la grille (`rows`, `cols`) et le titre
+(`key_up`, `key_left`, `key_down`, `key_right` : `z q s d` par défaut), de changement de page (`next_page_keys` / `prev_page_keys`, `["d"]` / `["q"]`), la taille de la grille (`rows`, `cols`) et le titre
 de fenêtre recherché (`window_title`, une regex) sont aussi configurables par jeu.
 
 ### 2. Scan
@@ -63,14 +65,15 @@ python -m mhscan scan --game mhs1 --assiste   # mode assisté
 Si Windows refuse de passer le jeu au premier plan, la console affiche **« Passe sur le jeu »** :
 cliquer sur le jeu (ou Alt+Tab), le scan démarre alors tout seul.
 
-**Mode automatique** : le scan revient à la page 1 (touche A, en lisant le numéro de page), place le curseur
-sur la première case, puis parcourt chaque page en serpentin (5× droite, bas, 5× gauche, bas, 5× droite)
-avant de passer à la page suivante (E). La position du curseur est vérifiée à chaque pas grâce à son cadre orange.
-Le scan s'arrête après la dernière page (numéro de page = nombre de pages), à la première page incomplète,
-ou si le changement de page n'a aucun effet. Si le jeu ne réagit pas aux touches envoyées, le scan
+**Mode automatique** : le scan revient à la page 1 (Q depuis la première colonne, en lisant le numéro de
+page). Sur chaque page, il remonte en haut à gauche si besoin, puis lit les cases comme un livre : chaque
+ligne de gauche à droite, de haut en bas. Il passe ensuite à la page suivante (D depuis la dernière case).
+La position du curseur est vérifiée à chaque pas grâce à son cadre orange. Le scan s'arrête après la dernière
+page (numéro de page = nombre de pages) ou à la première page incomplète ; si la page ne change pas alors
+qu'il en reste, il s'arrête avec un message d'erreur. Si le jeu ne réagit pas aux touches envoyées, le scan
 passe tout seul en mode assisté.
 
-**Mode assisté** : tu déplaces toi-même le curseur (ZQSD, E) ; chaque monstie survolé est enregistré une fois
+**Mode assisté** : tu déplaces toi-même le curseur (ZQSD) ; chaque monstie survolé est enregistré une fois
 (bip aigu), un bip grave signale qu'une page est complète. Attendre le bip avant de passer au suivant.
 Le scan se termine tout seul après la dernière page complète, ou avec C.
 

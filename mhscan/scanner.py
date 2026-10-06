@@ -1,7 +1,7 @@
 """Parcours de l'écurie et sauvegarde des gènes de chaque monstie.
 
 Deux modes :
-- automatique : le programme déplace lui-même le curseur (ZQSD / E) ;
+- automatique : le programme déplace lui-même le curseur (ZQSD ; D sur la dernière colonne = page suivante) ;
 - assisté : l'utilisateur déplace le curseur, le programme enregistre chaque monstie survolé.
   Utilisé à la demande (--assiste) ou automatiquement si le jeu ne réagit pas aux touches simulées.
 """
@@ -20,13 +20,9 @@ from .config import Config
 from .grid import Grid, classify_gene_cell, crop_region, gene_cells
 
 
-def snake_order(rows: int, cols: int) -> list:
-    """(0,0)→(0,5), (1,5)→(1,0), (2,0)→(2,5) : 5 fois à droite, 1 fois en bas, 5 fois à gauche..."""
-    order = []
-    for r in range(rows):
-        cs = range(cols) if r % 2 == 0 else range(cols - 1, -1, -1)
-        order.extend((r, c) for c in cs)
-    return order
+def reading_order(rows: int, cols: int) -> list:
+    """Ordre de lecture d'un livre : chaque ligne de gauche à droite, de haut en bas."""
+    return [(r, c) for r in range(rows) for c in range(cols)]
 
 
 class KeysIgnored(Exception):
@@ -197,18 +193,18 @@ class Scanner:
         img = self.grab_stable()
         h, w = img.shape[:2]
         grid = Grid.from_config(cfg, w, h)
-        order = snake_order(grid.rows, grid.cols)
+        order = reading_order(grid.rows, grid.cols)
         img = self.go_to_start(grid, img)
 
         for page in range(1, cfg.max_pages + 1):
             keys.check_abort()
             page_info = self.read_page(img)
             self.log(f"Page {page}" + (f" / {page_info[1]}" if page_info else ""))
-            # La dernière page se remplit dans l'ordre de lecture : en serpentin, une case vide
-            # peut précéder une case occupée. On scanne donc toutes les cases occupées de la page,
-            # et une page contenant une case vide est forcément la dernière.
+            # On scanne toutes les cases occupées ; une page contenant une case vide est forcément la dernière.
             occupied = grid.occupancy(img, cfg.empty_threshold)
             targets = [(r, c) for r, c in order if occupied[r][c]]
+            if targets and targets[0] != self.cursor(grid, img)[0]:
+                self.log("Retour en haut à gauche.")
             for r, c in targets:
                 img = self.move_to(grid, (r, c), img)
                 grid_img = img
@@ -227,6 +223,8 @@ class Scanner:
             if page_info and page_info[0] == page_info[1]:
                 self.log("Dernière page scannée : fin du scan.")
                 return
+            # Page suivante : depuis la dernière colonne, on pousse le curseur au-delà du bord droit
+            img = self.move_to(grid, (grid.rows - 1, grid.cols - 1), img)
             before = grid.signature(img)
             keys.press_sequence(cfg.next_page_keys, cfg.page_delay)
             img = self.grab_stable()
@@ -236,6 +234,9 @@ class Scanner:
             else:
                 unchanged = np.abs(grid.signature(img) - before).mean() < 2.0
             if unchanged:
+                if page_info and page_info[0] < page_info[1]:
+                    raise RuntimeError(f"la page {page_info[0]} / {page_info[1]} n'a pas changé après {cfg.next_page_keys} "
+                                       "sur la dernière colonne : vérifie next_page_keys dans la config.")
                 self.log("La page n'a pas changé : dernière page atteinte.")
                 return
 
@@ -255,6 +256,9 @@ class Scanner:
         elif info[0] != 1:
             self.log(f"Page {info[0]} / {info[1]} : retour à la page 1.")
             for attempt in range(info[1] + 1):
+                # Page précédente : depuis la première colonne, on pousse le curseur au-delà du bord gauche
+                pos, img = self.cursor(grid, img)
+                img = self.move_to(grid, (pos[0], 0), img)
                 keys.press_sequence(cfg.prev_page_keys, cfg.page_delay)
                 img = self.grab_stable()
                 new_info = self.read_page(img) or info
@@ -267,17 +271,14 @@ class Scanner:
                     break
             else:
                 raise RuntimeError("impossible de revenir à la page 1 (vérifie prev_page_keys).")
-        if not grid.is_empty(img, 0, 0, cfg.empty_threshold):
-            img = self.move_to(grid, (0, 0), img)
-            self.log("Curseur sur la première case.")
         return img
 
     # --- mode assisté -----------------------------------------------------------------
     def _assisted(self) -> None:
-        """L'utilisateur déplace le curseur (ZQSD, E) ; chaque monstie survolé est enregistré une fois.
+        """L'utilisateur déplace le curseur (ZQSD) ; chaque monstie survolé est enregistré une fois.
         Se termine avec C, ou tout seul quand la dernière page est entièrement enregistrée."""
         cfg = self.cfg
-        self.log("Mode assisté : déplace le curseur sur chaque monstie (ZQSD, E pour la page suivante), "
+        self.log("Mode assisté : déplace le curseur sur chaque monstie (ZQSD ; D sur la dernière colonne pour la page suivante), "
                  "chacun est enregistré automatiquement (bip aigu ; bip grave quand la page est complète). "
                  "Attends le bip avant de passer au suivant. Appuie sur C quand tu as fini.")
         img = self.cap.grab()
