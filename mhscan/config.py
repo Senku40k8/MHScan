@@ -1,4 +1,4 @@
-"""Chargement / sauvegarde de la configuration (config.json).
+"""Chargement / sauvegarde de la configuration, un fichier par jeu (config_<jeu>.json).
 
 Toutes les positions sont exprimées en fractions (0..1) de la zone client de la
 fenêtre du jeu, pour rester valides si la résolution change.
@@ -7,12 +7,22 @@ import json
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
 
-CONFIG_PATH = Path("config.json")
+# Titre de fenêtre (regex) : ancré au début, en excluant navigateurs / Discord dont les onglets
+# peuvent contenir le nom du jeu ; MHS1 ne doit pas attraper MHS2 ou MHS3.
+_NOT_OTHER_APP = r"(?!.*(Chrome|Firefox|Edge|Opera|Brave|Discord|YouTube))"
+
+GAMES = {
+    "mhs1": {"name": "Monster Hunter Stories", "window_title": _NOT_OTHER_APP + r"^Monster Hunter Stories(?!\s*[23])"},
+    "mhs2": {"name": "Monster Hunter Stories 2: Wings of Ruin", "window_title": _NOT_OTHER_APP + r"^Monster Hunter Stories 2"},
+    "mhs3": {"name": "Monster Hunter Stories 3", "window_title": _NOT_OTHER_APP + r"^Monster Hunter Stories 3"},
+}
 
 
 @dataclass
 class Config:
-    window_title: str = "Monster Hunter Stories 2"
+    game: str = "mhs2"
+    # Expression régulière appliquée au titre de la fenêtre du jeu
+    window_title: str = GAMES["mhs2"]["window_title"]
     rows: int = 3
     cols: int = 6
     # Centre de la case (ligne 0, colonne 0) et de la case (dernière ligne, dernière colonne)
@@ -45,15 +55,27 @@ class Config:
         return self.grid_last_center != (0.0, 0.0) and self.gene_board != (0.0, 0.0, 0.0, 0.0)
 
 
-def load(path: Path = CONFIG_PATH) -> Config:
-    cfg = Config()
+def config_path(game: str) -> Path:
+    return Path(f"config_{game}.json")
+
+
+def load(game: str) -> Config:
+    cfg = Config(game=game, window_title=GAMES[game]["window_title"])
+    path = config_path(game)
+    legacy = Path("config.json")
+    if game == "mhs2" and not path.exists() and legacy.exists():
+        # Calibration d'avant le choix du jeu : son titre de fenêtre (simple sous-chaîne) est remplacé par la regex
+        data = json.loads(legacy.read_text(encoding="utf-8"))
+        data.pop("window_title", None)
+        path.write_text(json.dumps(data, indent=2), encoding="utf-8")
+        legacy.unlink()
     if path.exists():
         data = json.loads(path.read_text(encoding="utf-8"))
         for key, value in data.items():
-            if hasattr(cfg, key):
+            if hasattr(cfg, key) and key != "game":
                 setattr(cfg, key, tuple(value) if isinstance(getattr(cfg, key), tuple) else value)
     return cfg
 
 
-def save(cfg: Config, path: Path = CONFIG_PATH) -> None:
-    path.write_text(json.dumps(asdict(cfg), indent=2), encoding="utf-8")
+def save(cfg: Config) -> None:
+    config_path(cfg.game).write_text(json.dumps(asdict(cfg), indent=2), encoding="utf-8")

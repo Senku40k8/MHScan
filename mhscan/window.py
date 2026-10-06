@@ -1,5 +1,6 @@
 """Recherche de la fenêtre du jeu, mise au premier plan et capture de sa zone client."""
 import ctypes
+import re
 import time
 from ctypes import wintypes
 
@@ -13,7 +14,8 @@ except (AttributeError, OSError):
     user32.SetProcessDPIAware()
 
 
-def find_window(title_part: str) -> int:
+def find_window(title_pattern: str) -> int:
+    pattern = re.compile(title_pattern, re.IGNORECASE)
     found = []
     enum_proc = ctypes.WINFUNCTYPE(wintypes.BOOL, wintypes.HWND, wintypes.LPARAM)
 
@@ -22,13 +24,13 @@ def find_window(title_part: str) -> int:
             length = user32.GetWindowTextLengthW(hwnd)
             buf = ctypes.create_unicode_buffer(length + 1)
             user32.GetWindowTextW(hwnd, buf, length + 1)
-            if title_part.lower() in buf.value.lower():
+            if pattern.search(buf.value):
                 found.append(hwnd)
         return True
 
     user32.EnumWindows(enum_proc(callback), 0)
     if not found:
-        raise RuntimeError(f"Fenêtre contenant « {title_part} » introuvable. Le jeu est-il lancé ?")
+        raise RuntimeError(f"Fenêtre correspondant à « {title_pattern} » introuvable. Le jeu est-il lancé ?")
     return found[0]
 
 

@@ -24,11 +24,11 @@ def snake_order(rows: int, cols: int) -> list:
 class Scanner:
     def __init__(self, cfg: Config, out_root: Path = Path("scans")):
         if not cfg.is_calibrated():
-            raise RuntimeError("Configuration non calibrée : lance d'abord `python -m mhscan calibrate grid` puis `calibrate genes`.")
+            raise RuntimeError("Configuration non calibrée : lance d'abord `python -m mhscan calibrate grid` puis `calibrate genes` pour ce jeu.")
         self.cfg = cfg
         self.hwnd = window.find_window(cfg.window_title)
         self.cap = window.Capturer(self.hwnd)
-        self.out = out_root / datetime.now().strftime("%Y%m%d-%H%M%S")
+        self.out = out_root / cfg.game / datetime.now().strftime("%Y%m%d-%H%M%S")
         self.monsties = []
 
     # --- capture -------------------------------------------------------------------
@@ -107,7 +107,7 @@ class Scanner:
 
     def write_manifest(self) -> None:
         self.out.mkdir(parents=True, exist_ok=True)
-        manifest = {"scanned_at": self.out.name, "count": len(self.monsties), "monsties": self.monsties}
+        manifest = {"game": self.cfg.game, "scanned_at": self.out.name, "count": len(self.monsties), "monsties": self.monsties}
         (self.out / "monsties.json").write_text(json.dumps(manifest, indent=2, ensure_ascii=False), encoding="utf-8")
 
     # --- boucle principale ---------------------------------------------------------

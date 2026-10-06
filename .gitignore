@@ -2,5 +2,5 @@ __pycache__/
 *.pyc
 .venv/
 scans/
-config.json
-calibration_preview.png
+config*.json
+calibration_preview*.png

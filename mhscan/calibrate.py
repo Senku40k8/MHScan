@@ -58,8 +58,11 @@ def calibrate_genes(cfg: Config, image: str = None) -> None:
     report(cfg, img)
 
 
-def report(cfg: Config, img: np.ndarray, out: Path = Path("calibration_preview.png")) -> None:
+def report(cfg: Config, img: np.ndarray, out: Path = None) -> None:
     """Affiche ce que le programme détecte et enregistre une image de contrôle."""
+    out = out or Path(f"calibration_preview_{cfg.game}.png")
+    if not cfg.is_calibrated():
+        print(f"Calibration incomplète pour {cfg.game} : lance `python -m mhscan calibrate grid --game {cfg.game}` puis `calibrate genes`.")
     h, w = img.shape[:2]
     preview = img.copy()
     if cfg.grid_last_center != (0.0, 0.0):
