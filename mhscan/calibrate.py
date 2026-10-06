@@ -115,6 +115,7 @@ def calibrate_region(cfg: Config, name: str, image: str = None) -> None:
 def report(cfg: Config, img: np.ndarray, out: Path = None) -> None:
     """Affiche ce que le programme détecte et enregistre une image de contrôle."""
     out = out or Path(f"calibration_preview_{cfg.game}.png")
+    cv2.imwrite(str(out.with_name(f"calibration_capture_{cfg.game}.png")), img)  # capture brute, pour diagnostic
     if not cfg.is_calibrated():
         print(f"Calibration incomplète pour {cfg.game} : lance `python -m mhscan calibrate grid --game {cfg.game}` puis `calibrate genes`.")
     h, w = img.shape[:2]
