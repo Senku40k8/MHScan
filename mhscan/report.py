@@ -102,14 +102,13 @@ def _card(m: dict) -> str:
         for c in genes)
     gene_list = f'<ol class="genes">{items}</ol>' if genes else '<p class="empty">Aucun gène</p>'
     alerts = "".join(f'<div class="alert">{escape(a)}</div>' for a in m.get("checks", []))
-    level = f"Lv{m['level']}" if m.get("level") else "Lv ?"
-    search = " ".join([m.get("name") or "", level] + [c.get("gene") or "" for c in genes]).lower()
+    search = " ".join([m.get("name") or ""] + [c.get("gene") or "" for c in genes]).lower()
     return (
         f'<article class="card{" has-warn" if m.get("checks") else ""}" '
         f'style="grid-row:{m["row"]};grid-column:{m["col"]}" data-search="{escape(search)}">'
         f'<div class="head"><img src="{folder}/tile.png" alt="" loading="lazy">'
         f'<div><div class="name">{escape(m.get("name") or "Nom illisible")}</div>'
-        f'<div class="meta">{level} · #{m["index"]} · case {m["row"]},{m["col"]}</div></div></div>'
+        f'<div class="meta">#{m["index"]} · case {m["row"]},{m["col"]}</div></div></div>'
         f'<img class="board" src="{folder}/genes_board.png" alt="Plateau de gènes" loading="lazy">'
         f'{gene_list}{alerts}'
         f'<a href="{folder}/screen.jpg" target="_blank">Voir la capture</a>'

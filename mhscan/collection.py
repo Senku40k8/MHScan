@@ -21,8 +21,7 @@ def load(game_dir: Path):
 
 
 def _label(record: dict) -> str:
-    level = f" Lv{record['level']}" if record.get("level") else ""
-    return f"{record.get('name') or '?'}{level}"
+    return record.get("name") or "?"
 
 
 def update(game_dir: Path, scan_dir: Path, monsties: list) -> dict:

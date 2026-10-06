@@ -40,7 +40,7 @@ python -m mhscan calibrate genes --game mhs2   # jeu affichant un plateau de gè
 - `grid` : tracer un rectangle du **centre** de la case en haut à gauche au **centre** de la case en bas à droite.
 - `genes` : tracer un rectangle englobant exactement les 9 cases de gènes.
 - `page` : l'indicateur « 1 / 22 » sous la grille (lu par l'OCR de Windows, sans rien installer de plus).
-- `legend` / `info` (facultatif) : la légende avec le nom des gènes, et la fiche du monstie (nom, niveau, stats).
+- `legend` / `info` (facultatif) : la légende avec le nom des gènes, et la fiche du monstie (nom, stats).
 
 Dans la fenêtre de sélection : glisser à la souris pour tracer, **Espace** pour valider, **C** pour annuler.
 
@@ -66,9 +66,13 @@ Si Windows refuse de passer le jeu au premier plan, la console affiche **« Pass
 cliquer sur le jeu (ou Alt+Tab), le scan démarre alors tout seul.
 
 **Mode automatique** : le scan revient à la page 1 (Q depuis la première colonne, en lisant le numéro de
-page). Sur chaque page, il remonte en haut à gauche si besoin, puis lit les cases comme un livre : chaque
-ligne de gauche à droite, de haut en bas. Il passe ensuite à la page suivante (D depuis la dernière case).
-La position du curseur est vérifiée à chaque pas grâce à son cadre orange. Le scan s'arrête après la dernière
+page). Sur chaque page, il remonte en haut à gauche si besoin, puis parcourt les cases en serpentin, le
+chemin le plus court (ligne 1 de gauche à droite, ligne 2 de droite à gauche, ligne 3 de gauche à droite).
+Il passe ensuite à la page suivante (D depuis la dernière colonne). Les monsties sont ensuite numérotés et
+rangés dans l'ordre de lecture (chaque ligne de gauche à droite), dans `monsties.json` comme dans le rapport.
+La position du curseur est vérifiée à chaque pas grâce à son cadre orange. Pour aller vite, il n'y a pas
+d'attente fixe : le scan surveille l'écran jusqu'à voir le curseur arrivé et le panneau du monstie à jour,
+et l'enregistrement des images et la lecture des textes se font en tâche de fond pendant que le curseur avance. Le scan s'arrête après la dernière
 page (numéro de page = nombre de pages) ou à la première page incomplète ; si la page ne change pas alors
 qu'il en reste, il s'arrête avec un message d'erreur. Si le jeu ne réagit pas aux touches envoyées, le scan
 passe tout seul en mode assisté.
@@ -89,9 +93,9 @@ scans/<jeu>/
   <date-heure>/
     rapport.html           # rapport visuel (ouvert automatiquement à la fin du scan)
     scan.log               # journal du scan
-    monsties.json          # tous les monsties du scan : nom, niveau, page, case, gènes
+    monsties.json          # tous les monsties du scan, dans l'ordre de lecture : nom, page, case, gènes
     changements.json       # monsties ajoutés / retirés depuis le scan complet précédent
-    001_p01_r1c1/
+    p01_r1c1/              # page 1, ligne 1, colonne 1
       tile.png             # icône du monstie dans la grille
       genes_board.png      # plateau de gènes complet
       gene_11.png ... gene_33.png
@@ -99,7 +103,7 @@ scans/<jeu>/
       screen.jpg           # capture complète, pour retraiter sans relancer le jeu
 ```
 
-Pour chaque monstie, le scan lit (OCR Windows) son **nom** et son **niveau**, et le **nom de chaque gène** dans la
+Pour chaque monstie, le scan lit (OCR Windows) son **nom** et le **nom de chaque gène** dans la
 légende : elle liste les gènes ligne par ligne, dans le même ordre que le plateau. Chaque case du plateau a un
 `state` : `gene` (avec son nom, sa couleur et `bingo` si elle fait partie d'un BINGO), `empty` (case claire)
 ou `dark` (case foncée). Les incohérences (nom illisible, nombre de gènes différent de la légende) sont listées
@@ -110,7 +114,7 @@ dans `checks` et signalées dans le rapport.
 Un scan **complet** (toutes les pages parcourues) remplace la liste de référence `collection.json` : les
 monsties qui ne sont plus dans l'écurie en disparaissent. Le rapport et la console indiquent les monsties
 ajoutés et retirés depuis le scan complet précédent. Un monstie est reconnu d'un scan à l'autre par son nom et
-ses gènes : un simple gain de niveau n'en fait pas un nouveau monstie. Un scan **interrompu** ne modifie pas
+ses gènes (le niveau n'est pas lu : un gain de niveau ne change rien). Un scan **interrompu** ne modifie pas
 la liste de référence.
 
 ### Rapport visuel
@@ -123,5 +127,5 @@ python -m mhscan rapport --game mhs1 --scan scans/mhs1/<date-heure>
 ```
 
 Les monsties y sont rangés page par page, à la même place que dans la grille du jeu, avec leur icône, leur
-nom, leur niveau, leur plateau de gènes et la liste des gènes lus (bingos signalés). On peut chercher un nom ou
+nom, leur plateau de gènes et la liste des gènes lus (bingos signalés). On peut chercher un nom ou
 un gène, n'afficher que les monsties à vérifier, et ouvrir la capture d'écran complète de chacun.

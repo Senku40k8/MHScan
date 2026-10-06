@@ -64,8 +64,7 @@ class Config:
     open_detail_keys: list = field(default_factory=list)
     close_detail_keys: list = field(default_factory=list)
     # Délais (secondes)
-    key_delay: float = 0.25
-    page_delay: float = 0.8
+    key_delay: float = 0.03  # après chaque touche ; le scan attend ensuite de voir le curseur arriver
     detail_delay: float = 0.6
     # Seuils de détection
     empty_threshold: float = 0.06   # part de pixels différents du fond en dessous de laquelle la case est vide
