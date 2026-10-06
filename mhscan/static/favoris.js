@@ -21,14 +21,55 @@
   const LINES = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
   const STORE = `mhscan:${DATA.game}:favoris`;
 
-  // --- favoris (gardés dans le navigateur) ---------------------------------------------
-  function loadFavs() {
+  // --- favoris ---------------------------------------------------------------------------------
+  // Ouvert par `python -m mhscan rapport` (serveur local), le rapport enregistre les favoris dans
+  // scans/<jeu>/favoris.json. Ouvert directement comme fichier, il ne peut pas écrire sur le disque :
+  // les favoris restent alors dans le navigateur.
+  let onDisk = false;
+  function loadLocal() {
     try { return JSON.parse(localStorage.getItem(STORE)) || []; } catch { return []; }
   }
-  function saveFavs(favs) {
-    try { localStorage.setItem(STORE, JSON.stringify(favs)); } catch { /* stockage indisponible */ }
+  async function loadFavs() {
+    try {
+      const response = await fetch('/api/favoris', { cache: 'no-store' });
+      if (response.ok) {
+        onDisk = true;
+        const saved = await response.json();
+        const local = loadLocal();
+        if (!saved.length && local.length) {  // reprise des favoris mis avant dans le navigateur
+          favs = local;
+          await saveFavs(favs);
+          return favs;
+        }
+        return saved;
+      }
+    } catch { /* pas de serveur : rapport ouvert comme fichier */ }
+    return loadLocal();
   }
-  let favs = loadFavs();
+  async function saveFavs(list) {
+    if (onDisk) {
+      try {
+        const response = await fetch('/api/favoris', {
+          method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(list),
+        });
+        if (!response.ok) throw new Error(response.status);
+        setStorageNote();
+      } catch {
+        setStorageNote('Impossible d\'enregistrer les favoris : la console de `python -m mhscan rapport` est-elle encore ouverte ?');
+      }
+      return;
+    }
+    try { localStorage.setItem(STORE, JSON.stringify(list)); } catch { /* stockage indisponible */ }
+  }
+  function setStorageNote(error) {
+    const note = document.getElementById('fav-storage');
+    if (!note) return;
+    note.className = error ? 'alert' : 'fv-legend';
+    note.textContent = error || (onDisk
+      ? `Favoris enregistrés dans scans/${DATA.game}/favoris.json.`
+      : `Rapport ouvert comme fichier : les favoris restent dans ce navigateur. Ouvre-le avec « python -m mhscan rapport --game ${DATA.game} » pour les enregistrer dans scans/${DATA.game}/favoris.json.`);
+  }
+  let favs = [];
   const isFav = key => favs.some(f => f.key === key);
 
   function toggleFav(key) {
@@ -297,8 +338,12 @@
     renderFavs();
   });
 
-  refreshStars();
-  renderFavs();
+  loadFavs().then(list => {
+    favs = list;
+    setStorageNote();
+    refreshStars();
+    renderFavs();
+  });
   try {
     const tab = localStorage.getItem(STORE + ':onglet');
     if (tab) document.querySelector(`[data-tab="${tab}"]`)?.click();

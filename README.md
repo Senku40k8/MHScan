@@ -119,7 +119,10 @@ la liste de référence.
 
 ### Rapport visuel
 
-Le rapport s'ouvre dans le navigateur à la fin de chaque scan. Pour le rouvrir :
+Le rapport s'ouvre dans le navigateur à la fin de chaque scan, via un petit serveur local (accessible
+uniquement depuis ce PC) qui permet d'enregistrer les favoris : **laisser la console ouverte** tant qu'on utilise
+le rapport (Ctrl+C pour le fermer). Ouvert directement comme fichier, le rapport fonctionne aussi, mais les
+favoris restent alors dans le navigateur. Pour le rouvrir :
 
 ```
 python -m mhscan rapport --game mhs1                       # liste de référence (ou dernier scan)
@@ -132,7 +135,8 @@ un gène, n'afficher que les monsties à vérifier, et ouvrir la capture d'écra
 
 ## Étape 2 : favoris et optimisation des gènes (MHS1)
 
-Dans le rapport, l'étoile d'un monstie l'ajoute aux **favoris** (gardés dans le navigateur, d'un scan à l'autre).
+Dans le rapport, l'étoile d'un monstie l'ajoute aux **favoris**. Ils sont enregistrés dans
+`scans/<jeu>/favoris.json` et suivent d'un scan à l'autre (un monstie est reconnu par son nom et son espèce).
 L'onglet **Favoris** affiche pour chacun trois plateaux :
 
 - **Actuel** : ses gènes aujourd'hui ;

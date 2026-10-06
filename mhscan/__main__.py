@@ -42,8 +42,9 @@ def main() -> None:
 
     args = parser.parse_args()
     game = args.game or choose_game()
-    keys.start_quit_watch()
-    print(f"À tout moment, {keys.QUIT_HINT}.")
+    if args.command != "rapport":  # dans le rapport, taper « c » (une recherche...) ne doit rien arrêter
+        keys.start_quit_watch()
+        print(f"À tout moment, {keys.QUIT_HINT}.")
     try:
         run(args, game)
     except keys.Aborted as exc:
@@ -66,7 +67,8 @@ def open_report(args, game: str) -> None:
             scan_dir = scans[-1].parent
         else:
             raise SystemExit(f"Aucun scan trouvé dans {game_dir}.")
-    print(f"Rapport : {report.build(scan_dir).resolve()}")
+    report.build(scan_dir)
+    report.serve(scan_dir)
 
 
 def run(args, game: str) -> None:
@@ -89,7 +91,11 @@ def run(args, game: str) -> None:
             scanner = Scanner(cfg)
         except RuntimeError as exc:
             raise SystemExit(f"Scan impossible : {exc}")
-        scanner.run(assisted=args.assiste)
+        out = scanner.run(assisted=args.assiste)
+        if (out / "rapport.html").exists():
+            from . import report
+            keys.stop_quit_watch()  # le scan est fini : la touche C ne doit plus rien arrêter
+            report.serve(out)
     elif args.command == "rapport":
         open_report(args, game)
 

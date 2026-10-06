@@ -55,19 +55,25 @@ class Aborted(Exception):
 
 
 _stop = threading.Event()
+_watching = threading.Event()
 _target_hwnd = None
 
 
 def _watch_quit_key() -> None:
-    while not _stop.is_set():
+    while _watching.is_set() and not _stop.is_set():
         if user32.GetAsyncKeyState(QUIT_VK) & 0x8000:
             _stop.set()
         time.sleep(0.02)
 
 
+def stop_quit_watch() -> None:
+    _watching.clear()
+
+
 def start_quit_watch() -> None:
     """Surveille la touche C en tâche de fond : un appui, même bref et dans n'importe quelle fenêtre, arrête tout."""
     _stop.clear()
+    _watching.set()
     threading.Thread(target=_watch_quit_key, daemon=True).start()
 
 

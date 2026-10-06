@@ -9,6 +9,8 @@ Favoris propose pour chacun le meilleur plateau atteignable avec l'écurie et le
 import json
 import re
 import webbrowser
+from functools import partial
+from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from datetime import datetime
 from html import escape
 from pathlib import Path
@@ -152,7 +154,8 @@ FAVS_VIEW = """<div id="view-favs" class="hidden">
 <p class="fv-legend">Priorités : gènes du même <b>élément</b> et du même <b>type d'attaque</b> que le monstie
 (<span class="ok">vert</span> = les deux, <span class="half">orange</span> = un seul) &gt; famille
 <b>Critical &gt; Attack &gt; Speed</b> (L &gt; M &gt; S) &gt; nombre de <b>bingos</b>. Un donneur disparaît après le transfert
-et ne donne qu'un gène ; les favoris ne sont jamais utilisés comme donneurs. Les favoris sont gardés dans ce navigateur.</p>
+et ne donne qu'un gène ; les favoris ne sont jamais utilisés comme donneurs.</p>
+<p id="fav-storage" class="fv-legend"></p>
 <div id="fav-list"></div>
 </div>"""
 
@@ -163,8 +166,75 @@ def _data_script(data: dict) -> str:
     return f'<script id="mhscan-data" type="application/json">{payload}</script>\n<script>{script}</script>'
 
 
-def build(scan_dir: Path, changes: dict = None, open_browser: bool = True) -> Path:
-    """Écrit rapport.html dans le dossier du scan (ré-analyse les anciens scans si besoin) et l'ouvre."""
+FAVORITES_FILE = "favoris.json"
+MAX_FAVORITES_BYTES = 1_000_000
+
+
+class _ReportHandler(SimpleHTTPRequestHandler):
+    """Sert le dossier des scans du jeu, et lit / écrit les favoris (scans/<jeu>/favoris.json)."""
+
+    def _favorites_path(self) -> Path:
+        return Path(self.directory) / FAVORITES_FILE
+
+    def do_GET(self):
+        if self.path.split("?")[0] != "/api/favoris":
+            return super().do_GET()
+        path = self._favorites_path()
+        body = path.read_bytes() if path.exists() else b"[]"
+        self.send_response(200)
+        self.send_header("Content-Type", "application/json; charset=utf-8")
+        self.send_header("Content-Length", str(len(body)))
+        self.end_headers()
+        self.wfile.write(body)
+
+    def do_PUT(self):
+        if self.path != "/api/favoris":
+            return self.send_error(404)
+        length = int(self.headers.get("Content-Length", 0))
+        if length > MAX_FAVORITES_BYTES:
+            return self.send_error(413)
+        try:
+            favorites = json.loads(self.rfile.read(length).decode("utf-8"))
+            if not isinstance(favorites, list) or not all(isinstance(f, dict) and isinstance(f.get("key"), str) for f in favorites):
+                raise ValueError
+        except ValueError:
+            return self.send_error(400)
+        self._favorites_path().write_text(json.dumps(favorites, indent=2, ensure_ascii=False), encoding="utf-8")
+        self.send_response(204)
+        self.end_headers()
+
+    def log_message(self, *args):  # pas de journal de chaque requête dans la console
+        pass
+
+
+def serve(scan_dir: Path, port: int = 8765) -> None:
+    """Ouvre le rapport via un petit serveur local (accessible uniquement depuis ce PC), pour que les favoris
+    soient enregistrés dans scans/<jeu>/favoris.json. Tourne jusqu'à Ctrl+C ou la fermeture de la console."""
+    game_dir = scan_dir.resolve().parent
+    handler = partial(_ReportHandler, directory=str(game_dir))
+    for candidate in range(port, port + 20):
+        try:
+            server = ThreadingHTTPServer(("127.0.0.1", candidate), handler)
+            break
+        except OSError:  # port déjà pris (un autre rapport ouvert, par exemple)
+            continue
+    else:
+        raise SystemExit("Aucun port libre pour ouvrir le rapport.")
+    url = f"http://127.0.0.1:{server.server_address[1]}/{scan_dir.resolve().name}/rapport.html"
+    print(f"Rapport ouvert : {url}")
+    print(f"Favoris enregistrés dans {game_dir / FAVORITES_FILE}")
+    print("Laisse cette console ouverte tant que tu utilises le rapport ; Ctrl+C pour le fermer.")
+    webbrowser.open(url)
+    try:
+        server.serve_forever()
+    except KeyboardInterrupt:
+        print("Rapport fermé.")
+    finally:
+        server.server_close()
+
+
+def build(scan_dir: Path, changes: dict = None, open_browser: bool = False) -> Path:
+    """Écrit rapport.html dans le dossier du scan (ré-analyse les anciens scans si besoin)."""
     manifest_path = scan_dir / "monsties.json"
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     monsties = manifest["monsties"]
