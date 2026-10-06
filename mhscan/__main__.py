@@ -82,6 +82,7 @@ def run(args, game: str) -> None:
             calibrate.calibrate_region(cfg, args.target, args.image)
     elif args.command == "check":
         calibrate.report(cfg, calibrate.capture(cfg, args.image))
+        print(f"\ncheck ne fait que vérifier la détection. Pour scanner l'écurie : python -m mhscan scan --game {game}")
     elif args.command == "scan":
         from .scanner import Scanner
         try:
