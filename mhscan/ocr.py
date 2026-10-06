@@ -29,11 +29,10 @@ def _get_engine():
     return _engine
 
 
-def read_text(img: np.ndarray, upscale: float = 2.0) -> str:
-    """Texte lu dans une image BGR (chaîne vide si l'OCR n'est pas disponible)."""
+def _recognize(img: np.ndarray, upscale: float):
     engine = _get_engine()
-    if engine is None or img.size == 0:
-        return ""
+    if engine is None or img is None or img.size == 0:
+        return None
     if upscale != 1.0:
         img = cv2.resize(img, None, fx=upscale, fy=upscale, interpolation=cv2.INTER_CUBIC)
     bgra = cv2.cvtColor(img, cv2.COLOR_BGR2BGRA)
@@ -45,7 +44,25 @@ def read_text(img: np.ndarray, upscale: float = 2.0) -> str:
     async def recognize():
         return await engine.recognize_async(bitmap)
 
-    return asyncio.run(recognize()).text
+    return asyncio.run(recognize())
+
+
+def read_text(img: np.ndarray, upscale: float = 2.0) -> str:
+    """Texte lu dans une image BGR (chaîne vide si l'OCR n'est pas disponible)."""
+    result = _recognize(img, upscale)
+    return result.text if result else ""
+
+
+def read_lines(img: np.ndarray, upscale: float = 2.0) -> list:
+    """Lignes lues : [(texte, x, y)], coordonnées du début de ligne dans l'image d'origine."""
+    result = _recognize(img, upscale)
+    if not result:
+        return []
+    lines = []
+    for line in result.lines:
+        first = line.words[0].bounding_rect
+        lines.append((line.text, int(first.x / upscale), int(first.y / upscale)))
+    return lines
 
 
 def _variants(img: np.ndarray):

@@ -81,17 +81,44 @@ s'affiche est aussi écrit dans `scan.log` dans le dossier du scan.
 ### Résultat
 
 ```
-scans/<jeu>/<date-heure>/
-  scan.log                 # journal du scan
-  monsties.json            # index de tous les monsties (page, case, grille de gènes 3x3, état de chaque case)
-  001_p01_r1c1/
-    tile.png               # icône du monstie dans la grille
-    genes_board.png        # plateau de gènes complet
-    gene_11.png ... gene_33.png
-    legend.png, info.png   # noms des gènes, fiche du monstie (si ces zones sont calibrées)
-    screen.jpg             # capture complète, pour retraiter sans relancer le jeu
+scans/<jeu>/
+  collection.json          # liste de référence : le dernier scan complet
+  <date-heure>/
+    rapport.html           # rapport visuel (ouvert automatiquement à la fin du scan)
+    scan.log               # journal du scan
+    monsties.json          # tous les monsties du scan : nom, niveau, page, case, gènes
+    changements.json       # monsties ajoutés / retirés depuis le scan complet précédent
+    001_p01_r1c1/
+      tile.png             # icône du monstie dans la grille
+      genes_board.png      # plateau de gènes complet
+      gene_11.png ... gene_33.png
+      legend.png, info.png # légende des gènes, fiche du monstie
+      screen.jpg           # capture complète, pour retraiter sans relancer le jeu
 ```
 
-Chaque case du plateau a un `state` : `gene` (avec sa couleur dominante : `rouge`, `bleu`, `vert`, `gris`...),
-`empty` (case claire unie) ou `dark` (case foncée unie). Le champ `gene` (nom du gène) vaut `null` pour l'instant :
-il sera rempli par l'étape de reconnaissance (lecture de la légende).
+Pour chaque monstie, le scan lit (OCR Windows) son **nom** et son **niveau**, et le **nom de chaque gène** dans la
+légende : elle liste les gènes ligne par ligne, dans le même ordre que le plateau. Chaque case du plateau a un
+`state` : `gene` (avec son nom, sa couleur et `bingo` si elle fait partie d'un BINGO), `empty` (case claire)
+ou `dark` (case foncée). Les incohérences (nom illisible, nombre de gènes différent de la légende) sont listées
+dans `checks` et signalées dans le rapport.
+
+### Rescanner : mise à jour de la liste
+
+Un scan **complet** (toutes les pages parcourues) remplace la liste de référence `collection.json` : les
+monsties qui ne sont plus dans l'écurie en disparaissent. Le rapport et la console indiquent les monsties
+ajoutés et retirés depuis le scan complet précédent. Un monstie est reconnu d'un scan à l'autre par son nom et
+ses gènes : un simple gain de niveau n'en fait pas un nouveau monstie. Un scan **interrompu** ne modifie pas
+la liste de référence.
+
+### Rapport visuel
+
+Le rapport s'ouvre dans le navigateur à la fin de chaque scan. Pour le rouvrir :
+
+```
+python -m mhscan rapport --game mhs1                       # liste de référence (ou dernier scan)
+python -m mhscan rapport --game mhs1 --scan scans/mhs1/<date-heure>
+```
+
+Les monsties y sont rangés page par page, à la même place que dans la grille du jeu, avec leur icône, leur
+nom, leur niveau, leur plateau de gènes et la liste des gènes lus (bingos signalés). On peut chercher un nom ou
+un gène, n'afficher que les monsties à vérifier, et ouvrir la capture d'écran complète de chacun.

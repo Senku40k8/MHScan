@@ -14,7 +14,8 @@ from pathlib import Path
 import cv2
 import numpy as np
 
-from . import keys, ocr, window
+from . import collection, keys, ocr, report, window
+from .analyze import analyze_monstie
 from .config import Config
 from .grid import Grid, classify_gene_cell, crop_region, gene_cells
 
@@ -43,6 +44,8 @@ class Scanner:
         self.out = out_root / cfg.game / datetime.now().strftime("%Y%m%d-%H%M%S")
         self.monsties = []
         self.keys_work = False  # devient vrai dès qu'une touche envoyée a fait bouger le curseur
+        self.complete = False   # vrai si toute l'écurie a été parcourue : le scan devient la liste de référence
+        self.pages_done, self.total_pages = set(), None  # suivi du mode assisté
 
     def log(self, message: str) -> None:
         """Affiche le message et le garde dans scan.log (utile si la console est fermée)."""
@@ -128,7 +131,7 @@ class Scanner:
             cv2.imwrite(str(folder / regions[region_name]), crop_region(gene_img, region))
         # Capture complète conservée pour pouvoir retraiter le scan sans relancer le jeu
         cv2.imwrite(str(folder / "screen.jpg"), gene_img, [cv2.IMWRITE_JPEG_QUALITY, 90])
-        self.monsties.append({
+        record = {
             "index": index,
             "page": page,
             "row": r + 1,
@@ -137,16 +140,21 @@ class Scanner:
             "tile": "tile.png",
             "genes_board": "genes_board.png",
             "regions": regions,
-            # grille 3x3 : state = gene / empty / dark ; "gene" (nom) sera rempli par l'étape de reconnaissance
+            # grille 3x3 : state = gene / empty / dark ; gene = nom lu dans la légende ; bingo
             "genes": genes,
-        })
+        }
+        analyze_monstie(folder, record)
+        self.monsties.append(record)
         self.write_manifest()
         count = sum(cell["state"] == "gene" for row in genes for cell in row)
-        self.log(f"  #{index:03d} page {page} case ({r + 1},{c + 1}) enregistré : {count} gène(s)")
+        level = f" Lv{record['level']}" if record["level"] else ""
+        alert = f"  -> à vérifier : {', '.join(record['checks'])}" if record["checks"] else ""
+        self.log(f"  #{index:03d} page {page} case ({r + 1},{c + 1}) : {record['name'] or '?'}{level}, {count} gène(s){alert}")
 
     def write_manifest(self) -> None:
         self.out.mkdir(parents=True, exist_ok=True)
-        manifest = {"game": self.cfg.game, "scanned_at": self.out.name, "count": len(self.monsties), "monsties": self.monsties}
+        manifest = {"game": self.cfg.game, "scanned_at": self.out.name, "complete": self.complete,
+                    "count": len(self.monsties), "monsties": self.monsties}
         (self.out / "monsties.json").write_text(json.dumps(manifest, indent=2, ensure_ascii=False), encoding="utf-8")
 
     # --- boucle principale ---------------------------------------------------------
@@ -172,6 +180,7 @@ class Scanner:
             else:
                 try:
                     self._scan_pages()
+                    self.complete = True
                 except KeysIgnored:
                     self.log("Le jeu ne réagit pas aux touches envoyées : passage en mode assisté.")
                     self._assisted()
@@ -308,12 +317,32 @@ class Scanner:
             occupied = grid.occupancy(img, cfg.empty_threshold)
             if all((page_key, r, c) in done for r in range(grid.rows) for c in range(grid.cols) if occupied[r][c]):
                 self.log(f"Page {page_key} terminée.")
+                self.pages_done.add(page_key)
+                self.total_pages = total
                 winsound.Beep(600, 250)
                 if total and page_key == total:
                     self.log("Dernière page terminée : fin du scan.")
                     return
 
     def finish(self) -> Path:
+        if self.total_pages and set(range(1, self.total_pages + 1)) <= self.pages_done:
+            self.complete = True  # mode assisté : toutes les pages ont été parcourues
         self.write_manifest()
         self.log(f"{len(self.monsties)} monsties enregistrés dans {(self.out / 'monsties.json').resolve()}")
+        to_check = sum(1 for m in self.monsties if m["checks"])
+        if to_check:
+            self.log(f"{to_check} monstie(s) à vérifier (voir le rapport).")
+        changes = None
+        if self.complete and self.monsties:
+            changes = collection.update(self.out.parent, self.out, self.monsties)
+            (self.out / "changements.json").write_text(json.dumps(changes, indent=2, ensure_ascii=False), encoding="utf-8")
+            if changes["previous_scan"]:
+                self.log(f"Liste de référence mise à jour : {len(changes['added'])} ajouté(s), {len(changes['removed'])} retiré(s).")
+            else:
+                self.log("Premier scan complet : il devient la liste de référence.")
+        else:
+            self.log("Scan incomplet : la liste de référence (collection.json) n'est pas modifiée.")
+        if self.monsties:
+            path = report.build(self.out, changes)
+            self.log(f"Rapport : {path.resolve()}")
         return self.out

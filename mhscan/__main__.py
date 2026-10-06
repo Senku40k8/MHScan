@@ -37,6 +37,9 @@ def main() -> None:
     scn.add_argument("--assiste", action="store_true",
                      help="mode assisté : tu déplaces le curseur, chaque monstie survolé est enregistré")
 
+    rap = sub.add_parser("rapport", parents=[common], help="ouvrir le rapport visuel du dernier scan")
+    rap.add_argument("--scan", help="dossier d'un scan précis (par défaut : la liste de référence, sinon le dernier scan)")
+
     args = parser.parse_args()
     game = args.game or choose_game()
     keys.start_quit_watch()
@@ -45,6 +48,25 @@ def main() -> None:
         run(args, game)
     except keys.Aborted as exc:
         raise SystemExit(str(exc))
+
+
+def open_report(args, game: str) -> None:
+    from pathlib import Path
+
+    from . import collection, report
+    game_dir = Path("scans") / game
+    if args.scan:
+        scan_dir = Path(args.scan)
+    else:
+        current = collection.load(game_dir)
+        scans = sorted(p for p in game_dir.glob("*/monsties.json")) if game_dir.exists() else []
+        if current:
+            scan_dir = game_dir / current["scan"]
+        elif scans:
+            scan_dir = scans[-1].parent
+        else:
+            raise SystemExit(f"Aucun scan trouvé dans {game_dir}.")
+    print(f"Rapport : {report.build(scan_dir).resolve()}")
 
 
 def run(args, game: str) -> None:
@@ -67,6 +89,8 @@ def run(args, game: str) -> None:
         except RuntimeError as exc:
             raise SystemExit(f"Scan impossible : {exc}")
         scanner.run(assisted=args.assiste)
+    elif args.command == "rapport":
+        open_report(args, game)
 
 
 if __name__ == "__main__":
