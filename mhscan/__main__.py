@@ -33,7 +33,9 @@ def main() -> None:
     chk = sub.add_parser("check", parents=[common], help="vérifier la détection sur l'écran actuel")
     chk.add_argument("--image", help="utiliser une capture existante au lieu du jeu")
 
-    sub.add_parser("scan", parents=[common], help="parcourir l'écurie et enregistrer les gènes")
+    scn = sub.add_parser("scan", parents=[common], help="parcourir l'écurie et enregistrer les gènes")
+    scn.add_argument("--assiste", action="store_true",
+                     help="mode assisté : tu déplaces le curseur, chaque monstie survolé est enregistré")
 
     args = parser.parse_args()
     game = args.game or choose_game()
@@ -64,7 +66,7 @@ def run(args, game: str) -> None:
             scanner = Scanner(cfg)
         except RuntimeError as exc:
             raise SystemExit(f"Scan impossible : {exc}")
-        scanner.run()
+        scanner.run(assisted=args.assiste)
 
 
 if __name__ == "__main__":

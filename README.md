@@ -53,27 +53,36 @@ de fenêtre recherché (`window_title`, une regex) sont aussi configurables par 
 
 ### 2. Scan
 
-Ouvrir l'écurie (n'importe quelle page, n'importe quelle case), puis :
+Ouvrir l'écran « Rite of Channeling » (n'importe quelle page, n'importe quelle case), puis dans la console :
 
 ```
-python -m mhscan scan --game mhs2
+python -m mhscan scan --game mhs1             # mode automatique
+python -m mhscan scan --game mhs1 --assiste   # mode assisté
 ```
 
-Le scan revient d'abord à la page 1 (touche A, en lisant le numéro de page) et place le curseur sur la
-première case. Il parcourt ensuite chaque page en serpentin (5× droite, bas, 5× gauche, bas, 5× droite), puis passe à la page suivante.
-Sa position est vérifiée à chaque pas grâce au cadre orange de sélection. Le scan s'arrête après la dernière page
-(numéro de page = nombre de pages), à la première page incomplète, ou si le changement de page n'a aucun effet.
-Si l'indicateur de page n'est pas calibré, le scan part de la page affichée.
+Si Windows refuse de passer le jeu au premier plan, la console affiche **« Passe sur le jeu »** :
+cliquer sur le jeu (ou Alt+Tab), le scan démarre alors tout seul.
 
-Pour arrêter le scan : touche **C**.
-Quand le jeu n'est plus au premier plan (par exemple en cliquant sur la console), le scan se met en pause
-pour ne pas envoyer les touches à une autre fenêtre ; il reprend en recliquant sur le jeu.
-Les monsties déjà scannés restent enregistrés après un arrêt.
+**Mode automatique** : le scan revient à la page 1 (touche A, en lisant le numéro de page), place le curseur
+sur la première case, puis parcourt chaque page en serpentin (5× droite, bas, 5× gauche, bas, 5× droite)
+avant de passer à la page suivante (E). La position du curseur est vérifiée à chaque pas grâce à son cadre orange.
+Le scan s'arrête après la dernière page (numéro de page = nombre de pages), à la première page incomplète,
+ou si le changement de page n'a aucun effet. Si le jeu ne réagit pas aux touches envoyées, le scan
+passe tout seul en mode assisté.
+
+**Mode assisté** : tu déplaces toi-même le curseur (ZQSD, E) ; chaque monstie survolé est enregistré une fois
+(bip aigu), un bip grave signale qu'une page est complète. Attendre le bip avant de passer au suivant.
+Le scan se termine tout seul après la dernière page complète, ou avec C.
+
+Pour arrêter : touche **C**. Si le jeu n'est plus au premier plan, le scan se met en pause et reprend
+en recliquant sur le jeu. Les monsties déjà scannés restent enregistrés après un arrêt, et tout ce qui
+s'affiche est aussi écrit dans `scan.log` dans le dossier du scan.
 
 ### Résultat
 
 ```
 scans/<jeu>/<date-heure>/
+  scan.log                 # journal du scan
   monsties.json            # index de tous les monsties (page, case, grille de gènes 3x3, état de chaque case)
   001_p01_r1c1/
     tile.png               # icône du monstie dans la grille

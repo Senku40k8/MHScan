@@ -46,9 +46,12 @@ class Grid:
 
     def is_empty(self, img: np.ndarray, r: int, c: int, threshold: float, bg=None) -> bool:
         bg = self.background_color(img) if bg is None else bg
-        tile = self.tile(img, r, c).astype(np.int16)
-        diff = np.abs(tile - bg).sum(axis=2)
-        return float((diff > 45).mean()) < threshold
+        tile = self.tile(img, r, c)
+        diff = np.abs(tile.astype(np.int16) - bg).sum(axis=2)
+        # Les pixels orange du curseur (cadre et fond de la case sélectionnée) ne comptent pas :
+        # une case vide sous le curseur doit rester vide
+        cursor = cv2.inRange(cv2.cvtColor(tile, cv2.COLOR_BGR2HSV), (4, 140, 100), (22, 255, 255)) > 0
+        return float(((diff > 45) & ~cursor).mean()) < threshold
 
     def cursor_score(self, img: np.ndarray, r: int, c: int) -> float:
         """Part de pixels orange (bordure de sélection) sur le pourtour de la tuile."""

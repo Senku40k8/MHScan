@@ -35,9 +35,18 @@ def find_window(title_pattern: str) -> int:
 
 
 def focus(hwnd: int) -> None:
+    """Tente de mettre le jeu au premier plan (Windows peut refuser : l'appelant attend alors l'utilisateur)."""
     user32.ShowWindow(hwnd, 9)  # SW_RESTORE
-    user32.SetForegroundWindow(hwnd)
+    if not user32.SetForegroundWindow(hwnd):
+        # Un appui sur Alt autorise un programme à changer la fenêtre au premier plan
+        user32.keybd_event(0x12, 0, 0, 0)
+        user32.keybd_event(0x12, 0, 2, 0)
+        user32.SetForegroundWindow(hwnd)
     time.sleep(0.3)
+
+
+def is_foreground(hwnd: int) -> bool:
+    return user32.GetForegroundWindow() == hwnd
 
 
 def client_rect(hwnd: int) -> dict:

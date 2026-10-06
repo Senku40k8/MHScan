@@ -1,5 +1,13 @@
-"""Parcours automatique de l'écurie et sauvegarde des gènes de chaque monstie."""
+"""Parcours de l'écurie et sauvegarde des gènes de chaque monstie.
+
+Deux modes :
+- automatique : le programme déplace lui-même le curseur (ZQSD / E) ;
+- assisté : l'utilisateur déplace le curseur, le programme enregistre chaque monstie survolé.
+  Utilisé à la demande (--assiste) ou automatiquement si le jeu ne réagit pas aux touches simulées.
+"""
 import json
+import time
+import winsound
 from datetime import datetime
 from pathlib import Path
 
@@ -20,6 +28,10 @@ def snake_order(rows: int, cols: int) -> list:
     return order
 
 
+class KeysIgnored(Exception):
+    """Le jeu ne réagit pas aux touches envoyées par le programme."""
+
+
 class Scanner:
     def __init__(self, cfg: Config, out_root: Path = Path("scans")):
         if not cfg.is_calibrated():
@@ -30,6 +42,14 @@ class Scanner:
         self.cap = window.Capturer(self.hwnd)
         self.out = out_root / cfg.game / datetime.now().strftime("%Y%m%d-%H%M%S")
         self.monsties = []
+        self.keys_work = False  # devient vrai dès qu'une touche envoyée a fait bouger le curseur
+
+    def log(self, message: str) -> None:
+        """Affiche le message et le garde dans scan.log (utile si la console est fermée)."""
+        print(message, flush=True)
+        self.out.mkdir(parents=True, exist_ok=True)
+        with open(self.out / "scan.log", "a", encoding="utf-8") as f:
+            f.write(f"{datetime.now():%H:%M:%S} {message}\n")
 
     # --- capture -------------------------------------------------------------------
     def grab_stable(self, tries: int = 6) -> np.ndarray:
@@ -64,6 +84,7 @@ class Scanner:
         cfg = self.cfg
         pos, img = self.cursor(grid, img)
         prefer_col = False  # passe en déplacement horizontal si le jeu refuse de descendre (case vide)
+        ignored = 0
         for _ in range(2 * (grid.rows + grid.cols) + 6):
             if pos == target:
                 return img
@@ -77,6 +98,11 @@ class Scanner:
             new_pos, img = self.cursor(grid, img)
             if new_pos == pos:
                 prefer_col = move_row
+                ignored += 1
+                if not self.keys_work and ignored >= 3:
+                    raise KeysIgnored()
+            else:
+                self.keys_work = True
             pos = new_pos
         raise RuntimeError(f"Impossible d'atteindre la case {target} (curseur bloqué en {pos}).")
 
@@ -116,7 +142,7 @@ class Scanner:
         })
         self.write_manifest()
         count = sum(cell["state"] == "gene" for row in genes for cell in row)
-        print(f"  #{index:03d} page {page} case ({r + 1},{c + 1}) enregistré : {count} gène(s)")
+        self.log(f"  #{index:03d} page {page} case ({r + 1},{c + 1}) enregistré : {count} gène(s)")
 
     def write_manifest(self) -> None:
         self.out.mkdir(parents=True, exist_ok=True)
@@ -124,21 +150,41 @@ class Scanner:
         (self.out / "monsties.json").write_text(json.dumps(manifest, indent=2, ensure_ascii=False), encoding="utf-8")
 
     # --- boucle principale ---------------------------------------------------------
-    def run(self) -> Path:
+    def wait_for_game(self) -> None:
+        """Attend que le jeu soit au premier plan : Windows refuse parfois qu'un programme lancé
+        depuis un terminal prenne le focus, il faut alors cliquer sur le jeu (ou Alt+Tab)."""
+        window.focus(self.hwnd)
+        if not window.is_foreground(self.hwnd):
+            self.log(">>> Passe sur le jeu (Alt+Tab ou clic) : le scan démarrera tout seul dès qu'il sera au premier plan.")
+            while not window.is_foreground(self.hwnd):
+                keys.sleep(0.2)
+        self.log("Jeu au premier plan, démarrage dans 1 s.")
+        keys.sleep(1.0)
+
+    def run(self, assisted: bool = False) -> Path:
         """Lance le scan ; en cas d'arrêt ou d'erreur, les monsties déjà scannés restent enregistrés."""
-        print(f"Scan vers {self.out}")
+        self.log(f"Scan vers {self.out.resolve()}  (mode {'assisté' if assisted else 'automatique'}, {keys.QUIT_HINT})")
         keys.set_target(self.hwnd)
         try:
-            self._scan_pages()
+            self.wait_for_game()
+            if assisted:
+                self._assisted()
+            else:
+                try:
+                    self._scan_pages()
+                except KeysIgnored:
+                    self.log("Le jeu ne réagit pas aux touches envoyées : passage en mode assisté.")
+                    self._assisted()
         except keys.Aborted as exc:
-            print(exc)
+            self.log(str(exc))
+        except KeyboardInterrupt:
+            self.log("Scan interrompu (Ctrl+C).")
         except RuntimeError as exc:
-            print(f"Erreur : {exc}")
+            self.log(f"Erreur : {exc}")
         return self.finish()
 
     def _scan_pages(self) -> None:
         cfg = self.cfg
-        window.focus(self.hwnd)
         img = self.grab_stable()
         h, w = img.shape[:2]
         grid = Grid.from_config(cfg, w, h)
@@ -148,7 +194,7 @@ class Scanner:
         for page in range(1, cfg.max_pages + 1):
             keys.check_abort()
             page_info = self.read_page(img)
-            print(f"Page {page}" + (f" / {page_info[1]}" if page_info else ""))
+            self.log(f"Page {page}" + (f" / {page_info[1]}" if page_info else ""))
             # La dernière page se remplit dans l'ordre de lecture : en serpentin, une case vide
             # peut précéder une case occupée. On scanne donc toutes les cases occupées de la page,
             # et une page contenant une case vide est forcément la dernière.
@@ -167,10 +213,10 @@ class Scanner:
                 self.save_monstie(page, r, c, grid_img, grid, gene_img)
 
             if len(targets) < len(order):
-                print(f"Page {page} incomplète : fin du scan.")
+                self.log(f"Page {page} incomplète : fin du scan.")
                 return
             if page_info and page_info[0] == page_info[1]:
-                print("Dernière page scannée : fin du scan.")
+                self.log("Dernière page scannée : fin du scan.")
                 return
             before = grid.signature(img)
             keys.press_sequence(cfg.next_page_keys, cfg.page_delay)
@@ -181,7 +227,7 @@ class Scanner:
             else:
                 unchanged = np.abs(grid.signature(img) - before).mean() < 2.0
             if unchanged:
-                print("La page n'a pas changé : dernière page atteinte.")
+                self.log("La page n'a pas changé : dernière page atteinte.")
                 return
 
     # --- position de départ ----------------------------------------------------------
@@ -196,23 +242,78 @@ class Scanner:
         cfg = self.cfg
         info = self.read_page(img)
         if info is None:
-            print("Numéro de page illisible (indicateur non calibré ou OCR indisponible) : le scan part de la page affichée.")
+            self.log("Numéro de page illisible (indicateur non calibré ou OCR indisponible) : le scan part de la page affichée.")
         elif info[0] != 1:
-            print(f"Page {info[0]} / {info[1]} : retour à la page 1.")
-            for _ in range(info[1] + 1):
+            self.log(f"Page {info[0]} / {info[1]} : retour à la page 1.")
+            for attempt in range(info[1] + 1):
                 keys.press_sequence(cfg.prev_page_keys, cfg.page_delay)
                 img = self.grab_stable()
-                info = self.read_page(img) or info
+                new_info = self.read_page(img) or info
+                if new_info[0] != info[0]:
+                    self.keys_work = True
+                elif not self.keys_work and attempt >= 2:
+                    raise KeysIgnored()
+                info = new_info
                 if info[0] == 1:
                     break
             else:
                 raise RuntimeError("impossible de revenir à la page 1 (vérifie prev_page_keys).")
         if not grid.is_empty(img, 0, 0, cfg.empty_threshold):
             img = self.move_to(grid, (0, 0), img)
-            print("Curseur sur la première case.")
+            self.log("Curseur sur la première case.")
         return img
+
+    # --- mode assisté -----------------------------------------------------------------
+    def _assisted(self) -> None:
+        """L'utilisateur déplace le curseur (ZQSD, E) ; chaque monstie survolé est enregistré une fois.
+        Se termine avec C, ou tout seul quand la dernière page est entièrement enregistrée."""
+        cfg = self.cfg
+        self.log("Mode assisté : déplace le curseur sur chaque monstie (ZQSD, E pour la page suivante), "
+                 "chacun est enregistré automatiquement (bip aigu ; bip grave quand la page est complète). "
+                 "Attends le bip avant de passer au suivant. Appuie sur C quand tu as fini.")
+        img = self.cap.grab()
+        grid = Grid.from_config(cfg, img.shape[1], img.shape[0])
+        done = {(m["page"], m["row"] - 1, m["col"] - 1) for m in self.monsties}
+        page_key, total, signature, last_pos, handled_pos = None, None, None, None, None
+        while True:
+            keys.check_abort()
+            time.sleep(0.1)
+            if not window.is_foreground(self.hwnd):
+                continue
+            img = self.cap.grab()
+            pos = grid.find_cursor(img, cfg.cursor_threshold)
+            if pos is None or pos != last_pos:  # attend que le curseur soit posé sur deux images de suite
+                last_pos = pos
+                continue
+            # Nouvelle page : la grille change fortement (≈ 38) ; un déplacement du curseur la change très peu (< 1)
+            sig = grid.signature(img)
+            new_view = signature is None or np.abs(sig - signature).mean() > 8.0
+            if pos == handled_pos and not new_view:
+                continue
+            signature, handled_pos = sig, pos
+            info = self.read_page(img)  # relu à chaque nouvelle position : deux pages peuvent se ressembler
+            if info:
+                page_key, total = info
+            elif new_view:
+                page_key = (page_key or 0) + 1
+            if (page_key, *pos) in done or grid.is_empty(img, *pos, cfg.empty_threshold):
+                continue
+            img = self.grab_stable()
+            if grid.find_cursor(img, cfg.cursor_threshold) != pos:
+                handled_pos = None
+                continue
+            self.save_monstie(page_key, *pos, img, grid, img)
+            done.add((page_key, *pos))
+            winsound.Beep(1200, 60)  # enregistré : on peut passer au suivant
+            occupied = grid.occupancy(img, cfg.empty_threshold)
+            if all((page_key, r, c) in done for r in range(grid.rows) for c in range(grid.cols) if occupied[r][c]):
+                self.log(f"Page {page_key} terminée.")
+                winsound.Beep(600, 250)
+                if total and page_key == total:
+                    self.log("Dernière page terminée : fin du scan.")
+                    return
 
     def finish(self) -> Path:
         self.write_manifest()
-        print(f"{len(self.monsties)} monsties enregistrés dans {self.out / 'monsties.json'}")
+        self.log(f"{len(self.monsties)} monsties enregistrés dans {(self.out / 'monsties.json').resolve()}")
         return self.out
