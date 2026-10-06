@@ -1,11 +1,10 @@
 """Calibration interactive : on trace les zones à la souris sur une capture du jeu."""
-import time
 from pathlib import Path
 
 import cv2
 import numpy as np
 
-from . import window
+from . import keys, window
 from .config import Config, save
 from .grid import Grid
 
@@ -22,17 +21,17 @@ def capture(cfg: Config, image: str = None, countdown: int = 5) -> np.ndarray:
     window.focus(hwnd)
     for i in range(countdown, 0, -1):
         print(f"Capture dans {i}s...")
-        time.sleep(1)
+        keys.sleep(1)
     return window.Capturer(hwnd).grab()
 
 
 KEY_SPACE = 32
-CANCEL_KEYS = {27, ord("c"), ord("C"), ord("q"), ord("Q")}  # Échap, c, q
+CANCEL_KEYS = {ord("c"), ord("C")}
 
 
 def select_rect(img: np.ndarray, title: str) -> tuple:
     """Rectangle (x0, y0, x1, y1) en fractions de l'image, tracé à la souris.
-    Glisser pour tracer, ESPACE pour valider, c / q / Échap (ou fermer la fenêtre) pour annuler."""
+    Glisser pour tracer, ESPACE pour valider, C (ou fermer la fenêtre) pour annuler."""
     h, w = img.shape[:2]
     scale = min(1.0, MAX_DISPLAY_WIDTH / w)
     shown = cv2.resize(img, (int(w * scale), int(h * scale)))
@@ -49,7 +48,7 @@ def select_rect(img: np.ndarray, title: str) -> tuple:
     cv2.namedWindow(title, cv2.WINDOW_AUTOSIZE)
     cv2.setWindowProperty(title, cv2.WND_PROP_TOPMOST, 1)
     cv2.setMouseCallback(title, on_mouse)
-    help_text = "Glisser : tracer   ESPACE : valider   C / Q / Echap : annuler"
+    help_text = "Glisser : tracer   ESPACE : valider   C : annuler"
     try:
         while True:
             frame = shown.copy()
@@ -59,7 +58,7 @@ def select_rect(img: np.ndarray, title: str) -> tuple:
                 cv2.rectangle(frame, state["start"], state["end"], (0, 255, 0), 2)
             cv2.imshow(title, frame)
             key = cv2.waitKey(20) & 0xFF
-            if cv2.getWindowProperty(title, cv2.WND_PROP_VISIBLE) < 1 or key in CANCEL_KEYS:
+            if cv2.getWindowProperty(title, cv2.WND_PROP_VISIBLE) < 1 or key in CANCEL_KEYS or keys.stop_requested():
                 raise SystemExit("Sélection annulée.")
             if key == KEY_SPACE:
                 if state["start"] and abs(state["end"][0] - state["start"][0]) > 2 and abs(state["end"][1] - state["start"][1]) > 2:

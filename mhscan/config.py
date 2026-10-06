@@ -47,13 +47,14 @@ class Config:
     gene_board: tuple = (0.0, 0.0, 0.0, 0.0)
     # Zones supplémentaires enregistrées pour chaque monstie, {nom: (x0, y0, x1, y1)} ; ex. legend, info
     extra_regions: dict = field(default_factory=dict)
-    # Touches (noms pydirectinput)
-    key_up: str = "up"
-    key_down: str = "down"
-    key_left: str = "left"
-    key_right: str = "right"
-    # Séquence pour passer à la page suivante (depuis la dernière case de la page)
-    next_page_keys: list = field(default_factory=lambda: ["right"])
+    # Touches : une lettre telle qu'écrite sur le clavier (convertie selon la disposition AZERTY/QWERTY active)
+    # ou un nom parmi up, down, left, right, enter, esc, space, tab, backspace
+    key_up: str = "z"
+    key_down: str = "s"
+    key_left: str = "q"
+    key_right: str = "d"
+    # Séquence pour passer à la page suivante
+    next_page_keys: list = field(default_factory=lambda: ["e"])
     # Séquences optionnelles pour ouvrir / fermer la fiche du monstie si les gènes n'y sont pas visibles directement
     open_detail_keys: list = field(default_factory=list)
     close_detail_keys: list = field(default_factory=list)
@@ -70,14 +71,24 @@ class Config:
         return self.grid_last_center != (0.0, 0.0) and self.gene_board != (0.0, 0.0, 0.0, 0.0)
 
 
+def defaults(game: str) -> Config:
+    cfg = Config(game=game, window_title=GAMES[game]["window_title"])
+    for key, value in GAMES[game].get("defaults", {}).items():
+        setattr(cfg, key, value)
+    return cfg
+
+
+def _plain(value):
+    """Valeur normalisée comme après un aller-retour JSON (tuples -> listes)."""
+    return json.loads(json.dumps(value))
+
+
 def config_path(game: str) -> Path:
     return Path(f"config_{game}.json")
 
 
 def load(game: str) -> Config:
-    cfg = Config(game=game, window_title=GAMES[game]["window_title"])
-    for key, value in GAMES[game].get("defaults", {}).items():
-        setattr(cfg, key, value)
+    cfg = defaults(game)
     path = config_path(game)
     legacy = Path("config.json")
     if game == "mhs2" and not path.exists() and legacy.exists():
@@ -95,4 +106,8 @@ def load(game: str) -> Config:
 
 
 def save(cfg: Config) -> None:
-    config_path(cfg.game).write_text(json.dumps(asdict(cfg), indent=2), encoding="utf-8")
+    """N'enregistre que ce qui diffère des valeurs par défaut du jeu, pour que les améliorations
+    des défauts (touches, seuils...) s'appliquent aussi aux configurations existantes."""
+    base = _plain(asdict(defaults(cfg.game)))
+    changed = {k: v for k, v in _plain(asdict(cfg)).items() if k != "game" and v != base.get(k)}
+    config_path(cfg.game).write_text(json.dumps(changed, indent=2), encoding="utf-8")

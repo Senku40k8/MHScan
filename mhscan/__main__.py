@@ -1,7 +1,7 @@
 """Point d'entrée : python -m mhscan <commande> [--game mhs1|mhs2|mhs3]."""
 import argparse
 
-from . import calibrate, config
+from . import calibrate, config, keys
 
 
 def choose_game() -> str:
@@ -37,6 +37,15 @@ def main() -> None:
 
     args = parser.parse_args()
     game = args.game or choose_game()
+    keys.start_quit_watch()
+    print(f"À tout moment, {keys.QUIT_HINT}.")
+    try:
+        run(args, game)
+    except keys.Aborted as exc:
+        raise SystemExit(str(exc))
+
+
+def run(args, game: str) -> None:
     cfg = config.load(game)
     print(f"Jeu : {config.GAMES[game]['name']}")
 

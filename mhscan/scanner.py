@@ -1,6 +1,5 @@
 """Parcours automatique de l'écurie et sauvegarde des gènes de chaque monstie."""
 import json
-import time
 from datetime import datetime
 from pathlib import Path
 
@@ -37,7 +36,7 @@ class Scanner:
         """Capture une image une fois les animations terminées (deux captures identiques)."""
         prev = self.cap.grab()
         for _ in range(tries):
-            time.sleep(0.12)
+            keys.sleep(0.12)
             cur = self.cap.grab()
             if prev.shape == cur.shape and np.abs(cur.astype(np.int16) - prev).mean() < 1.0:
                 return cur
@@ -50,7 +49,7 @@ class Scanner:
             pos = grid.find_cursor(img, self.cfg.cursor_threshold)
             if pos is not None:
                 return pos, img
-            time.sleep(0.2)
+            keys.sleep(0.2)
             img = self.grab_stable()
         raise RuntimeError("Curseur introuvable dans la grille (vérifie la calibration avec `python -m mhscan check`).")
 
@@ -123,14 +122,11 @@ class Scanner:
     def run(self) -> Path:
         """Lance le scan ; en cas d'arrêt ou d'erreur, les monsties déjà scannés restent enregistrés."""
         print(f"Scan vers {self.out}")
-        print("Pour arrêter : tape q puis Entrée dans cette console, ou appuie sur F8 en jeu.")
-        keys.start(self.hwnd)
+        keys.set_target(self.hwnd)
         try:
             self._scan_pages()
         except keys.Aborted as exc:
             print(exc)
-        except KeyboardInterrupt:
-            print("Scan arrêté (Ctrl+C).")
         except RuntimeError as exc:
             print(f"Erreur : {exc}")
         return self.finish()
