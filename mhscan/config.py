@@ -12,7 +12,20 @@ from pathlib import Path
 _NOT_OTHER_APP = r"(?!.*(Chrome|Firefox|Edge|Opera|Brave|Discord|YouTube))"
 
 GAMES = {
-    "mhs1": {"name": "Monster Hunter Stories", "window_title": _NOT_OTHER_APP + r"^Monster Hunter Stories(?!\s*[23])"},
+    "mhs1": {
+        "name": "Monster Hunter Stories",
+        "window_title": _NOT_OTHER_APP + r"^Monster Hunter Stories(?!\s*[23])",
+        # Calibration mesurée sur l'écran « Rite of Channeling » en 2560x1440 (valable pour tout écran 16:9)
+        "defaults": {
+            "grid_first_center": (0.56428, 0.24965),
+            "grid_last_center": (0.89762, 0.44952),
+            "gene_board": (0.25401, 0.30290, 0.39469, 0.55187),
+            "extra_regions": {
+                "legend": (0.03986, 0.57538, 0.43493, 0.88866),  # noms des gènes du monstie
+                "info": (0.04259, 0.11964, 0.30481, 0.52559),    # nom, niveau, stats
+            },
+        },
+    },
     "mhs2": {"name": "Monster Hunter Stories 2: Wings of Ruin", "window_title": _NOT_OTHER_APP + r"^Monster Hunter Stories 2"},
     "mhs3": {"name": "Monster Hunter Stories 3", "window_title": _NOT_OTHER_APP + r"^Monster Hunter Stories 3"},
 }
@@ -32,6 +45,8 @@ class Config:
     tile_ratio: float = 0.94
     # Rectangle (x0, y0, x1, y1) du plateau de gènes 3x3
     gene_board: tuple = (0.0, 0.0, 0.0, 0.0)
+    # Zones supplémentaires enregistrées pour chaque monstie, {nom: (x0, y0, x1, y1)} ; ex. legend, info
+    extra_regions: dict = field(default_factory=dict)
     # Touches (noms pydirectinput)
     key_up: str = "up"
     key_down: str = "down"
@@ -61,6 +76,8 @@ def config_path(game: str) -> Path:
 
 def load(game: str) -> Config:
     cfg = Config(game=game, window_title=GAMES[game]["window_title"])
+    for key, value in GAMES[game].get("defaults", {}).items():
+        setattr(cfg, key, value)
     path = config_path(game)
     legacy = Path("config.json")
     if game == "mhs2" and not path.exists() and legacy.exists():

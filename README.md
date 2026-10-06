@@ -19,6 +19,9 @@ Chaque jeu a sa propre calibration (`config_<jeu>.json`) et ses propres scans (`
 
 ### 1. Calibration (une seule fois, ou après un changement de résolution)
 
+**MHS1 est déjà calibré** pour l'écran « Rite of Channeling » (écran 16:9) : vérifier simplement avec
+`python -m mhscan check --game mhs1` que la grille et le plateau tombent juste. Pour MHS2 / MHS3 :
+
 ```
 python -m mhscan calibrate grid --game mhs2    # jeu sur la grille des monsties, page 1
 python -m mhscan calibrate genes --game mhs2   # jeu affichant un plateau de gènes 3x3
@@ -26,11 +29,12 @@ python -m mhscan calibrate genes --game mhs2   # jeu affichant un plateau de gè
 
 - `grid` : tracer un rectangle du **centre** de la case en haut à gauche au **centre** de la case en bas à droite.
 - `genes` : tracer un rectangle englobant exactement les 9 cases de gènes.
+- `legend` / `info` (facultatif) : la légende avec le nom des gènes, et la fiche du monstie (nom, niveau, stats).
 
 Dans la fenêtre de sélection : glisser à la souris pour tracer, **Espace** pour valider, **C**, **Q** ou **Échap** pour annuler.
 
 Chaque calibration écrit `config_<jeu>.json` et une image de contrôle `calibration_preview_<jeu>.png`
-(cases de la grille en vert, découpage des gènes en violet). `python -m mhscan check` refait ce contrôle à tout moment.
+(cases de la grille en vert, découpage des gènes en violet, zones `legend` / `info` en cyan). `python -m mhscan check` refait ce contrôle à tout moment.
 
 Si les gènes ne sont visibles qu'après avoir ouvert la fiche du monstie, renseigner dans `config_<jeu>.json`
 `open_detail_keys` / `close_detail_keys` (ex. `["enter"]` / `["esc"]`). Les touches de navigation et de
@@ -58,12 +62,15 @@ Les monsties déjà scannés restent enregistrés après un arrêt.
 
 ```
 scans/<jeu>/<date-heure>/
-  monsties.json            # index de tous les monsties (page, case, grille de gènes 3x3)
+  monsties.json            # index de tous les monsties (page, case, grille de gènes 3x3, état de chaque case)
   001_p01_r1c1/
     tile.png               # icône du monstie dans la grille
     genes_board.png        # plateau de gènes complet
     gene_11.png ... gene_33.png
+    legend.png, info.png   # noms des gènes, fiche du monstie (si ces zones sont calibrées)
     screen.jpg             # capture complète, pour retraiter sans relancer le jeu
 ```
 
-Le champ `gene` de chaque case vaut `null` pour l'instant : il sera rempli par l'étape de reconnaissance des gènes.
+Chaque case du plateau a un `state` : `gene` (avec sa couleur dominante : `rouge`, `bleu`, `vert`, `gris`...),
+`empty` (case claire unie) ou `dark` (case foncée unie). Le champ `gene` (nom du gène) vaut `null` pour l'instant :
+il sera rempli par l'étape de reconnaissance (lecture de la légende).

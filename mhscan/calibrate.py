@@ -93,6 +93,21 @@ def calibrate_genes(cfg: Config, image: str = None) -> None:
     report(cfg, img)
 
 
+REGION_HELP = {
+    "legend": "la légende listant le nom des gènes du monstie",
+    "info": "la fiche du monstie (nom, niveau, stats)",
+}
+
+
+def calibrate_region(cfg: Config, name: str, image: str = None) -> None:
+    print(f"Affiche à l'écran {REGION_HELP[name]}.")
+    img = capture(cfg, image)
+    print(f"Trace un rectangle englobant {REGION_HELP[name]}, puis ESPACE (c pour annuler).")
+    cfg.extra_regions = {**cfg.extra_regions, name: select_rect(img, f"Zone {name}")}
+    save(cfg)
+    report(cfg, img)
+
+
 def report(cfg: Config, img: np.ndarray, out: Path = None) -> None:
     """Affiche ce que le programme détecte et enregistre une image de contrôle."""
     out = out or Path(f"calibration_preview_{cfg.game}.png")
@@ -115,5 +130,8 @@ def report(cfg: Config, img: np.ndarray, out: Path = None) -> None:
             y = py0 + (py1 - py0) * i // 3
             cv2.line(preview, (x, py0), (x, py1), (255, 0, 255), 2)
             cv2.line(preview, (px0, y), (px1, y), (255, 0, 255), 2)
+    for name, (x0, y0, x1, y1) in cfg.extra_regions.items():
+        cv2.rectangle(preview, (int(x0 * w), int(y0 * h)), (int(x1 * w), int(y1 * h)), (255, 255, 0), 2)
+        cv2.putText(preview, name, (int(x0 * w) + 6, int(y0 * h) + 26), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 0), 2)
     cv2.imwrite(str(out), preview)
     print(f"Image de contrôle : {out.resolve()}")

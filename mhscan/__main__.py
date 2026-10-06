@@ -26,8 +26,8 @@ def main() -> None:
     parser = argparse.ArgumentParser(prog="mhscan", description="Scan des monsties de Monster Hunter Stories 1, 2 et 3")
     sub = parser.add_subparsers(dest="command", required=True)
 
-    cal = sub.add_parser("calibrate", parents=[common], help="calibrer la grille ou le plateau de gènes")
-    cal.add_argument("target", choices=["grid", "genes"])
+    cal = sub.add_parser("calibrate", parents=[common], help="calibrer la grille, le plateau de gènes, la légende ou la fiche")
+    cal.add_argument("target", choices=["grid", "genes", "legend", "info"])
     cal.add_argument("--image", help="utiliser une capture existante au lieu du jeu")
 
     chk = sub.add_parser("check", parents=[common], help="vérifier la détection sur l'écran actuel")
@@ -41,7 +41,12 @@ def main() -> None:
     print(f"Jeu : {config.GAMES[game]['name']}")
 
     if args.command == "calibrate":
-        (calibrate.calibrate_grid if args.target == "grid" else calibrate.calibrate_genes)(cfg, args.image)
+        if args.target == "grid":
+            calibrate.calibrate_grid(cfg, args.image)
+        elif args.target == "genes":
+            calibrate.calibrate_genes(cfg, args.image)
+        else:
+            calibrate.calibrate_region(cfg, args.target, args.image)
     elif args.command == "check":
         calibrate.report(cfg, calibrate.capture(cfg, args.image))
     elif args.command == "scan":

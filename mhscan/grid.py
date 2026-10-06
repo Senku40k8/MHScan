@@ -94,3 +94,33 @@ def gene_cells(img: np.ndarray, board: tuple) -> tuple:
     ch, cw = crop.shape[0] / 3, crop.shape[1] / 3
     cells = [[crop[int(r * ch): int((r + 1) * ch), int(c * cw): int((c + 1) * cw)] for c in range(3)] for r in range(3)]
     return crop, cells
+
+
+def crop_region(img: np.ndarray, region: tuple) -> np.ndarray:
+    h, w = img.shape[:2]
+    return img[int(region[1] * h): int(region[3] * h), int(region[0] * w): int(region[2] * w)]
+
+
+def _color_name(hue: float, sat: float) -> str:
+    if sat < 60:
+        return "gris"
+    for limit, name in ((12, "rouge"), (20, "orange"), (35, "jaune"), (85, "vert"), (100, "cyan"), (130, "bleu"), (170, "violet")):
+        if hue < limit:
+            return name
+    return "rouge"
+
+
+def classify_gene_cell(cell: np.ndarray) -> dict:
+    """État d'une case du plateau : « empty » (case claire unie), « dark » (case foncée unie) ou « gene »,
+    avec la couleur dominante du gène."""
+    h, w = cell.shape[:2]
+    patch = cell[h // 4: 3 * h // 4, w // 4: 3 * w // 4]
+    pixels = patch.reshape(-1, 3).astype(np.float32)
+    if pixels.std(axis=0).mean() < 6:
+        return {"state": "empty" if pixels.mean() > 110 else "dark"}
+    hsv = cv2.cvtColor(patch, cv2.COLOR_BGR2HSV).reshape(-1, 3)
+    vivid = hsv[hsv[:, 1] > 90]
+    if len(vivid) < 0.15 * len(hsv):
+        return {"state": "gene", "color": "gris"}
+    hue, sat = float(np.median(vivid[:, 0])), float(np.median(vivid[:, 1]))
+    return {"state": "gene", "color": _color_name(hue, sat)}

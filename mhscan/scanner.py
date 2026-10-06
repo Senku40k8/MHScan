@@ -9,7 +9,7 @@ import numpy as np
 
 from . import keys, window
 from .config import Config
-from .grid import Grid, gene_cells
+from .grid import Grid, classify_gene_cell, crop_region, gene_cells
 
 
 def snake_order(rows: int, cols: int) -> list:
@@ -90,8 +90,12 @@ class Scanner:
             for gc in range(3):
                 name = f"gene_{gr + 1}{gc + 1}.png"
                 cv2.imwrite(str(folder / name), cells[gr][gc])
-                row.append({"image": name, "gene": None})
+                row.append({"image": name, **classify_gene_cell(cells[gr][gc]), "gene": None})
             genes.append(row)
+        regions = {}
+        for region_name, region in self.cfg.extra_regions.items():
+            regions[region_name] = f"{region_name}.png"
+            cv2.imwrite(str(folder / regions[region_name]), crop_region(gene_img, region))
         # Capture complète conservée pour pouvoir retraiter le scan sans relancer le jeu
         cv2.imwrite(str(folder / "screen.jpg"), gene_img, [cv2.IMWRITE_JPEG_QUALITY, 90])
         self.monsties.append({
@@ -102,10 +106,13 @@ class Scanner:
             "folder": folder.name,
             "tile": "tile.png",
             "genes_board": "genes_board.png",
-            "genes": genes,  # grille 3x3 ; "gene" sera rempli par l'étape de reconnaissance
+            "regions": regions,
+            # grille 3x3 : state = gene / empty / dark ; "gene" (nom) sera rempli par l'étape de reconnaissance
+            "genes": genes,
         })
         self.write_manifest()
-        print(f"  #{index:03d} page {page} case ({r + 1},{c + 1}) enregistré")
+        count = sum(cell["state"] == "gene" for row in genes for cell in row)
+        print(f"  #{index:03d} page {page} case ({r + 1},{c + 1}) enregistré : {count} gène(s)")
 
     def write_manifest(self) -> None:
         self.out.mkdir(parents=True, exist_ok=True)
