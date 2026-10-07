@@ -3,6 +3,13 @@
  "monsties": [
   {
    "name": "Aptonoth",
+   "skills": [
+    "Slip 'n Slam",
+    "Observe",
+    "Forage",
+    "Soothing Roar",
+    "Mountain Veggies"
+   ],
    "type": "Power",
    "element": "Non-Elem",
    "signature_gene": "Aptonoth Gene",
@@ -13,10 +20,19 @@
     "Health Gene (M)",
     "Attack Gene (M)",
     "Kinship Gene (S)"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Velocidrome",
+   "skills": [
+    "Velocirush",
+    "Intimidate",
+    "Swift Strike",
+    "Fierce Kick",
+    "Violent Bellow",
+    "Speed Boost (M)"
+   ],
    "type": "Speed",
    "element": "Non-Elem",
    "signature_gene": "Velocidrome Gene",
@@ -30,10 +46,19 @@
     "Quick Gene (M)",
     "Speed Gene (M)",
     "Speed Res Gene (M)"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Arzuros",
+   "skills": [
+    "Hunter's Claw",
+    "Honey Power",
+    "Breaking Jump",
+    "Defensive Stance",
+    "Merciless Bear Claw",
+    "Royal Honey Power"
+   ],
    "type": "Power",
    "element": "Non-Elem",
    "signature_gene": "Arzuros Gene",
@@ -47,10 +72,19 @@
     "Defense Gene (M)",
     "Power Gene (M)",
     "Power Res Gene (M)"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Yian Kut-Ku",
+   "skills": [
+    "Fireball Expulsion",
+    "Fireball",
+    "Peck Onslaught",
+    "Kut-Ku Whip",
+    "Kut-Ku Tackle",
+    "Fire Boost (M)"
+   ],
    "type": "Technical",
    "element": "Fire",
    "signature_gene": "Yian Kut-Ku Gene",
@@ -64,10 +98,19 @@
     "Flaming Gene (M)",
     "Tech Gene (M)",
     "Tech Res Gene (M)"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Blue Yian Kut-Ku",
+   "skills": [
+    "Fireball Expulsion",
+    "Blazeball",
+    "Peck Onslaught",
+    "Reckless Dash",
+    "Fire Res (M)",
+    "Fortify"
+   ],
    "type": "Technical",
    "element": "Fire",
    "signature_gene": "B. Yian Kut-Ku Gene",
@@ -80,10 +123,19 @@
     "Fire Res Gene (M)",
     "Tech Gene (M)",
     "Quickfire Gene"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Popo",
+   "skills": [
+    "Popo Dive",
+    "Soothing Bellow",
+    "Cold Res",
+    "Healing Roar",
+    "Snow Shroud",
+    "Fortifying Stance"
+   ],
    "type": "Power",
    "element": "Non-Elem",
    "signature_gene": "Popo Gene",
@@ -97,10 +149,19 @@
     "Ice Res Gene (M)",
     "Frigid Gene (M)",
     "Nesting Gene"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Lagombi",
+   "skills": [
+    "Slide Spinner",
+    "Ice Toss",
+    "Ice Skate Combo",
+    "Snowball",
+    "Ice Boost (M)",
+    "Skillseal Rate+ (M)"
+   ],
    "type": "Speed",
    "element": "Ice",
    "signature_gene": "Lagombi Gene",
@@ -116,10 +177,19 @@
     "Sealing Gene (M)",
     "Cocoon Gene (M)",
     "Antiseal Gene"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Bulldrome",
+   "skills": [
+    "Wild Ride",
+    "Lethal Tackle",
+    "Power Charge",
+    "Power Combo",
+    "Reckless Tackle",
+    "Potential"
+   ],
    "type": "Power",
    "element": "Non-Elem",
    "signature_gene": "Bulldrome Gene",
@@ -133,10 +203,19 @@
     "Power Gene (M)",
     "Warlike Gene (M)",
     "Power Res Gene (M)"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Zamtrios",
+   "skills": [
+    "Freezing Spouts",
+    "Spread Frost Breath",
+    "Predatory (M)",
+    "Ice Armor",
+    "Ice Boost (M)",
+    "Skillseal Chaser"
+   ],
    "type": "Technical",
    "element": "Ice",
    "signature_gene": "Zamtrios Gene",
@@ -153,10 +232,18 @@
     "Defense Gene (M)",
     "Cocoon Gene (M)",
     "Latent Ice Gene"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Khezu",
+   "skills": [
+    "Spark Surprise",
+    "Roar",
+    "Bloodsuck",
+    "Writhing Bite",
+    "Sav Thunder Breath"
+   ],
    "type": "Technical",
    "element": "Thunder",
    "signature_gene": "Khezu Gene",
@@ -171,10 +258,18 @@
     "Shocking Gene (M)",
     "Tech Res Gene (M)",
     "Quickthunder Gene"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Red Khezu",
+   "skills": [
+    "Spark Surprise",
+    "Sav Thunder Breath",
+    "Thunder Fang",
+    "Thunder Charge",
+    "Thunder Trap"
+   ],
    "type": "Technical",
    "element": "Thunder",
    "signature_gene": "Red Khezu Gene",
@@ -189,10 +284,19 @@
     "Paralyze Gene (M)",
     "Tech Gene (M)",
     "Latent Thunder Gene"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Apceros",
+   "skills": [
+    "Dynamic Spin",
+    "Defensive Stance",
+    "Observe",
+    "Strong Body Blow",
+    "Earthquake",
+    "Tenacity"
+   ],
    "type": "Power",
    "element": "Non-Elem",
    "signature_gene": "Apceros Gene",
@@ -207,10 +311,18 @@
     "Power Gene (M)",
     "Warlike Gene (M)",
     "Power Res Gene (M)"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Gendrome",
+   "skills": [
+    "Paralyslash",
+    "Paralysis Fang",
+    "Overpower",
+    "Paralysis Spit",
+    "Paralysis Chaser"
+   ],
    "type": "Speed",
    "element": "Non-Elem",
    "signature_gene": "Gendrome Gene",
@@ -223,10 +335,18 @@
     "Speed Gene (M)",
     "Shocking Gene (M)",
     "Speed Res Gene (M)"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Royal Ludroth",
+   "skills": [
+    "Moonsault Splash",
+    "Water Soak",
+    "Quickwater",
+    "Merciless Tackle",
+    "Water Jet"
+   ],
    "type": "Power",
    "element": "Water",
    "signature_gene": "Royal Ludroth Gene",
@@ -243,10 +363,18 @@
     "Torrential Gene (M)",
     "Sealing Gene (M)",
     "Quickwater Gene"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Gypceros",
+   "skills": [
+    "Venom Flash",
+    "Flash",
+    "Venom",
+    "Poison Chaser",
+    "Whip Combo"
+   ],
    "type": "Technical",
    "element": "Non-Elem",
    "signature_gene": "Gypceros Gene",
@@ -263,10 +391,19 @@
     "Dazzling Gene (M)",
     "Tenacity Gene",
     "Survivor Gene"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Nerscylla",
+   "skills": [
+    "Predator Needle",
+    "Sleep Needle",
+    "Sleep Chaser",
+    "Speedseal",
+    "Jump Strike",
+    "Sealing Needle"
+   ],
    "type": "Technical",
    "element": "Non-Elem",
    "signature_gene": "Nerscylla Gene",
@@ -282,10 +419,18 @@
     "Hypnotic Gene (M)",
     "Quickice Gene",
     "Abnormal Gene"
-   ]
+   ],
+   "sleep_attack": true
   },
   {
    "name": "Shrouded Nerscylla",
+   "skills": [
+    "Predator Needle",
+    "All Status Rate+ (M)",
+    "Spider Assault",
+    "Paralysis Chaser",
+    "Poison Chaser"
+   ],
    "type": "Technical",
    "element": "Non-Elem",
    "signature_gene": "S. Nerscylla Gene",
@@ -301,10 +446,19 @@
     "Shocking Gene (M)",
     "Quickice Gene",
     "Abnormal Gene"
-   ]
+   ],
+   "sleep_attack": true
   },
   {
    "name": "Qurupeco",
+   "skills": [
+    "Barrel Bomb Storm",
+    "Soothing Song",
+    "Fortifying Song",
+    "Fiery Swipe",
+    "Empowering Song",
+    "Tech Boost (M)"
+   ],
    "type": "Technical",
    "element": "Fire",
    "signature_gene": "Qurupeco Gene",
@@ -317,10 +471,18 @@
     "Tech Res Gene (M)",
     "Flaming Gene (M)",
     "Quickfire Gene"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Rathian",
+   "skills": [
+    "Scorching Slice",
+    "Poison Spike",
+    "Fire Breath",
+    "Might (L)",
+    "Spread Fire Breath"
+   ],
    "type": "Speed",
    "element": "Fire",
    "signature_gene": "Rathian Gene",
@@ -334,10 +496,19 @@
     "All-Elem Gene (M)",
     "Burning Gene (L)",
     "Antiburn Gene"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Pink Rathian",
+   "skills": [
+    "Scorching Slice",
+    "Flame Fang",
+    "Spread Fire Breath",
+    "Flame Charge",
+    "Fire Boost (M)",
+    "Sweep Poison Spike"
+   ],
    "type": "Speed",
    "element": "Fire",
    "signature_gene": "Pink Rathian Gene",
@@ -352,10 +523,18 @@
     "Searing Gene (L)",
     "Antiburn Gene",
     "Latent Fire Gene"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Barroth",
+   "skills": [
+    "Rushing Charge",
+    "Mud Throw",
+    "Breaking Dash",
+    "Iron Wall (M)",
+    "Mudbath"
+   ],
    "type": "Speed",
    "element": "Water",
    "signature_gene": "Barroth Gene",
@@ -367,10 +546,19 @@
     "Water Res Gene (M)",
     "Fire Res Gene (M)",
     "Unscathed Gene"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Cephadrome",
+   "skills": [
+    "Sand Spray",
+    "Sand Breath",
+    "Heat Res",
+    "Evasion Instincts",
+    "Paralysis Cutter",
+    "Ground Thrust"
+   ],
    "type": "Power",
    "element": "Non-Elem",
    "signature_gene": "Cephadrome Gene",
@@ -386,10 +574,19 @@
     "Fire Res Gene (M)",
     "Paralyze Gene (M)",
     "Evasion Gene (M)"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Diablos",
+   "skills": [
+    "Fiendish Cyclone",
+    "Power Charge",
+    "Fierce Stab",
+    "Ground Thrust",
+    "Power Boost (M)",
+    "Potential"
+   ],
    "type": "Power",
    "element": "Non-Elem",
    "signature_gene": "Diablos Gene",
@@ -403,10 +600,19 @@
     "Critical Gene (M)",
     "Warlike Gene (L)",
     "Potential Gene"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Black Diablos",
+   "skills": [
+    "Fiendish Cyclone",
+    "Merciless Horn",
+    "Power Boost (M)",
+    "Savage Roar",
+    "Vengeful Tackle",
+    "Power Combo"
+   ],
    "type": "Power",
    "element": "Non-Elem",
    "signature_gene": "Black Diablos Gene",
@@ -420,10 +626,19 @@
     "Critical Gene (M)",
     "Warlike Gene (L)",
     "Head-to-Head Gene"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Tigrex",
+   "skills": [
+    "Rock Smash",
+    "Stampede",
+    "Dash Combo",
+    "Stone Toss",
+    "Lock-On",
+    "Breaking Crush"
+   ],
    "type": "Power",
    "element": "Non-Elem",
    "signature_gene": "Tigrex Gene",
@@ -437,10 +652,18 @@
     "Evasion Gene (M)",
     "Draconic Gene (M)",
     "Quickdragon Gene"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Iodrome",
+   "skills": [
+    "Poison Slash",
+    "Venom",
+    "Poison Fang",
+    "Poison Chaser",
+    "Stun Crusher"
+   ],
    "type": "Speed",
    "element": "Non-Elem",
    "signature_gene": "Iodrome Gene",
@@ -455,10 +678,19 @@
     "Speed Gene (M)",
     "Poison Gene (M)",
     "Noxious Gene (M)"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Basarios",
+   "skills": [
+    "Laser Ambush",
+    "Rock Shield",
+    "Extend Poison (S)",
+    "Poison Gas",
+    "Inferno Gas",
+    "Heat Beam"
+   ],
    "type": "Technical",
    "element": "Fire",
    "signature_gene": "Basarios Gene",
@@ -475,10 +707,19 @@
     "Flaming Gene (L)",
     "Drgn Res Gene (M)",
     "Searing Gene (L)"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Gravios",
+   "skills": [
+    "Magma Surge",
+    "Spreading Beam",
+    "Heat Res",
+    "Fierce Tackle",
+    "Rock Shield",
+    "Sleep Gas"
+   ],
    "type": "Power",
    "element": "Fire",
    "signature_gene": "Gravios Gene",
@@ -493,10 +734,19 @@
     "Fire Res Gene (L)",
     "Hypnotic Gene (L)",
     "Latent Fire Gene"
-   ]
+   ],
+   "sleep_attack": true
   },
   {
    "name": "Uragaan",
+   "skills": [
+    "Rolling Shot",
+    "Bombardier",
+    "Heat Res",
+    "Megaton Stomp",
+    "Tail Bomber",
+    "Power Boost (M)"
+   ],
    "type": "Power",
    "element": "Fire",
    "signature_gene": "Uragaan Gene",
@@ -512,10 +762,19 @@
     "Fire Res Gene (L)",
     "Volatile Gene (M)",
     "Antisleep Gene"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Brute Tigrex",
+   "skills": [
+    "Rock Smash",
+    "Savage Roar",
+    "Dash Combo",
+    "Stone Toss",
+    "Evasion Instincts",
+    "Breaking Crush"
+   ],
    "type": "Power",
    "element": "Non-Elem",
    "signature_gene": "Brute Tigrex Gene",
@@ -529,10 +788,19 @@
     "Power Gene (L)",
     "Evasion Gene (M)",
     "Escape Gene"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Great Jaggi",
+   "skills": [
+    "Jaggi Strike",
+    "Breaking Blow",
+    "Jaggi Speed Combo",
+    "Jaggi Tech Combo",
+    "Jaggi Power Combo",
+    "Critical Eye (M)"
+   ],
    "type": "Speed",
    "element": "Non-Elem",
    "signature_gene": "Great Jaggi Gene",
@@ -542,10 +810,19 @@
     "Speed Res Gene (M)",
     "Health Gene (L)",
     "Speed Res Gene (L)"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Kecha Wacha",
+   "skills": [
+    "Torrent Glide",
+    "Spitball",
+    "Salt in the Wound",
+    "Fierce Pounce",
+    "Powerseal",
+    "Skillseal Chaser"
+   ],
    "type": "Technical",
    "element": "Water",
    "signature_gene": "Kecha Wacha Gene",
@@ -559,10 +836,18 @@
     "Sealing Gene (L)",
     "Water Res Gene (L)",
     "Torrential Gene (L)"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Purple Ludroth",
+   "skills": [
+    "Moonsault Splash",
+    "Poison Spit",
+    "Poison Soak",
+    "Quickwater",
+    "Reckless Psn Spit"
+   ],
    "type": "Power",
    "element": "Water",
    "signature_gene": "Purple Ludroth Gene",
@@ -577,10 +862,18 @@
     "Poison Gene (L)",
     "Dampening Gene",
     "Latent Water Gene"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Yian Garuga",
+   "skills": [
+    "Barrel Charge",
+    "Finishing Blow",
+    "Poison Tail",
+    "Poison Chaser",
+    "Spread Fire Breath"
+   ],
    "type": "Technical",
    "element": "Non-Elem",
    "signature_gene": "Yian Garuga Gene",
@@ -593,10 +886,18 @@
     "Noxious Gene (L)",
     "Poison Gene (L)",
     "Antiseal Gene"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Congalala",
+   "skills": [
+    "Foul Burst",
+    "Foul Gas",
+    "Body Press",
+    "Mushroom Breath",
+    "Mushroom Feast"
+   ],
    "type": "Power",
    "element": "Non-Elem",
    "signature_gene": "Congalala Gene",
@@ -610,10 +911,18 @@
     "Stinking Gene (L)",
     "Hounding Gene",
     "Abnormal Gene"
-   ]
+   ],
+   "sleep_attack": true
   },
   {
    "name": "Emerald Congalala",
+   "skills": [
+    "Foul Burst",
+    "Explosive Gas",
+    "Body Press",
+    "Belly Block",
+    "Mushroom Breath"
+   ],
    "type": "Power",
    "element": "Non-Elem",
    "signature_gene": "E. Congalala Gene",
@@ -628,10 +937,19 @@
     "Stinking Gene (L)",
     "Hounding Gene",
     "Abnormal Gene"
-   ]
+   ],
+   "sleep_attack": true
   },
   {
    "name": "Crimson Qurupeco",
+   "skills": [
+    "Barrel Bomb Storm",
+    "Weakening Song",
+    "Electric Swipe",
+    "Enfeebling Song",
+    "Debilitating Shower",
+    "Tech Boost (M)"
+   ],
    "type": "Technical",
    "element": "Thunder",
    "signature_gene": "C. Qurupeco Gene",
@@ -642,10 +960,19 @@
     "Dazzling Gene (M)",
     "Tech Res Gene (L)",
     "Dazzling Gene (L)"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Black Gravios",
+   "skills": [
+    "Magma Surge",
+    "Chrg Spread Beam",
+    "Heat Res",
+    "Rock Shield",
+    "Powerhouse Stance",
+    "Heat Laser"
+   ],
    "type": "Power",
    "element": "Fire",
    "signature_gene": "Black Gravios Gene",
@@ -663,10 +990,19 @@
     "Hypnotic Gene (L)",
     "Ice Res Gene (L)",
     "Drgn Res Gene (L)"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Zinogre",
+   "skills": [
+    "Voltage Crash",
+    "Thnder Supercharge",
+    "Thunder Res (L)",
+    "Thunder Tackle",
+    "Thunderbug Strike",
+    "Rep Thunder Strike"
+   ],
    "type": "Power",
    "element": "Thunder",
    "signature_gene": "Zinogre Gene",
@@ -680,10 +1016,19 @@
     "Paralyze Gene (L)",
     "Latent Thunder Gene",
     "Thunder Scale Gene"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Ruby Basarios",
+   "skills": [
+    "Laser Ambush",
+    "Ore Shield",
+    "Sleep Gas",
+    "Rock Shield",
+    "Heat Beam",
+    "Noxious Poison Gas"
+   ],
    "type": "Technical",
    "element": "Fire",
    "signature_gene": "Ruby Basarios Gene",
@@ -697,10 +1042,19 @@
     "Poison Gene (L)",
     "Flaming Gene (L)",
     "Drgn Res Gene (L)"
-   ]
+   ],
+   "sleep_attack": true
   },
   {
    "name": "Nargacuga",
+   "skills": [
+    "Dark Thrash",
+    "Sharpen Blades",
+    "Tail Smash",
+    "Evasion (M)",
+    "Killer Fang",
+    "Spike Bomb"
+   ],
    "type": "Speed",
    "element": "Non-Elem",
    "signature_gene": "Nargacuga Gene",
@@ -715,10 +1069,19 @@
     "Speed Gene (L)",
     "Evasion Gene (L)",
     "Escape Gene"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Green Nargacuga",
+   "skills": [
+    "Dark Thrash",
+    "Evasion (M)",
+    "Sneak",
+    "Critical Eye (M)",
+    "Spike Bomb",
+    "Lock-On"
+   ],
    "type": "Speed",
    "element": "Non-Elem",
    "signature_gene": "G. Nargacuga Gene",
@@ -731,10 +1094,19 @@
     "Quick Gene (L)",
     "Evasion Gene (L)",
     "Escape Gene"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Rathalos",
+   "skills": [
+    "Sky-High Dive",
+    "Savage Fireball",
+    "Fire Breath",
+    "Evasive Stance",
+    "Poison Kick",
+    "Might (L)"
+   ],
    "type": "Power",
    "element": "Fire",
    "signature_gene": "Rathalos Gene",
@@ -749,10 +1121,19 @@
     "Flaming Gene (L)",
     "Draconic Gene (L)",
     "Kinship Gene (S)"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Azure Rathalos",
+   "skills": [
+    "Sky-High Dive",
+    "Gather Breath",
+    "Fire Breath",
+    "Sharpen Talons",
+    "Spread Blaze Breath",
+    "Might (L)"
+   ],
    "type": "Power",
    "element": "Fire",
    "signature_gene": "Azure Rathalos Gene",
@@ -768,10 +1149,18 @@
     "Draconic Gene (L)",
     "Kinship Gene (M)",
     "Quickfire Gene"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Purple Gypceros",
+   "skills": [
+    "Venom Flash",
+    "Noxious Venom",
+    "Flash",
+    "Extend Poison (M)",
+    "Stun Crusher"
+   ],
    "type": "Technical",
    "element": "Non-Elem",
    "signature_gene": "P. Gypceros Gene",
@@ -786,10 +1175,19 @@
     "Dazzling Gene (L)",
     "Tenacity Gene",
     "Survivor Gene"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Ash Kecha Wacha",
+   "skills": [
+    "Torrent Glide",
+    "Firespit",
+    "Salt in the Wound",
+    "Iron Skin",
+    "Fierce Pounce",
+    "Wild Firespit"
+   ],
    "type": "Technical",
    "element": "Fire",
    "signature_gene": "A. Kecha Gene",
@@ -803,10 +1201,19 @@
     "Cocoon Gene (L)",
     "Fire Res Gene (L)",
     "Flaming Gene (L)"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Lagiacrus",
+   "skills": [
+    "Thunderous Blast",
+    "Thunder Breath",
+    "Double Fang",
+    "Water Soak",
+    "Electrified Impact",
+    "Thunder Res (M)"
+   ],
    "type": "Power",
    "element": "Thunder",
    "signature_gene": "Lagiacrus Gene",
@@ -819,10 +1226,19 @@
     "Water Scale Gene",
     "Paralyze Gene (L)",
     "Quickthunder Gene"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Ivory Lagiacrus",
+   "skills": [
+    "Thunderous Blast",
+    "Spread Shock Brth",
+    "Thunder Dbl Fang",
+    "Electrified Impact",
+    "Thunder Boost (M)",
+    "Speed Res (M)"
+   ],
    "type": "Power",
    "element": "Thunder",
    "signature_gene": "Ivory Lagiacrus Gene",
@@ -835,10 +1251,19 @@
     "Water Scale Gene",
     "Shocking Gene (L)",
     "Latent Water Gene"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Deviljho",
+   "skills": [
+    "Hunger Rage",
+    "Spread Drgn Breath",
+    "Power Boost (M)",
+    "Pump Up",
+    "Gluttony",
+    "Breaking Crush"
+   ],
    "type": "Power",
    "element": "Dragon",
    "signature_gene": "Deviljho Gene",
@@ -853,10 +1278,19 @@
     "Predatory Gene (L)",
     "Draconic Gene (L)",
     "Power Res Gene (L)"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Great Baggi",
+   "skills": [
+    "Lullabite",
+    "Sleep Serum",
+    "Baggi Speed Combo",
+    "Baggi Tech Combo",
+    "Baggi Power Combo",
+    "Sleep Rate+ (M)"
+   ],
    "type": "Speed",
    "element": "Non-Elem",
    "signature_gene": "Great Baggi Gene",
@@ -866,10 +1300,18 @@
     "Speed Res Gene (M)",
     "Antisleep Gene",
     "Speed Res Gene (L)"
-   ]
+   ],
+   "sleep_attack": true
   },
   {
    "name": "Jade Barroth",
+   "skills": [
+    "Rushing Charge",
+    "Snowball",
+    "Breaking Dash",
+    "Snowbath",
+    "Skillseal Chaser"
+   ],
    "type": "Speed",
    "element": "Ice",
    "signature_gene": "Jade Barroth Gene",
@@ -886,10 +1328,19 @@
     "Unscathed Gene",
     "Latent Ice Gene",
     "Ice Scale Gene"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Barioth",
+   "skills": [
+    "Ground Cyclone",
+    "Ice Cyclone",
+    "Ice Res (M)",
+    "Icicle Fang",
+    "Evasion (M)",
+    "Snow Shroud"
+   ],
    "type": "Speed",
    "element": "Ice",
    "signature_gene": "Barioth Gene",
@@ -903,10 +1354,19 @@
     "Critical Gene (M)",
     "Critical Gene (L)",
     "Latent Ice Gene"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Sand Barioth",
+   "skills": [
+    "Ground Cyclone",
+    "Trap Cyclone",
+    "Fire Res (M)",
+    "Dodge Cyclone",
+    "Desert Fang",
+    "Evasive Stance"
+   ],
    "type": "Speed",
    "element": "Non-Elem",
    "signature_gene": "Sand Barioth Gene",
@@ -917,10 +1377,19 @@
     "Evasion Gene (L)",
     "Critical Gene (L)",
     "Cyclone Gene"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Stygian Zinogre",
+   "skills": [
+    "Voltage Crash",
+    "Dragon Shroud",
+    "Elder Tackle",
+    "Dracophage Shot",
+    "Rep Dragon Strike",
+    "Dancer"
+   ],
    "type": "Power",
    "element": "Dragon",
    "signature_gene": "S. Zinogre Gene",
@@ -932,10 +1401,19 @@
     "Draconic Scale Gene",
     "Unscathed Gene",
     "Latent Dragon Gene"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Brachydios",
+   "skills": [
+    "Brachy Blow",
+    "Slime Stomp",
+    "Slime Charge",
+    "Power Boost (M)",
+    "Great Tackle",
+    "Techseal"
+   ],
    "type": "Power",
    "element": "Fire",
    "signature_gene": "Brachydios Gene",
@@ -951,10 +1429,19 @@
     "Potential Gene",
     "Head-to-Head Gene",
     "Dampening Gene"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Kirin",
+   "skills": [
+    "Phantasmal Horn",
+    "Thundercall",
+    "Crippling Stab",
+    "Pinpoint Strike",
+    "Neigh",
+    "Thunder Boost (L)"
+   ],
    "type": "Speed",
    "element": "Thunder",
    "signature_gene": "Kirin Gene",
@@ -972,10 +1459,19 @@
     "Nesting Gene",
     "Painkiller Gene",
     "Kinship Gene (L)"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Monoblos",
+   "skills": [
+    "Demolition Dash",
+    "Vicious (M)",
+    "Double Strike",
+    "Swift Tackle",
+    "Technical Blow",
+    "Head-to-Head Ace"
+   ],
    "type": "Power",
    "element": "Non-Elem",
    "signature_gene": "Monoblos Gene",
@@ -986,10 +1482,19 @@
     "Power Gene (L)",
     "Sturdy Gene",
     "All-Elem Gene (L)"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Seregios",
+   "skills": [
+    "Piercing Stars",
+    "Thousand Blades",
+    "Power Res (M)",
+    "Aerial Kick",
+    "Tech Boost (M)",
+    "Shredding Scales"
+   ],
    "type": "Technical",
    "element": "Non-Elem",
    "signature_gene": "Seregios Gene",
@@ -1003,10 +1508,19 @@
     "Bleeding Gene (L)",
     "Antibleed Gene",
     "Potent Gene (L)"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Gold Rathian",
+   "skills": [
+    "Scorching Slice",
+    "Spread Fire Breath",
+    "Sweep Poison Spike",
+    "Wyv Queen's Dance",
+    "Might (L)",
+    "Lunar Cry"
+   ],
    "type": "Speed",
    "element": "Fire",
    "signature_gene": "Gold Rathian Gene",
@@ -1020,10 +1534,19 @@
     "Antiburn Gene",
     "Fire Scale Gene",
     "Dragon Aura Gene"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Silver Rathalos",
+   "skills": [
+    "Sky-High Dive",
+    "Infernal Breath",
+    "Blazing Strength",
+    "Wyvern King Dance",
+    "Might (L)",
+    "Solar Cry"
+   ],
    "type": "Power",
    "element": "Fire",
    "signature_gene": "Silver Rathalos Gene",
@@ -1036,20 +1559,38 @@
     "Draconic Gene (L)",
     "Fire Scale Gene",
     "Kinship Gene (L)"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "The Great Poogie",
+   "skills": [
+    "Poogie March",
+    "Head-to-Head Ace",
+    "Power Combo",
+    "Power Boost (M)",
+    "Audacious Tackle",
+    "Great Tackle"
+   ],
    "type": "Power",
    "element": "Non-Elem",
    "signature_gene": "Great Poogie Gene",
    "genes": [
     "Great Poogie Gene",
     "Draconic Gene (L)"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "White Monoblos",
+   "skills": [
+    "Demolition Dash",
+    "Lock-On",
+    "Defense Breaker",
+    "Ground Thrust",
+    "Stab Vitals",
+    "Potential"
+   ],
    "type": "Power",
    "element": "Non-Elem",
    "signature_gene": "W. Monoblos Gene",
@@ -1060,10 +1601,19 @@
     "Power Gene (L)",
     "Sturdy Gene",
     "Potent Gene (L)"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Molten Tigrex",
+   "skills": [
+    "Rock Smash",
+    "Explosive Dust",
+    "Dash Combo",
+    "Deafening Roar",
+    "Blast Chaser",
+    "Savage Roar"
+   ],
    "type": "Power",
    "element": "Non-Elem",
    "signature_gene": "Molten Tigrex Gene",
@@ -1076,10 +1626,19 @@
     "Predatory Gene (L)",
     "Power Gene (L)",
     "Painkiller Gene"
-   ]
+   ],
+   "sleep_attack": false
   },
   {
    "name": "Oroshi Kirin",
+   "skills": [
+    "Phantasmal Horn",
+    "Glacial Pillar",
+    "Breaking Dash",
+    "Glacial Tower",
+    "Quick (M)",
+    "Absolute Zero"
+   ],
    "type": "Speed",
    "element": "Ice",
    "signature_gene": "Oroshi Kirin Gene",
@@ -1096,7 +1655,8 @@
     "Ice Scale Gene",
     "Nesting Gene",
     "Painkiller Gene"
-   ]
+   ],
+   "sleep_attack": false
   }
  ]
 }

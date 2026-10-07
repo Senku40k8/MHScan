@@ -16,7 +16,8 @@
    "sources": [
     "Aptonoth"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Popo Gene",
@@ -33,7 +34,8 @@
    "sources": [
     "Popo"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Apceros Gene",
@@ -50,7 +52,8 @@
    "sources": [
     "Apceros"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Yian Kut-Ku Gene",
@@ -71,7 +74,8 @@
    "sources": [
     "Yian Kut-Ku"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "B. Yian Kut-Ku Gene",
@@ -92,7 +96,8 @@
    "sources": [
     "Blue Yian Kut-Ku"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Gypceros Gene",
@@ -109,7 +114,8 @@
    "sources": [
     "Gypceros"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "P. Gypceros Gene",
@@ -130,7 +136,8 @@
    "sources": [
     "Purple Gypceros"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Yian Garuga Gene",
@@ -151,7 +158,8 @@
    "sources": [
     "Yian Garuga"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Arzuros Gene",
@@ -168,7 +176,8 @@
    "sources": [
     "Arzuros"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Lagombi Gene",
@@ -189,7 +198,8 @@
    "sources": [
     "Lagombi"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Velocidrome Gene",
@@ -206,7 +216,8 @@
    "sources": [
     "Velocidrome"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Iodrome Gene",
@@ -223,7 +234,8 @@
    "sources": [
     "Iodrome"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Gendrome Gene",
@@ -240,7 +252,8 @@
    "sources": [
     "Gendrome"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Bulldrome Gene",
@@ -257,7 +270,8 @@
    "sources": [
     "Bulldrome"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Zamtrios Gene",
@@ -278,7 +292,8 @@
    "sources": [
     "Zamtrios"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Khezu Gene",
@@ -299,7 +314,8 @@
    "sources": [
     "Khezu"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Red Khezu Gene",
@@ -320,7 +336,8 @@
    "sources": [
     "Red Khezu"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Tigrex Gene",
@@ -341,7 +358,8 @@
    "sources": [
     "Tigrex"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Brute Tigrex Gene",
@@ -362,7 +380,8 @@
    "sources": [
     "Brute Tigrex"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Nargacuga Gene",
@@ -379,7 +398,8 @@
    "sources": [
     "Nargacuga"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "G. Nargacuga Gene",
@@ -396,7 +416,8 @@
    "sources": [
     "Green Nargacuga"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Rathian Gene",
@@ -417,7 +438,8 @@
    "sources": [
     "Rathian"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Pink Rathian Gene",
@@ -438,7 +460,8 @@
    "sources": [
     "Pink Rathian"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Gold Rathian Gene",
@@ -459,7 +482,8 @@
    "sources": [
     "Gold Rathian"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Rathalos Gene",
@@ -480,7 +504,8 @@
    "sources": [
     "Rathalos"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Azure Rathalos Gene",
@@ -501,7 +526,8 @@
    "sources": [
     "Azure Rathalos"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Silver Rathalos Gene",
@@ -522,7 +548,8 @@
    "sources": [
     "Silver Rathalos"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Ratha's Gene",
@@ -541,7 +568,8 @@
     }
    ],
    "sources": [],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Diablos Gene",
@@ -562,7 +590,8 @@
    "sources": [
     "Diablos"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Black Diablos Gene",
@@ -583,7 +612,8 @@
    "sources": [
     "Black Diablos"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Monoblos Gene",
@@ -604,7 +634,8 @@
    "sources": [
     "Monoblos"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "W. Monoblos Gene",
@@ -625,7 +656,8 @@
    "sources": [
     "White Monoblos"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Basarios Gene",
@@ -646,7 +678,8 @@
    "sources": [
     "Basarios"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Ruby Basarios Gene",
@@ -667,7 +700,8 @@
    "sources": [
     "Ruby Basarios"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Gravios Gene",
@@ -688,7 +722,8 @@
    "sources": [
     "Gravios"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Black Gravios Gene",
@@ -709,7 +744,8 @@
    "sources": [
     "Black Gravios"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Qurupeco Gene",
@@ -730,7 +766,8 @@
    "sources": [
     "Qurupeco"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "C. Qurupeco Gene",
@@ -751,7 +788,8 @@
    "sources": [
     "Crimson Qurupeco"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Royal Ludroth Gene",
@@ -772,7 +810,8 @@
    "sources": [
     "Royal Ludroth"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Purple Ludroth Gene",
@@ -793,7 +832,8 @@
    "sources": [
     "Purple Ludroth"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Congalala Gene",
@@ -810,7 +850,8 @@
    "sources": [
     "Congalala"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "E. Congalala Gene",
@@ -827,7 +868,8 @@
    "sources": [
     "Emerald Congalala"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Nerscylla Gene",
@@ -848,7 +890,8 @@
    "sources": [
     "Nerscylla"
    ],
-   "active": true
+   "active": true,
+   "sleep": true
   },
   {
    "name": "S. Nerscylla Gene",
@@ -869,7 +912,8 @@
    "sources": [
     "Shrouded Nerscylla"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Cephadrome Gene",
@@ -890,7 +934,8 @@
    "sources": [
     "Cephadrome"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Plesioth Gene",
@@ -909,7 +954,8 @@
     }
    ],
    "sources": [],
-   "active": null
+   "active": null,
+   "sleep": false
   },
   {
    "name": "Green Plesioth Gene",
@@ -928,7 +974,8 @@
     }
    ],
    "sources": [],
-   "active": null
+   "active": null,
+   "sleep": false
   },
   {
    "name": "Barioth Gene",
@@ -949,7 +996,8 @@
    "sources": [
     "Barioth"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Sand Barioth Gene",
@@ -970,7 +1018,8 @@
    "sources": [
     "Sand Barioth"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Barroth Gene",
@@ -991,7 +1040,8 @@
    "sources": [
     "Barroth"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Jade Barroth Gene",
@@ -1012,7 +1062,8 @@
    "sources": [
     "Jade Barroth"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Uragaan Gene",
@@ -1033,7 +1084,8 @@
    "sources": [
     "Uragaan"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Duramboros Gene",
@@ -1052,7 +1104,8 @@
     }
    ],
    "sources": [],
-   "active": null
+   "active": null,
+   "sleep": false
   },
   {
    "name": "Deviljho Gene",
@@ -1073,7 +1126,8 @@
    "sources": [
     "Deviljho"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Great Jaggi Gene",
@@ -1090,7 +1144,8 @@
    "sources": [
     "Great Jaggi"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Great Baggi Gene",
@@ -1107,7 +1162,8 @@
    "sources": [
     "Great Baggi"
    ],
-   "active": true
+   "active": true,
+   "sleep": true
   },
   {
    "name": "Kecha Wacha Gene",
@@ -1128,7 +1184,8 @@
    "sources": [
     "Kecha Wacha"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "A. Kecha Gene",
@@ -1149,7 +1206,8 @@
    "sources": [
     "Ash Kecha Wacha"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Zinogre Gene",
@@ -1170,7 +1228,8 @@
    "sources": [
     "Zinogre"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "S. Zinogre Gene",
@@ -1191,7 +1250,8 @@
    "sources": [
     "Stygian Zinogre"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Lagiacrus Gene",
@@ -1212,7 +1272,8 @@
    "sources": [
     "Lagiacrus"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Ivory Lagiacrus Gene",
@@ -1233,7 +1294,8 @@
    "sources": [
     "Ivory Lagiacrus"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Brachydios Gene",
@@ -1254,7 +1316,8 @@
    "sources": [
     "Brachydios"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Kirin Gene",
@@ -1275,7 +1338,8 @@
    "sources": [
     "Kirin"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Oroshi Kirin Gene",
@@ -1296,7 +1360,8 @@
    "sources": [
     "Oroshi Kirin"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Seregios Gene",
@@ -1317,7 +1382,8 @@
    "sources": [
     "Seregios"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Warming Gene",
@@ -1338,7 +1404,8 @@
     "Barioth",
     "Zamtrios"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Cooling Gene",
@@ -1362,7 +1429,8 @@
     "Sand Barioth",
     "Uragaan"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Sturdy Gene",
@@ -1380,7 +1448,8 @@
     "Monoblos",
     "White Monoblos"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Antivenom Gene",
@@ -1408,7 +1477,8 @@
     "Yian Garuga",
     "Shrouded Nerscylla"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Antiburn Gene",
@@ -1430,7 +1500,8 @@
     "Black Gravios",
     "Uragaan"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Antishock Gene",
@@ -1452,7 +1523,8 @@
     "Kirin",
     "Oroshi Kirin"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Antisleep Gene",
@@ -1471,7 +1543,8 @@
     "Nerscylla",
     "Uragaan"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Antistench Gene",
@@ -1489,7 +1562,8 @@
     "Congalala",
     "Emerald Congalala"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Antiseal Gene",
@@ -1510,7 +1584,8 @@
     "Barroth",
     "Jade Barroth"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Dampening Gene",
@@ -1529,7 +1604,8 @@
     "Brachydios",
     "Brachydios"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Antibleed Gene",
@@ -1546,7 +1622,8 @@
    "sources": [
     "Seregios"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Antiblind Gene",
@@ -1569,7 +1646,8 @@
     "Kirin",
     "Oroshi Kirin"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Painkiller Gene",
@@ -1588,7 +1666,8 @@
     "Kirin",
     "Oroshi Kirin"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Poison Gene (S)",
@@ -1606,7 +1685,8 @@
     "Iodrome",
     "Nerscylla"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Poison Gene (M)",
@@ -1628,7 +1708,8 @@
     "Yian Garuga",
     "Nerscylla"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Poison Gene (L)",
@@ -1648,7 +1729,8 @@
     "Ruby Basarios",
     "Yian Garuga"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Burning Gene (S)",
@@ -1665,7 +1747,8 @@
    "sources": [
     "Yian Kut-Ku"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Burning Gene (M)",
@@ -1683,7 +1766,8 @@
     "Rathian",
     "Yian Kut-Ku"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Burning Gene (L)",
@@ -1701,7 +1785,8 @@
     "Rathian",
     "Gold Rathian"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Paralyze Gene (S)",
@@ -1719,7 +1804,8 @@
     "Red Khezu",
     "Cephadrome"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Paralyze Gene (M)",
@@ -1738,7 +1824,8 @@
     "Cephadrome",
     "Zinogre"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Paralyze Gene (L)",
@@ -1757,7 +1844,8 @@
     "Lagiacrus",
     "Ivory Lagiacrus"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Sealing Gene (S)",
@@ -1775,7 +1863,8 @@
     "Lagombi",
     "Royal Ludroth"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Sealing Gene (M)",
@@ -1795,7 +1884,8 @@
     "Kecha Wacha",
     "Shrouded Nerscylla"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Sealing Gene (L)",
@@ -1813,7 +1903,8 @@
     "Kecha Wacha",
     "Jade Barroth"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Blinding Gene (S)",
@@ -1830,7 +1921,8 @@
    "sources": [
     "Gypceros"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Blinding Gene (M)",
@@ -1847,7 +1939,8 @@
    "sources": [
     "Gypceros"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Blinding Gene (L)",
@@ -1864,7 +1957,8 @@
    "sources": [
     "Purple Gypceros"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Abnormal Gene",
@@ -1884,7 +1978,8 @@
     "Nerscylla",
     "Shrouded Nerscylla"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Abnormal Gene (M)",
@@ -1899,7 +1994,8 @@
     }
    ],
    "sources": [],
-   "active": null
+   "active": null,
+   "sleep": false
   },
   {
    "name": "Abnormal Gene (L)",
@@ -1914,7 +2010,8 @@
     }
    ],
    "sources": [],
-   "active": null
+   "active": null,
+   "sleep": false
   },
   {
    "name": "Noxious Gene (S)",
@@ -1933,7 +2030,8 @@
     "Gypceros",
     "Shrouded Nerscylla"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Noxious Gene (M)",
@@ -1955,7 +2053,8 @@
     "Yian Garuga",
     "Shrouded Nerscylla"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Noxious Gene (L)",
@@ -1974,7 +2073,8 @@
     "Purple Gypceros",
     "Yian Garuga"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Searing Gene (S)",
@@ -1991,7 +2091,8 @@
    "sources": [
     "Blue Yian Kut-Ku"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Searing Gene (M)",
@@ -2011,7 +2112,8 @@
     "Basarios",
     "Yian Garuga"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Searing Gene (L)",
@@ -2029,7 +2131,8 @@
     "Pink Rathian",
     "Basarios"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Shocking Gene (S)",
@@ -2048,7 +2151,8 @@
     "Gendrome",
     "Shrouded Nerscylla"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Shocking Gene (M)",
@@ -2067,7 +2171,8 @@
     "Gendrome",
     "Shrouded Nerscylla"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Shocking Gene (L)",
@@ -2085,7 +2190,8 @@
     "Lagiacrus",
     "Ivory Lagiacrus"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Hypnotic Gene (S)",
@@ -2102,7 +2208,8 @@
    "sources": [
     "Nerscylla"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Hypnotic Gene (M)",
@@ -2121,7 +2228,8 @@
     "Black Gravios",
     "Nerscylla"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Hypnotic Gene (L)",
@@ -2139,7 +2247,8 @@
     "Gravios",
     "Black Gravios"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Stinking Gene (S)",
@@ -2157,7 +2266,8 @@
     "Congalala",
     "Emerald Congalala"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Stinking Gene (M)",
@@ -2175,7 +2285,8 @@
     "Congalala",
     "Emerald Congalala"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Stinking Gene (L)",
@@ -2193,7 +2304,8 @@
     "Congalala",
     "Emerald Congalala"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Cocoon Gene (S)",
@@ -2211,7 +2323,8 @@
     "Lagombi",
     "Zamtrios"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Cocoon Gene (M)",
@@ -2231,7 +2344,8 @@
     "Nerscylla",
     "Zamtrios"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Cocoon Gene (L)",
@@ -2249,7 +2363,8 @@
     "Ash Kecha Wacha",
     "Jade Barroth"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Volatile Gene (S)",
@@ -2266,7 +2381,8 @@
    "sources": [
     "Uragaan"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Volatile Gene (M)",
@@ -2284,7 +2400,8 @@
     "Brachydios",
     "Uragaan"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Volatile Gene (L)",
@@ -2302,7 +2419,8 @@
     "Molten Tigrex",
     "Brachydios"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Bleeding Gene (S)",
@@ -2319,7 +2437,8 @@
    "sources": [
     "Seregios"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Bleeding Gene (M)",
@@ -2336,7 +2455,8 @@
    "sources": [
     "Seregios"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Bleeding Gene (L)",
@@ -2353,7 +2473,8 @@
    "sources": [
     "Seregios"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Dazzling Gene (S)",
@@ -2370,7 +2491,8 @@
    "sources": [
     "Gypceros"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Dazzling Gene (M)",
@@ -2389,7 +2511,8 @@
     "Purple Gypceros",
     "Crimson Qurupeco"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Dazzling Gene (L)",
@@ -2407,7 +2530,8 @@
     "Purple Gypceros",
     "Crimson Qurupeco"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Potent Gene (S)",
@@ -2425,7 +2549,8 @@
     "Nerscylla",
     "Shrouded Nerscylla"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Potent Gene (M)",
@@ -2443,7 +2568,8 @@
     "Nerscylla",
     "Shrouded Nerscylla"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Potent Gene (L)",
@@ -2461,7 +2587,8 @@
     "Seregios",
     "White Monoblos"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Hounding Gene",
@@ -2480,7 +2607,8 @@
     "Emerald Congalala",
     "Deviljho"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Fire Res Gene (S)",
@@ -2498,7 +2626,8 @@
     "Blue Yian Kut-Ku",
     "Cephadrome"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Fire Res Gene (M)",
@@ -2522,7 +2651,8 @@
     "Barroth",
     "Uragaan"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Fire Res Gene (L)",
@@ -2544,7 +2674,8 @@
     "Sand Barioth",
     "Uragaan"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Water Res Gene (S)",
@@ -2561,7 +2692,8 @@
    "sources": [
     "Royal Ludroth"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Water Res Gene (M)",
@@ -2580,7 +2712,8 @@
     "Kecha Wacha",
     "Barroth"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Water Res Gene (L)",
@@ -2602,7 +2735,8 @@
     "Kecha Wacha",
     "Ivory Lagiacrus"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Ice Res Gene (S)",
@@ -2621,7 +2755,8 @@
     "Popo",
     "Zamtrios"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Ice Res Gene (M)",
@@ -2641,7 +2776,8 @@
     "Popo",
     "Zamtrios"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Ice Res Gene (L)",
@@ -2661,7 +2797,8 @@
     "Jade Barroth",
     "Barioth"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Thndr Res Gene (S)",
@@ -2678,7 +2815,8 @@
    "sources": [
     "Khezu"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Thndr Res Gene (M)",
@@ -2695,7 +2833,8 @@
    "sources": [
     "Khezu"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Thndr Res Gene (L)",
@@ -2715,7 +2854,8 @@
     "Zinogre",
     "Lagiacrus"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Drgn Res Gene (S)",
@@ -2732,7 +2872,8 @@
    "sources": [
     "Basarios"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Drgn Res Gene (M)",
@@ -2751,7 +2892,8 @@
     "Ruby Basarios",
     "Black Gravios"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Drgn Res Gene (L)",
@@ -2773,7 +2915,8 @@
     "White Monoblos",
     "Stygian Zinogre"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "All-Res Gene (S)",
@@ -2790,7 +2933,8 @@
    "sources": [
     "Black Diablos"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "All-Res Gene (M)",
@@ -2808,7 +2952,8 @@
     "Kirin",
     "Oroshi Kirin"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "All-Res Gene (L)",
@@ -2826,7 +2971,8 @@
     "Kirin",
     "Oroshi Kirin"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Flaming Gene (S)",
@@ -2844,7 +2990,8 @@
     "Yian Kut-Ku",
     "Qurupeco"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Flaming Gene (M)",
@@ -2866,7 +3013,8 @@
     "Ash Kecha Wacha",
     "Qurupeco"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Flaming Gene (L)",
@@ -2887,7 +3035,8 @@
     "Ruby Basarios",
     "Ash Kecha Wacha"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Torrential Gene (S)",
@@ -2905,7 +3054,8 @@
     "Cephadrome",
     "Royal Ludroth"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Torrential Gene (M)",
@@ -2924,7 +3074,8 @@
     "Royal Ludroth",
     "Kecha Wacha"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Torrential Gene (L)",
@@ -2942,7 +3093,8 @@
     "Kecha Wacha",
     "Lagiacrus"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Frigid Gene (S)",
@@ -2960,7 +3112,8 @@
     "Popo",
     "Zamtrios"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Frigid Gene (M)",
@@ -2979,7 +3132,8 @@
     "Jade Barroth",
     "Zamtrios"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Frigid Gene (L)",
@@ -2998,7 +3152,8 @@
     "Jade Barroth",
     "Barioth"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Flashing Gene (S)",
@@ -3015,7 +3170,8 @@
    "sources": [
     "Red Khezu"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Flashing Gene (M)",
@@ -3033,7 +3189,8 @@
     "Red Khezu",
     "Zinogre"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Flashing Gene (L)",
@@ -3052,7 +3209,8 @@
     "Zinogre",
     "Ivory Lagiacrus"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Draconic Gene (S)",
@@ -3069,7 +3227,8 @@
    "sources": [
     "Tigrex"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Draconic Gene (M)",
@@ -3089,7 +3248,8 @@
     "Tigrex",
     "Deviljho"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Draconic Gene (L)",
@@ -3111,7 +3271,8 @@
     "Stygian Zinogre",
     "The Great Poogie"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "All-Elem Gene (S)",
@@ -3130,7 +3291,8 @@
     "Pink Rathian",
     "Diablos"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "All-Elem Gene (M)",
@@ -3148,7 +3310,8 @@
     "Rathian",
     "Pink Rathian"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "All-Elem Gene (L)",
@@ -3166,7 +3329,8 @@
     "Gold Rathian",
     "Monoblos"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Power Gene (S)",
@@ -3189,7 +3353,8 @@
     "Apceros",
     "Bulldrome"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Power Gene (M)",
@@ -3216,7 +3381,8 @@
     "Apceros",
     "Bulldrome"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Power Gene (L)",
@@ -3242,7 +3408,8 @@
     "Monoblos",
     "White Monoblos"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Speed Gene (S)",
@@ -3265,7 +3432,8 @@
     "Iodrome",
     "Gendrome"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Speed Gene (M)",
@@ -3290,7 +3458,8 @@
     "Nargacuga",
     "Gendrome"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Speed Gene (L)",
@@ -3315,7 +3484,8 @@
     "Oroshi Kirin",
     "Barioth"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Tech Gene (S)",
@@ -3339,7 +3509,8 @@
     "Red Khezu",
     "Qurupeco"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Tech Gene (M)",
@@ -3365,7 +3536,8 @@
     "Ash Kecha Wacha",
     "Qurupeco"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Tech Gene (L)",
@@ -3389,7 +3561,8 @@
     "Brachydios",
     "Crimson Qurupeco"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Power Res Gene (S)",
@@ -3412,7 +3585,8 @@
     "Apceros",
     "Bulldrome"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Power Res Gene (M)",
@@ -3439,7 +3613,8 @@
     "Bulldrome",
     "Uragaan"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Power Res Gene (L)",
@@ -3462,7 +3637,8 @@
     "Deviljho",
     "Uragaan"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Speed Res Gene (S)",
@@ -3484,7 +3660,8 @@
     "Velocidrome",
     "Gendrome"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Speed Res Gene (M)",
@@ -3510,7 +3687,8 @@
     "Great Baggi",
     "Barroth"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Speed Res Gene (L)",
@@ -3534,7 +3712,8 @@
     "Great Baggi",
     "Jade Barroth"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Tech Res Gene (S)",
@@ -3558,7 +3737,8 @@
     "Gypceros",
     "Qurupeco"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Tech Res Gene (M)",
@@ -3584,7 +3764,8 @@
     "Qurupeco",
     "Crimson Qurupeco"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Tech Res Gene (L)",
@@ -3607,7 +3788,8 @@
     "Ruby Basarios",
     "Crimson Qurupeco"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Evasion Gene (S)",
@@ -3626,7 +3808,8 @@
     "Cephadrome",
     "Royal Ludroth"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Evasion Gene (M)",
@@ -3649,7 +3832,8 @@
     "Cephadrome",
     "Royal Ludroth"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Evasion Gene (L)",
@@ -3669,7 +3853,8 @@
     "Seregios",
     "Sand Barioth"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Cyclone Gene",
@@ -3686,7 +3871,8 @@
    "sources": [
     "Sand Barioth"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Escape Gene",
@@ -3705,7 +3891,8 @@
     "Nargacuga",
     "Green Nargacuga"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Tenacity Gene",
@@ -3723,7 +3910,8 @@
     "Gypceros",
     "Purple Gypceros"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Survivor Gene",
@@ -3742,7 +3930,8 @@
     "Purple Gypceros",
     "Seregios"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Potential Gene",
@@ -3760,7 +3949,8 @@
     "Diablos",
     "Brachydios"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Head-to-Head Gene",
@@ -3778,7 +3968,8 @@
     "Black Diablos",
     "Brachydios"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Predatory Gene (S)",
@@ -3800,7 +3991,8 @@
     "Tigrex",
     "Zamtrios"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Predatory Gene (M)",
@@ -3822,7 +4014,8 @@
     "Brute Tigrex",
     "Deviljho"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Predatory Gene (L)",
@@ -3844,7 +4037,8 @@
     "Molten Tigrex",
     "Deviljho"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Nesting Gene",
@@ -3863,7 +4057,8 @@
     "Kirin",
     "Oroshi Kirin"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Kinship Gene (S)",
@@ -3885,7 +4080,8 @@
     "Rathalos",
     "Aptonoth"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Kinship Gene (M)",
@@ -3906,7 +4102,8 @@
    "sources": [
     "Azure Rathalos"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Kinship Gene (L)",
@@ -3928,7 +4125,8 @@
     "Silver Rathalos",
     "Kirin"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Quickfire Gene",
@@ -3951,7 +4149,8 @@
     "Blue Yian Kut-Ku",
     "Qurupeco"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Quickwater Gene",
@@ -3973,7 +4172,8 @@
     "Royal Ludroth",
     "Purple Ludroth"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Quickthunder Gene",
@@ -3995,7 +4195,8 @@
     "Khezu",
     "Lagiacrus"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Quickice Gene",
@@ -4018,7 +4219,8 @@
     "Shrouded Nerscylla",
     "Barioth"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Quickdragon Gene",
@@ -4039,7 +4241,8 @@
    "sources": [
     "Tigrex"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Latent Fire Gene",
@@ -4061,7 +4264,8 @@
     "Pink Rathian",
     "Gravios"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Latent Water Gene",
@@ -4083,7 +4287,8 @@
     "Purple Ludroth",
     "Ivory Lagiacrus"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Latent Thunder Gene",
@@ -4105,7 +4310,8 @@
     "Red Khezu",
     "Zinogre"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Latent Ice Gene",
@@ -4128,7 +4334,8 @@
     "Barioth",
     "Zamtrios"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Latent Dragon Gene",
@@ -4149,7 +4356,8 @@
    "sources": [
     "Stygian Zinogre"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Bombardier Gene",
@@ -4170,7 +4378,8 @@
    "sources": [
     "Brachydios"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Soothing Gene",
@@ -4185,7 +4394,8 @@
     }
    ],
    "sources": [],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Hungry Gene",
@@ -4200,7 +4410,8 @@
     }
    ],
    "sources": [],
-   "active": null
+   "active": null,
+   "sleep": false
   },
   {
    "name": "Order Gene (S)",
@@ -4215,7 +4426,8 @@
     }
    ],
    "sources": [],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Order Gene (M)",
@@ -4230,7 +4442,8 @@
     }
    ],
    "sources": [],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Order Gene (L)",
@@ -4245,7 +4458,8 @@
     }
    ],
    "sources": [],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Unscathed Gene",
@@ -4264,7 +4478,8 @@
     "Barroth",
     "Jade Barroth"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Quick Gene (S)",
@@ -4282,7 +4497,8 @@
     "Velocidrome",
     "Iodrome"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Quick Gene (M)",
@@ -4303,7 +4519,8 @@
     "Green Nargacuga",
     "Zinogre"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Quick Gene (L)",
@@ -4324,7 +4541,8 @@
     "Oroshi Kirin",
     "Stygian Zinogre"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Critical Gene (S)",
@@ -4343,7 +4561,8 @@
     "Diablos",
     "Black Diablos"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Critical Gene (M)",
@@ -4364,7 +4583,8 @@
     "Black Diablos",
     "Barioth"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Critical Gene (L)",
@@ -4384,7 +4604,8 @@
     "Barioth",
     "Sand Barioth"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Attack Gene (S)",
@@ -4404,7 +4625,8 @@
     "Arzuros",
     "Apceros"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Attack Gene (M)",
@@ -4429,7 +4651,8 @@
     "Apceros",
     "Deviljho"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Attack Gene (L)",
@@ -4452,7 +4675,8 @@
     "Brachydios",
     "Ivory Lagiacrus"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Defense Gene (S)",
@@ -4470,7 +4694,8 @@
     "Arzuros",
     "Zamtrios"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Defense Gene (M)",
@@ -4492,7 +4717,8 @@
     "Barroth",
     "Zamtrios"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Defense Gene (L)",
@@ -4514,7 +4740,8 @@
     "Jade Barroth",
     "Uragaan"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Health Gene (S)",
@@ -4533,7 +4760,8 @@
     "Popo",
     "Bulldrome"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Health Gene (M)",
@@ -4556,7 +4784,8 @@
     "Great Jaggi",
     "Bulldrome"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Health Gene (L)",
@@ -4576,7 +4805,8 @@
     "Great Jaggi",
     "Lagiacrus"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Warlike Gene (S)",
@@ -4594,7 +4824,8 @@
     "Apceros",
     "Bulldrome"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Warlike Gene (M)",
@@ -4614,7 +4845,8 @@
     "Apceros",
     "Bulldrome"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Warlike Gene (L)",
@@ -4633,7 +4865,8 @@
     "Black Diablos",
     "Brachydios"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Fire Scale Gene",
@@ -4655,7 +4888,8 @@
     "Gold Rathian",
     "Silver Rathalos"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Water Scale Gene",
@@ -4677,7 +4911,8 @@
     "Lagiacrus",
     "Ivory Lagiacrus"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Thunder Scale Gene",
@@ -4699,7 +4934,8 @@
     "Kirin",
     "Zinogre"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Ice Scale Gene",
@@ -4721,7 +4957,8 @@
     "Oroshi Kirin",
     "Jade Barroth"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Draconic Scale Gene",
@@ -4742,7 +4979,8 @@
    "sources": [
     "Stygian Zinogre"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Dragon Aura Gene",
@@ -4763,7 +5001,8 @@
    "sources": [
     "Gold Rathian"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Molten Tigrex Gene",
@@ -4784,7 +5023,8 @@
    "sources": [
     "Molten Tigrex"
    ],
-   "active": true
+   "active": true,
+   "sleep": false
   },
   {
    "name": "Great Poogie Gene",
@@ -4805,7 +5045,8 @@
    "sources": [
     "The Great Poogie"
    ],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Goukami Gene",
@@ -4824,7 +5065,8 @@
     }
    ],
    "sources": [],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Epona Gene",
@@ -4843,7 +5085,8 @@
     }
    ],
    "sources": [],
-   "active": false
+   "active": false,
+   "sleep": false
   },
   {
    "name": "Glavenus Gene",
@@ -4862,7 +5105,8 @@
     }
    ],
    "sources": [],
-   "active": false
+   "active": false,
+   "sleep": false
   }
  ]
 }

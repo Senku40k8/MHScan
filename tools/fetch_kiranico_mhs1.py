@@ -26,15 +26,18 @@ def divs(fragment: str) -> list:
     return [text(d) for d in re.findall(r"<div>(.*?)</div>", fragment, re.S)]
 
 
-def parse_skill_kinds(page: str) -> dict:
-    """Compétence -> True si active (elle coûte de la jauge de lien), False si passive (coût nul)."""
-    kinds = {}
+def parse_skills(page: str) -> dict:
+    """Compétence -> {"active": coûte de la jauge de lien (sinon passive), "sleep": peut endormir l'ennemi}."""
+    skills = {}
     for row in re.findall(r"<tr>(.*?)</tr>", page, re.S):
         link = re.search(r'<a href="[^"]*/skill/[^"]+">(.*?)</a>(.*?)</div>', row, re.S)
         if link:
             cost = re.search(r"Kinship Gauge:\s*-(\d+)", text(link.group(2)))
-            kinds[html.unescape(link.group(1)).strip()] = bool(cost and int(cost.group(1)) > 0)
-    return kinds
+            skills[html.unescape(link.group(1)).strip()] = {
+                "active": bool(cost and int(cost.group(1)) > 0),
+                "sleep": bool(re.search(r"\bSleep \(\d+%\)", text(row))),
+            }
+    return skills
 
 
 def parse_genes(page: str) -> list:
@@ -70,8 +73,11 @@ def parse_monsties(page: str) -> list:
         attribute = re.search(r"default_attribute</code></td><td[^>]*>(.*?)</td>", card)
         genes_block = re.search(r"<h5>Genes.*?</h5>(.*?)<h5>", card, re.S)
         gene_names = [g.strip() for g in re.findall(r">([^<>]*Gene[^<>]*)<", genes_block.group(1))] if genes_block else []
+        skills_block = re.search(r"<h5>Skills</h5>(.*?)</table>", card, re.S)
+        skills = [text(a) for a in re.findall(r'<a href="[^"]*/skill/[^"]+">(.*?)</a>', skills_block.group(1))] if skills_block else []
         monsties.append({
             "name": html.unescape(title.group(1)).strip(),
+            "skills": skills,
             "type": attack_type,
             "element": text(attribute.group(1)) or "Non-Elem" if attribute else "Non-Elem",
             "signature_gene": gene_names[0] if gene_names else None,
@@ -83,10 +89,14 @@ def parse_monsties(page: str) -> list:
 def main() -> None:
     DATA.mkdir(parents=True, exist_ok=True)
     genes = parse_genes(fetch("https://mhst.kiranico.com/gene"))
-    kinds = parse_skill_kinds(fetch("https://mhst.kiranico.com/skill"))
+    skills = parse_skills(fetch("https://mhst.kiranico.com/skill"))
     for gene in genes:
-        gene["active"] = kinds.get(gene["skill"])  # None si la compétence est inconnue
+        info = skills.get(gene["skill"], {})
+        gene["active"] = info.get("active")  # None si la compétence est inconnue
+        gene["sleep"] = info.get("sleep", False)
     monsties = parse_monsties(fetch("https://mhst.kiranico.com/monstie"))
+    for monstie in monsties:  # attaque de sommeil parmi ses compétences (utile pour les gènes Hypnotic)
+        monstie["sleep_attack"] = any(skills.get(name, {}).get("sleep") for name in monstie["skills"])
     source = "https://mhst.kiranico.com (MHS1)"
     (DATA / "mhs1_genes.json").write_text(json.dumps({"source": source, "genes": genes}, indent=1, ensure_ascii=False), encoding="utf-8")
     (DATA / "mhs1_monsties.json").write_text(json.dumps({"source": source, "monsties": monsties}, indent=1, ensure_ascii=False), encoding="utf-8")

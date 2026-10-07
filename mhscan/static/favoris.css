@@ -31,6 +31,7 @@
 .fv-note a { color: var(--accent); }
 .fv-carriers { margin: 2px 0 0; padding-left: 18px; }
 .fv-warn { color: var(--warn); }
+.fv-rule { color: var(--neutral); }
 .fv-others { margin-top: 10px; font-size: 13px; }
 .fv-others summary { cursor: pointer; color: var(--accent); }
 .fv-alts { display: grid; gap: 14px; margin-top: 8px; }

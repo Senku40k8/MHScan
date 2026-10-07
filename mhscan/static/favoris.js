@@ -148,35 +148,62 @@
     if (g.e === prof.element) return 'E';
     return g.e === 'Non-Elem' ? 'N' : 'X';
   };
-  function value(name, prof) {
-    const g = gene(name);
-    if (!g) return 0;
-    const useful = new Set(['Attack Up', 'Crit Rate Up', `${prof.element} Attack Up`]);
-    return g.b.filter(b => useful.has(b[0])).reduce((sum, b) => sum + b[1], 0) + ({ L: 0.3, M: 0.2, S: 0.1 }[g.s] || 0);
+  // --- règles de l'utilisateur (mhscan/data/gene_rules.json, communes à MHS1/2/3) -------------------
+  const RULES = DATA.rules || { rules: [] };
+  const geneFamily = name => name.replace(/ \((S|M|L)\)$/, '');
+  const ruleOf = name => RULES.rules.find(r => r.genes.includes(geneFamily(name))) || null;
+  const replaceable = name => !!(ruleOf(name) && ruleOf(name).replaceable);
+  // Une attaque de sommeil existe : dans les compétences de l'espèce, ou via un gène actif du plateau
+  const sleepAvailable = (prof, names) => !!(SPECIES[prof.species] && SPECIES[prof.species].sleep)
+    || names.some(n => gene(n) && gene(n).sl);
+  // Règle qui interdit ce gène pour ce monstie (Sturdy hors White Monoblos, Hypnotic sans attaque de sommeil), ou null
+  function forbiddenBy(name, prof, sleep) {
+    const r = ruleOf(name);
+    if (!r) return null;
+    if (r.only_species && !r.only_species.includes(prof.species)) return r;
+    if (r.requires_sleep_attack && !sleep) return r;
+    return null;
   }
 
-  // Bingos comptés : lignes de 3 gènes de l'élément du monstie, ou de 3 gènes non-élémentaires.
-  function elementBingos(classes) {
-    let count = 0;
-    for (const [a, b, c] of LINES) {
-      if (classes[a] && classes[a] !== 'X' && classes[a] === classes[b] && classes[b] === classes[c]) count++;
-    }
-    return count;
+  function value(name, prof) {
+    const g = gene(name);
+    const bonus = (ruleOf(name) && ruleOf(name).bonus) || 0;  // ex. Tenacity, tout premier ordre
+    if (!g) return bonus;
+    const useful = new Set(['Attack Up', 'Crit Rate Up', `${prof.element} Attack Up`]);
+    return bonus + g.b.filter(b => useful.has(b[0])).reduce((sum, b) => sum + b[1], 0) + ({ L: 0.3, M: 0.2, S: 0.1 }[g.s] || 0);
   }
-  function typeBingos(board) {
-    let count = 0;
+
+  // Bingos d'élément comptés : élément du monstie et non-élémentaire. Deux bingos identiques (ex. Technical/Ice et
+  // Power/Ice : deux bingos Ice) sont redondants : chaque sorte de bingo ne compte qu'une fois.
+  function elementBingos(classes) {
+    const kinds = new Set();
+    for (const [a, b, c] of LINES) {
+      if (classes[a] && classes[a] !== 'X' && classes[a] === classes[b] && classes[b] === classes[c]) kinds.add(classes[a]);
+    }
+    return kinds.size;
+  }
+  function typeBingoKinds(board) {
+    const kinds = new Set();
     for (const line of LINES) {
       const g = line.map(i => board[i] && gene(board[i]));
-      if (g.every(Boolean) && g[0].t !== 'No-type' && g.every(x => x.t === g[0].t)) count++;
+      if (g.every(Boolean) && g[0].t !== 'No-type' && g.every(x => x.t === g[0].t)) kinds.add(g[0].t);
     }
-    return count;
+    return kinds;
   }
   function boardStats(board, prof) {
     const actives = board.filter(n => n && isActive(n)).length;
     const families = board.filter(n => n && !isActive(n)).map(skillFamily).filter(Boolean);
+    const classes = board.map(n => (n ? elementClass(n, prof) : null));
+    const elementKinds = [];
+    for (const [cls, label] of [['E', prof.element], ['N', 'Non-Elem']]) {
+      if (LINES.some(([a, b, c]) => classes[a] === cls && classes[b] === cls && classes[c] === cls)) elementKinds.push(label);
+    }
+    const types = typeBingoKinds(board);
     return {
-      elementBingos: elementBingos(board.map(n => (n ? elementClass(n, prof) : null))),
-      typeBingos: typeBingos(board),
+      elementBingos: elementBingos(classes),
+      ownElementBingo: elementKinds.includes(prof.element),  // bingo de l'élément du monstie
+      typeBingos: types.size,
+      kinds: [...new Set(elementKinds), ...types],
       actives,
       duplicatePassives: families.length - new Set(families).size,
     };
@@ -260,8 +287,9 @@
     // le meilleur gène par compétence passive (gènes du favori d'abord, puis par valeur).
     const families = new Set();
     const seen = new Set();
+    const sleep = sleepAvailable(prof, used);
     const compatible = candidates
-      .filter(c => !usedNames.has(c.name) && gene(c.name) && elementClass(c.name, prof) !== 'X')
+      .filter(c => !usedNames.has(c.name) && gene(c.name) && !forbiddenBy(c.name, prof, sleep))
       .filter(c => (isActive(c.name) ? activeBudget > 0 : !usedFamilies.has(skillFamily(c.name))))
       .sort((a, b) => (b.own ? 1 : 0) - (a.own ? 1 : 0) || value(b.name, prof) - value(a.name, prof))
       .filter(c => {
@@ -272,7 +300,8 @@
         return families.has(family) ? false : families.add(family);
       });
     const byClass = { E: compatible.filter(c => elementClass(c.name, prof) === 'E'),
-                      N: compatible.filter(c => elementClass(c.name, prof) === 'N') };
+                      N: compatible.filter(c => elementClass(c.name, prof) === 'N'),
+                      X: compatible.filter(c => elementClass(c.name, prof) === 'X') };
 
     // Prend les meilleurs gènes de chaque classe (hors `excluded`) ; null si impossible.
     function pick(counts, excluded) {
@@ -280,7 +309,7 @@
       const m = matcher ? matcher.clone() : null;
       const chosen = [];
       let actives = 0;
-      for (const cls of ['E', 'N']) {
+      for (const cls of ['E', 'N', 'X']) {
         let need = counts[cls];
         for (const c of byClass[cls]) {
           if (!need) break;
@@ -303,17 +332,22 @@
     }
 
     const results = [];
-    const fill = Math.min(slotsLeft, byClass.E.length + byClass.N.length);
+    const fill = Math.min(slotsLeft, byClass.E.length + byClass.N.length + byClass.X.length);
     for (let total = fill; total >= 0 && !results.length; total--) {  // le plus de gènes possible
       for (let nE = 0; nE <= total; nE++) {
-        const r = pick({ E: nE, N: total - nE }, new Set());
-        if (r) results.push({ ...r, counts: { E: nE, N: total - nE } });
+        for (let nN = 0; nE + nN <= total; nN++) {
+          const counts = { E: nE, N: nN, X: total - nE - nN };
+          const r = pick(counts, new Set());
+          if (r) results.push({ ...r, counts });
+        }
       }
     }
-    // À bingos égaux : plus de gènes de l'élément du monstie, puis de bingos de type, de bonus, moins de transferts
+    // Bingos utiles (élément du monstie, non-élémentaire, types différents), puis valeur des gènes (Tenacity en tête),
+    // puis plus de gènes de l'élément du monstie, puis moins de transferts
     const ownElement = r => r.board.filter(n => n && elementClass(n, prof) === 'E').length;
-    const rank = (a, b) => b.stats.elementBingos - a.stats.elementBingos || ownElement(b) - ownElement(a)
-      || b.stats.typeBingos - a.stats.typeBingos || b.total - a.total || a.transfers - b.transfers;
+    const rank = (a, b) => b.stats.elementBingos - a.stats.elementBingos
+      || (b.stats.ownElementBingo ? 1 : 0) - (a.stats.ownElementBingo ? 1 : 0) || b.stats.typeBingos - a.stats.typeBingos
+      || b.total - a.total || ownElement(b) - ownElement(a) || a.transfers - b.transfers;
     results.sort(rank);
     // Variantes des meilleures répartitions : on écarte tour à tour un gène choisi
     for (const base of results.slice(0, 3)) {
@@ -339,9 +373,22 @@
     return unique;
   }
 
+  // Gènes du build méta, après application des règles : les gènes interdits pour ce monstie sont retirés, les
+  // gènes remplaçables (Sealing) ne sont plus imposés. `ruled` liste ce qui a été écarté et pourquoi.
+  function metaGenes(prof) {
+    const genes = prof.build ? prof.build.genes.slice(0, 9) : [];
+    const sleep = sleepAvailable(prof, genes);
+    const kept = [], ruled = [];
+    for (const name of genes) {
+      const rule = forbiddenBy(name, prof, sleep) || (replaceable(name) ? ruleOf(name) : null);
+      if (rule) ruled.push({ name, why: rule.why }); else kept.push(name);
+    }
+    return { kept, ruled };
+  }
+
   // Build méta (parfait) : le build trouvé en ligne, complété si besoin avec les gènes du jeu.
   function perfectBoard(prof) {
-    const required = prof.build ? prof.build.genes.filter(gene).slice(0, 9) : [];
+    const required = metaGenes(prof).kept.filter(gene);
     const candidates = Object.keys(CATALOG).map(name => ({ name }));
     return searchBoards({ fixed: new Array(9).fill(null), required, candidates, matcher: null, prof })[0].board;
   }
@@ -376,7 +423,7 @@
     const fixed = new Array(9).fill(null);
     const required = [];
     const missing = [];
-    for (const name of prof.build ? prof.build.genes.slice(0, 9) : []) {
+    for (const name of metaGenes(prof).kept) {
       const slot = m.genes.indexOf(name);
       if (slot >= 0) fixed[slot] = name;               // déjà sur le favori : il reste à sa place
       else if (matcher.add(name)) required.push(name);  // transféré depuis un donneur
@@ -433,8 +480,8 @@
     if (s.actives > 1) warnings.push(`${s.actives} compétences actives`);
     if (s.duplicatePassives) warnings.push('compétence passive en double');
     return `<div class="fv-board${compact ? ' fv-compact' : ''}">${title ? `<h4>${esc(title)}</h4>` : ''}<div class="fv-grid">${cells}</div>
-      <p class="fv-score"><b>${s.elementBingos} bingo${s.elementBingos > 1 ? 's' : ''} ${esc(prof.element)}/Non-Elem</b>
-      · ${s.typeBingos} bingo${s.typeBingos > 1 ? 's' : ''} de type · ${s.actives} active${s.actives > 1 ? 's' : ''}
+      <p class="fv-score"><b>${s.kinds.length} bingo${s.kinds.length > 1 ? 's' : ''} utile${s.kinds.length > 1 ? 's' : ''}${s.kinds.length ? ` (${esc(s.kinds.join(', '))})` : ''}</b>
+      · ${s.actives} active${s.actives > 1 ? 's' : ''}
       ${warnings.length ? `<span class="fv-warn"> · ${esc(warnings.join(', '))}</span>` : ''}</p>${extra}</div>`;
   }
 
@@ -459,11 +506,13 @@
     }
     const b = prof.build;
     const unknown = b.genes.filter(n => !gene(n));
+    const ruled = metaGenes(prof).ruled;
     const sources = (b.sources || []).map((u, i) => `<a href="${esc(u)}" target="_blank" rel="noopener">source ${i + 1}</a>`).join(' · ');
     return `<p class="fv-note">${esc(b.intent || '')} ${sources ? `(${sources})` : ''}
       ${b.from_summaries ? '<br><span class="fv-warn">Build reconstitué à partir de résumés de recherche (page source inaccessible) : vérifie-le avec la source.</span>' : ''}
       ${b.unmapped && b.unmapped.length ? `<br><span class="meta">Non identifiés dans le catalogue : ${esc(b.unmapped.join(', '))}</span>` : ''}
-      ${unknown.length ? `<br><span class="meta">Gènes hors catalogue Kiranico : ${esc(unknown.join(', '))}</span>` : ''}</p>`;
+      ${unknown.length ? `<br><span class="meta">Gènes hors catalogue Kiranico : ${esc(unknown.join(', '))}</span>` : ''}
+      ${ruled.map(r => `<br><span class="fv-rule">Écarté du build : <b>${esc(r.name)}</b> — ${esc(r.why)}</span>`).join('')}</p>`;
   }
 
   function renderFavs() {

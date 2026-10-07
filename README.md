@@ -162,6 +162,17 @@ L'onglet **Favoris** affiche pour chacun trois plateaux :
 
   Pour chaque gène absent, le rapport indique les espèces qui le portent (données Kiranico) : l'œuf à aller chercher.
 
+**Règles prioritaires** (`mhscan/data/gene_rules.json`, communes à MHS1/2/3, modifiables) : elles s'appliquent
+avant les builds méta et le choix des gènes de remplacement :
+  - **Sturdy** ne sert qu'à l'attaque Stab Vitals de **White Monoblos** : écarté pour toute autre espèce ;
+  - **Tenacity** est une compétence de tout premier ordre : prise en priorité ;
+  - **Sealing** (Extend Skillseal) peut être remplacé : jamais imposé par un build méta, choisi en dernier ;
+  - **Hypnotic** ne sert à rien sans attaque de sommeil (compétence de l'espèce ou gène du plateau) : écarté sinon ;
+  - deux **bingos identiques** (ex. Technical/Ice et Power/Ice : deux bingos Ice) sont redondants : chaque sorte de
+    bingo ne compte qu'une fois, les cases restantes vont aux meilleurs gènes, quel que soit leur élément.
+
+Les gènes écartés d'un build méta sont indiqués sous le build, avec la raison.
+
 Choix des donneurs : quand plusieurs monsties portent le même gène, le rapport sacrifie d'abord les doublons
 (l'espèce la plus représentée dans l'écurie, son nombre d'exemplaires est affiché), puis ceux qui ont le moins de
 gènes utiles (présents dans un build méta).

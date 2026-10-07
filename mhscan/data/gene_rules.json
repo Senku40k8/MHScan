@@ -1,0 +1,28 @@
+{
+ "note": "Règles de choix des gènes, valables pour MHS1, MHS2 et MHS3. Un gène est désigné par sa famille (nom sans la taille S/M/L). Prioritaires sur les builds méta et sur le choix des gènes de remplacement.",
+ "distinct_bingos": true,
+ "distinct_bingos_why": "Deux bingos identiques (ex. Technical/Ice et Power/Ice : deux bingos Ice) sont redondants : un seul compte.",
+ "rules": [
+  {
+   "genes": ["Sturdy Gene"],
+   "only_species": ["White Monoblos"],
+   "why": "Sturdy ne sert qu'à l'attaque Stab Vitals de White Monoblos."
+  },
+  {
+   "genes": ["Tenacity Gene"],
+   "bonus": 100,
+   "why": "Tenacity est une compétence de tout premier ordre."
+  },
+  {
+   "genes": ["Sealing Gene"],
+   "replaceable": true,
+   "bonus": -5,
+   "why": "Extend Skillseal (Sealing Gene) peut être remplacé par autre chose."
+  },
+  {
+   "genes": ["Hypnotic Gene"],
+   "requires_sleep_attack": true,
+   "why": "Hypnotic ne sert à rien sans attaque de sommeil."
+  }
+ ]
+}

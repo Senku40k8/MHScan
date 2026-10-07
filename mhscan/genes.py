@@ -33,6 +33,13 @@ def catalog(game: str):
 
 
 @lru_cache(maxsize=None)
+def rules() -> dict:
+    """Règles de choix des gènes de l'utilisateur (gene_rules.json), communes à MHS1/2/3."""
+    path = DATA / "gene_rules.json"
+    return json.loads(path.read_text(encoding="utf-8")) if path.exists() else {"rules": []}
+
+
+@lru_cache(maxsize=None)
 def builds(game: str) -> dict:
     """Builds méta trouvés en ligne, par espèce (<jeu>_builds.json), ou {}."""
     path = DATA / f"{game}_builds.json"

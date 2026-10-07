@@ -124,11 +124,13 @@ def _favorite_data(game: str, scan_dir: Path, monsties: list):
     compact = {g["name"]: {"t": g["type"], "e": g["element"], "s": g["size"], "k": g["skill"],
                            "f": re.sub(r" \((S|M|L)\)$", "", g["name"]),
                            "a": g.get("active"),
+                           "sl": bool(g.get("sleep")),  # sa compétence peut endormir l'ennemi
                            # espèces qui portent ce gène (Kiranico) ; pour les gènes hors Kiranico, ce sont des URL
                            "src": [x for x in g.get("sources", []) if not x.startswith("http")],
                            "b": [[b["stat"], b["value"]] for b in g.get("bonuses", [])]} for g in catalog}
-    return {"game": game, "scan": scan_dir.name, "catalog": compact, "builds": genes.builds(game),
-            "species": [{"name": sp["name"], "type": sp["type"], "element": sp["element"]} for sp in species],
+    return {"game": game, "scan": scan_dir.name, "catalog": compact, "builds": genes.builds(game), "rules": genes.rules(),
+            "species": [{"name": sp["name"], "type": sp["type"], "element": sp["element"],
+                         "sleep": bool(sp.get("sleep_attack"))} for sp in species],
             "monsties": rows}
 
 
@@ -160,6 +162,9 @@ FAVS_VIEW = """<div id="view-favs" class="hidden">
 <b>Optimisé avec ton écurie</b> : les gènes du build méta que tu possèdes ; pour ceux qui manquent, les plateaux
 possibles avec des bingos de l'élément du monstie (<span class="ok">vert</span>) ou non-élémentaires
 (<span class="half">bleu</span>), chaque compétence passive une seule fois et <b>une seule compétence active</b>.
+Deux bingos identiques ne comptent qu'une fois. Tes règles (mhscan/data/gene_rules.json) passent en premier :
+Sturdy seulement pour White Monoblos, Tenacity en priorité, Sealing remplaçable, Hypnotic seulement avec une
+attaque de sommeil.
 Un donneur disparaît après le transfert et ne donne qu'un gène ; les favoris ne sont jamais utilisés comme donneurs.</p>
 <p id="fav-storage" class="fv-legend"></p>
 <div id="fav-list"></div>
