@@ -112,6 +112,7 @@
     if (window.mhscanApply) window.mhscanApply();
   }
   const plans = {};  // plans calculés, par identifiant de bouton
+  let speciesTotal = {};  // nombre de monsties par espèce (affiché à côté des donneurs)
 
   function toggleFav(key) {
     if (isFav(key)) favs = favs.filter(f => f.key !== key);
@@ -345,11 +346,30 @@
     return searchBoards({ fixed: new Array(9).fill(null), required, candidates, matcher: null, prof })[0].board;
   }
 
+  // Gènes « utiles » : présents dans au moins un build méta. Un donneur qui en porte peu se sacrifie plus facilement.
+  const META_GENES = new Set(Object.values(BUILDS).flat().flatMap(b => b.genes));
+  function speciesCounts() {
+    const counts = {};
+    for (const d of MONSTIES) if (!d.sacrificed && d.species) counts[d.species] = (counts[d.species] || 0) + 1;
+    return counts;
+  }
+  // Ordre de préférence des donneurs : d'abord les doublons d'espèce (espèce la plus représentée dans l'écurie),
+  // puis ceux qui ont le moins de gènes utiles, puis le moins de gènes.
+  function expendability(d, counts) {
+    const genes = d.genes.filter(Boolean);
+    return [-(counts[d.species] || 1), genes.filter(n => META_GENES.has(n)).length, genes.length];
+  }
+
   // Build optimisé : gènes du build méta disponibles dans l'écurie, puis plateaux possibles pour les absents.
   function optimizedPlans(m, prof, unavailable) {
+    const counts = speciesCounts();
+    const donors = MONSTIES
+      .filter(d => d.key !== m.key && !d.sacrificed && !unavailable.has(d.key))
+      .map(d => ({ d, rank: expendability(d, counts) }))
+      .sort((a, b) => compareRanks(a.rank, b.rank))
+      .map(x => x.d);
     const donorsByGene = {};
-    for (const d of MONSTIES) {
-      if (d.key === m.key || d.sacrificed || unavailable.has(d.key)) continue;
+    for (const d of donors) {  // listes déjà triées : l'appariement essaie d'abord les donneurs les plus sacrifiables
       for (const name of new Set(d.genes.filter(Boolean))) (donorsByGene[name] = donorsByGene[name] || []).push(d.key);
     }
     const matcher = makeMatcher(donorsByGene);
@@ -377,6 +397,19 @@
         return { board: r.board, stats: r.stats, transfers, donors: transfers.map(t => t.donor.key) };
       }),
     };
+  }
+
+  function compareRanks(a, b) {
+    for (let i = 0; i < a.length; i++) if (a[i] !== b[i]) return a[i] - b[i];
+    return 0;
+  }
+
+  // Espèces qui portent un gène (pour savoir quel œuf aller chercher)
+  function carriers(name) {
+    const g = gene(name);
+    if (g && g.src && g.src.length) return g.src;
+    const species = name.replace(/ Gene$/, '');
+    return SPECIES[species] ? [species] : [];
   }
 
   // --- affichage ---------------------------------------------------------------------------
@@ -409,7 +442,7 @@
     plans[id] = { favKey, plan };
     if (!plan.transfers.length) return '<p class="meta">Aucun transfert à faire.</p>';
     return `<ol class="fv-transfers">${plan.transfers.map(t => `<li>Case ${cellCase(t.slot)} : <b>${esc(t.name)}</b> ← ${esc(t.donor.name || '?')}
-        <span class="meta">(page ${t.donor.page}, case ${t.donor.row},${t.donor.col}) — sacrifié</span></li>`).join('')}</ol>
+        <span class="meta">(page ${t.donor.page}, case ${t.donor.row},${t.donor.col})${t.donor.species ? ` · ${esc(t.donor.species)} ×${speciesTotal[t.donor.species] || 1}` : ''} — sacrifié</span></li>`).join('')}</ol>
       <button class="fv-done" data-plan="${esc(id)}" title="À cliquer une fois ces transferts faits dans le jeu">Gènes transférés</button>`;
   }
 
@@ -446,6 +479,7 @@
     // Les favoris ne servent jamais de donneurs ; les donneurs du meilleur plan d'un favori sont réservés pour lui.
     const unavailable = new Set(favs.map(f => f.key));
     for (const id of Object.keys(plans)) delete plans[id];
+    speciesTotal = speciesCounts();
     container.innerHTML = doneNote + favs.map((fav, fi) => {
       const m = BY_KEY[fav.key];
       if (!m) {
@@ -461,7 +495,11 @@
       const buildSelect = prof.builds.length > 1
         ? select('Build', 'build', fav.build || 0, prof.builds.map((b, i) => ({ value: i, label: `Build ${i + 1}` })), fav) : '';
       const missingNote = opt.missing.length
-        ? `<p class="fv-note">Absents de ton écurie : <b>${esc(opt.missing.map(short).join(', '))}</b>. Plateaux possibles ci-dessous.</p>` : '';
+        ? `<div class="fv-note">Absents de ton écurie (plateaux possibles ci-dessous). Pour les obtenir, cherche les œufs de :
+            <ul class="fv-carriers">${opt.missing.map(n => {
+              const who = carriers(n);
+              return `<li><b>${esc(n)}</b> : ${who.length ? esc(who.join(', ')) : 'espèce inconnue'}</li>`;
+            }).join('')}</ul></div>` : '';
       const others = opt.alternatives.slice(1);
       const othersHtml = others.length
         ? `<details class="fv-others"><summary>${others.length} autre${others.length > 1 ? 's' : ''} possibilité${others.length > 1 ? 's' : ''}</summary>

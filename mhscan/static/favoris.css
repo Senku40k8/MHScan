@@ -29,6 +29,7 @@
 .fv-active { font-style: normal; font-size: 10px; font-weight: 600; color: var(--accent); margin-left: 2px; }
 .fv-note { font-size: 12.5px; color: var(--muted); margin: 4px 0 6px; }
 .fv-note a { color: var(--accent); }
+.fv-carriers { margin: 2px 0 0; padding-left: 18px; }
 .fv-warn { color: var(--warn); }
 .fv-others { margin-top: 10px; font-size: 13px; }
 .fv-others summary { cursor: pointer; color: var(--accent); }

@@ -124,6 +124,8 @@ def _favorite_data(game: str, scan_dir: Path, monsties: list):
     compact = {g["name"]: {"t": g["type"], "e": g["element"], "s": g["size"], "k": g["skill"],
                            "f": re.sub(r" \((S|M|L)\)$", "", g["name"]),
                            "a": g.get("active"),
+                           # espèces qui portent ce gène (Kiranico) ; pour les gènes hors Kiranico, ce sont des URL
+                           "src": [x for x in g.get("sources", []) if not x.startswith("http")],
                            "b": [[b["stat"], b["value"]] for b in g.get("bonuses", [])]} for g in catalog}
     return {"game": game, "scan": scan_dir.name, "catalog": compact, "builds": genes.builds(game),
             "species": [{"name": sp["name"], "type": sp["type"], "element": sp["element"]} for sp in species],

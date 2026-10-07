@@ -150,6 +150,12 @@ L'onglet **Favoris** affiche pour chacun trois plateaux :
   - chaque **compétence passive** n'apparaît qu'une fois sur le plateau ;
   - **une seule compétence active** par plateau.
 
+  Pour chaque gène absent, le rapport indique les espèces qui le portent (données Kiranico) : l'œuf à aller chercher.
+
+Choix des donneurs : quand plusieurs monsties portent le même gène, le rapport sacrifie d'abord les doublons
+(l'espèce la plus représentée dans l'écurie, son nombre d'exemplaires est affiché), puis ceux qui ont le moins de
+gènes utiles (présents dans un build méta).
+
 Une fois les transferts faits dans le jeu, le bouton **Gènes transférés** retire du rapport les monsties sacrifiés
 (ils ne sont plus proposés comme donneurs) et le plateau « Actuel » du favori devient son nouveau plateau. C'est
 enregistré dans `scans/<jeu>/transferts.json` jusqu'au prochain scan (qui fait foi) ; le lien **Annuler** en haut de
