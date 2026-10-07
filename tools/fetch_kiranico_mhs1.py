@@ -1,7 +1,7 @@
 """Télécharge une fois pour toutes les données MHS1 de Kiranico (gènes et monsties) dans mhscan/data/.
 
 Usage : python tools/fetch_kiranico_mhs1.py
-Sources : https://mhst.kiranico.com/gene et https://mhst.kiranico.com/monstie (MHS1 uniquement).
+Sources : https://mhst.kiranico.com/gene, /monstie et /skill (MHS1 uniquement).
 """
 import html
 import json
@@ -24,6 +24,17 @@ def text(fragment: str) -> str:
 
 def divs(fragment: str) -> list:
     return [text(d) for d in re.findall(r"<div>(.*?)</div>", fragment, re.S)]
+
+
+def parse_skill_kinds(page: str) -> dict:
+    """Compétence -> True si active (elle coûte de la jauge de lien), False si passive (coût nul)."""
+    kinds = {}
+    for row in re.findall(r"<tr>(.*?)</tr>", page, re.S):
+        link = re.search(r'<a href="[^"]*/skill/[^"]+">(.*?)</a>(.*?)</div>', row, re.S)
+        if link:
+            cost = re.search(r"Kinship Gauge:\s*-(\d+)", text(link.group(2)))
+            kinds[html.unescape(link.group(1)).strip()] = bool(cost and int(cost.group(1)) > 0)
+    return kinds
 
 
 def parse_genes(page: str) -> list:
@@ -72,6 +83,9 @@ def parse_monsties(page: str) -> list:
 def main() -> None:
     DATA.mkdir(parents=True, exist_ok=True)
     genes = parse_genes(fetch("https://mhst.kiranico.com/gene"))
+    kinds = parse_skill_kinds(fetch("https://mhst.kiranico.com/skill"))
+    for gene in genes:
+        gene["active"] = kinds.get(gene["skill"])  # None si la compétence est inconnue
     monsties = parse_monsties(fetch("https://mhst.kiranico.com/monstie"))
     source = "https://mhst.kiranico.com (MHS1)"
     (DATA / "mhs1_genes.json").write_text(json.dumps({"source": source, "genes": genes}, indent=1, ensure_ascii=False), encoding="utf-8")

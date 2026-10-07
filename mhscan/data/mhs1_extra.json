@@ -1,0 +1,71 @@
+{
+ "source": "Espèces et gènes absents de Kiranico (Fandom MHST, land-island.com)",
+ "species": [
+  {
+   "name": "Glavenus",
+   "type": "Power",
+   "element": "Fire",
+   "signature_gene": "Glavenus Gene",
+   "genes": [
+    "Glavenus Gene"
+   ],
+   "sources": [
+    "https://monsterhunter.fandom.com/wiki/MHST:_Monsties",
+    "https://mhst1.monsterbuddy.app/monsters/glavenus/"
+   ]
+  },
+  {
+   "name": "Rajang",
+   "type": "Power",
+   "element": "Thunder",
+   "signature_gene": "Rajang Gene",
+   "genes": [
+    "Rajang Gene"
+   ],
+   "sources": [
+    "https://monsterhunter.fandom.com/wiki/MHST:_Monsties",
+    "https://mhst1.monsterbuddy.app/monsters/rajang/"
+   ]
+  },
+  {
+   "name": "Kushala Daora",
+   "type": "Technical",
+   "element": "Ice",
+   "signature_gene": "Kushala Daora Gene",
+   "genes": [
+    "Kushala Daora Gene"
+   ],
+   "sources": [
+    "https://monsterhunter.fandom.com/wiki/MHST:_Monsties",
+    "https://land-island.com/?page_id=8932"
+   ]
+  }
+ ],
+ "genes": [
+  {
+   "name": "Rajang Gene",
+   "type": "Power",
+   "element": "Thunder",
+   "size": null,
+   "skill": "",
+   "active": true,
+   "bonuses": [],
+   "sources": [
+    "https://land-island.com/?page_id=8932"
+   ]
+  },
+  {
+   "name": "Kushala Daora Gene",
+   "type": "Technical",
+   "element": "Ice",
+   "size": null,
+   "skill": "Cyclone Tackle",
+   "active": true,
+   "bonuses": [],
+   "sources": [
+    "https://land-island.com/?page_id=8932",
+    "https://gamefaqs.gamespot.com/boards/146555-monster-hunter-stories/80799066"
+   ]
+  }
+ ]
+}

@@ -110,7 +110,8 @@ def _favorite_data(game: str, scan_dir: Path, monsties: list):
     seen = {}
     rows = []
     for m in monsties:
-        if "attack_type" not in m or any(c.get("state") == "gene" and "ref" not in c for r in m["genes"] for c in r):
+        # (re)rattachement au catalogue : nouveau scan, ou espèce inconnue lors d'une analyse précédente
+        if not m.get("species") or any(c.get("state") == "gene" and not c.get("ref") for r in m["genes"] for c in r):
             genes.enrich(game, scan_dir / m["folder"], m)
         # Clé stable d'un scan à l'autre : nom + espèce (+ rang parmi les homonymes de même espèce)
         base = f"{m.get('name') or '?'}|{m.get('species') or '?'}"
@@ -122,8 +123,9 @@ def _favorite_data(game: str, scan_dir: Path, monsties: list):
                      "genes": board})
     compact = {g["name"]: {"t": g["type"], "e": g["element"], "s": g["size"], "k": g["skill"],
                            "f": re.sub(r" \((S|M|L)\)$", "", g["name"]),
-                           "b": [[b["stat"], b["value"]] for b in g["bonuses"]]} for g in catalog}
-    return {"game": game, "scan": scan_dir.name, "catalog": compact,
+                           "a": g.get("active"),
+                           "b": [[b["stat"], b["value"]] for b in g.get("bonuses", [])]} for g in catalog}
+    return {"game": game, "scan": scan_dir.name, "catalog": compact, "builds": genes.builds(game),
             "species": [{"name": sp["name"], "type": sp["type"], "element": sp["element"]} for sp in species],
             "monsties": rows}
 
@@ -152,10 +154,11 @@ def _card(m: dict, with_star: bool = False) -> str:
 
 
 FAVS_VIEW = """<div id="view-favs" class="hidden">
-<p class="fv-legend">Priorités : gènes du même <b>élément</b> et du même <b>type d'attaque</b> que le monstie
-(<span class="ok">vert</span> = les deux, <span class="half">orange</span> = un seul) &gt; famille
-<b>Critical &gt; Attack &gt; Speed</b> (L &gt; M &gt; S) &gt; nombre de <b>bingos</b>. Un donneur disparaît après le transfert
-et ne donne qu'un gène ; les favoris ne sont jamais utilisés comme donneurs.</p>
+<p class="fv-legend"><b>Build méta</b> : build recommandé en ligne pour l'espèce (sources indiquées).
+<b>Optimisé avec ton écurie</b> : les gènes du build méta que tu possèdes ; pour ceux qui manquent, les plateaux
+possibles avec des bingos de l'élément du monstie (<span class="ok">vert</span>) ou non-élémentaires
+(<span class="half">bleu</span>), chaque compétence passive une seule fois et <b>une seule compétence active</b>.
+Un donneur disparaît après le transfert et ne donne qu'un gène ; les favoris ne sont jamais utilisés comme donneurs.</p>
 <p id="fav-storage" class="fv-legend"></p>
 <div id="fav-list"></div>
 </div>"""

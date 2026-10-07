@@ -17,13 +17,26 @@ DATA = Path(__file__).resolve().parent / "data"
 
 @lru_cache(maxsize=None)
 def catalog(game: str):
-    """(gènes, espèces) du jeu, ou (None, None) si aucune donnée n'est disponible pour ce jeu."""
+    """(gènes, espèces) du jeu, ou (None, None) si aucune donnée n'est disponible pour ce jeu.
+    Complétés par <jeu>_extra.json : espèces et gènes absents de Kiranico (Glavenus, Rajang...)."""
     genes_path, species_path = DATA / f"{game}_genes.json", DATA / f"{game}_monsties.json"
     if not genes_path.exists() or not species_path.exists():
         return None, None
     genes = json.loads(genes_path.read_text(encoding="utf-8"))["genes"]
     species = json.loads(species_path.read_text(encoding="utf-8"))["monsties"]
+    extra_path = DATA / f"{game}_extra.json"
+    if extra_path.exists():
+        extra = json.loads(extra_path.read_text(encoding="utf-8"))
+        genes = genes + extra.get("genes", [])
+        species = species + extra.get("species", [])
     return genes, species
+
+
+@lru_cache(maxsize=None)
+def builds(game: str) -> dict:
+    """Builds méta trouvés en ligne, par espèce (<jeu>_builds.json), ou {}."""
+    path = DATA / f"{game}_builds.json"
+    return json.loads(path.read_text(encoding="utf-8"))["builds"] if path.exists() else {}
 
 
 def canonical_gene(game: str, name: str):

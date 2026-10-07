@@ -1,0 +1,611 @@
+{
+ "source": "Recherche web (GameFAQs, Steam, Fandom, land-island, blogs), octobre 2026",
+ "note": "Builds communautaires ; ceux marqués from_summaries viennent de résumés de recherche (GameFAQs inaccessible directement) et sont à vérifier avec la source.",
+ "builds": {
+  "Seregios": [
+   {
+    "genes": [
+     "Antivenom Gene",
+     "Evasion Gene (L)",
+     "Hounding Gene",
+     "Quick Gene (L)",
+     "Potent Gene (L)",
+     "Bleeding Gene (L)",
+     "Attack Gene (L)",
+     "Critical Gene (L)",
+     "Seregios Gene"
+    ],
+    "unmapped": [],
+    "intent": "Seregios non-élémentaire saignement/critique (TheChronologist, post #1) : Potent L + Bleeding L pour infliger des statuts, Hounding (Salt in the Wound) pour frapper plus fort les cibles affectées, Attack L + Critical L pour les dégâts, Evasion L / Quick L ; bingos Anything, Tech, Non-élém. Antivenom sert à compléter les bingos Tech/Non-élém.",
+    "sources": [
+     "https://gamefaqs.gamespot.com/boards/146555-monster-hunter-stories/75796821",
+     "https://web.archive.org/web/20250818000920/https://gamefaqs.gamespot.com/boards/146555-monster-hunter-stories/75796821"
+    ],
+    "from_summaries": true
+   },
+   {
+    "genes": [
+     "Tech Gene (L)",
+     "Kecha Wacha Gene",
+     "Seregios Gene",
+     "Quick Gene (L)",
+     "Torrential Gene (L)",
+     "Hounding Gene",
+     "Potent Gene (L)",
+     "Water Scale Gene",
+     "Kinship Gene (L)"
+    ],
+    "unmapped": [],
+    "intent": "Variante Eau/Technique (Zexiel, post #9) : passe Seregios en élément Eau pour infliger Skillseal via les gènes Eau et achever les cibles à faible PV en PvP avant qu'elles ne se soignent ; bingos Tech, Eau, Non-élém, Anything (build planifié, pas encore terminé par l'auteur).",
+    "sources": [
+     "https://gamefaqs.gamespot.com/boards/146555-monster-hunter-stories/75796821",
+     "https://web.archive.org/web/20250818000920/https://gamefaqs.gamespot.com/boards/146555-monster-hunter-stories/75796821"
+    ],
+    "from_summaries": true
+   }
+  ],
+  "Azure Rathalos": [
+   {
+    "genes": [
+     "Power Gene (M)",
+     "Diablos Gene",
+     "Purple Ludroth Gene",
+     "Fire Scale Gene",
+     "E. Congalala Gene",
+     "Flaming Gene (M)",
+     "Antivenom Gene",
+     "Azure Rathalos Gene"
+    ],
+    "unmapped": [
+     "Noxious Gene (taille non précisée)"
+    ],
+    "intent": "Polyvalence (Lasatar, post #6) : accès feu, eau, poison, puanteur et explosion tout en gardant une bonne attaque brute ; bingos Anything, Feu, Non-élém, Power, Tech.",
+    "sources": [
+     "https://gamefaqs.gamespot.com/boards/146555-monster-hunter-stories/75796821",
+     "https://web.archive.org/web/20250818000920/https://gamefaqs.gamespot.com/boards/146555-monster-hunter-stories/75796821"
+    ],
+    "from_summaries": true
+   },
+   {
+    "genes": [
+     "B. Yian Kut-Ku Gene",
+     "Burning Gene (L)",
+     "Searing Gene (L)",
+     "Flaming Gene (L)",
+     "Defense Gene (L)",
+     "All-Res Gene (L)",
+     "Power Gene (L)"
+    ],
+    "unmapped": [
+     "power/any",
+     "power/any"
+    ],
+    "intent": "Brûlure Power/Tech (Placid01, post #15) : Blazeball + Burn Rate L + Extend Burn L pour exploiter la brûlure, All-Res L contre ses faiblesses glace/dragon ; 2 cases libres (Power/n'importe). Hydoom conseille ensuite de remplacer Flaming par Fire Scale et d'ajouter Hounding (Salt in the Wound).",
+    "sources": [
+     "https://gamefaqs.gamespot.com/boards/146555-monster-hunter-stories/75937831?page=1",
+     "https://web.archive.org/web/20190131081949/https://gamefaqs.gamespot.com/boards/146555-monster-hunter-stories/75937831?page=1"
+    ],
+    "from_summaries": true
+   }
+  ],
+  "Barioth": [
+   {
+    "genes": [
+     "Cocoon Gene (L)",
+     "Speed Gene (L)",
+     "Quick Gene (L)",
+     "Sealing Gene (L)",
+     "Barioth Gene",
+     "Ice Scale Gene",
+     "Seregios Gene",
+     "Hounding Gene",
+     "Antivenom Gene"
+    ],
+    "unmapped": [],
+    "intent": "Skillseal/Glace (CitShell, post #200, repris par Hortonman) : Cocoon L + Sealing L pour le Skillseal, Ice Scale pour la glace, Thousand Blades pour gagner les face-à-face contre les types Vitesse et provoquer le saignement avant Icicle Fang, Hounding pour Salt in the Wound ; bingos Glace, Speed, Tech, Non-élém, Anything.",
+    "sources": [
+     "https://gamefaqs.gamespot.com/boards/146555-monster-hunter-stories/75796821?page=19",
+     "https://web.archive.org/web/20190130024307/https://gamefaqs.gamespot.com/boards/146555-monster-hunter-stories/75796821?jumpto=191"
+    ],
+    "from_summaries": true
+   },
+   {
+    "genes": [
+     "Quick Gene (L)",
+     "Tech Res Gene (L)",
+     "Ice Scale Gene",
+     "Speed Gene (L)",
+     "Kinship Gene (L)",
+     "Barioth Gene",
+     "Cocoon Gene (L)",
+     "Painkiller Gene",
+     "Latent Ice Gene"
+    ],
+    "unmapped": [],
+    "intent": "« Isolde, la tueuse de Rajang » (LadyAddax, post #202) : Skillseal via Ice Cyclone/Snow Shroud avec Cocoon L, Kinship L pour un Ride On rapide, gros PV pour encaisser ; bingos Glace, Speed, Non-élém, Anything.",
+    "sources": [
+     "https://gamefaqs.gamespot.com/boards/146555-monster-hunter-stories/75796821?page=20",
+     "https://web.archive.org/web/20190130024259/https://gamefaqs.gamespot.com/boards/146555-monster-hunter-stories/75796821?jumpto=208"
+    ],
+    "from_summaries": true
+   }
+  ],
+  "Jade Barroth": [
+   {
+    "genes": [
+     "Cocoon Gene (L)",
+     "Sealing Gene (L)",
+     "Ice Scale Gene",
+     "Quick Gene (L)",
+     "Jade Barroth Gene",
+     "Antiseal Gene",
+     "Evasion Gene (L)",
+     "Tenacity Gene",
+     "Hounding Gene"
+    ],
+    "unmapped": [],
+    "intent": "Spécialiste Skillseal glace (Hortonman, post #198, build planifié) : enchaîner les Skillseal sur les cibles dangereuses, Tenacity pour survivre assez longtemps, Hounding pour Salt in the Wound ; bingos Anything, Speed, Tech, Non-élém, Glace.",
+    "sources": [
+     "https://gamefaqs.gamespot.com/boards/146555-monster-hunter-stories/75796821?page=19",
+     "https://web.archive.org/web/20190130024307/https://gamefaqs.gamespot.com/boards/146555-monster-hunter-stories/75796821?jumpto=191"
+    ],
+    "from_summaries": true
+   }
+  ],
+  "Kirin": [
+   {
+    "genes": [
+     "Qurupeco Gene",
+     "Thunder Scale Gene",
+     "Seregios Gene",
+     "Sand Barioth Gene",
+     "Ivory Lagiacrus Gene",
+     "Kirin Gene",
+     "Kinship Gene (L)",
+     "Quick Gene (L)",
+     "Evasion Gene (L)"
+    ],
+    "unmapped": [],
+    "intent": "Kirin soigneur Foudre : Chant apaisant (Qurupeco), Kirin ayant un des meilleurs taux de soin ; offensive via Bingo Foudre (Écaille Foudre, Ivoire, Kirin) et Bingo Vitesse (Esquive L, Rapide L) ; Sand Barioth pour l'efficacité de soin et les dégâts continus en PvP ; Unscathed Gene possible à la place de Seregios.",
+    "sources": [
+     "https://gamefaqs.gamespot.com/boards/146555-monster-hunter-stories/79219256"
+    ],
+    "from_summaries": true
+   }
+  ],
+  "Oroshi Kirin": [
+   {
+    "genes": [
+     "Cocoon Gene (L)",
+     "Ice Scale Gene",
+     "Jade Barroth Gene",
+     "Sturdy Gene",
+     "Qurupeco Gene",
+     "Sealing Gene (L)",
+     "Survivor Gene"
+    ],
+    "unmapped": [],
+    "intent": "« A Cold Shot out of the dark » : Sceau maximal (Cocon L + Scellement L), Jade Barroth pour un sceau mono-cible peu coûteux, Écaille Glace pour les dégâts ; Bingos Vitesse/Tech, Glace et Non-élém. Liste incomplète (7 gènes lus).",
+    "sources": [
+     "https://gamefaqs.gamespot.com/boards/146555-monster-hunter-stories/76190657?page=2"
+    ],
+    "from_summaries": true
+   }
+  ],
+  "Brachydios": [
+   {
+    "genes": [
+     "Brachydios Gene",
+     "Volatile Gene (L)",
+     "E. Congalala Gene",
+     "Dampening Gene",
+     "Attack Gene (L)",
+     "Antivenom Gene",
+     "Uragaan Gene",
+     "Potent Gene (L)",
+     "Hounding Gene"
+    ],
+    "unmapped": [],
+    "intent": "Explosion au plus vite : Volatil L + Puissant L pour infliger Explosion (et Puanteur via E. Congalala), Acharnement (Hounding) pour bonus de dégâts sur cible altérée ; Bingos Tout, Puissance, Technique, Feu et Non-élém.",
+    "sources": [
+     "https://gamefaqs.gamespot.com/boards/146555-monster-hunter-stories/75801371",
+     "https://gamefaqs.gamespot.com/boards/146555-monster-hunter-stories/75796821"
+    ],
+    "from_summaries": true
+   }
+  ],
+  "Deviljho": [
+   {
+    "genes": [
+     "Brute Tigrex Gene",
+     "All-Res Gene (L)",
+     "Potential Gene",
+     "Power Res Gene (L)",
+     "Speed Res Gene (L)",
+     "Tech Res Gene (L)",
+     "Attack Gene (L)",
+     "Critical Gene (L)",
+     "Ruby Basarios Gene"
+    ],
+    "unmapped": [],
+    "intent": "Polyvalent : Deviljho a beaucoup de PV et d'attaque mais peu de défense/vitesse, donc gènes de résistance et Ruby Basarios pour compenser, Attaque L + Critique L ; Bingos Puissance, Vitesse, Technique, Non-élém.",
+    "sources": [
+     "https://gamefaqs.gamespot.com/boards/146555-monster-hunter-stories/75815278"
+    ],
+    "from_summaries": true
+   },
+   {
+    "genes": [
+     "Seregios Gene",
+     "Tech Res Gene (L)",
+     "Hounding Gene",
+     "Potent Gene (L)",
+     "Attack Gene (L)",
+     "Power Res Gene (L)",
+     "All-Res Gene (L)",
+     "Speed Res Gene (L)",
+     "Gendrome Gene"
+    ],
+    "unmapped": [],
+    "intent": "Variante résistances + altérations : Puissant L et Gendrome (paralysie) avec Acharnement, Attaque L ; Bingos Tech, Vitesse, Puissance, Non-élém et Tout.",
+    "sources": [
+     "https://gamefaqs.gamespot.com/boards/146555-monster-hunter-stories/75815278"
+    ],
+    "from_summaries": true
+   }
+  ],
+  "Tigrex": [
+   {
+    "genes": [
+     "Attack Gene (L)",
+     "Tenacity Gene",
+     "Speed Gene (L)",
+     "Monoblos Gene",
+     "Quick Gene (L)",
+     "Seregios Gene",
+     "Potential Gene",
+     "Antiseal Gene"
+    ],
+    "unmapped": [
+     "negate blind/sleep (preference)"
+    ],
+    "intent": "Glass cannon : Potentiel + Ténacité exploitent la fragilité de Tigrex, combo de ruée boostée par Vicious M (Monoblos), Speed Boost L et Might L en PvE ; Seregios et Breaking Crush pour la polyvalence en PvP. Vaut aussi (et mieux) pour Brute Tigrex.",
+    "sources": [
+     "https://gamefaqs.gamespot.com/3ds/146555-monster-hunter-stories/answers/511135-tigrex-build"
+    ],
+    "from_summaries": true
+   }
+  ],
+  "Molten Tigrex": [
+   {
+    "genes": [
+     "Nerscylla Gene",
+     "Quick Gene (L)",
+     "Zamtrios Gene",
+     "Sealing Gene (L)",
+     "Cocoon Gene (L)",
+     "Diablos Gene",
+     "Monoblos Gene",
+     "Seregios Gene"
+    ],
+    "unmapped": [
+     "Negate Skillseal or Ice Scale (au choix)"
+    ],
+    "intent": "Build Glace/Sceau : Sommeil (Aiguille), Souffle de givre de zone, Sceau prolongé et taux de sceau L, Charge de puissance (Diablos) avec Vicious (Monoblos) et Mille lames ; Bingo Glace + Puissance/Vitesse/Tech.",
+    "sources": [
+     "https://gamefaqs.gamespot.com/3ds/146555-monster-hunter-stories/answers/507211-molten-tigrex-build"
+    ],
+    "from_summaries": true
+   }
+  ],
+  "Ivory Lagiacrus": [
+   {
+    "genes": [
+     "Attack Gene (L)",
+     "Speed Gene (L)",
+     "Thunder Scale Gene",
+     "Shocking Gene (L)",
+     "Kirin Gene",
+     "Kinship Gene (L)",
+     "Tenacity Gene",
+     "Evasion Gene (L)"
+    ],
+    "unmapped": [],
+    "intent": "Foudre offensive : Attaque L, bonus attaques Vitesse, Écaille Foudre, paralysie (Choc L), Thundercall de Kirin, jauge de lien rapide, Ténacité et Esquive L pour la survie ; Bingos Foudre, Puissance, Vitesse, Tout, Non-élém.",
+    "sources": [
+     "https://gamefaqs.gamespot.com/3ds/146555-monster-hunter-stories/answers/567719-any-good-ivory-lagiacrus-builds"
+    ],
+    "from_summaries": true
+   },
+   {
+    "genes": [
+     "Hounding Gene",
+     "Evasion Gene (L)",
+     "Tenacity Gene",
+     "Thunder Scale Gene",
+     "Kirin Gene",
+     "Attack Gene (L)",
+     "Ivory Lagiacrus Gene",
+     "Shocking Gene (L)"
+    ],
+    "unmapped": [
+     "Extend Paralysis (taille non précisée)"
+    ],
+    "intent": "Paralysie + Acharnement : Choc L et paralysie prolongée pour déclencher Acharnement, Écaille Foudre, Thundercall, Might L ; Ténacité remplaçable par Charge de puissance ; Bingos Puissance, Vitesse, Tech, Foudre, Non-élém.",
+    "sources": [
+     "https://gamefaqs.gamespot.com/boards/146555-monster-hunter-stories/76006810"
+    ],
+    "from_summaries": true
+   }
+  ],
+  "Yian Garuga": [
+   {
+    "genes": [
+     "Hounding Gene",
+     "All-Res Gene (L)",
+     "Unscathed Gene",
+     "Fire Scale Gene",
+     "Pink Rathian Gene",
+     "Flaming Gene (L)",
+     "Tech Gene (L)",
+     "Speed Gene (L)",
+     "Attack Gene (L)"
+    ],
+    "unmapped": [],
+    "intent": "Build feu rapide (« Dorballom ») : double bingo Feu + Vitesse/Technique/Non-élém, cumul des bonus pour rendre Flame Fang (Rathian rose) dévastateur ; la grande vitesse de Garuga lui permet d'agir en premier, Hounding augmente les dégâts sur cibles empoisonnées (Poison Tail).",
+    "sources": [
+     "https://gamefaqs.gamespot.com/boards/146555-monster-hunter-stories/75796821?page=23"
+    ],
+    "from_summaries": true
+   }
+  ],
+  "Crimson Qurupeco": [
+   {
+    "genes": [
+     "Ivory Lagiacrus Gene",
+     "Quickthunder Gene",
+     "Thunder Scale Gene",
+     "Quick Gene (L)",
+     "Unscathed Gene",
+     "Survivor Gene"
+    ],
+    "unmapped": [
+     "Filler (au choix : Gendrome Paralysis Fang / C. Qurupeco Weakening Song / Lagiacrus Thunder Breath)",
+     "autres cases non lisibles dans l'extrait"
+    ],
+    "intent": "Build Foudre/Technique rapide : Spread Shock Breath (Lagiacrus ivoire) pour toucher toutes les cibles, Thunder Scale + Quickthunder + Unscathed pour les dégâts, Quick (L) et bingo Non-élém pour jouer en premier.",
+    "sources": [
+     "https://gamefaqs.gamespot.com/boards/146555-monster-hunter-stories/76190650"
+    ],
+    "from_summaries": true
+   }
+  ],
+  "Purple Gypceros": [
+   {
+    "genes": [
+     "Dazzling Gene (L)",
+     "Speed Gene (L)",
+     "Water Scale Gene",
+     "Quick Gene (L)",
+     "Noxious Gene (L)",
+     "Purple Ludroth Gene",
+     "P. Gypceros Gene",
+     "Survivor Gene",
+     "Hounding Gene"
+    ],
+    "unmapped": [],
+    "intent": "Build entrave par statuts : Flash avec Dazzling (L) (75 % d'aveugler toutes les cibles), double poison (Poison Spit + Noxious Poison Spit) avec Noxious (L) et Extend Poison naturel, Quick (L) pour être plus rapide et étourdir avec Stun Crusher, Hounding pour frapper les cibles sous statut.",
+    "sources": [
+     "https://gamefaqs.gamespot.com/boards/146555-monster-hunter-stories/76190650"
+    ],
+    "from_summaries": true
+   }
+  ],
+  "Emerald Congalala": [
+   {
+    "genes": [
+     "Barroth Gene",
+     "Water Scale Gene",
+     "Purple Ludroth Gene",
+     "All-Res Gene (L)",
+     "E. Congalala Gene",
+     "Tenacity Gene",
+     "Abnormal Gene",
+     "Antiseal Gene",
+     "Potent Gene (L)"
+    ],
+    "unmapped": [],
+    "intent": "Build Eau à statuts (« Dysentery ») : exploite la large palette d'altérations du Congalala émeraude, Potent (L) augmente le taux de toutes les altérations et Abnormal Gene prolonge leur durée, avec des attaques Eau (Barroth, Ludroth violet) et de la survie (All-Res L, Tenacity, Antiseal).",
+    "sources": [
+     "https://steamcommunity.com/app/2356560/discussions/0/6193093412363368867/"
+    ],
+    "from_summaries": false
+   }
+  ],
+  "Velocidrome": [
+   {
+    "genes": [
+     "Deviljho Gene",
+     "B. Yian Kut-Ku Gene",
+     "Power Gene (S)",
+     "Yian Kut-Ku Gene",
+     "B. Yian Kut-Ku Gene"
+    ],
+    "unmapped": [
+     "Tech Res Gene (taille non précisée)",
+     "Quick Gene (I believe this too was small?)",
+     "Quick Gene (to stack stats)",
+     "Flaming Gene (taille non précisée)"
+    ],
+    "intent": "Velocidrome de départ converti en type Feu : attaques de feu (Fireball, Blazeball) plus une attaque Dragon de zone (Deviljho), gènes Feu pour changer l'élément ; build en cours, l'auteur n'avait pas tous les emplacements ouverts",
+    "sources": [
+     "https://gamefaqs.gamespot.com/boards/146555-monster-hunter-stories/75796821 (message #2 de MonsterRiderX, lu via https://web.archive.org/web/20250818000920/https://gamefaqs.gamespot.com/boards/146555-monster-hunter-stories/75796821)"
+    ],
+    "from_summaries": true
+   }
+  ],
+  "The Great Poogie": [
+   {
+    "genes": [
+     "Great Poogie Gene",
+     "Attack Gene (L)",
+     "All-Res Gene (L)",
+     "Soothing Gene",
+     "Tenacity Gene",
+     "Critical Gene (L)",
+     "Kinship Gene (L)",
+     "Yian Garuga Gene",
+     "Speed Res Gene (L)"
+    ],
+    "unmapped": [],
+    "intent": "Attaquant Puissance polyvalent (PvE) : Might (L) + Critical Eye (L) pour les dégâts, Finishing Blow, résistances (All-Res, Speed Res), Tenacity et auto-soin pour la survie, Soul Kinship pour le Ride On",
+    "sources": [
+     "https://gamefaqs.gamespot.com/boards/146555-monster-hunter-stories/75796821?jumpto=116 (message #117 de Senzawa, lu via https://web.archive.org/web/20190130024424/https://gamefaqs.gamespot.com/boards/146555-monster-hunter-stories/75796821?jumpto=116)"
+    ],
+    "from_summaries": true
+   },
+   {
+    "genes": [
+     "Great Poogie Gene",
+     "Critical Gene (M)",
+     "Abnormal Gene",
+     "All-Elem Gene (M)",
+     "Antivenom Gene",
+     "Nargacuga Gene",
+     "Deviljho Gene"
+    ],
+    "unmapped": [
+     "(BLANK) milieu droite - réponse acceptée : Dragon Scale ou un gène Tech",
+     "(BLANK) bas droite - réponse acceptée : Stygian (Zinogre)"
+    ],
+    "intent": "Great Poogie de type Dragon (« Bacon ») : Spread Dragon Breath de Deviljho, critique et statuts ; deux cases vides que la réponse acceptée propose de remplir avec un gène Stygian Zinogre (Dragon Shroud, bingo Dragon) et Draconic Scale ou un gène Tech",
+    "sources": [
+     "https://gamefaqs.gamespot.com/3ds/146555-monster-hunter-stories/answers/474380-great-poogie (lu via https://web.archive.org/web/20190508063736/https://gamefaqs.gamespot.com/3ds/146555-monster-hunter-stories/answers/474380-great-poogie)"
+    ],
+    "from_summaries": true
+   }
+  ],
+  "Glavenus": [
+   {
+    "genes": [
+     "Attack Gene (L)",
+     "Rathalos Gene",
+     "Tenacity Gene",
+     "Pink Rathian Gene",
+     "Speed Gene (L)",
+     "All-Res Gene (L)",
+     "Fire Scale Gene",
+     "Seregios Gene",
+     "Unscathed Gene"
+    ],
+    "unmapped": [],
+    "intent": "Exemple de guide (land-island, version 3DS) : lignes Puissance/Vitesse/Technique, colonne Feu (Attaque L, Boule de feu, Croc de flammes, Écailles de feu) et colonne Non-élém (Ténacité, Résistance totale L, Danseur) pour gagner +1 en vitesse.",
+    "sources": [
+     "https://land-island.com/?page_id=8932"
+    ],
+    "from_summaries": false
+   },
+   {
+    "genes": [
+     "Tenacity Gene",
+     "Evasion Gene (L)",
+     "Unscathed Gene",
+     "Attack Gene (L)",
+     "Pink Rathian Gene",
+     "Fire Scale Gene",
+     "Rathalos Gene",
+     "Quick Gene (L)",
+     "Quickfire Gene"
+    ],
+    "unmapped": [],
+    "intent": "Glavenus PvP « one-punch » Feu : Ténacité/Évasion L/Danseur, Might L + Flame Fang + Fire Scale, Savage Fireball + Quick L + Quickfire (le Glavenus Gene peut remplacer Quickfire pour infliger la brûlure).",
+    "sources": [
+     "https://gamefaqs.gamespot.com/boards/146555-monster-hunter-stories/76057439"
+    ],
+    "from_summaries": true
+   }
+  ],
+  "Rajang": [
+   {
+    "genes": [
+     "Shocking Gene (L)",
+     "Power Gene (L)",
+     "Tenacity Gene",
+     "Kirin Gene",
+     "Gendrome Gene",
+     "All-Res Gene (L)",
+     "Thunder Scale Gene",
+     "Seregios Gene",
+     "Unscathed Gene"
+    ],
+    "unmapped": [],
+    "intent": "Exemple de guide (land-island) : Power Combo renforcé (Power Boost L), Thundercall de Kirin comme attaque Foudre principale (préféré au gène Rajang), lignes P/V/T, colonne Non-élém + Danseur pour vitesse max.",
+    "sources": [
+     "https://land-island.com/?page_id=8932"
+    ],
+    "from_summaries": false
+   },
+   {
+    "genes": [
+     "Flashing Gene (L)",
+     "Evasion Gene (L)",
+     "Thunder Scale Gene",
+     "Rajang Gene",
+     "Attack Gene (L)",
+     "Shocking Gene (L)",
+     "Kirin Gene",
+     "Critical Gene (L)",
+     "Paralyze Gene (L)"
+    ],
+    "unmapped": [],
+    "intent": "Rajang Foudre polyvalent d'un joueur JP (équipe finale testée) : colonnes Foudre, ligne Puissance (gène Rajang, Might L, Paralysis Rate+ L), ligne Vitesse (Kirin, Critical L, Extend Paralysis L) axée paralysie.",
+    "sources": [
+     "https://kotemitsumadoka.livedoor.blog/archives/18405552.html",
+     "https://kotemitsumadoka.livedoor.blog/archives/18238981.html"
+    ],
+    "from_summaries": false
+   }
+  ],
+  "Kushala Daora": [
+   {
+    "genes": [
+     "Ice Scale Gene",
+     "Attack Gene (L)",
+     "Evasion Gene (L)",
+     "Oroshi Kirin Gene",
+     "Cocoon Gene (L)",
+     "All-Res Gene (L)",
+     "Kushala Daora Gene",
+     "Tech Gene (L)",
+     "Hounding Gene"
+    ],
+    "unmapped": [],
+    "intent": "Exemple de guide (land-island) : Cyclone Tackle (Glace/Technique) comme arme principale, renforcé par Tech Boost L ; Glacial Pillar d'Oroshi Kirin ; lignes Vitesse et Technique, bingo Glace, taux de Sceau (Cocoon L) en synergie avec Cyclone Breath.",
+    "sources": [
+     "https://land-island.com/?page_id=8932"
+    ],
+    "from_summaries": false
+   },
+   {
+    "genes": [
+     "Ice Scale Gene",
+     "Kushala Daora Gene",
+     "Hounding Gene",
+     "Oroshi Kirin Gene",
+     "Critical Gene (L)",
+     "Evasion Gene (L)",
+     "Nerscylla Gene",
+     "Attack Gene (L)"
+    ],
+    "unmapped": [
+     "全属性攻撃強化 (All-Elem Boost, taille non précisée ; case I)"
+    ],
+    "intent": "Kushala « polyvalent » d'un joueur JP : bingos Glace, Non-élém, Puissance, Vitesse et Technique ; Salt in the Wound sur les cibles scellées. Taille du gène All-Elem non précisée (probablement All-Elem Gene (L)).",
+    "sources": [
+     "https://kotemitsumadoka.livedoor.blog/archives/18215603.html"
+    ],
+    "from_summaries": false
+   }
+  ]
+ }
+}

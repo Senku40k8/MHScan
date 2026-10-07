@@ -23,8 +23,17 @@
            font-size: 12px; display: flex; flex-direction: column; gap: 1px; position: relative; min-width: 0; }
 .fv-cell b { font-weight: 600; overflow-wrap: anywhere; padding-left: 12px; }
 .fv-cell small { color: var(--muted); font-size: 10.5px; }
-.fv-cell.fv-m2 { border-color: var(--ok); box-shadow: inset 0 0 0 1px var(--ok); }
-.fv-cell.fv-m1 { border-color: var(--bingo); }
+.fv-cell.fv-cE { border-color: var(--ok); box-shadow: inset 0 0 0 1px var(--ok); }
+.fv-cell.fv-cN { border-color: var(--neutral); }
+.fv-cell.fv-cX { opacity: .8; }
+.fv-active { font-style: normal; font-size: 10px; font-weight: 600; color: var(--accent); margin-left: 2px; }
+.fv-note { font-size: 12.5px; color: var(--muted); margin: 4px 0 6px; }
+.fv-note a { color: var(--accent); }
+.fv-warn { color: var(--warn); }
+.fv-others { margin-top: 10px; font-size: 13px; }
+.fv-others summary { cursor: pointer; color: var(--accent); }
+.fv-alts { display: grid; gap: 14px; margin-top: 8px; }
+.fv-compact .fv-cell { min-height: 44px; }
 .fv-empty { color: var(--muted); align-items: center; justify-content: center; }
 .fv-dot { position: absolute; top: 8px; left: 6px; width: 8px; height: 8px; border-radius: 50%; background: #999; }
 .fv-el-Fire { background: #e4572e; } .fv-el-Water { background: #2e86de; } .fv-el-Thunder { background: #f2c418; }
@@ -38,4 +47,5 @@
 .fv-undo { font: inherit; font-size: 13px; background: none; border: 0; color: var(--accent); text-decoration: underline; cursor: pointer; }
 .card.sacrificed { display: none !important; }
 .fv-legend { font-size: 13px; color: var(--muted); margin: 0 0 12px; }
-.fv-legend .ok { color: var(--ok); font-weight: 600; } .fv-legend .half { color: var(--bingo); font-weight: 600; }
+.fv-legend .ok { color: var(--ok); font-weight: 600; } .fv-legend .half { color: var(--neutral); font-weight: 600; }
+:root { --neutral: #4a8fd6; }

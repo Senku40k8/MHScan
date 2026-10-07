@@ -133,36 +133,40 @@ Les monsties y sont rangés page par page, à la même place que dans la grille 
 nom, leur plateau de gènes et la liste des gènes lus (bingos signalés). On peut chercher un nom ou
 un gène, n'afficher que les monsties à vérifier, et ouvrir la capture d'écran complète de chacun.
 
-## Étape 2 : favoris et optimisation des gènes (MHS1)
+## Étape 2 : favoris et builds de gènes (MHS1)
 
 Dans le rapport, l'étoile d'un monstie l'ajoute aux **favoris**. Ils sont enregistrés dans
 `scans/<jeu>/favoris.json` et suivent d'un scan à l'autre (un monstie est reconnu par son nom et son espèce).
 L'onglet **Favoris** affiche pour chacun trois plateaux :
 
 - **Actuel** : ses gènes aujourd'hui ;
-- **Atteignable avec ton écurie** : le meilleur plateau possible en transférant des gènes des autres monsties,
-  avec la liste des transferts à faire (case visée, gène, monstie donneur et sa position dans l'écurie) ;
-- **Parfait** : le meilleur plateau possible avec tous les gènes du jeu.
+- **Build méta (parfait)** : le build recommandé en ligne pour son espèce, avec ses sources (menu « Build » quand
+  il y en a plusieurs). Sans build connu : le meilleur plateau possible avec tous les gènes du jeu, selon les règles
+  ci-dessous ;
+- **Optimisé avec ton écurie** : les gènes du build méta que tu possèdes (sur le favori ou sur un autre monstie),
+  avec la liste des transferts à faire. Pour les gènes absents de ton écurie, les plateaux possibles (le meilleur,
+  puis « autres possibilités ») qui respectent ces règles :
+  - bingos de l'**élément du monstie** ou bingos **non-élémentaires** ;
+  - chaque **compétence passive** n'apparaît qu'une fois sur le plateau ;
+  - **une seule compétence active** par plateau.
 
-Une fois les transferts faits dans le jeu, le bouton **Gènes transférés** (sous le plateau atteignable) retire
-du rapport les monsties sacrifiés : ils n'apparaissent plus et ne sont plus proposés comme donneurs, et le
-plateau « Actuel » du favori devient son nouveau plateau. C'est enregistré dans `scans/<jeu>/transferts.json`
-jusqu'au prochain scan (qui fait foi) ; le lien **Annuler** en haut de l'onglet Favoris remet tout comme au scan.
+Une fois les transferts faits dans le jeu, le bouton **Gènes transférés** retire du rapport les monsties sacrifiés
+(ils ne sont plus proposés comme donneurs) et le plateau « Actuel » du favori devient son nouveau plateau. C'est
+enregistré dans `scans/<jeu>/transferts.json` jusqu'au prochain scan (qui fait foi) ; le lien **Annuler** en haut de
+l'onglet Favoris remet tout comme au scan.
 
-Priorités, dans l'ordre :
-
-1. gènes du même **élément** et du même **type d'attaque** que le monstie (Seregios : Technical / Non-Elem) ;
-2. famille de gène : **Critical > Attack > Speed** (puis L > M > S) ;
-3. nombre de **bingos** (lignes de 3 gènes de même type d'attaque ou de même élément) ;
-4. à égalité, total des bonus d'attaque et de critique.
-
-Règles appliquées : toutes les cases sont utilisables, tous les gènes du favori peuvent être remplacés, un
-donneur disparaît après le transfert (un seul gène par donneur), un seul gène par famille (S/M/L), et les favoris
-ne servent jamais de donneurs (les donneurs d'un favori ne sont pas réutilisés pour les suivants).
+Règles appliquées : toutes les cases sont utilisables, tous les gènes du favori peuvent être remplacés, un donneur
+disparaît après le transfert (un seul gène par donneur), et les favoris ne servent jamais de donneurs (les donneurs
+d'un favori ne sont pas réutilisés pour les suivants).
 
 Le type d'attaque d'un monstie est lu sur la pastille de son icône ; son espèce est déduite de son gène d'espèce,
-ce qui donne son élément. Les deux sont modifiables dans l'onglet Favoris (utile pour les espèces absentes de
-Kiranico, comme Glavenus ou Rajang).
+ce qui donne son élément. Les deux sont modifiables dans l'onglet Favoris.
 
-Les données des gènes et des monsties viennent de [Kiranico](https://mhst.kiranico.com/gene) (MHS1) et sont
-enregistrées dans `mhscan/data/`. Pour les mettre à jour : `python tools/fetch_kiranico_mhs1.py`.
+### Données
+
+- `mhscan/data/mhs1_genes.json`, `mhs1_monsties.json` : gènes (type, élément, compétence active ou passive,
+  bonus) et espèces de [Kiranico](https://mhst.kiranico.com/gene) ; mise à jour : `python tools/fetch_kiranico_mhs1.py`.
+- `mhscan/data/mhs1_extra.json` : espèces et gènes absents de Kiranico (Glavenus, Rajang, Kushala Daora).
+- `mhscan/data/mhs1_builds.json` : builds méta trouvés en ligne (GameFAQs, Steam, guides), avec leurs sources.
+  GameFAQs bloquant la lecture automatique, certains builds ont été reconstitués à partir de résumés de recherche :
+  le rapport le signale, à vérifier avec la source.
