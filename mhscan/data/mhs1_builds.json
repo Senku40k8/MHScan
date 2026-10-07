@@ -152,6 +152,138 @@
     "from_summaries": true
    }
   ],
+  "Red Khezu": [
+   {
+    "genes": [
+     "Ivory Lagiacrus Gene",
+     "Hounding Gene",
+     "Antiseal Gene",
+     "Paralyze Gene (L)",
+     "Evasion Gene (L)",
+     "Quick Gene (L)",
+     "Shocking Gene (L)",
+     "Tenacity Gene",
+     "Antiblind Gene"
+    ],
+    "unmapped": [],
+    "intent": "Paralysie au Thunder Fang : bingos Puissance/Vitesse/Technique, Foudre, Non-élém et Joker, 10 d'attaque Foudre, Paralysie prolongée + taux de paralysie + Salt in the Wound ; Quick (L) peut être remplacé par Sturdy",
+    "sources": [
+     "https://gamefaqs.gamespot.com/boards/146555-monster-hunter-stories/76062303"
+    ],
+    "from_summaries": false
+   },
+   {
+    "genes": [
+     "Ivory Lagiacrus Gene",
+     "Thunder Scale Gene",
+     "Tech Res Gene (L)",
+     "Shocking Gene (L)",
+     "Attack Gene (L)",
+     "Power Res Gene (L)",
+     "Kirin Gene",
+     "Great Jaggi Gene",
+     "Speed Res Gene (L)"
+    ],
+    "unmapped": [],
+    "intent": "Version défensive pour le jeu (PvE) : bingos Foudre et Puissance/Technique/Vitesse, gènes de résistance aux 3 types pour l'encaissement, Thunder Fang et Thundercall en dégâts mono-cible, Spread Shock Breath en zone",
+    "sources": [
+     "https://gamefaqs.gamespot.com/boards/146555-monster-hunter-stories/76062303"
+    ],
+    "from_summaries": false
+   }
+  ],
+  "Nargacuga": [
+   {
+    "genes": [
+     "Nargacuga Gene",
+     "Quick Gene (L)",
+     "Critical Gene (L)",
+     "Escape Gene",
+     "Antiseal Gene",
+     "Attack Gene (L)",
+     "Seregios Gene",
+     "Unscathed Gene",
+     "Warlike Gene (L)"
+    ],
+    "unmapped": [],
+    "intent": "Build physique critique : bingos Vitesse, Technique et Non-élém ; Sharpen Blades + Critical Eye (L) donnent environ 75 % de critique sur Killer Fang, Thousand Blades (Seregios) pour gagner les face-à-face contre la Vitesse",
+    "sources": [
+     "https://gamefaqs.gamespot.com/boards/146555-monster-hunter-stories/76184189"
+    ],
+    "from_summaries": false
+   },
+   {
+    "genes": [
+     "Seregios Gene",
+     "Unscathed Gene",
+     "Warlike Gene (L)",
+     "Nargacuga Gene",
+     "Critical Gene (L)",
+     "Quick Gene (L)",
+     "Attack Gene (L)",
+     "Antiblind Gene",
+     "Tenacity Gene"
+    ],
+    "unmapped": [],
+    "intent": "Variante du build critique avec bingo Puissance en plus (Puissance/Vitesse/Technique, Non-élém, Joker) pour renforcer Tail Smash ; Antiblind et Tenacity remplacent Escape et Antiseal (jugée équivalente par l'auteur du build d'origine)",
+    "sources": [
+     "https://gamefaqs.gamespot.com/boards/146555-monster-hunter-stories/76184189"
+    ],
+    "from_summaries": false
+   }
+  ],
+  "Green Nargacuga": [
+   {
+    "genes": [
+     "Dazzling Gene (L)",
+     "Water Scale Gene",
+     "Quickwater Gene",
+     "Torrential Gene (L)",
+     "Quick Gene (L)",
+     "Unscathed Gene",
+     "Survivor Gene",
+     "Tenacity Gene"
+    ],
+    "unmapped": [
+     "Cephalos (gène Cephalos, absent du catalogue)"
+    ],
+    "intent": "Le Nargacuga vert n'a presque aucune attaque propre : l'auteur recommande un build élémentaire générique ; modèle Eau (Narga penche vers l'Eau) avec Quickwater, Water Boost (L), Water Scale, Quick (L), Dancer/Fortify/Tenacity",
+    "sources": [
+     "https://gamefaqs.gamespot.com/boards/146555-monster-hunter-stories/76184189"
+    ],
+    "from_summaries": false
+   }
+  ],
+  "Stygian Zinogre": [
+   {
+    "genes": [
+     "Deviljho Gene",
+     "Dragon Aura Gene",
+     "Draconic Scale Gene"
+    ],
+    "unmapped": [],
+    "intent": "Cœur Dragon : Spread Dragon Breath (Deviljho) + Dragon Aura plafonnent l'attaque Dragon à 10, Draconic Scale en option, viser un bingo Vitesse ; retirer le gène S. Zinogre (Dragon Shroud inutile au plafond). Build partiel, cases restantes libres",
+    "sources": [
+     "https://gamefaqs.gamespot.com/boards/146555-monster-hunter-stories/76393128"
+    ],
+    "from_summaries": false
+   },
+   {
+    "genes": [
+     "Tenacity Gene",
+     "Quick Gene (L)",
+     "Unscathed Gene",
+     "Antiseal Gene",
+     "Antiblind Gene"
+    ],
+    "unmapped": [],
+    "intent": "Compléments proposés en réponse dans le même fil, à ajouter tout en maximisant l'attaque Dragon : survie (Tenacity), vitesse (Quick L, Dancer) et immunités Skillseal/Blind pour un tueur en un coup en PvP",
+    "sources": [
+     "https://gamefaqs.gamespot.com/boards/146555-monster-hunter-stories/76393128"
+    ],
+    "from_summaries": false
+   }
+  ],
   "Kirin": [
    {
     "genes": [
@@ -441,7 +573,7 @@
     "sources": [
      "https://gamefaqs.gamespot.com/boards/146555-monster-hunter-stories/75796821 (message #2 de MonsterRiderX, lu via https://web.archive.org/web/20250818000920/https://gamefaqs.gamespot.com/boards/146555-monster-hunter-stories/75796821)"
     ],
-    "from_summaries": true
+    "from_summaries": false
    }
   ],
   "The Great Poogie": [
@@ -462,7 +594,7 @@
     "sources": [
      "https://gamefaqs.gamespot.com/boards/146555-monster-hunter-stories/75796821?jumpto=116 (message #117 de Senzawa, lu via https://web.archive.org/web/20190130024424/https://gamefaqs.gamespot.com/boards/146555-monster-hunter-stories/75796821?jumpto=116)"
     ],
-    "from_summaries": true
+    "from_summaries": false
    },
    {
     "genes": [
@@ -482,7 +614,7 @@
     "sources": [
      "https://gamefaqs.gamespot.com/3ds/146555-monster-hunter-stories/answers/474380-great-poogie (lu via https://web.archive.org/web/20190508063736/https://gamefaqs.gamespot.com/3ds/146555-monster-hunter-stories/answers/474380-great-poogie)"
     ],
-    "from_summaries": true
+    "from_summaries": false
    }
   ],
   "Glavenus": [
