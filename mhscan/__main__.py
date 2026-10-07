@@ -10,8 +10,11 @@ def choose_game() -> str:
     print("Quel jeu ?")
     for i, key in enumerate(games, 1):
         print(f"  {i}. {config.GAMES[key]['name']} ({key})")
+    # Clavier AZERTY : les touches 1, 2, 3 de la rangée du haut donnent « & », « é », « " » sans Maj
+    azerty = {"&": "1", "é": "2", '"': "3"}
     while True:
         answer = input("Choix : ").strip().lower()
+        answer = azerty.get(answer, answer)
         if answer in games:
             return answer
         if answer.isdigit() and 1 <= int(answer) <= len(games):

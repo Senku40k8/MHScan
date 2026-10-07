@@ -17,13 +17,14 @@ echo ==============================
 echo            MHScan
 echo ==============================
 echo.
-echo   1. Scanner l'ecurie
-echo   2. Ouvrir le rapport
-echo   3. Verifier la detection (check)
-echo   4. Scanner en mode assiste
+rem Des lettres plutot que des chiffres : sur un clavier AZERTY, la touche 1 sans Maj donne "&"
+echo   S. Scanner l'ecurie
+echo   R. Ouvrir le rapport
+echo   V. Verifier la detection (check)
+echo   A. Scanner en mode assiste
 echo   Q. Quitter
 echo.
-choice /c 1234Q /n /m "Ton choix (1, 2, 3, 4 ou Q) : "
+choice /c SRVAQ /n /m "Ton choix (S, R, V, A ou Q) : "
 if errorlevel 5 exit /b 0
 if errorlevel 4 goto assiste
 if errorlevel 3 goto check
