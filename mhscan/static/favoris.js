@@ -443,7 +443,8 @@
     if (!plan.transfers.length) return '<p class="meta">Aucun transfert à faire.</p>';
     return `<ol class="fv-transfers">${plan.transfers.map(t => `<li>Case ${cellCase(t.slot)} : <b>${esc(t.name)}</b> ← ${esc(t.donor.name || '?')}
         <span class="meta">(page ${t.donor.page}, case ${t.donor.row},${t.donor.col})${t.donor.species ? ` · ${esc(t.donor.species)} ×${speciesTotal[t.donor.species] || 1}` : ''} — sacrifié</span></li>`).join('')}</ol>
-      <button class="fv-done" data-plan="${esc(id)}" title="À cliquer une fois ces transferts faits dans le jeu">Gènes transférés</button>`;
+      <button class="fv-done" data-plan="${esc(id)}" title="À cliquer une fois ces transferts faits dans le jeu">Gènes transférés</button>
+      <div class="fv-confirm hidden" data-confirm="${esc(id)}"></div>`;
   }
 
   function select(label, field, value, options, fav) {
@@ -537,13 +538,33 @@
     }
   }
 
+  // « Gènes transférés » affiche d'abord un encadré de confirmation dans la page ; rien n'est appliqué avant « Confirmer ».
+  function askTransferred(id) {
+    const entry = plans[id];
+    const box = document.querySelector(`[data-confirm="${CSS.escape(id)}"]`);
+    if (!entry || !entry.plan.transfers.length || !box) return;
+    const m = BY_KEY[entry.favKey];
+    const donors = entry.plan.transfers.map(t => t.donor);
+    box.innerHTML = `<p><b>As-tu fait ces ${donors.length} transfert${donors.length > 1 ? 's' : ''} vers ${esc(m.name || '?')} ?</b>
+        Ces monsties sacrifiés seront retirés du rapport :</p>
+      <ul>${donors.map(d => `<li>${esc(d.name || '?')} <span class="meta">(page ${d.page}, case ${d.row},${d.col})</span></li>`).join('')}</ul>
+      <button class="fv-confirm-yes" data-plan="${esc(id)}">Confirmer</button>
+      <button class="fv-confirm-no" data-plan="${esc(id)}">Annuler</button>`;
+    box.classList.remove('hidden');
+    box.previousElementSibling.classList.add('hidden');  // le bouton « Gènes transférés » laisse la place
+  }
+  function cancelTransferred(id) {
+    const box = document.querySelector(`[data-confirm="${CSS.escape(id)}"]`);
+    if (!box) return;
+    box.classList.add('hidden');
+    box.innerHTML = '';
+    box.previousElementSibling.classList.remove('hidden');
+  }
+
   function markTransferred(id) {
     const entry = plans[id];
     if (!entry || !entry.plan.transfers.length) return;
-    const m = BY_KEY[entry.favKey];
     const donors = entry.plan.transfers.map(t => t.donor);
-    const list = donors.map(d => `• ${d.name || '?'} (page ${d.page}, case ${d.row},${d.col})`).join('\n');
-    if (!confirm(`As-tu fait ces ${donors.length} transfert(s) vers ${m.name || '?'} ?\n\nCes monsties sacrifiés seront retirés du rapport :\n${list}`)) return;
     done.removed.push(...donors.map(d => d.key));
     done.boards[entry.favKey] = entry.plan.board;
     saveDone(); applyDone(); renderFavs();
@@ -555,7 +576,11 @@
     const remove = e.target.closest('.fv-remove');
     if (remove) { toggleFav(remove.dataset.key); return; }
     const transferred = e.target.closest('.fv-done');
-    if (transferred) { markTransferred(transferred.dataset.plan); return; }
+    if (transferred) { askTransferred(transferred.dataset.plan); return; }
+    const yes = e.target.closest('.fv-confirm-yes');
+    if (yes) { markTransferred(yes.dataset.plan); return; }
+    const no = e.target.closest('.fv-confirm-no');
+    if (no) { cancelTransferred(no.dataset.plan); return; }
     if (e.target.closest('.fv-undo')) {
       if (!confirm('Annuler les transferts enregistrés ? Les monsties sacrifiés réapparaîtront et les plateaux reviendront à ceux du scan.')) return;
       done = freshDone();
