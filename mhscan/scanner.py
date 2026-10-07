@@ -21,7 +21,7 @@ from pathlib import Path
 import cv2
 import numpy as np
 
-from . import collection, keys, ocr, report, window
+from . import collection, keys, ocr, report, storage, window
 from . import genes as catalog
 from .analyze import analyze_monstie
 from .config import Config
@@ -441,6 +441,7 @@ class Scanner:
                 self.log(f"Liste de référence mise à jour : {len(changes['added'])} ajouté(s), {len(changes['removed'])} retiré(s).")
             else:
                 self.log("Premier scan complet : il devient la liste de référence.")
+            storage.cleanup(self.out.parent, self.out, self.log)  # garde ce scan, archive le précédent, supprime le reste
         else:
             self.log("Scan incomplet : la liste de référence (collection.json) n'est pas modifiée.")
         if self.monsties:

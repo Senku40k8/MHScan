@@ -10,6 +10,11 @@ pip install -r requirements.txt
 Le jeu doit tourner en **fenêtré ou fenêtré sans bordure** (la capture se fait sur sa fenêtre).
 Les bandes noires (jeu 16:9 sur un écran 16:10 ou ultra-large) sont détectées et ignorées automatiquement.
 
+## Lancement rapide
+
+Double-cliquer sur **`MHScan.bat`** : un menu propose de scanner l'écurie, d'ouvrir le rapport, de vérifier la
+détection ou de scanner en mode assisté, sans taper de commande (le jeu est demandé ensuite).
+
 ## Contrôles
 
 - Déplacement dans la grille : **Z Q S D** (clavier AZERTY). Page suivante : **D** sur la dernière colonne ;
@@ -108,6 +113,16 @@ légende : elle liste les gènes ligne par ligne, dans le même ordre que le pla
 `state` : `gene` (avec son nom, sa couleur et `bingo` si elle fait partie d'un BINGO), `empty` (case claire)
 ou `dark` (case foncée). Les incohérences (nom illisible, nombre de gènes différent de la légende) sont listées
 dans `checks` et signalées dans le rapport.
+
+### Espace disque
+
+Un scan complet pèse environ 400 Mo (dont 60 % de captures plein écran). À la fin de chaque scan complet :
+
+- le **dernier** scan complet est gardé tel quel ;
+- l'**avant-dernier** est archivé en `scans/<jeu>/<date-heure>.zip`, sans ses captures plein écran ;
+- les **autres** (scans plus anciens, scans interrompus, anciennes archives) sont supprimés.
+
+La liste de référence, les favoris et les transferts (`scans/<jeu>/*.json`) ne sont jamais touchés.
 
 ### Rescanner : mise à jour de la liste
 
