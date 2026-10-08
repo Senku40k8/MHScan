@@ -125,12 +125,16 @@ def _favorite_data(game: str, scan_dir: Path, monsties: list):
                            "f": re.sub(r" \((S|M|L)\)$", "", g["name"]),
                            "a": g.get("active"),
                            "sl": bool(g.get("sleep")),  # sa compétence peut endormir l'ennemi
+                           "ss": bool(g.get("skillseal")),  # ... ou sceller ses compétences
+                           "at": g.get("attack"),  # attaque donnée : élément (Fire...) ou type si non élémentaire
                            # espèces qui portent ce gène (Kiranico) ; pour les gènes hors Kiranico, ce sont des URL
                            "src": [x for x in g.get("sources", []) if not x.startswith("http")],
                            "b": [[b["stat"], b["value"]] for b in g.get("bonuses", [])]} for g in catalog}
     return {"game": game, "scan": scan_dir.name, "catalog": compact, "builds": genes.builds(game), "rules": genes.rules(),
             "species": [{"name": sp["name"], "type": sp["type"], "element": sp["element"],
-                         "sleep": bool(sp.get("sleep_attack"))} for sp in species],
+                         "sleep": bool(sp.get("sleep_attack")), "seal": bool(sp.get("skillseal_attack")),
+                         "tech": bool(sp.get("tech_move")), "elemAtk": bool(sp.get("element_attack", True))}
+                        for sp in species],
             "monsties": rows}
 
 
@@ -159,13 +163,15 @@ def _card(m: dict, with_star: bool = False) -> str:
 
 FAVS_VIEW = """<div id="view-favs" class="hidden">
 <p class="fv-legend"><b>Build méta</b> : build recommandé en ligne pour l'espèce (sources indiquées).
-<b>Optimisé avec ton écurie</b> : les gènes du build méta que tu possèdes ; pour ceux qui manquent, les plateaux
-possibles avec des bingos de l'élément du monstie (<span class="ok">vert</span>) ou non-élémentaires
-(<span class="half">bleu</span>), chaque compétence passive une seule fois et <b>une seule compétence active</b>.
-Deux bingos identiques ne comptent qu'une fois. Tes règles (mhscan/data/gene_rules.json) passent en premier :
-Sturdy seulement pour White Monoblos, Tenacity en priorité, Sealing remplaçable, Hypnotic seulement avec une
-attaque de sommeil.
-Un donneur disparaît après le transfert et ne donne qu'un gène ; les favoris ne sont jamais utilisés comme donneurs.</p>
+<b>Optimisé avec ton écurie</b> : les gènes du build méta que tu possèdes, et pour ceux qui manquent les meilleurs
+plateaux possibles. Priorités : <b>1 bingo de l'élément d'attaque</b> (<span class="ok">vert</span> ; kit [élément] Scale,
+[élément] Boost (L), attaque de l'élément ou Quick[élément]), en ligne ou en colonne (jamais en diagonale), puis les
+<b>compétences</b> des 6 autres cases (une compétence marche même hors bingo : Tenacity, Attack (L), Quick (L),
+Unscathed, Evasion (L), Escape ; Seregios ou Kushala Daora si le monstie n'a pas d'attaque Technical), puis les autres
+bingos (non-élémentaire en <span class="half">bleu</span>, types). Un bingo identique en double ne sert à rien.
+Sturdy seulement pour White Monoblos, Sealing seulement avec une attaque qui inflige Skillseal, Hypnotic seulement
+avec une attaque de sommeil (règles : mhscan/data/gene_rules.json). Un donneur disparaît après le transfert et ne
+donne qu'un gène ; les favoris ne sont jamais utilisés comme donneurs.</p>
 <p id="fav-storage" class="fv-legend"></p>
 <div id="fav-list"></div>
 </div>"""

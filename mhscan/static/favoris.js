@@ -19,7 +19,7 @@
   const BY_KEY = Object.fromEntries(MONSTIES.map(m => [m.key, m]));
   const TYPES = ['Power', 'Speed', 'Technical'];
   const ELEMENTS = ['Fire', 'Water', 'Thunder', 'Ice', 'Dragon', 'Non-Elem'];
-  const LINES = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
+  const ALL_LINES = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
   const STORE = `mhscan:${DATA.game}:favoris`;
   const MAX_ALTERNATIVES = 6;  // plateaux proposés quand des gènes du build méta manquent
 
@@ -150,24 +150,42 @@
   };
   // --- règles de l'utilisateur (mhscan/data/gene_rules.json, communes à MHS1/2/3) -------------------
   const RULES = DATA.rules || { rules: [] };
+  // Bingos comptés en ligne et en colonne : un bingo diagonal empêche tout autre bingo de la même catégorie
+  const LINES = RULES.diagonal_bingos === false ? ALL_LINES.slice(0, 6) : ALL_LINES;
   const geneFamily = name => name.replace(/ \((S|M|L)\)$/, '');
-  const ruleOf = name => RULES.rules.find(r => r.genes.includes(geneFamily(name))) || null;
-  const replaceable = name => !!(ruleOf(name) && ruleOf(name).replaceable);
-  // Une attaque de sommeil existe : dans les compétences de l'espèce, ou via un gène actif du plateau
-  const sleepAvailable = (prof, names) => !!(SPECIES[prof.species] && SPECIES[prof.species].sleep)
-    || names.some(n => gene(n) && gene(n).sl);
-  // Règle qui interdit ce gène pour ce monstie (Sturdy hors White Monoblos, Hypnotic sans attaque de sommeil), ou null
-  function forbiddenBy(name, prof, sleep) {
-    const r = ruleOf(name);
-    if (!r) return null;
-    if (r.only_species && !r.only_species.includes(prof.species)) return r;
-    if (r.requires_sleep_attack && !sleep) return r;
+  const rulesOf = name => RULES.rules.filter(r => (r.genes || []).includes(geneFamily(name)) || (r.names || []).includes(name));
+  const ruleOf = name => rulesOf(name)[0] || null;
+  const replaceable = name => rulesOf(name).some(r => r.replaceable);
+  const isGem = name => rulesOf(name).some(r => r.channeling_gem);  // existe en gemme de channeling
+  const GEM_GENES = Object.keys(CATALOG).filter(isGem);
+  const speciesInfo = prof => SPECIES[prof.species] || {};
+  // Ce que les compétences de l'espèce ou les gènes actifs du plateau permettent déjà
+  const sleepAvailable = (prof, names) => !!speciesInfo(prof).sleep || names.some(n => gene(n) && gene(n).sl);
+  const skillsealAvailable = (prof, names) => !!speciesInfo(prof).seal || names.some(n => gene(n) && gene(n).ss);
+  const needsTechMove = prof => !speciesInfo(prof).tech;  // la plupart des monsties n'ont pas d'attaque Technical
+  const needsElementAttack = prof => prof.element !== 'Non-Elem' && speciesInfo(prof).elemAtk === false;
+  // Règle qui interdit ce gène pour ce monstie (Sturdy hors White Monoblos, Hypnotic sans attaque de sommeil,
+  // Sealing sans attaque qui inflige Skillseal), ou null
+  function forbiddenBy(name, prof, sleep, seal) {
+    for (const r of rulesOf(name)) {
+      if (r.only_species && !r.only_species.includes(prof.species)) return r;
+      if (r.requires_sleep_attack && !sleep) return r;
+      if (r.requires_skillseal_attack && !seal) return r;
+    }
     return null;
   }
+  // Nombre de compétences actives permises : une, ou plus si le monstie a besoin d'une attaque Technical et/ou d'une
+  // attaque de son élément apportées par des gènes (conseil : Seregios / Kushala Daora, attaque de l'élément).
+  const activeLimit = prof => Math.max(1, (needsTechMove(prof) ? 1 : 0) + (needsElementAttack(prof) ? 1 : 0));
 
   function value(name, prof) {
     const g = gene(name);
-    const bonus = (ruleOf(name) && ruleOf(name).bonus) || 0;  // ex. Tenacity, tout premier ordre
+    let bonus = rulesOf(name).reduce((sum, r) => sum + (r.bonus || 0), 0);  // ex. Tenacity, tout premier ordre
+    const kits = RULES.element_kits || {};
+    if ((kits[prof.element] || []).includes(name)) bonus += kits.bonus || 0;  // kit du bingo de l'élément
+    const tech = RULES.tech_move;
+    if (tech && tech.names.includes(name) && needsTechMove(prof)) bonus += tech.bonus || 0;
+    if (g && g.at === prof.element && needsElementAttack(prof)) bonus += (RULES.element_attack || {}).bonus || 0;
     if (!g) return bonus;
     const useful = new Set(['Attack Up', 'Crit Rate Up', `${prof.element} Attack Up`]);
     return bonus + g.b.filter(b => useful.has(b[0])).reduce((sum, b) => sum + b[1], 0) + ({ L: 0.3, M: 0.2, S: 0.1 }[g.s] || 0);
@@ -224,7 +242,8 @@
     (function fill(k) {
       const remaining = left.E + left.N + left.X;
       if (!remaining) {
-        const count = elementBingos(classes);
+        // Le bingo de l'élément d'attaque compte plus qu'un bingo non-élémentaire
+        const count = elementBingos(classes) + (LINES.some(([x, y, z]) => classes[x] === 'E' && classes[y] === 'E' && classes[z] === 'E') ? 1 : 0);
         if (count > bestCount) { bestCount = count; best = classes.slice(); }
         return;
       }
@@ -281,15 +300,16 @@
     const used = [...fixed.filter(Boolean), ...required];
     const usedFamilies = new Set(used.filter(n => !isActive(n)).map(skillFamily).filter(Boolean));
     const usedNames = new Set(used);
-    const activeBudget = Math.max(0, 1 - used.filter(isActive).length);
+    const activeBudget = Math.max(0, activeLimit(prof) - used.filter(isActive).length);
     const slotsLeft = 9 - used.length;
     // Candidats compatibles : élément du monstie ou non-élémentaire, compétence absente du plateau,
     // le meilleur gène par compétence passive (gènes du favori d'abord, puis par valeur).
     const families = new Set();
     const seen = new Set();
     const sleep = sleepAvailable(prof, used);
+    const seal = skillsealAvailable(prof, used);
     const compatible = candidates
-      .filter(c => !usedNames.has(c.name) && gene(c.name) && !forbiddenBy(c.name, prof, sleep))
+      .filter(c => !usedNames.has(c.name) && gene(c.name) && !forbiddenBy(c.name, prof, sleep, seal))
       .filter(c => (isActive(c.name) ? activeBudget > 0 : !usedFamilies.has(skillFamily(c.name))))
       .sort((a, b) => (b.own ? 1 : 0) - (a.own ? 1 : 0) || value(b.name, prof) - value(a.name, prof))
       .filter(c => {
@@ -315,7 +335,7 @@
           if (!need) break;
           if (excluded.has(c.name)) continue;
           if (isActive(c.name) && actives >= activeBudget) continue;
-          if (c.own ? board[c.slot] : (m && !m.add(c.name))) continue;
+          if (c.own ? board[c.slot] : (!c.gem && m && !m.add(c.name))) continue;  // gemme : sans donneur
           if (c.own) board[c.slot] = c.name;
           if (isActive(c.name)) actives++;
           chosen.push(c);
@@ -345,9 +365,11 @@
     // Bingos utiles (élément du monstie, non-élémentaire, types différents), puis valeur des gènes (Tenacity en tête),
     // puis plus de gènes de l'élément du monstie, puis moins de transferts
     const ownElement = r => r.board.filter(n => n && elementClass(n, prof) === 'E').length;
-    const rank = (a, b) => b.stats.elementBingos - a.stats.elementBingos
-      || (b.stats.ownElementBingo ? 1 : 0) - (a.stats.ownElementBingo ? 1 : 0) || b.stats.typeBingos - a.stats.typeBingos
-      || b.total - a.total || ownElement(b) - ownElement(a) || a.transfers - b.transfers;
+    // 1 bingo de l'élément d'attaque d'abord ; puis les compétences (une compétence marche même hors bingo) ;
+    // puis les bingos de type et non-élémentaire ; puis le moins de transferts.
+    const rank = (a, b) => (b.stats.ownElementBingo ? 1 : 0) - (a.stats.ownElementBingo ? 1 : 0)
+      || b.total - a.total || b.stats.typeBingos - a.stats.typeBingos || b.stats.elementBingos - a.stats.elementBingos
+      || ownElement(b) - ownElement(a) || a.transfers - b.transfers;
     results.sort(rank);
     // Variantes des meilleures répartitions : on écarte tour à tour un gène choisi
     for (const base of results.slice(0, 3)) {
@@ -378,9 +400,10 @@
   function metaGenes(prof) {
     const genes = prof.build ? prof.build.genes.slice(0, 9) : [];
     const sleep = sleepAvailable(prof, genes);
+    const seal = skillsealAvailable(prof, genes);
     const kept = [], ruled = [];
     for (const name of genes) {
-      const rule = forbiddenBy(name, prof, sleep) || (replaceable(name) ? ruleOf(name) : null);
+      const rule = forbiddenBy(name, prof, sleep, seal) || (replaceable(name) ? rulesOf(name).find(r => r.replaceable) : null);
       if (rule) ruled.push({ name, why: rule.why }); else kept.push(name);
     }
     return { kept, ruled };
@@ -426,12 +449,15 @@
     for (const name of metaGenes(prof).kept) {
       const slot = m.genes.indexOf(name);
       if (slot >= 0) fixed[slot] = name;               // déjà sur le favori : il reste à sa place
-      else if (matcher.add(name)) required.push(name);  // transféré depuis un donneur
+      else if (isGem(name) || matcher.add(name)) required.push(name);  // gemme de channeling, ou donneur
       else missing.push(name);
     }
     const candidates = [];
     m.genes.forEach((name, slot) => { if (name && !fixed.includes(name)) candidates.push({ name, slot, own: true }); });
-    for (const name of Object.keys(donorsByGene)) candidates.push({ name, own: false });
+    for (const name of Object.keys(donorsByGene)) if (!isGem(name)) candidates.push({ name, own: false });
+    for (const name of GEM_GENES) candidates.push({ name, own: false, gem: true });
+    // Ordre conseillé : le gène le plus rare d'abord (le moins de donneurs), les gemmes de channeling à la fin
+    const rarity = name => (isGem(name) ? Infinity : (donorsByGene[name] || []).length);
     const results = searchBoards({ fixed, required, candidates, matcher, prof });
     return {
       missing,
@@ -439,9 +465,12 @@
         const donorOf = {};
         for (const [donor, name] of Object.entries(r.matcher.assignment)) donorOf[name] = donor;
         const transfers = r.board
-          .map((name, slot) => (name && m.genes[slot] !== name ? { slot, name, donor: BY_KEY[donorOf[name]] } : null))
-          .filter(t => t && t.donor);
-        return { board: r.board, stats: r.stats, transfers, donors: transfers.map(t => t.donor.key) };
+          .map((name, slot) => (name && m.genes[slot] !== name
+            ? { slot, name, gem: isGem(name) && !donorOf[name], donor: BY_KEY[donorOf[name]] } : null))
+          .filter(t => t && (t.donor || t.gem))
+          .sort((a, b) => rarity(a.name) - rarity(b.name));
+        return { board: r.board, stats: r.stats, transfers,
+                 donors: transfers.filter(t => t.donor).map(t => t.donor.key) };
       }),
     };
   }
@@ -488,7 +517,11 @@
   function transfersHtml(plan, favKey, id) {
     plans[id] = { favKey, plan };
     if (!plan.transfers.length) return '<p class="meta">Aucun transfert à faire.</p>';
-    return `<ol class="fv-transfers">${plan.transfers.map(t => `<li>Case ${cellCase(t.slot)} : <b>${esc(t.name)}</b> ← ${esc(t.donor.name || '?')}
+    return `<p class="fv-note">Ordre conseillé : le gène le plus rare d'abord, les gemmes de channeling à la fin.
+        Le plateau peut être tourné ou décalé si ça arrange le placement des gènes rares.</p>
+      <ol class="fv-transfers">${plan.transfers.map(t => t.gem
+        ? `<li>Case ${cellCase(t.slot)} : <b>${esc(t.name)}</b> ← gemme de channeling <span class="meta">(à poser à la fin, pas besoin de la farmer)</span></li>`
+        : `<li>Case ${cellCase(t.slot)} : <b>${esc(t.name)}</b> ← ${esc(t.donor.name || '?')}
         <span class="meta">(page ${t.donor.page}, case ${t.donor.row},${t.donor.col})${t.donor.species ? ` · ${esc(t.donor.species)} ×${speciesTotal[t.donor.species] || 1}` : ''} — sacrifié</span></li>`).join('')}</ol>
       <button class="fv-done" data-plan="${esc(id)}" title="À cliquer une fois ces transferts faits dans le jeu">Gènes transférés</button>
       <div class="fv-confirm hidden" data-confirm="${esc(id)}"></div>`;
@@ -593,7 +626,7 @@
     const box = document.querySelector(`[data-confirm="${CSS.escape(id)}"]`);
     if (!entry || !entry.plan.transfers.length || !box) return;
     const m = BY_KEY[entry.favKey];
-    const donors = entry.plan.transfers.map(t => t.donor);
+    const donors = entry.plan.transfers.filter(t => t.donor).map(t => t.donor);
     box.innerHTML = `<p><b>As-tu fait ces ${donors.length} transfert${donors.length > 1 ? 's' : ''} vers ${esc(m.name || '?')} ?</b>
         Ces monsties sacrifiés seront retirés du rapport :</p>
       <ul>${donors.map(d => `<li>${esc(d.name || '?')} <span class="meta">(page ${d.page}, case ${d.row},${d.col})</span></li>`).join('')}</ul>
@@ -613,7 +646,7 @@
   function markTransferred(id) {
     const entry = plans[id];
     if (!entry || !entry.plan.transfers.length) return;
-    const donors = entry.plan.transfers.map(t => t.donor);
+    const donors = entry.plan.transfers.filter(t => t.donor).map(t => t.donor);
     done.removed.push(...donors.map(d => d.key));
     done.boards[entry.favKey] = entry.plan.board;
     saveDone(); applyDone(); renderFavs();

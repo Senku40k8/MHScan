@@ -12,7 +12,11 @@
    "sources": [
     "https://monsterhunter.fandom.com/wiki/MHST:_Monsties",
     "https://mhst1.monsterbuddy.app/monsters/glavenus/"
-   ]
+   ],
+   "tech_move": false,
+   "element_attack": true,
+   "sleep_attack": false,
+   "skillseal_attack": false
   },
   {
    "name": "Rajang",
@@ -25,7 +29,11 @@
    "sources": [
     "https://monsterhunter.fandom.com/wiki/MHST:_Monsties",
     "https://mhst1.monsterbuddy.app/monsters/rajang/"
-   ]
+   ],
+   "tech_move": false,
+   "element_attack": true,
+   "sleep_attack": false,
+   "skillseal_attack": false
   },
   {
    "name": "Kushala Daora",
@@ -38,7 +46,11 @@
    "sources": [
     "https://monsterhunter.fandom.com/wiki/MHST:_Monsties",
     "https://land-island.com/?page_id=8932"
-   ]
+   ],
+   "tech_move": true,
+   "element_attack": true,
+   "sleep_attack": false,
+   "skillseal_attack": false
   }
  ],
  "genes": [
@@ -49,10 +61,20 @@
    "size": null,
    "skill": "",
    "active": true,
-   "bonuses": [],
+   "bonuses": [
+    {
+     "stat": "Thunder Attack Up",
+     "value": 2
+    },
+    {
+     "stat": "Attack Up",
+     "value": 2
+    }
+   ],
    "sources": [
     "https://land-island.com/?page_id=8932"
-   ]
+   ],
+   "attack": "Thunder"
   },
   {
    "name": "Kushala Daora Gene",
@@ -61,11 +83,21 @@
    "size": null,
    "skill": "Cyclone Tackle",
    "active": true,
-   "bonuses": [],
+   "bonuses": [
+    {
+     "stat": "Ice Attack Up",
+     "value": 3
+    },
+    {
+     "stat": "Defense Up",
+     "value": 2
+    }
+   ],
    "sources": [
     "https://land-island.com/?page_id=8932",
     "https://gamefaqs.gamespot.com/boards/146555-monster-hunter-stories/80799066"
-   ]
+   ],
+   "attack": "Technical"
   }
  ]
 }

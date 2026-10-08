@@ -21,7 +21,10 @@
     "Attack Gene (M)",
     "Kinship Gene (S)"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": false,
+   "tech_move": false,
+   "element_attack": false
   },
   {
    "name": "Velocidrome",
@@ -47,7 +50,10 @@
     "Speed Gene (M)",
     "Speed Res Gene (M)"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": false,
+   "tech_move": false,
+   "element_attack": false
   },
   {
    "name": "Arzuros",
@@ -73,7 +79,10 @@
     "Power Gene (M)",
     "Power Res Gene (M)"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": false,
+   "tech_move": false,
+   "element_attack": false
   },
   {
    "name": "Yian Kut-Ku",
@@ -99,7 +108,10 @@
     "Tech Gene (M)",
     "Tech Res Gene (M)"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": false,
+   "tech_move": true,
+   "element_attack": true
   },
   {
    "name": "Blue Yian Kut-Ku",
@@ -124,7 +136,10 @@
     "Tech Gene (M)",
     "Quickfire Gene"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": false,
+   "tech_move": false,
+   "element_attack": true
   },
   {
    "name": "Popo",
@@ -150,7 +165,10 @@
     "Frigid Gene (M)",
     "Nesting Gene"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": true,
+   "tech_move": false,
+   "element_attack": false
   },
   {
    "name": "Lagombi",
@@ -178,7 +196,10 @@
     "Cocoon Gene (M)",
     "Antiseal Gene"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": true,
+   "tech_move": false,
+   "element_attack": true
   },
   {
    "name": "Bulldrome",
@@ -204,7 +225,10 @@
     "Warlike Gene (M)",
     "Power Res Gene (M)"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": false,
+   "tech_move": false,
+   "element_attack": false
   },
   {
    "name": "Zamtrios",
@@ -233,7 +257,10 @@
     "Cocoon Gene (M)",
     "Latent Ice Gene"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": true,
+   "tech_move": true,
+   "element_attack": true
   },
   {
    "name": "Khezu",
@@ -259,7 +286,10 @@
     "Tech Res Gene (M)",
     "Quickthunder Gene"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": false,
+   "tech_move": false,
+   "element_attack": true
   },
   {
    "name": "Red Khezu",
@@ -285,7 +315,10 @@
     "Tech Gene (M)",
     "Latent Thunder Gene"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": false,
+   "tech_move": false,
+   "element_attack": true
   },
   {
    "name": "Apceros",
@@ -312,7 +345,10 @@
     "Warlike Gene (M)",
     "Power Res Gene (M)"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": false,
+   "tech_move": false,
+   "element_attack": false
   },
   {
    "name": "Gendrome",
@@ -336,7 +372,10 @@
     "Shocking Gene (M)",
     "Speed Res Gene (M)"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": false,
+   "tech_move": false,
+   "element_attack": false
   },
   {
    "name": "Royal Ludroth",
@@ -364,7 +403,10 @@
     "Sealing Gene (M)",
     "Quickwater Gene"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": true,
+   "tech_move": false,
+   "element_attack": true
   },
   {
    "name": "Gypceros",
@@ -392,7 +434,10 @@
     "Tenacity Gene",
     "Survivor Gene"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": false,
+   "tech_move": true,
+   "element_attack": false
   },
   {
    "name": "Nerscylla",
@@ -420,7 +465,10 @@
     "Quickice Gene",
     "Abnormal Gene"
    ],
-   "sleep_attack": true
+   "sleep_attack": true,
+   "skillseal_attack": true,
+   "tech_move": true,
+   "element_attack": false
   },
   {
    "name": "Shrouded Nerscylla",
@@ -447,7 +495,10 @@
     "Quickice Gene",
     "Abnormal Gene"
    ],
-   "sleep_attack": true
+   "sleep_attack": true,
+   "skillseal_attack": false,
+   "tech_move": true,
+   "element_attack": false
   },
   {
    "name": "Qurupeco",
@@ -472,7 +523,10 @@
     "Flaming Gene (M)",
     "Quickfire Gene"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": false,
+   "tech_move": false,
+   "element_attack": false
   },
   {
    "name": "Rathian",
@@ -497,7 +551,10 @@
     "Burning Gene (L)",
     "Antiburn Gene"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": false,
+   "tech_move": false,
+   "element_attack": true
   },
   {
    "name": "Pink Rathian",
@@ -524,7 +581,10 @@
     "Antiburn Gene",
     "Latent Fire Gene"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": false,
+   "tech_move": false,
+   "element_attack": true
   },
   {
    "name": "Barroth",
@@ -547,7 +607,10 @@
     "Fire Res Gene (M)",
     "Unscathed Gene"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": true,
+   "tech_move": false,
+   "element_attack": true
   },
   {
    "name": "Cephadrome",
@@ -575,7 +638,10 @@
     "Paralyze Gene (M)",
     "Evasion Gene (M)"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": false,
+   "tech_move": false,
+   "element_attack": false
   },
   {
    "name": "Diablos",
@@ -601,7 +667,10 @@
     "Warlike Gene (L)",
     "Potential Gene"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": false,
+   "tech_move": false,
+   "element_attack": false
   },
   {
    "name": "Black Diablos",
@@ -627,7 +696,10 @@
     "Warlike Gene (L)",
     "Head-to-Head Gene"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": false,
+   "tech_move": false,
+   "element_attack": false
   },
   {
    "name": "Tigrex",
@@ -653,7 +725,10 @@
     "Draconic Gene (M)",
     "Quickdragon Gene"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": false,
+   "tech_move": false,
+   "element_attack": false
   },
   {
    "name": "Iodrome",
@@ -679,7 +754,10 @@
     "Poison Gene (M)",
     "Noxious Gene (M)"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": false,
+   "tech_move": true,
+   "element_attack": false
   },
   {
    "name": "Basarios",
@@ -708,7 +786,10 @@
     "Drgn Res Gene (M)",
     "Searing Gene (L)"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": false,
+   "tech_move": false,
+   "element_attack": true
   },
   {
    "name": "Gravios",
@@ -735,7 +816,10 @@
     "Hypnotic Gene (L)",
     "Latent Fire Gene"
    ],
-   "sleep_attack": true
+   "sleep_attack": true,
+   "skillseal_attack": false,
+   "tech_move": false,
+   "element_attack": true
   },
   {
    "name": "Uragaan",
@@ -763,7 +847,10 @@
     "Volatile Gene (M)",
     "Antisleep Gene"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": false,
+   "tech_move": false,
+   "element_attack": true
   },
   {
    "name": "Brute Tigrex",
@@ -789,7 +876,10 @@
     "Evasion Gene (M)",
     "Escape Gene"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": false,
+   "tech_move": false,
+   "element_attack": false
   },
   {
    "name": "Great Jaggi",
@@ -811,7 +901,10 @@
     "Health Gene (L)",
     "Speed Res Gene (L)"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": false,
+   "tech_move": true,
+   "element_attack": false
   },
   {
    "name": "Kecha Wacha",
@@ -837,7 +930,10 @@
     "Water Res Gene (L)",
     "Torrential Gene (L)"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": true,
+   "tech_move": true,
+   "element_attack": true
   },
   {
    "name": "Purple Ludroth",
@@ -863,7 +959,10 @@
     "Dampening Gene",
     "Latent Water Gene"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": false,
+   "tech_move": false,
+   "element_attack": true
   },
   {
    "name": "Yian Garuga",
@@ -887,7 +986,10 @@
     "Poison Gene (L)",
     "Antiseal Gene"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": false,
+   "tech_move": true,
+   "element_attack": false
   },
   {
    "name": "Congalala",
@@ -912,7 +1014,10 @@
     "Hounding Gene",
     "Abnormal Gene"
    ],
-   "sleep_attack": true
+   "sleep_attack": true,
+   "skillseal_attack": false,
+   "tech_move": false,
+   "element_attack": false
   },
   {
    "name": "Emerald Congalala",
@@ -938,7 +1043,10 @@
     "Hounding Gene",
     "Abnormal Gene"
    ],
-   "sleep_attack": true
+   "sleep_attack": true,
+   "skillseal_attack": false,
+   "tech_move": false,
+   "element_attack": false
   },
   {
    "name": "Crimson Qurupeco",
@@ -961,7 +1069,10 @@
     "Tech Res Gene (L)",
     "Dazzling Gene (L)"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": false,
+   "tech_move": false,
+   "element_attack": true
   },
   {
    "name": "Black Gravios",
@@ -991,7 +1102,10 @@
     "Ice Res Gene (L)",
     "Drgn Res Gene (L)"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": false,
+   "tech_move": false,
+   "element_attack": true
   },
   {
    "name": "Zinogre",
@@ -1017,7 +1131,10 @@
     "Latent Thunder Gene",
     "Thunder Scale Gene"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": false,
+   "tech_move": false,
+   "element_attack": true
   },
   {
    "name": "Ruby Basarios",
@@ -1043,7 +1160,10 @@
     "Flaming Gene (L)",
     "Drgn Res Gene (L)"
    ],
-   "sleep_attack": true
+   "sleep_attack": true,
+   "skillseal_attack": false,
+   "tech_move": false,
+   "element_attack": true
   },
   {
    "name": "Nargacuga",
@@ -1070,7 +1190,10 @@
     "Evasion Gene (L)",
     "Escape Gene"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": false,
+   "tech_move": false,
+   "element_attack": false
   },
   {
    "name": "Green Nargacuga",
@@ -1095,7 +1218,10 @@
     "Evasion Gene (L)",
     "Escape Gene"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": false,
+   "tech_move": false,
+   "element_attack": false
   },
   {
    "name": "Rathalos",
@@ -1122,7 +1248,10 @@
     "Draconic Gene (L)",
     "Kinship Gene (S)"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": false,
+   "tech_move": false,
+   "element_attack": true
   },
   {
    "name": "Azure Rathalos",
@@ -1150,7 +1279,10 @@
     "Kinship Gene (M)",
     "Quickfire Gene"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": false,
+   "tech_move": false,
+   "element_attack": true
   },
   {
    "name": "Purple Gypceros",
@@ -1176,7 +1308,10 @@
     "Tenacity Gene",
     "Survivor Gene"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": false,
+   "tech_move": true,
+   "element_attack": false
   },
   {
    "name": "Ash Kecha Wacha",
@@ -1202,7 +1337,10 @@
     "Fire Res Gene (L)",
     "Flaming Gene (L)"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": true,
+   "tech_move": true,
+   "element_attack": true
   },
   {
    "name": "Lagiacrus",
@@ -1227,7 +1365,10 @@
     "Paralyze Gene (L)",
     "Quickthunder Gene"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": true,
+   "tech_move": false,
+   "element_attack": true
   },
   {
    "name": "Ivory Lagiacrus",
@@ -1252,7 +1393,10 @@
     "Shocking Gene (L)",
     "Latent Water Gene"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": false,
+   "tech_move": false,
+   "element_attack": true
   },
   {
    "name": "Deviljho",
@@ -1279,7 +1423,10 @@
     "Draconic Gene (L)",
     "Power Res Gene (L)"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": false,
+   "tech_move": false,
+   "element_attack": true
   },
   {
    "name": "Great Baggi",
@@ -1301,7 +1448,10 @@
     "Antisleep Gene",
     "Speed Res Gene (L)"
    ],
-   "sleep_attack": true
+   "sleep_attack": true,
+   "skillseal_attack": false,
+   "tech_move": true,
+   "element_attack": false
   },
   {
    "name": "Jade Barroth",
@@ -1329,7 +1479,10 @@
     "Latent Ice Gene",
     "Ice Scale Gene"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": true,
+   "tech_move": true,
+   "element_attack": true
   },
   {
    "name": "Barioth",
@@ -1355,7 +1508,10 @@
     "Critical Gene (L)",
     "Latent Ice Gene"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": true,
+   "tech_move": false,
+   "element_attack": true
   },
   {
    "name": "Sand Barioth",
@@ -1378,7 +1534,10 @@
     "Critical Gene (L)",
     "Cyclone Gene"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": false,
+   "tech_move": false,
+   "element_attack": false
   },
   {
    "name": "Stygian Zinogre",
@@ -1402,7 +1561,10 @@
     "Unscathed Gene",
     "Latent Dragon Gene"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": false,
+   "tech_move": false,
+   "element_attack": true
   },
   {
    "name": "Brachydios",
@@ -1430,7 +1592,10 @@
     "Head-to-Head Gene",
     "Dampening Gene"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": false,
+   "tech_move": false,
+   "element_attack": true
   },
   {
    "name": "Kirin",
@@ -1460,7 +1625,10 @@
     "Painkiller Gene",
     "Kinship Gene (L)"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": false,
+   "tech_move": false,
+   "element_attack": true
   },
   {
    "name": "Monoblos",
@@ -1483,7 +1651,10 @@
     "Sturdy Gene",
     "All-Elem Gene (L)"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": false,
+   "tech_move": true,
+   "element_attack": false
   },
   {
    "name": "Seregios",
@@ -1509,7 +1680,10 @@
     "Antibleed Gene",
     "Potent Gene (L)"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": false,
+   "tech_move": true,
+   "element_attack": false
   },
   {
    "name": "Gold Rathian",
@@ -1535,7 +1709,10 @@
     "Fire Scale Gene",
     "Dragon Aura Gene"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": false,
+   "tech_move": false,
+   "element_attack": true
   },
   {
    "name": "Silver Rathalos",
@@ -1560,7 +1737,10 @@
     "Fire Scale Gene",
     "Kinship Gene (L)"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": false,
+   "tech_move": false,
+   "element_attack": true
   },
   {
    "name": "The Great Poogie",
@@ -1579,7 +1759,10 @@
     "Great Poogie Gene",
     "Draconic Gene (L)"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": false,
+   "tech_move": false,
+   "element_attack": false
   },
   {
    "name": "White Monoblos",
@@ -1602,7 +1785,10 @@
     "Sturdy Gene",
     "Potent Gene (L)"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": false,
+   "tech_move": false,
+   "element_attack": false
   },
   {
    "name": "Molten Tigrex",
@@ -1627,7 +1813,10 @@
     "Power Gene (L)",
     "Painkiller Gene"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": false,
+   "tech_move": false,
+   "element_attack": false
   },
   {
    "name": "Oroshi Kirin",
@@ -1656,7 +1845,10 @@
     "Nesting Gene",
     "Painkiller Gene"
    ],
-   "sleep_attack": false
+   "sleep_attack": false,
+   "skillseal_attack": true,
+   "tech_move": false,
+   "element_attack": true
   }
  ]
 }

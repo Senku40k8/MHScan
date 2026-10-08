@@ -1,7 +1,33 @@
 {
- "note": "Règles de choix des gènes, valables pour MHS1, MHS2 et MHS3. Un gène est désigné par sa famille (nom sans la taille S/M/L). Prioritaires sur les builds méta et sur le choix des gènes de remplacement.",
+ "note": "Règles de choix des gènes, valables pour MHS1, MHS2 et MHS3. Un gène est désigné par sa famille (« genes », nom sans la taille S/M/L) ou par son nom exact (« names »). Prioritaires sur les builds méta et sur le choix des gènes de remplacement.",
+ "principles": [
+  "La compétence d'un gène est toujours active dès que le gène est sur le plateau, qu'il fasse partie d'un bingo ou non.",
+  "Un bingo d'élément ou de type donne +50 % aux attaques de cet élément / ce type, quels que soient les gènes qui le forment.",
+  "Dans Stories 1, un deuxième bingo identique (ex. Technical/Ice et Power/Ice : deux bingos Ice) n'apporte rien de plus.",
+  "En général : 1 bingo de l'élément d'attaque (gène [élément] Scale, [élément] Boost (L) et une attaque de cet élément, ou Quick[élément] si l'attaque est déjà dans les compétences du monstie), puis les 6 autres cases pour les compétences voulues.",
+  "Bingo d'élément en ligne ou en colonne, bingos de type perpendiculaires ; jamais en diagonale (un bingo diagonal empêche tout autre bingo de la même catégorie).",
+  "Construction : d'abord repérer les gènes disponibles en gemme de channeling (à poser à la fin, inutile de les farmer), puis commencer par le gène le plus rare ; le plateau peut être tourné ou décalé."
+ ],
  "distinct_bingos": true,
- "distinct_bingos_why": "Deux bingos identiques (ex. Technical/Ice et Power/Ice : deux bingos Ice) sont redondants : un seul compte.",
+ "diagonal_bingos": false,
+ "element_kits": {
+  "why": "Kit du bingo de l'élément d'attaque : [élément] Scale, [élément] Boost (L), Quick[élément] (remplace l'attaque de l'élément quand le monstie l'a déjà).",
+  "bonus": 30,
+  "Fire": ["Fire Scale Gene", "Flaming Gene (L)", "Goukami Gene", "Quickfire Gene"],
+  "Water": ["Water Scale Gene", "Torrential Gene (L)", "Quickwater Gene"],
+  "Thunder": ["Thunder Scale Gene", "Flashing Gene (L)", "Quickthunder Gene"],
+  "Ice": ["Ice Scale Gene", "Frigid Gene (L)", "Quickice Gene"],
+  "Dragon": ["Draconic Scale Gene", "Draconic Gene (L)", "Quickdragon Gene"]
+ },
+ "element_attack": {
+  "why": "Attaque de l'élément du monstie, à apporter par un gène si ses compétences n'en ont pas.",
+  "bonus": 30
+ },
+ "tech_move": {
+  "why": "Seuls Seregios Gene (attaque non élémentaire, va sur tout build) et Kushala Daora Gene (attaque Technical de Glace) donnent une attaque Technical : à ajouter si le monstie n'en a pas.",
+  "names": ["Seregios Gene", "Kushala Daora Gene"],
+  "bonus": 40
+ },
  "rules": [
   {
    "genes": ["Sturdy Gene"],
@@ -11,18 +37,30 @@
   {
    "genes": ["Tenacity Gene"],
    "bonus": 100,
-   "why": "Tenacity est une compétence de tout premier ordre."
+   "channeling_gem": true,
+   "why": "Tenacity est une compétence de tout premier ordre ; elle existe en gemme de channeling (à poser à la fin, pas besoin de la farmer)."
   },
   {
    "genes": ["Sealing Gene"],
+   "requires_skillseal_attack": true,
    "replaceable": true,
    "bonus": -5,
-   "why": "Extend Skillseal (Sealing Gene) peut être remplacé par autre chose."
+   "why": "Extend Skillseal ne fait rien si les attaques n'infligent pas Skillseal, et le tour gagné compte peu : il suffit de relancer l'attaque."
   },
   {
    "genes": ["Hypnotic Gene"],
    "requires_sleep_attack": true,
    "why": "Hypnotic ne sert à rien sans attaque de sommeil."
+  },
+  {
+   "names": ["Attack Gene (L)", "Quick Gene (L)", "Unscathed Gene", "Evasion Gene (L)", "Escape Gene"],
+   "bonus": 20,
+   "why": "Bons choix pour les cases hors bingo (selon le build)."
+  },
+  {
+   "names": ["Quickfire Gene", "Quickwater Gene", "Quickthunder Gene", "Quickice Gene", "Quickdragon Gene"],
+   "bonus": 5,
+   "why": "Quick[élément] : surtout utile en PvP."
   }
  ]
 }

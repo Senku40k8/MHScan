@@ -163,13 +163,21 @@ L'onglet **Favoris** affiche pour chacun trois plateaux :
   Pour chaque gène absent, le rapport indique les espèces qui le portent (données Kiranico) : l'œuf à aller chercher.
 
 **Règles prioritaires** (`mhscan/data/gene_rules.json`, communes à MHS1/2/3, modifiables) : elles s'appliquent
-avant les builds méta et le choix des gènes de remplacement :
-  - **Sturdy** ne sert qu'à l'attaque Stab Vitals de **White Monoblos** : écarté pour toute autre espèce ;
-  - **Tenacity** est une compétence de tout premier ordre : prise en priorité ;
-  - **Sealing** (Extend Skillseal) peut être remplacé : jamais imposé par un build méta, choisi en dernier ;
-  - **Hypnotic** ne sert à rien sans attaque de sommeil (compétence de l'espèce ou gène du plateau) : écarté sinon ;
-  - deux **bingos identiques** (ex. Technical/Ice et Power/Ice : deux bingos Ice) sont redondants : chaque sorte de
-    bingo ne compte qu'une fois, les cases restantes vont aux meilleurs gènes, quel que soit leur élément.
+avant les builds méta et le choix des gènes de remplacement. Principes :
+  - la compétence d'un gène marche dès qu'il est sur le plateau, bingo ou non ; un bingo d'élément ou de type donne
+    +50 % aux attaques de cet élément / type, et un deuxième bingo identique n'apporte rien (Stories 1) ;
+  - priorité à **1 bingo de l'élément d'attaque** (kit : [élément] Scale, [élément] Boost (L), une attaque de
+    l'élément — ou Quick[élément] si le monstie l'a déjà dans ses compétences), **en ligne ou en colonne** : un bingo
+    diagonal empêche tout autre bingo de la même catégorie et n'est pas compté ;
+  - puis les **compétences** des 6 autres cases : Tenacity (tout premier ordre), Attack (L), Quick (L), Unscathed,
+    Evasion (L), Escape, Quick[élément] (surtout PvP) ; si le monstie n'a pas d'attaque Technical (la plupart),
+    **Seregios Gene** ou **Kushala Daora Gene**, les deux seuls gènes qui en donnent une ;
+  - **une seule compétence active** par plateau, deux si le monstie a besoin à la fois d'une attaque Technical et
+    d'une attaque de son élément apportées par des gènes ;
+  - **Sturdy** seulement pour White Monoblos ; **Sealing** (Extend Skillseal) seulement si une attaque inflige
+    Skillseal, et toujours remplaçable ; **Hypnotic** seulement avec une attaque de sommeil ;
+  - construction : les gènes disponibles en **gemme de channeling** (Tenacity) se posent à la fin sans donneur, et les
+    transferts sont listés du **gène le plus rare** au plus commun ; le plateau peut être tourné ou décalé.
 
 Les gènes écartés d'un build méta sont indiqués sous le build, avec la raison.
 

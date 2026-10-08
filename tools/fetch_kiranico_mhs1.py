@@ -26,16 +26,26 @@ def divs(fragment: str) -> list:
     return [text(d) for d in re.findall(r"<div>(.*?)</div>", fragment, re.S)]
 
 
+ELEMENTS = ("Fire", "Water", "Thunder", "Ice", "Dragon")
+
+
 def parse_skills(page: str) -> dict:
-    """Compétence -> {"active": coûte de la jauge de lien (sinon passive), "sleep": peut endormir l'ennemi}."""
+    """Compétence -> {"active": coûte de la jauge de lien (sinon passive), "attack": inflige des dégâts,
+    "label": élément de l'attaque (Fire...) ou son type si elle est non élémentaire (Power, Speed, Technical),
+    "sleep" / "skillseal": peut endormir / sceller les compétences de l'ennemi}."""
     skills = {}
     for row in re.findall(r"<tr>(.*?)</tr>", page, re.S):
         link = re.search(r'<a href="[^"]*/skill/[^"]+">(.*?)</a>(.*?)</div>', row, re.S)
         if link:
-            cost = re.search(r"Kinship Gauge:\s*-(\d+)", text(link.group(2)))
+            info = text(link.group(2))
+            cost = re.search(r"Kinship Gauge:\s*-(\d+)", info)
+            label = info.split("[")[0].strip() or None
             skills[html.unescape(link.group(1)).strip()] = {
                 "active": bool(cost and int(cost.group(1)) > 0),
+                "attack": " MV" in text(row),
+                "label": label,
                 "sleep": bool(re.search(r"\bSleep \(\d+%\)", text(row))),
+                "skillseal": bool(re.search(r"\bSkillseal \(\d+%\)", text(row))),
             }
     return skills
 
@@ -94,9 +104,15 @@ def main() -> None:
         info = skills.get(gene["skill"], {})
         gene["active"] = info.get("active")  # None si la compétence est inconnue
         gene["sleep"] = info.get("sleep", False)
+        gene["skillseal"] = info.get("skillseal", False)
+        gene["attack"] = info.get("label") if info.get("active") and info.get("attack") else None
     monsties = parse_monsties(fetch("https://mhst.kiranico.com/monstie"))
-    for monstie in monsties:  # attaque de sommeil parmi ses compétences (utile pour les gènes Hypnotic)
-        monstie["sleep_attack"] = any(skills.get(name, {}).get("sleep") for name in monstie["skills"])
+    for monstie in monsties:  # ce que ses compétences permettent déjà (utile pour choisir les gènes)
+        own = [skills.get(name, {}) for name in monstie["skills"]]
+        monstie["sleep_attack"] = any(k.get("sleep") for k in own)
+        monstie["skillseal_attack"] = any(k.get("skillseal") for k in own)
+        monstie["tech_move"] = any(k.get("attack") and k.get("label") == "Technical" for k in own)
+        monstie["element_attack"] = any(k.get("attack") and k.get("label") == monstie["element"] for k in own)
     source = "https://mhst.kiranico.com (MHS1)"
     (DATA / "mhs1_genes.json").write_text(json.dumps({"source": source, "genes": genes}, indent=1, ensure_ascii=False), encoding="utf-8")
     (DATA / "mhs1_monsties.json").write_text(json.dumps({"source": source, "monsties": monsties}, indent=1, ensure_ascii=False), encoding="utf-8")
